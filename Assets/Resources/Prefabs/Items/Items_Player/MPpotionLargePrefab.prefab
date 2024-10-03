@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 5220732187736298370}
   - component: {fileID: 3360962028585790792}
   - component: {fileID: 2264179708902783343}
+  - component: {fileID: 824485098065867148}
   m_Layer: 11
   m_Name: MPpotionLarge
   m_TagString: Untagged
@@ -168,3 +169,17 @@ CircleCollider2D:
   m_Offset: {x: 0.14799601, y: 0}
   serializedVersion: 2
   m_Radius: 2.0456326
+--- !u!114 &824485098065867148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8047052068568836127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5b5d75b5598a554b8451a89537e3228, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amp: 0.1
+  freq: 5
