@@ -36,6 +36,6 @@ public class Silvan : NPC, ITalkable
         Debug.Log(Managers.Inventory.invinsibilityCnt + "°³");
 
         // Scene ÀüÈ¯
-        SceneManager.LoadScene("2-1");
+        SceneManager.LoadScene("2-1 to demon castle");
     }
 }

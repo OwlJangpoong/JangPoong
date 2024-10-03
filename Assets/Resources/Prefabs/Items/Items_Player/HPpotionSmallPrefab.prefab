@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4448205537123334172}
   - component: {fileID: 2704831789364497306}
   - component: {fileID: 5604375604698163786}
+  - component: {fileID: 6981252494041621996}
   m_Layer: 11
   m_Name: HPpotionSmall
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2436164152922528903}
@@ -136,6 +137,20 @@ MonoBehaviour:
   spawnForce: {x: 1, y: 7}
   aliveTImeAfterSpwn: 5
   itemType: 0
+--- !u!114 &6981252494041621996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551740368932934614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5b5d75b5598a554b8451a89537e3228, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amp: 0.1
+  freq: 5
 --- !u!1 &3380287083426008513
 GameObject:
   m_ObjectHideFlags: 0

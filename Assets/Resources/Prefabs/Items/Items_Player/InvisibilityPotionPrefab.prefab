@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4738565495607047565}
   - component: {fileID: 1170530491351003122}
   - component: {fileID: 2803490808878617629}
+  - component: {fileID: 7333774153609926946}
   m_Layer: 0
   m_Name: InvisibilityPotionPrefab
   m_TagString: Untagged
@@ -136,3 +137,17 @@ MonoBehaviour:
   spawnForce: {x: 1, y: 7}
   aliveTImeAfterSpwn: 5
   itemType: 4
+--- !u!114 &7333774153609926946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8411515406451531963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5b5d75b5598a554b8451a89537e3228, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amp: 0.1
+  freq: 5

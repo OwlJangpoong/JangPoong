@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 638059651682220155}
   - component: {fileID: 594775714110745382}
   - component: {fileID: 8562342225137305716}
+  - component: {fileID: 984285808747963046}
   m_Layer: 11
   m_Name: MPpotionSmall
   m_TagString: Untagged
@@ -168,3 +169,17 @@ MonoBehaviour:
   spawnForce: {x: 1, y: 7}
   aliveTImeAfterSpwn: 5
   itemType: 2
+--- !u!114 &984285808747963046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5433001082962730976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5b5d75b5598a554b8451a89537e3228, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amp: 0.1
+  freq: 5
