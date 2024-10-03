@@ -10,7 +10,8 @@ public class NewPlayerMovement : MonoBehaviour
 {
 
     Rigidbody2D rb;
-    BoxCollider2D BoxCollider2D;
+    // BoxCollider2D BoxCollider2D;
+    CapsuleCollider2D CapsuleCollider2D;
     private PlayerDataManager playerDataManager;
     private NewPlayerAnimationController playerAnimator;
 
@@ -28,8 +29,8 @@ public class NewPlayerMovement : MonoBehaviour
     [SerializeField] private float slideDistance = 3.0f;  // 슬라이딩 거리
     [SerializeField] private LayerMask groundLayer;  // Ground 레이어 설정
 
-    public float speedMultiplier = 2.0f;                                // 달리기할 때 속도 배속
-    
+    public float speedMultiplier = 1.5f;                                // 달리기할 때 속도 배속
+
     public bool doubleJumpState = false;
     public bool isGround = false;
     public bool isJumping = false;
@@ -47,19 +48,19 @@ public class NewPlayerMovement : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        BoxCollider2D = GetComponent<BoxCollider2D>();
+        CapsuleCollider2D = GetComponent<CapsuleCollider2D>();
         playerAnimator = GetComponent<NewPlayerAnimationController>();
         playerDataManager = GetComponentInChildren<PlayerDataManager>();
 
-        originalColliderSize = BoxCollider2D.size;
-        originalColliderOffset = BoxCollider2D.offset;
+        originalColliderSize = CapsuleCollider2D.size;
+        originalColliderOffset = CapsuleCollider2D.offset;
 
-/*        // GAMEOVER 비활성화
-        gameOver.SetActive(false);
+        /*        // GAMEOVER 비활성화
+                gameOver.SetActive(false);
 
-        // 플레이어 DieAction 등록
-        Managers.PlayerData.DieAction -= SetPlayerDead;
-        Managers.PlayerData.DieAction += SetPlayerDead;*/
+                // 플레이어 DieAction 등록
+                Managers.PlayerData.DieAction -= SetPlayerDead;
+                Managers.PlayerData.DieAction += SetPlayerDead;*/
     }
 
     void Update()
@@ -74,7 +75,7 @@ public class NewPlayerMovement : MonoBehaviour
         // 달리기
         if (isRunning)
         {
-            speedMultiplier = 2.0f;
+            speedMultiplier = 1.5f;
             playerAnimator.SetSpeedMultiplier(speedMultiplier);
         }
         else
@@ -106,36 +107,37 @@ public class NewPlayerMovement : MonoBehaviour
     // 점프
     void Jump()
     {
-        if (rb.velocity.y == 0)
-        {
-            isGround = true;
-        }
-        else
-            isGround = false;
 
-        if (isGround)
+        if (!isSliding)
         {
-            doubleJumpState = true; // 땅에 있을 때는 더블 점프 가능
+            if (rb.velocity.y == 0)
+            {
+                isGround = true;
+            }
+            else
+                isGround = false;
+
+            // 1단 점프
+            if (isGround && Input.GetKeyDown(Managers.KeyBind.jumpKeyCode))
+            {
+                JumpAddForce();
+                isJumping = true;
+                isDoubleJumping = false;  // 첫 점프에서는 더블 점프 false로 유지
+                doubleJumpState = true; // 더블 점프 가능
+            }
+            // 더블 점프
+            else if (doubleJumpState && Input.GetKeyDown(Managers.KeyBind.jumpKeyCode))
+            {
+                JumpAddForce();
+                doubleJumpState = false;  // 더블 점프 불가능
+                isDoubleJumping = true;   // 더블 점프 상태 true
+                StartCoroutine(ResetDoubleJumpFlag());  // 더블 점프 상태 유지 타이머 시작
+            }
+
+            moveX = Input.GetAxis("Horizontal") * speed * speedMultiplier;
+            rb.velocity = new Vector2(moveX, rb.velocity.y);
         }
 
-        // 1단 점프
-        if (isGround && Input.GetKeyDown(Managers.KeyBind.jumpKeyCode))
-        {
-            JumpAddForce();
-            isJumping = true;
-            isDoubleJumping = false;  // 첫 점프에서는 더블 점프 false로 유지
-        }
-        // 더블 점프
-        else if (doubleJumpState && Input.GetKeyDown(Managers.KeyBind.jumpKeyCode))
-        {
-            JumpAddForce();
-            doubleJumpState = false;  // 더블 점프 상태 비활성화
-            isDoubleJumping = true;   // 더블 점프 상태 true
-            StartCoroutine(ResetDoubleJumpFlag());  // 더블 점프 상태 유지 타이머 시작
-        }
-
-        moveX = Input.GetAxis("Horizontal") * speed * speedMultiplier;
-        rb.velocity = new Vector2(moveX, rb.velocity.y);
     }
 
     // 더블 점프 상태 유지 타이머
@@ -181,8 +183,8 @@ public class NewPlayerMovement : MonoBehaviour
         slideDirection = new Vector2(transform.localScale.x, 0).normalized;
 
         // Player Collider 크기와 위치 조정
-        BoxCollider2D.size = new Vector2(BoxCollider2D.size.y, BoxCollider2D.size.x);
-        BoxCollider2D.offset = new Vector2(BoxCollider2D.offset.x, BoxCollider2D.offset.y - 2.3f);
+        CapsuleCollider2D.size = new Vector2(4.255104f, 4.660773f);
+        CapsuleCollider2D.offset = new Vector2(0.5280471f, -2.357519f);
 
         // 슬라이딩 애니메이션 시작
         playerAnimator.StartSliding();
@@ -225,9 +227,9 @@ public class NewPlayerMovement : MonoBehaviour
     {
         isSliding = false;
         // Player Collider 크기 및 위치 원래대로 복구
-        BoxCollider2D.size = originalColliderSize;
-        BoxCollider2D.offset = originalColliderOffset;
-         rb.velocity = Vector2.zero;  // 속도 초기화
+        CapsuleCollider2D.size = originalColliderSize;
+        CapsuleCollider2D.offset = originalColliderOffset;
+        rb.velocity = Vector2.zero;  // 속도 초기화
 
         // 슬라이딩 종료 애니메이션
         playerAnimator.StopSliding();
@@ -262,6 +264,12 @@ public class NewPlayerMovement : MonoBehaviour
 
                 Managers.Sound.Play("56_Attack_03");
 
+                // 달리기 중에 장풍 속력 증가
+                if (isRunning)
+                    playerDataManager.jangPoongSpeed = 14;
+                else
+                    playerDataManager.jangPoongSpeed = 12;
+
                 Vector3 spawnPosition = transform.position;
                 spawnPosition.y += isSliding ? -0.38f : -0.08f;     // 슬라이딩 시에는 y값 -0.08f에서 장풍 발사되도록
 
@@ -291,22 +299,22 @@ public class NewPlayerMovement : MonoBehaviour
     #endregion
 
     #region 사망
-/*    private void SetPlayerDead()
-    {
-        moveX = 0;
-        gameOverFlag = true;
-        playerAnimator.PlayerDead();
-        Debug.Log("플레이어 죽음");
-        gameOver.SetActive(true);
-    }
-    public void OnButtonClick_Restart()
-    {
-        SceneManager.LoadScene("1-1 tutorial");
-    }
-    public void OnButtonClick_Exit()
-    {
-        SceneManager.LoadScene("Exit");
-    }*/
+    /*    private void SetPlayerDead()
+        {
+            moveX = 0;
+            gameOverFlag = true;
+            playerAnimator.PlayerDead();
+            Debug.Log("플레이어 죽음");
+            gameOver.SetActive(true);
+        }
+        public void OnButtonClick_Restart()
+        {
+            SceneManager.LoadScene("1-1 tutorial");
+        }
+        public void OnButtonClick_Exit()
+        {
+            SceneManager.LoadScene("Exit");
+        }*/
 
     #endregion
 }
