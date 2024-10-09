@@ -93,6 +93,7 @@ public class InventoryUI : MonoBehaviour
 
         // InvisibilityCoroutine 실행
         PlayerDataManager.isInvisible = true; //투명화 여부 변경
+        //PlayerDataManager.IsInvincible = true;
         yield return playerDataManager.StartCoroutine(InvisibilityCoroutine(playerDataManager));
     }
 
@@ -122,5 +123,6 @@ public class InventoryUI : MonoBehaviour
         // 원래 색상으로 복원
         renderer.material.color = originalColor;
         PlayerDataManager.isInvisible = false; //투명화 여부 변경
+        //PlayerDataManager.IsInvincible = false;
     }
 }
