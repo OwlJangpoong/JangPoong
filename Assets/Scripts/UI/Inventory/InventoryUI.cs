@@ -89,9 +89,10 @@ public class InventoryUI : MonoBehaviour
     private System.Collections.IEnumerator StartInvisibilityAfterDelay(PlayerDataManager playerDataManager)
     {
         // 포션 마시는 시간
-        yield return new WaitForSeconds(2f);
+        //yield return new WaitForSeconds(2f); -> 투명화 포션은 마시는 시간 딜레이 없음
 
         // InvisibilityCoroutine 실행
+        PlayerDataManager.isInvisible = true; //투명화 여부 변경
         yield return playerDataManager.StartCoroutine(InvisibilityCoroutine(playerDataManager));
     }
 
@@ -120,5 +121,6 @@ public class InventoryUI : MonoBehaviour
 
         // 원래 색상으로 복원
         renderer.material.color = originalColor;
+        PlayerDataManager.isInvisible = false; //투명화 여부 변경
     }
 }
