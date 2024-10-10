@@ -109,16 +109,16 @@ public class InventoryUI : MonoBehaviour
         invisibleColor.a = 0.5f;
         renderer.material.color = invisibleColor;
 
-        // 투명화 중에 매초 HP 회복
-        // float duration = 15f;
-        // float elapsed = 0f;
+        //투명화 중에 매초 HP 회복
+        float duration = 15f;
+        float elapsed = 0f;
 
-        // while (elapsed < duration)
-        // {
-        //     playerDataManager.Hp = Mathf.Clamp(playerDataManager.Hp + 0.4f, 0, playerDataManager.maxHp); // HP 회복
-        //     elapsed += 1f; // 1초 대기
-        //     yield return new WaitForSeconds(1f);
-        // }
+        while (elapsed < duration)
+        {
+            // playerDataManager.Hp = Mathf.Clamp(playerDataManager.Hp + 0.4f, 0, playerDataManager.maxHp); // HP 회복
+            elapsed += 1f; // 1초 대기
+            yield return new WaitForSeconds(1f);
+        }
 
         // 원래 색상으로 복원
         renderer.material.color = originalColor;
@@ -126,5 +126,7 @@ public class InventoryUI : MonoBehaviour
         PlayerDataManager.isInvisible = false; 
         // 투명화 중 무적 효과 적용 해제
         PlayerDataManager.IsInvincible = false;
+
+        yield break;
     }
 }
