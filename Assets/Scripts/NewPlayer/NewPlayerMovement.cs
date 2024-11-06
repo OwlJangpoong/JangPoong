@@ -10,11 +10,10 @@ public class NewPlayerMovement : MonoBehaviour
 {
 
     Rigidbody2D rb;
-    // BoxCollider2D BoxCollider2D;
     CapsuleCollider2D CapsuleCollider2D;
     private PlayerDataManager playerDataManager;
     private NewPlayerAnimationController playerAnimator;
-
+    private MovementRigidbody2D movement;
 
     // 점프 데이터
     [SerializeField] float jumpForce = 600f, speed = 5.0f;
@@ -26,6 +25,33 @@ public class NewPlayerMovement : MonoBehaviour
     private Vector2 originalColliderSize;  // 기존 Player Collider Size
     private Vector2 originalColliderOffset;  // 기존 Player Collider Offset
 
+    #region Move Speed Control Variables / Methods
+    [SerializeField] private float originSlideSpeed = 7.0f;
+
+    [NonSerialized] public float ssgSlideSpeed;
+
+    [NonSerialized] public float sgSlideSpeed;
+
+    private void WalkSpeedState(int state)
+    {
+        switch (state)
+        {
+            case 0:
+                //원래 속도대로
+                slideSpeed = originSlideSpeed;
+                break;
+            case 1:
+                //ssg
+                slideSpeed = ssgSlideSpeed;
+                break;
+            case 2:
+                //sg
+                slideSpeed = sgSlideSpeed;
+                break;
+        }
+    }
+    #endregion
+
     [SerializeField] private float slideDistance = 3.0f;  // 슬라이딩 거리
     [SerializeField] private LayerMask groundLayer;  // Ground 레이어 설정
 
@@ -35,13 +61,13 @@ public class NewPlayerMovement : MonoBehaviour
     public bool isGround = false;
     public bool isJumping = false;
     public bool isDoubleJumping = false;
-    private bool isRunning = false;                                        // 달리기 중이면 true
+    public bool isRunning = false;                                        // 달리기 중이면 true
 
     [NonSerialized] public float slideSpeed = 7.0f;  // 슬라이딩 속도
 
 
-    /*    public GameObject gameOver;
-        public bool gameOverFlag = false; // true면 게임 오버 상태*/
+    public GameObject gameOver;
+    public bool gameOverFlag = false; // true면 게임 오버 상태
 
 
 
@@ -51,16 +77,28 @@ public class NewPlayerMovement : MonoBehaviour
         CapsuleCollider2D = GetComponent<CapsuleCollider2D>();
         playerAnimator = GetComponent<NewPlayerAnimationController>();
         playerDataManager = GetComponentInChildren<PlayerDataManager>();
+        movement = GetComponent<MovementRigidbody2D>();
 
         originalColliderSize = CapsuleCollider2D.size;
         originalColliderOffset = CapsuleCollider2D.offset;
 
-        /*        // GAMEOVER 비활성화
-                gameOver.SetActive(false);
+        // 속도 설정
+        slideSpeed = originSlideSpeed;
+        ssgSlideSpeed = originSlideSpeed * 0.5f;
+        sgSlideSpeed = originSlideSpeed * 0.75f;
 
-                // 플레이어 DieAction 등록
-                Managers.PlayerData.DieAction -= SetPlayerDead;
-                Managers.PlayerData.DieAction += SetPlayerDead;*/
+        // speed controlAction 등록
+        movement.controlSpeedAction -= WalkSpeedState;
+        movement.controlSpeedAction += WalkSpeedState;
+
+        // DieAction 설정
+        Managers.PlayerData.DieAction -= SetPlayerDead;
+        Managers.PlayerData.DieAction += SetPlayerDead;
+
+
+        // GAMEOVER 비활성화
+        gameOver.SetActive(false);
+
     }
 
     void Update()
@@ -72,18 +110,29 @@ public class NewPlayerMovement : MonoBehaviour
 
         float x = GetHorizontalInput();
 
-        // 달리기
-        if (isRunning)
+        /*        // 달리기
+                if (isRunning)
+                {
+                    speedMultiplier = 1.5f;
+                    playerAnimator.SetSpeedMultiplier(speedMultiplier);
+                }
+                else
+                {
+                    speedMultiplier = 1.0f;
+                    playerAnimator.SetSpeedMultiplier(speedMultiplier);
+                }*/
+
+        if (!isSliding)
         {
-            speedMultiplier = 1.5f;
-            playerAnimator.SetSpeedMultiplier(speedMultiplier);
-        }
-        else
-        {
-            speedMultiplier = 1.0f;
-            playerAnimator.SetSpeedMultiplier(speedMultiplier);
+            movement.MoveTo(x);
         }
 
+        if (isRunning)
+        {
+            movement.MoveTo(x * speedMultiplier);
+        }
+
+        playerAnimator.SetSpeedMultiplier(isRunning ? 1.5f : 1.0f);
         playerAnimator.UpdateAnimation(x);
 
     }
@@ -110,7 +159,8 @@ public class NewPlayerMovement : MonoBehaviour
 
         if (!isSliding)
         {
-            if (rb.velocity.y == 0)
+            if (movement.IsGrounded)
+            // rb.velocity.y == 0
             {
                 isGround = true;
             }
@@ -246,6 +296,7 @@ public class NewPlayerMovement : MonoBehaviour
         {
             isRunning = !isRunning; // 달리기 상태 토글
         }
+
     }
     #endregion
 
@@ -299,22 +350,22 @@ public class NewPlayerMovement : MonoBehaviour
     #endregion
 
     #region 사망
-    /*    private void SetPlayerDead()
-        {
-            moveX = 0;
-            gameOverFlag = true;
-            playerAnimator.PlayerDead();
-            Debug.Log("플레이어 죽음");
-            gameOver.SetActive(true);
-        }
-        public void OnButtonClick_Restart()
-        {
-            SceneManager.LoadScene("1-1 tutorial");
-        }
-        public void OnButtonClick_Exit()
-        {
-            SceneManager.LoadScene("Exit");
-        }*/
+    private void SetPlayerDead()
+    {
+        movement.MoveTo(0);
+        gameOverFlag = true;
+        playerAnimator.PlayerDead();
+        Debug.Log("플레이어 죽음");
+        gameOver.SetActive(true);
+    }
+    public void OnButtonClick_Restart()
+    {
+        SceneManager.LoadScene("1-1 tutorial");
+    }
+    public void OnButtonClick_Exit()
+    {
+        SceneManager.LoadScene("Exit");
+    }
 
     #endregion
 }
