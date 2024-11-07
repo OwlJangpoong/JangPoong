@@ -12,7 +12,7 @@ public class NewPlayerMovement : MonoBehaviour
     Rigidbody2D rb;
     CapsuleCollider2D CapsuleCollider2D;
     private PlayerDataManager playerDataManager;
-    private NewPlayerAnimationController playerAnimator;
+    public NewPlayerAnimationController playerAnimator;
     private MovementRigidbody2D movement;
 
     // 점프 데이터
@@ -110,30 +110,25 @@ public class NewPlayerMovement : MonoBehaviour
 
         float x = GetHorizontalInput();
 
-        /*        // 달리기
-                if (isRunning)
-                {
-                    speedMultiplier = 1.5f;
-                    playerAnimator.SetSpeedMultiplier(speedMultiplier);
-                }
-                else
-                {
-                    speedMultiplier = 1.0f;
-                    playerAnimator.SetSpeedMultiplier(speedMultiplier);
-                }*/
-
-        if (!isSliding)
+        if (gameOverFlag == true)
         {
-            movement.MoveTo(x);
+            movement.MoveTo(0);
         }
-
-        if (isRunning)
+        else
         {
-            movement.MoveTo(x * speedMultiplier);
-        }
+            if (!isSliding)
+            {
+                movement.MoveTo(x);
+            }
 
-        playerAnimator.SetSpeedMultiplier(isRunning ? 1.5f : 1.0f);
-        playerAnimator.UpdateAnimation(x);
+            if (isRunning)
+            {
+                movement.MoveTo(x * speedMultiplier);
+            }
+
+            playerAnimator.SetSpeedMultiplier(isRunning ? 1.5f : 1.0f);
+            playerAnimator.UpdateAnimation(x);
+        }
 
     }
 
@@ -157,7 +152,7 @@ public class NewPlayerMovement : MonoBehaviour
     void Jump()
     {
 
-        if (!isSliding)
+        if (!isSliding && !gameOverFlag)
         {
             if (movement.IsGrounded)
             // rb.velocity.y == 0
@@ -360,11 +355,17 @@ public class NewPlayerMovement : MonoBehaviour
     }
     public void OnButtonClick_Restart()
     {
-        SceneManager.LoadScene("1-1 tutorial");
+        gameOverFlag = false;
+        gameOver.SetActive(false);
+        playerAnimator.animator.SetBool("Dead", false);
+
+        // 재시작할 때 HP가 0인 상태로 시작되는 문제 있음
+
+
     }
     public void OnButtonClick_Exit()
     {
-        SceneManager.LoadScene("Exit");
+        // Managers.Scene.LoadScene("Main");
     }
 
     #endregion

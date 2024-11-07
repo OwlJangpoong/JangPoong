@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NewPlayerAnimationController : MonoBehaviour
 {
-    private Animator animator;
+    public Animator animator;
     private NewPlayerMovement movement;
     Rigidbody2D rb;
 
