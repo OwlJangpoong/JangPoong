@@ -89,9 +89,11 @@ public class InventoryUI : MonoBehaviour
     private System.Collections.IEnumerator StartInvisibilityAfterDelay(PlayerDataManager playerDataManager)
     {
         // 포션 마시는 시간
-        yield return new WaitForSeconds(2f);
+        //yield return new WaitForSeconds(2f); -> 투명화 포션은 마시는 시간 딜레이 없음
 
         // InvisibilityCoroutine 실행
+        PlayerDataManager.isInvisible = true; //투명화 여부 변경
+        PlayerDataManager.IsInvincible = true;//무적 여부 변경
         yield return playerDataManager.StartCoroutine(InvisibilityCoroutine(playerDataManager));
     }
 
@@ -107,18 +109,24 @@ public class InventoryUI : MonoBehaviour
         invisibleColor.a = 0.5f;
         renderer.material.color = invisibleColor;
 
-        // 투명화 중에 매초 HP 회복
+        //투명화 중에 매초 HP 회복
         float duration = 15f;
         float elapsed = 0f;
 
         while (elapsed < duration)
         {
-            playerDataManager.Hp = Mathf.Clamp(playerDataManager.Hp + 0.4f, 0, playerDataManager.maxHp); // HP 회복
+            // playerDataManager.Hp = Mathf.Clamp(playerDataManager.Hp + 0.4f, 0, playerDataManager.maxHp); // HP 회복
             elapsed += 1f; // 1초 대기
             yield return new WaitForSeconds(1f);
         }
 
         // 원래 색상으로 복원
         renderer.material.color = originalColor;
+        //투명화 여부 변경
+        PlayerDataManager.isInvisible = false; 
+        // 투명화 중 무적 효과 적용 해제
+        PlayerDataManager.IsInvincible = false;
+
+        yield break;
     }
 }
