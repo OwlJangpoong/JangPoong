@@ -135,6 +135,26 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 4491203620510170356, guid: 159dca54338a34584994d9bd2f70df21, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4491203620510170356, guid: 159dca54338a34584994d9bd2f70df21, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4491203620510170356, guid: 159dca54338a34584994d9bd2f70df21, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8865920854715675375}
+    - target: {fileID: 4491203620510170356, guid: 159dca54338a34584994d9bd2f70df21, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Onsetting
+      objectReference: {fileID: 0}
+    - target: {fileID: 4491203620510170356, guid: 159dca54338a34584994d9bd2f70df21, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UI_GamePopUp, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 5696624378841657523, guid: 159dca54338a34584994d9bd2f70df21, type: 3}
       propertyPath: m_Pivot.x
       value: 0
