@@ -8,12 +8,25 @@ public class UI_GamePopUp : MonoBehaviour
     [SerializeField] private GameObject playerUI;
     [SerializeField] private GameObject pauseUI;
     [SerializeField] private GameObject settingUI;
+    private bool isPaused;
     
 
     private void Start()
     {
         pauseUI.SetActive(false);
         settingUI.SetActive(false);
+        isPaused = false;
+    }
+
+    private void Update(){
+        if (Input.GetKeyDown(KeyCode.Escape)){
+            if(isPaused){
+                OnResume();
+            }
+            else{
+                OnPause();
+            }
+        }
     }
 
 
@@ -23,6 +36,7 @@ public class UI_GamePopUp : MonoBehaviour
             SetTimeScale(0);
             playerUI.SetActive(false);
             pauseUI.SetActive(true);
+            isPaused = true;
         }
 
         public void OnResume()
@@ -30,6 +44,14 @@ public class UI_GamePopUp : MonoBehaviour
             SetTimeScale(1);
             pauseUI.SetActive(false);
             playerUI.SetActive(true);
+            isPaused = false;
+        }
+
+        public void Onsetting(){
+            SetTimeScale(0);
+            pauseUI.SetActive(false);
+            settingUI.SetActive(true);
+            isPaused = false;
         }
 
         public void OnExitGame()
