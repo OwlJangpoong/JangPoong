@@ -38,6 +38,11 @@ public class DataManager
         {
             Managers.PlayerData.LevelUpToken = PlayerPrefs.GetInt(Define.SaveKey.levelToken.ToString());
         }
+
+        if (PlayerPrefs.HasKey(Define.SaveKey.monsterPoint.ToString()))
+        {
+            Managers.PlayerData.MonsterPoint = PlayerPrefs.GetInt(Define.SaveKey.monsterPoint.ToString());
+        }
     }
 
     public void GetInventoryData()

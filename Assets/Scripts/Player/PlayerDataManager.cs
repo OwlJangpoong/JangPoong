@@ -20,6 +20,10 @@ public class PlayerDataManager : MonoBehaviour
     [SerializeField] public int levelUpToken = 0;
     private float[] LevelArr = { 0.5f, 0.7f, 1.1f, 1.6f, 2.2f, 2.9f, 3.5f, 4.2f, 5.0f };
 
+    // 몬스터포인트 설정
+    [SerializeField] public int monsterPoint = 0;
+    [SerializeField] public int maxMonsterPoint = 50;
+
     [Header("Mana")]
     // 마나 데이터 설정
     // mana int로 변경
@@ -90,6 +94,7 @@ public class PlayerDataManager : MonoBehaviour
     public Action DieAction = null;
     public Action<float> UpdateHpAction = null;
     public Action<int> UpdateManaAction = null;
+    public Action<int> UpdateMonsterPointAction = null;
 
     //Invincibility
     [Header("Invincibility")]
@@ -124,6 +129,7 @@ public class PlayerDataManager : MonoBehaviour
         Managers.Data.GetData();
         UpdateHpAction?.Invoke(Hp);
         UpdateManaAction?.Invoke(Mana);
+        UpdateMonsterPointAction?.Invoke(MonsterPoint);
     }
 
     private void Update()
@@ -240,5 +246,25 @@ public class PlayerDataManager : MonoBehaviour
     }
 
     #endregion
-    
+
+
+    #region MonsterPoint
+    public int MonsterPoint
+    {
+        get { return monsterPoint; }
+        set
+        {
+            if (value == monsterPoint)
+            {
+                Debug.Log("value == monsterPoint");
+            }
+            else
+            {
+                monsterPoint = Mathf.Clamp(value, 0, maxMonsterPoint);
+
+                UpdateMonsterPointAction?.Invoke(monsterPoint);
+            }
+        }
+    }
+    #endregion
 }

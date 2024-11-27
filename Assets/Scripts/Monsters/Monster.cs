@@ -140,6 +140,9 @@ public class Monster : MonoBehaviour
         StopAllCoroutines();
         //이동 정지
         movement2D.MoveTo(0);
+        //몬스터포인트 추가
+        Managers.PlayerData.MonsterPoint += stat.monsterData.MonsterPoint;
+        Debug.Log("몬스터포인트 추가 : " + stat.monsterData.MonsterPoint);
         
         //아이템 드랍
         Invoke(nameof(SpawnItem), 0.9f);
