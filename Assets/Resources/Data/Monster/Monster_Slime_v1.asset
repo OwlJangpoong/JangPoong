@@ -18,3 +18,4 @@ MonoBehaviour:
   stagePoint: 1-2
   height: 0.8
   speed: 0.5
+  monsterPoint: 1

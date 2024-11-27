@@ -72,7 +72,8 @@
             hpPotionLargeCnt,
             mpPotionSmallCnt,
             mpPotionLargeCnt,
-            invisibilityPotionCnt
+            invisibilityPotionCnt,
+            monsterPoint
     }
 
         
