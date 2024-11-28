@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NewPlayerAnimationController : MonoBehaviour
 {
-    private Animator animator;
+    public Animator animator;
     private NewPlayerMovement movement;
     Rigidbody2D rb;
 
@@ -76,11 +76,12 @@ public class NewPlayerAnimationController : MonoBehaviour
     public void JangPoongShooting()
     {
         // Debug.Log("장풍 애니메이션");
+        if (animator.GetBool("isShooting")) return; // 이미 실행 중이면 종료
         animator.SetBool("isShooting", true);
     }
 
     // 장풍 애니메이션 종료
-    private void OnShootingEnd()
+    public void OnShootingEnd()
     {
         // Debug.Log("장풍 애니메이션 종료");
         animator.SetBool("isShooting", false);

@@ -8,6 +8,7 @@ public class UI_GameOverButtons : MonoBehaviour
 {
     public Button restartButton;
     public Button exitButton;
+    public NewPlayerMovement movement;
 
     private void Start()
     {
@@ -22,6 +23,7 @@ public class UI_GameOverButtons : MonoBehaviour
 
     public void Restart()
     {
+        movement.OnButtonClick_Restart();
         Managers.Scene.LoadScene();
     }
 }

@@ -140,6 +140,17 @@ public class MovementRigidbody2D : MonoBehaviour
         UpdateCollision();
         JumpHeight();
         JumpAdditive();
+        UpdateGroundedState();
+    }
+
+    private void UpdateGroundedState()
+    {
+        Bounds bounds = collider2D.bounds;
+        footPosition = new Vector2(bounds.center.x, bounds.min.y);
+        collisionSize = new Vector2((bounds.max.x - bounds.min.x) * 0.8f, 0.1f);
+
+        // 바닥에 닿아 있는지 체크하여 IsGrounded 값 업데이트
+        IsGrounded = Physics2D.OverlapBox(footPosition, collisionSize, 0, groundCheckLayer);
     }
 
     // x축 속력(velocity) 설정, 외부 클래스에서 호출
@@ -152,6 +163,7 @@ public class MovementRigidbody2D : MonoBehaviour
         //if (x != 0) x = Mathf.Sign(x); //도현 : 뛰기 없으므로 x가 1일때 모두 walkspeed로 처리. 이를 위해 코드 주석 처리(0704)
 
         // x축 방향 속력을 x * moveSpeed로 설정
+
         moveSpeed = walkSpeed;
         rigid2D.velocity = new Vector2(x * moveSpeed, rigid2D.velocity.y);
     }
