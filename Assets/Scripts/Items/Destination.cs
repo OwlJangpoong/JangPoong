@@ -10,6 +10,8 @@ public class Destination : MonoBehaviour
 
     [SerializeField] private GameObject flagEffect;
     private GameObject keyInfo;
+
+    [SerializeField] private UI_FadeController fadeController;
     
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -52,6 +54,8 @@ public class Destination : MonoBehaviour
 
     private void GoToNextState()
     {
+        fadeController = FindObjectOfType<UI_FadeController>();
+
         //파티클 뿌리고
         Instantiate(flagEffect, transform.position, Quaternion.identity);
             
@@ -60,6 +64,13 @@ public class Destination : MonoBehaviour
             
         //씬 이동
         //Managers.Scene.LoadSceneAfterDelay(NextSceneName,1f);
-        StartCoroutine(Managers.Scene.LoadSceneAfterDelay(NextSceneName, 0.5f));
+        // 페이드아웃 후 진행할 액션 등록
+        fadeController.RegisterCallback(OnFadeOutComplete); 
+        // FadeOut 호출
+        fadeController.FadeOut();
+    }
+
+    private void OnFadeOutComplete(){
+        StartCoroutine(Managers.Scene.LoadSceneAfterDelay(NextSceneName, 0.0f));
     }
 }
