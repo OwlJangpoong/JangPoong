@@ -76,7 +76,8 @@ public class NewPlayerAnimationController : MonoBehaviour
     public void JangPoongShooting()
     {
         // Debug.Log("장풍 애니메이션");
-        if (animator.GetBool("isShooting")) return; // 이미 실행 중이면 종료
+        if (animator.GetBool("isShooting"))
+            animator.SetBool("isShooting", false); // 이미 실행 중이면 종료
         animator.SetBool("isShooting", true);
     }
 
