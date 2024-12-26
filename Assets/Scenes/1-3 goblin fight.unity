@@ -31440,6 +31440,7 @@ GameObject:
   - component: {fileID: 1376434386}
   - component: {fileID: 1376434388}
   - component: {fileID: 1376434387}
+  - component: {fileID: 1376434389}
   m_Layer: 6
   m_Name: GroundLevel
   m_TagString: Untagged
@@ -33011,6 +33012,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!251 &1376434389
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376434382}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 0
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1001 &1427997510
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36557,6 +36577,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: cfce0cea076109f478783201b2a9f57f, type: 3}
   NextSceneName: 1-4 Dialogue with Silvan
   flagEffect: {fileID: 4901937047330083892, guid: 75e3e0c90c8704babb0a417fd712a3b7, type: 3}
+  fadeController: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
