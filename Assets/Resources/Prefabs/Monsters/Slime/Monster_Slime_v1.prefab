@@ -83,7 +83,7 @@ MonoBehaviour:
     m_Bits: 192
   aboveColiisionLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   belowColiisionLayer:
     serializedVersion: 2
     m_Bits: 192
@@ -176,7 +176,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsterData: {fileID: 0}
-  currentHp: 2.5
   currentDamage: 0.4
 --- !u!114 &6016842671243142753
 MonoBehaviour:
@@ -205,6 +204,7 @@ MonoBehaviour:
   minMoveRangeX: 0
   maxMoveRangeX: 0
   thinkTime: 2
+  targetTime: 1
   attackCoolTime: 2
   lootTable:
   - item: 1
