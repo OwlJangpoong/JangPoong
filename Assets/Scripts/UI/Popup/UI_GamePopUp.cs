@@ -8,7 +8,7 @@ public class UI_GamePopUp : MonoBehaviour
     [SerializeField] private GameObject playerUI;
     [SerializeField] private GameObject pauseUI;
     [SerializeField] private GameObject settingUI;
-    private bool isPaused;
+    public static bool isPaused;
     
 
     private void Start()

@@ -137,6 +137,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: cfce0cea076109f478783201b2a9f57f, type: 3}
   NextSceneName: 1-2 easy
   flagEffect: {fileID: 4901937047330083892, guid: 75e3e0c90c8704babb0a417fd712a3b7, type: 3}
+  fadeController: {fileID: 8505657235935126810, guid: 59a9ebde221b047c38db217e49c37f57, type: 3}
 --- !u!95 &4110143785374789916
 Animator:
   serializedVersion: 5
