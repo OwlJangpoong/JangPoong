@@ -10,14 +10,14 @@ public class UI_FadeController : MonoBehaviour
     private Action onCompleteCallback; // FadeIn 또는 FadeOut 다음에 진행할 함수
 
     void Start()
-    {
+    {   
         if (!panel)
         {
             Debug.LogError("Panel 오브젝트를 찾을 수 없습니다.");
             throw new MissingComponentException();
         }
 
-        if (isFadeIn) // Fade In Mode -> 바로 코루틴 시작
+        if (isFadeIn && !(Time.timeScale == 0)) // Fade In Mode -> 바로 코루틴 시작
         {
             panel.SetActive(true); // Panel 활성화
             StartCoroutine(CoFadeIn());
