@@ -229,6 +229,14 @@ PrefabInstance:
       value: MPpotionSmallPrefab
       objectReference: {fileID: 0}
     - target: {fileID: 5131915106342853808, guid: 683b3f9af38094d4685d66b4f3afacdb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5131915106342853808, guid: 683b3f9af38094d4685d66b4f3afacdb, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5131915106342853808, guid: 683b3f9af38094d4685d66b4f3afacdb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -42.32
       objectReference: {fileID: 0}

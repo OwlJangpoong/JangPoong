@@ -15,7 +15,7 @@ public class InventoryUI : MonoBehaviour
 
     public void Update()
     {
-        // hpSmall »ç¿ë
+        // hpSmall ï¿½ï¿½ï¿½
         if (Input.GetKeyDown(KeyCode.Alpha1) && Managers.Inventory.hpSmallCnt > 0)
         {
             Managers.Inventory.hpSmallCnt--;
@@ -23,7 +23,7 @@ public class InventoryUI : MonoBehaviour
             Debug.Log("hpSmall used");
         }
 
-        // hpLarge »ç¿ë
+        // hpLarge ï¿½ï¿½ï¿½
         if (Input.GetKeyDown(KeyCode.Alpha2) && Managers.Inventory.hpLargeCnt > 0)
         {
             Managers.Inventory.hpLargeCnt--;
@@ -31,7 +31,7 @@ public class InventoryUI : MonoBehaviour
             Debug.Log("hpLarge used");
         }
 
-        // mpSmall »ç¿ë
+        // mpSmall ï¿½ï¿½ï¿½
         if (Input.GetKeyDown(KeyCode.Alpha3) && Managers.Inventory.mpSmallCnt > 0)
         {
             Managers.Inventory.mpSmallCnt--;
@@ -39,7 +39,7 @@ public class InventoryUI : MonoBehaviour
             Debug.Log("mpSmall used");
         }
 
-        // mpLarge »ç¿ë
+        // mpLarge ï¿½ï¿½ï¿½
         if (Input.GetKeyDown(KeyCode.Alpha4) && Managers.Inventory.mpLargeCnt > 0)
         {
             Managers.Inventory.mpLargeCnt--;
@@ -47,7 +47,7 @@ public class InventoryUI : MonoBehaviour
             Debug.Log("mpLarge used");
         }
 
-        // invisibility »ç¿ë
+        // invisibility ï¿½ï¿½ï¿½
         if (Input.GetKeyDown(KeyCode.Alpha5) && Managers.Inventory.invinsibilityCnt > 0)
         {
             Managers.Inventory.invinsibilityCnt--;
@@ -55,7 +55,7 @@ public class InventoryUI : MonoBehaviour
             Debug.Log("invinsibility used");
         }
 
-        // ÀÎº¥Åä¸® ¾ÆÀÌÅÛ ÇöÀç º¸À¯ °³¼ö ¾÷µ¥ÀÌÆ®
+        // ï¿½Îºï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
         UpdateItemCntTextUI();
     }
 
@@ -70,30 +70,30 @@ public class InventoryUI : MonoBehaviour
 
     public System.Collections.IEnumerator AddHpAfterDelay(PlayerDataManager playerDataManager, float sec, float increase)
     {
-        // Æ÷¼Ç ¸¶½Ã´Â ½Ã°£
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã´ï¿½ ï¿½Ã°ï¿½
         yield return new WaitForSeconds(sec);
 
-        // HP Áõ°¡
+        // HP ï¿½ï¿½ï¿½ï¿½
         playerDataManager.GetComponent<PlayerDataManager>().Hp += increase;
     }
 
     private System.Collections.IEnumerator AddManaAfterDelay(PlayerDataManager playerDataManager, float sec, int increase)
     {
-        // Æ÷¼Ç ¸¶½Ã´Â ½Ã°£
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã´ï¿½ ï¿½Ã°ï¿½
         yield return new WaitForSeconds(sec);
 
-        // Mana Áõ°¡
+        // Mana ï¿½ï¿½ï¿½ï¿½
         playerDataManager.GetComponent<PlayerDataManager>().Mana += increase;
     }
 
     private System.Collections.IEnumerator StartInvisibilityAfterDelay(PlayerDataManager playerDataManager)
     {
-        // Æ÷¼Ç ¸¶½Ã´Â ½Ã°£
-        //yield return new WaitForSeconds(2f); -> Åõ¸íÈ­ Æ÷¼ÇÀº ¸¶½Ã´Â ½Ã°£ µô·¹ÀÌ ¾øÀ½
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã´ï¿½ ï¿½Ã°ï¿½
+        //yield return new WaitForSeconds(2f); -> ï¿½ï¿½ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã´ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-        // InvisibilityCoroutine ½ÇÇà
-        PlayerDataManager.isInvisible = true; //Åõ¸íÈ­ ¿©ºÎ º¯°æ
-        PlayerDataManager.IsInvincible = true;//¹«Àû ¿©ºÎ º¯°æ
+        // InvisibilityCoroutine ï¿½ï¿½ï¿½ï¿½
+        PlayerDataManager.isInvisible = true; //ï¿½ï¿½ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        PlayerDataManager.IsInvincible = true;//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         yield return playerDataManager.StartCoroutine(InvisibilityCoroutine(playerDataManager));
     }
 
@@ -101,30 +101,30 @@ public class InventoryUI : MonoBehaviour
     {
         Renderer renderer = playerDataManager.GetComponentInChildren<Renderer>();
 
-        // ÇöÀç »ö»ó ÀúÀå
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         Color originalColor = renderer.material.color;
 
-        // Åõ¸íµµ ¼³Á¤ (Èå¸®°Ô º¸ÀÌ±â)
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½å¸®ï¿½ï¿½ ï¿½ï¿½ï¿½Ì±ï¿½)
         Color invisibleColor = originalColor;
         invisibleColor.a = 0.5f;
         renderer.material.color = invisibleColor;
 
-        //Åõ¸íÈ­ Áß¿¡ ¸ÅÃÊ HP È¸º¹
+        //ï¿½ï¿½ï¿½ï¿½È­ ï¿½ß¿ï¿½ ï¿½ï¿½ï¿½ï¿½ HP È¸ï¿½ï¿½
         float duration = 15f;
         float elapsed = 0f;
 
         while (elapsed < duration)
         {
-            // playerDataManager.Hp = Mathf.Clamp(playerDataManager.Hp + 0.4f, 0, playerDataManager.maxHp); // HP È¸º¹
-            elapsed += 1f; // 1ÃÊ ´ë±â
+            // playerDataManager.Hp = Mathf.Clamp(playerDataManager.Hp + 0.4f, 0, playerDataManager.maxHp); // HP È¸ï¿½ï¿½
+            elapsed += 1f; // 1ï¿½ï¿½ ï¿½ï¿½ï¿½
             yield return new WaitForSeconds(1f);
         }
 
-        // ¿ø·¡ »ö»óÀ¸·Î º¹¿ø
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         renderer.material.color = originalColor;
-        //Åõ¸íÈ­ ¿©ºÎ º¯°æ
+        //ï¿½ï¿½ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         PlayerDataManager.isInvisible = false; 
-        // Åõ¸íÈ­ Áß ¹«Àû È¿°ú Àû¿ë ÇØÁ¦
+        // ï¿½ï¿½ï¿½ï¿½È­ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         PlayerDataManager.IsInvincible = false;
 
         yield break;
