@@ -89,6 +89,7 @@ public static class FadeEffect
     }
     public static IEnumerator Fade(Image target, float start, float end, float fadeTime = 1, float delay = 0f, UnityAction action = null)
     {
+        Debug.Log("fade 코루틴 시작");
         yield return new WaitForSeconds(delay);
         //페이드 효과를 재생할 대상(target)이 없으면 코루틴 메소드 종료
         if (target == null) yield break;
