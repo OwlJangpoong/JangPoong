@@ -103,6 +103,7 @@ public class NewPlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if(UI_GamePopUp.isPaused) return;
         Jump();
         UpdateSlide();
         UpdateRun();
