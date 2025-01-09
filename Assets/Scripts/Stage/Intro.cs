@@ -18,7 +18,7 @@ public class Intro : MonoBehaviour
 
     void Update()
     {   
-        if(Input.GetMouseButtonDown(0) && turn < 58){
+        if(!dialogueController.getIsTyping() && Input.GetMouseButtonDown(0) && turn < 58){
             turn++;
             Debug.Log("현재 턴 :" + turn);
             ImageChecker();
@@ -125,6 +125,6 @@ public class Intro : MonoBehaviour
         Managers.Inventory.mpLargeCnt += 1;
 
         // Scene 전환
-        SceneManager.LoadScene("1-1 tutorial");
+        SceneManager.LoadScene("0-1 tutorial");
     }
 }
