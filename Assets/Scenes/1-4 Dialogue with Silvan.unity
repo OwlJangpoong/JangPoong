@@ -12706,6 +12706,10 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 3277918429069365308, guid: 597e20d0a89032a4fa0e2cff1c45f5d9, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 4f79c93ebc0339f489951f7a9036499c, type: 2}
     - target: {fileID: 4288182641428329151, guid: 597e20d0a89032a4fa0e2cff1c45f5d9, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 100
