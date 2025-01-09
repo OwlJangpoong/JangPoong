@@ -315,7 +315,7 @@ MonoBehaviour:
     \uCC98\uCE58\uD558\uC138\uC694."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5adb7b018f3a746c88172fd3d5c1358f, type: 2}
-  m_sharedMaterial: {fileID: 7397782015530950217, guid: 5adb7b018f3a746c88172fd3d5c1358f, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 4f79c93ebc0339f489951f7a9036499c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2976,7 +2976,7 @@ MonoBehaviour:
     \uC870\uC2EC\uD558\uC138\uC694!\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5adb7b018f3a746c88172fd3d5c1358f, type: 2}
-  m_sharedMaterial: {fileID: 7397782015530950217, guid: 5adb7b018f3a746c88172fd3d5c1358f, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 4f79c93ebc0339f489951f7a9036499c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3343,6 +3343,10 @@ PrefabInstance:
     - target: {fileID: 5499550414867727331, guid: 59a9ebde221b047c38db217e49c37f57, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5923509366256424297, guid: 59a9ebde221b047c38db217e49c37f57, type: 3}
+      propertyPath: m_text
+      value: "\uD29C\uD1A0\uB9AC\uC5BC 0-2"
       objectReference: {fileID: 0}
     - target: {fileID: 7312941808624907424, guid: 59a9ebde221b047c38db217e49c37f57, type: 3}
       propertyPath: m_AnchorMax.x
