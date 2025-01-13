@@ -197,6 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d75cc763e89b9f84b8b957e75bdeb9ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAnimator: {fileID: 0}
   jumpForce: 600
   speed: 5
   isSliding: 0
@@ -225,6 +226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c483cb4c8d3d0f4cb7aab9e673d0905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!95 &3438154664782414799
 Animator:
   serializedVersion: 5
@@ -268,12 +270,15 @@ MonoBehaviour:
   - {fileID: 1796551531270458315, guid: 4aaded2d3de56ac4fbcfc83bc526f699, type: 3}
   - {fileID: 1796551531270458315, guid: 6e69ac87758590f46a5b96e1715b220e, type: 3}
   - {fileID: 1796551531270458315, guid: aca31b052c8a90d4b878453f10c458d8, type: 3}
+  - {fileID: 1796551531270458315, guid: dded125598b01164290864fc211d73e3, type: 3}
   jangPoongPrefab: {fileID: 1796551531270458315, guid: 04c5ba4cb9a36134a9f3d3b16649b7dc, type: 3}
   jangPoongSpeed: 12
   jangPoongDistance: 5
   jangPoongLevel: 1
   jangPoongDamage: 0.5
   levelUpToken: 0
+  monsterPoint: 0
+  maxMonsterPoint: 50
   mana: 100
   maxMana: 100
   manaRegenerationRate: 3

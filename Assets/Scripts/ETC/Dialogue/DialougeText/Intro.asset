@@ -70,10 +70,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 29aefc6d3cf135b4aa84e2f258a7a2d4, type: 2}
   - {fileID: 11400000, guid: 29aefc6d3cf135b4aa84e2f258a7a2d4, type: 2}
   - {fileID: 11400000, guid: 29aefc6d3cf135b4aa84e2f258a7a2d4, type: 2}
+  - {fileID: 11400000, guid: 29aefc6d3cf135b4aa84e2f258a7a2d4, type: 2}
   paragraphs:
   - "\uC544\u2026 \uC2EC\uC2EC\uD574"
   - "\uBB50 \uD558\uC9C0\u2026?"
-  - "\uC694\uC998 \uC601\uD654\uB3C4 \uB2E4 \uBD24\uACE0\u2026 \uB4DC\uB77C\uB9C8,
+  - "\uC694\uC998 \uC601\uD654\uB3C4 \uB2E4 \uBD24\uACE0\u2026\\\\n\uB4DC\uB77C\uB9C8,
     \uC560\uB2C8\uAE4C\uC9C0 \uC804\uBD80 \uB2E4 \uBD10\uC11C \uD560 \uAC8C \uC5C6\uB124"
   - "\uC624\uB79C\uB9CC\uC5D0 \uC18C\uC124\uC774\uB098 \uC77D\uC5B4\uBCFC\uAE4C?"
   - "\u2026"
@@ -171,3 +172,4 @@ MonoBehaviour:
   - "\uADF8\uB9AC\uACE0 \uC5EC\uAE30, \uC6A9\uC0AC\uB2D8\uAED8 \uAE38\uC744 \uC548\uB0B4\uD574\uB4DC\uB9B4
     \uC9C0\uB3C4\uC785\uB2C8\uB2E4."
   - "\uC54C\uACA0\uC2B5\uB2C8\uB2E4."
+  - "(\uB300\uD654 \uC885\uB8CC, \uCD9C\uB825X)"

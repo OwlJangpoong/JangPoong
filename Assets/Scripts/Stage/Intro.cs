@@ -15,10 +15,17 @@ public class Intro : MonoBehaviour
     
     private int turn = -1;
     private bool isClick = false;
+    
+    void Start()
+    {
+        PlayerPrefs.SetString("PlayerName", "전설");
+        speaker.speakerName = PlayerPrefs.GetString("PlayerName");
+        Debug.Log(speaker.speakerName);
+    }
 
     void Update()
     {   
-        if(Input.GetMouseButtonDown(0) && turn < 58){
+        if(!dialogueController.getIsTyping() && Input.GetMouseButtonDown(0) && turn < 58){
             turn++;
             Debug.Log("현재 턴 :" + turn);
             ImageChecker();
@@ -59,11 +66,22 @@ public class Intro : MonoBehaviour
             case 13:
                 img.sprite = imgArray[6]; //소환진 
                 break;
+            case 14:
+                speaker.speakerName = "???";
+                break;
             case 15:
                 img.sprite = imgArray[7]; //마법사 등장
+                speaker.speakerName = PlayerPrefs.GetString("PlayerName");
+                break;
+            case 25:
+                speaker.speakerName = "차르덴";
+                break;
+            case 26:
+                speaker.speakerName = PlayerPrefs.GetString("PlayerName");
                 break;
             case 27:
                 img.sprite = imgArray[8]; //차르덴 단독샷
+                speaker.speakerName = "차르덴";
                 break;
             case 28:
                 img.sprite = imgArray[9]; //국왕 납치
@@ -73,29 +91,49 @@ public class Intro : MonoBehaviour
                 break;
             case 30:
                 img.sprite = imgArray[10]; //안타까워하는 주인공, 걱정하는 차르덴
+                speaker.speakerName = PlayerPrefs.GetString("PlayerName");
                 break;
             case 31:
                 img.sprite = imgArray[11]; //킹받은 표정 변화
                 break;
+            case 34:
+                speaker.speakerName = "차르덴";
+                break;
             case 37:
                 img.sprite = imgArray[12]; //킹받은 주인공, 당황한 차르덴
+                speaker.speakerName = PlayerPrefs.GetString("PlayerName");
+                break;
+            case 38:
+                speaker.speakerName = "차르덴";
                 break;
             case 42:
                 img.sprite = imgArray[13]; //부탁하는 차르덴
                 break;
             case 43:
                 img.sprite = imgArray[14]; //고민하는 주인공
+                speaker.speakerName = PlayerPrefs.GetString("PlayerName");
+                break;
+            case 45:
+                speaker.speakerName = "차르덴";
+                break;
+            case 47:
+                speaker.speakerName = PlayerPrefs.GetString("PlayerName");
                 break;
             case 48:
                 img.sprite = imgArray[15]; //국왕 사진
+                speaker.speakerName = "차르덴";
                 break;
             case 49:
                 img.sprite = imgArray[16]; //응큼 표정 주인공
+                speaker.speakerName = PlayerPrefs.GetString("PlayerName");
                 break;
             case 52:
                 img.sprite = imgArray[17]; //물약과 지도
+                speaker.speakerName = "차르덴";
                 break;
-            
+            case 56:
+                speaker.speakerName = PlayerPrefs.GetString("PlayerName");
+                break;
         }
     }
     private void OnEnable()
@@ -125,6 +163,6 @@ public class Intro : MonoBehaviour
         Managers.Inventory.mpLargeCnt += 1;
 
         // Scene 전환
-        SceneManager.LoadScene("1-1 tutorial");
+        SceneManager.LoadScene("0-1 tutorial");
     }
 }
