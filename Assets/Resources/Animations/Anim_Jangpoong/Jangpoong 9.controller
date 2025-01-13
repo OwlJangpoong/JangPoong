@@ -21,7 +21,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 73c9845e96f614b498bcc9d50abfcd7e, type: 2}
+  m_Motion: {fileID: 7400000, guid: 2b0796b95f240c44e89b7f7c575ed630, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -62,7 +62,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Jangpoong
+  m_Name: Jangpoong 9
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Explosion
@@ -151,7 +151,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: ab6d3c353323d48789ac5dfd25cc7c88, type: 2}
+  m_Motion: {fileID: 7400000, guid: 54dee11efeeec684e823c6a2759af053, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -177,7 +177,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 8c09a6ef7729e4fa0bb07b71e0755c6e, type: 2}
+  m_Motion: {fileID: 7400000, guid: c15108ebe9bcb54489a12c53b2b57d15, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

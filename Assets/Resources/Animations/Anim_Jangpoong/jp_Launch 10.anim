@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Jangpoong_Extinct
+  m_Name: jp_Launch 10
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,21 +21,15 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -157833416, guid: 9c559bc39e15e4ff298e78a2639e0638, type: 3}
-    - time: 0.16666667
-      value: {fileID: -1626336281, guid: 9c559bc39e15e4ff298e78a2639e0638, type: 3}
+      value: {fileID: -90498517, guid: 476b522a871eb4098a52f8eb6a886f27, type: 3}
     - time: 0.33333334
-      value: {fileID: 755781553, guid: 9c559bc39e15e4ff298e78a2639e0638, type: 3}
-    - time: 0.5
-      value: {fileID: -1628373076, guid: 9c559bc39e15e4ff298e78a2639e0638, type: 3}
-    - time: 0.6666667
-      value: {fileID: -307016060, guid: 9c559bc39e15e4ff298e78a2639e0638, type: 3}
+      value: {fileID: 251398404, guid: 476b522a871eb4098a52f8eb6a886f27, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
     flags: 2
-  m_SampleRate: 6
+  m_SampleRate: 3
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -52,17 +46,14 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -157833416, guid: 9c559bc39e15e4ff298e78a2639e0638, type: 3}
-    - {fileID: -1626336281, guid: 9c559bc39e15e4ff298e78a2639e0638, type: 3}
-    - {fileID: 755781553, guid: 9c559bc39e15e4ff298e78a2639e0638, type: 3}
-    - {fileID: -1628373076, guid: 9c559bc39e15e4ff298e78a2639e0638, type: 3}
-    - {fileID: -307016060, guid: 9c559bc39e15e4ff298e78a2639e0638, type: 3}
+    - {fileID: -90498517, guid: 476b522a871eb4098a52f8eb6a886f27, type: 3}
+    - {fileID: 251398404, guid: 476b522a871eb4098a52f8eb6a886f27, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.8333334
+    m_StopTime: 0.6666667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -81,18 +72,4 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events:
-  - time: 0.33333334
-    functionName: IncreaseScale
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.8333333
-    functionName: JangpoongVanish
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
+  m_Events: []

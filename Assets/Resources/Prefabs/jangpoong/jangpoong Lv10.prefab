@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4626774199168933010}
   - component: {fileID: 4548064933645919560}
   m_Layer: 12
-  m_Name: jangpoong Lv6
+  m_Name: jangpoong Lv10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -125,7 +125,7 @@ Animator:
   m_GameObject: {fileID: 1796551531270458315}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 25b0cd93be3a79a4d8b22d1a129f8a56, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7fe990cc9e1017041a107494c4bf1503, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -183,4 +183,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 388e4c18cbce5492a918af615cf224fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2.9
+  damage: 5
