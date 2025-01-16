@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using Newtonsoft.Json;
 using UnityEngine;
 
 [Serializable]
@@ -40,23 +42,26 @@ public class AudioVolume
     public event Action<Define.SaveKey,SettingData> OnDataChanged;
 }
 
-[Serializable]
-public class Controls
-{
-    
-}
-
+// [Serializable]
+// public class Controls
+// {
+//     private Dictionary<string, string> controls;
+// }
 
 public class SettingData
 {
-    public AudioVolume audioVolume = new AudioVolume();
-    public Controls constrols = new Controls();
+    public AudioVolume audioVolume;
+    public Dictionary<string, string> controls; 
 
     // public event Action OnDataChanged;
     
     //생성자
     public SettingData()
     {
+        audioVolume = new AudioVolume();
+        controls = new Dictionary<string, string>();
+        
+        
         audioVolume.OnDataChanged += (saveKey, data) =>
         {
             Debug.Log("OnDataChanged event triggered");
