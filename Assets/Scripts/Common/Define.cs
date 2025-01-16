@@ -78,38 +78,31 @@
             mpPotionSmallCnt,
             mpPotionLargeCnt,
             invisibilityPotionCnt,
-            monsterPoint
+            monsterPoint,
+            PlayerData,
+            ProgressData,
+            StatisticDatsa,
+            SettingData,
 
         }
-        // public static readonly Dictionary<string, string> FileNames = new Dictionary<string, string>
-        // {
-        //     { "playerInfo", "PlayerInfo.json" },
-        //     { "playerStat", "PlayerStat.json" },
-        //     { "inventory", "Inventory.json" },
-        //     { "progress", "Progress.json" },
-        //     { "statistics", "Statistics.json" },
-        //     { "setting", "Settings.json" },
-        // };
-        //
-        // public static readonly Dictionary<string, string> InitFileNames = new Dictionary<string, string>
-        // {
-        //     { "playerInfo", "PlayerInfo_init.json" },
-        //     { "playerStat", "PlayerStat_init.json" },
-        //     { "inventory", "Inventory_init.json" },
-        //     { "progress", "Progress_init.json" },
-        //     { "statistics", "Statistics_init.json" },
-        //     { "setting", "Settings_init.json" },
-        // };
-
-
-        public enum FileName
+ 
+        
+        
+        //file name 효율적으로 관리하기 위해 Dictionary 자료구조 사용 (하드 코딩 대신)
+        //키 : 파일 용도 등 파일 이름 구분자
+        //값 : 파일 이름(json 파일 이름)
+        /// <summary>
+        /// Key : PlayerData, ProgressData, StatisticData, SettingData
+        /// </summary>
+        public static readonly Dictionary<string, string> FileNames = new Dictionary<string, string>
         {
-            PlayerInfo,
-            PlayerStat,
-            Inventory,
-            Progress,
-            Statistics,
-            Setting
-        }
+            { "PlayerData", "PlayerData.json" },
+            { "ProgressData", "Progress.json" },
+            { "StatisticData", "Statistic.json" },
+            { "SettingData", "Setting.json" }
+
+        };
+        
     }
+   
 
