@@ -30,41 +30,21 @@ public class SoundManager
          //있으면 로드
          if (Managers.Data.HasSaveDataFile(Define.SaveKey.SettingData))
          {
-            Managers.Game.SettingData = Managers.Data.LoadData<SettingData>(Define.SaveKey.SettingData);
+            Managers.Game.settingData = Managers.Data.LoadData<SettingData>(Define.SaveKey.SettingData);
          }
          
          //2. 없으면 초기화 파일 로드
          else
          {
-            Managers.Game.SettingData = Managers.Data.LoadInitData<SettingData>(Define.SaveKey.SettingData);
+            Managers.Game.settingData = Managers.Data.LoadInitData<SettingData>(Define.SaveKey.SettingData);
             
             //초기화 후 저장 경로에 해당 데이터를 저장한다.
-            Managers.Data.SaveData<SettingData>(Define.SaveKey.SettingData, Managers.Game.SettingData);
+            Managers.Data.SaveData<SettingData>(Define.SaveKey.SettingData, Managers.Game.settingData);
          }
-        
          
          //4. 사운드 셋팅 적용
-         SetBgmVolume(Managers.Game.SettingData.audioVolume.bgm);
-         SetSfxVolume(Managers.Game.SettingData.audioVolume.sfx);
-         
-         // if (PlayerPrefs.HasKey("BgmVolume"))
-         // {
-         //    SetBgmVolume(PlayerPrefs.GetFloat("BgmVolume"));
-         // }
-         // else
-         // {
-         //    SetBgmVolume(1.0f);
-         // }
-         //
-         // if (PlayerPrefs.HasKey("SfxVolume"))
-         // {
-         //    SetSfxVolume(PlayerPrefs.GetFloat("SfxVolume"));
-         // }
-         // else
-         // {
-         //    PlayerPrefs.SetFloat("SfxVolume",1.0f);
-         //    SetSfxVolume(1.0f);
-         // }
+         SetBgmVolume(Managers.Game.settingData.audioVolume.Bgm);
+         SetSfxVolume(Managers.Game.settingData.audioVolume.Sfx);
         
       }
       
@@ -98,16 +78,14 @@ public class SoundManager
    
    public void SetBgmVolume(float volume)
    {
-      PlayerPrefs.SetFloat("BgmVolume", volume);
-      PlayerPrefs.Save();
+      Managers.Game.settingData.audioVolume.Bgm = volume; //json으로 데이터 저장 변경
       float bgmVolume = Mathf.Log10(volume) * 20;
       audioMixer.SetFloat("BGM", bgmVolume);
    }
 
    public void SetSfxVolume(float volume)
    {
-      PlayerPrefs.SetFloat("SfxVolume", volume);
-      PlayerPrefs.Save();
+      Managers.Game.settingData.audioVolume.Sfx = volume; //json으로 데이터 저장 변경
       float sfxVolume = Mathf.Log10(volume) * 20;
       audioMixer.SetFloat("SFX", sfxVolume);
    }
