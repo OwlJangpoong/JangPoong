@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using System.IO;
 
 public class Util
 {
@@ -59,4 +61,26 @@ public class Util
         return null;
 
     }
+    
+    
+    //파일 삭제
+    public static void DeleteAllFilesInFolder(string folderPath = null)
+    {
+        if (!string.IsNullOrEmpty(folderPath) && Directory.Exists(folderPath))
+        {
+            // 해당 폴더 내 모든 파일 가져오기
+            string[] files = Directory.GetFiles(folderPath);
+
+            foreach (string file in files)
+            {
+                File.Delete(file); // 파일 삭제
+                Debug.Log($"삭제됨: {file}");
+            }
+        }
+        else
+        {
+            Debug.Log($"지정된 폴더가 존재하지 않습니다: {folderPath}");
+        }
+    }
+
 }
