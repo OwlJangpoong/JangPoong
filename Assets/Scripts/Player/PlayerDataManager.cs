@@ -126,7 +126,7 @@ public class PlayerDataManager : MonoBehaviour
 
     private void Start()
     {
-        Managers.Data.GetData();
+        //---Managers.Data.GetData();
         UpdateHpAction?.Invoke(Hp);
         UpdateManaAction?.Invoke(Mana);
         UpdateMonsterPointAction?.Invoke(MonsterPoint);
