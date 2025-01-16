@@ -14,9 +14,9 @@ public class AudioMixerController : MonoBehaviour
     private void Start()
     {
         audioMixer = Managers.Sound.audioMixer;
-        
-        bgmSlider.value = PlayerPrefs.GetFloat("BgmVolume");
-        sfxSlider.value = PlayerPrefs.GetFloat("SfxVolume");
+
+        bgmSlider.value = Managers.Game.settingData.audioVolume.Bgm;
+        sfxSlider.value = Managers.Game.settingData.audioVolume.Sfx;
             
         bgmSlider.onValueChanged.RemoveAllListeners();
         sfxSlider.onValueChanged.RemoveAllListeners();
