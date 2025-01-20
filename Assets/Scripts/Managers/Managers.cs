@@ -17,6 +17,7 @@ public class Managers : MonoBehaviour
     #region Core
 
     private DataManager _data = new DataManager();
+    private GameManager _game = new GameManager();
     private InputManager _input = new InputManager();
     private ResourceManager _resource = new ResourceManager();
     private SceneManagerEx _scene = new SceneManagerEx();
@@ -29,6 +30,10 @@ public class Managers : MonoBehaviour
     
     
     public static DataManager Data { get { return Instance._data; } }
+    public static GameManager Game
+    {
+        get { return Instance._game; }
+    }
     public static InputManager Input { get { return Instance._input; } }
     public static ResourceManager Resource { get { return Instance._resource; } }
     public static SceneManagerEx Scene
@@ -126,7 +131,8 @@ public class Managers : MonoBehaviour
         }
 
         // 인벤토리 아이템 개수를 0으로 초기화
-        Instance._data.ResetInventory();
+        //--
+        //Instance._data.ResetInventory();
     }
 
 

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.Audio;
 using Object = UnityEngine.Object;
@@ -24,25 +25,47 @@ public class SoundManager
          audioMixer =  Managers.Resource.Load<AudioMixer>("Sounds/MasterAudioMixer");
          audioMixerGroups = audioMixer.FindMatchingGroups("Master");
          
-         //소리 데이터 저장 및 로드
-         if (PlayerPrefs.HasKey("BgmVolume"))
+         //소리 데이터 저장 및 로드 - 데이터 연결 완료(0116)
+         //1. 저장된 Setting 파일이 있는지 확인한다.
+         //있으면 로드
+         if (Managers.Data.HasSaveDataFile(Define.SaveKey.SettingData))
          {
-            SetBgmVolume(PlayerPrefs.GetFloat("BgmVolume"));
+            Managers.Game.SettingData = Managers.Data.LoadData<SettingData>(Define.SaveKey.SettingData);
          }
+         
+         //2. 없으면 초기화 파일 로드
          else
          {
-            SetBgmVolume(1.0f);
+            Managers.Game.SettingData = Managers.Data.LoadInitData<SettingData>(Define.SaveKey.SettingData);
+            
+            //초기화 후 저장 경로에 해당 데이터를 저장한다.
+            Managers.Data.SaveData<SettingData>(Define.SaveKey.SettingData, Managers.Game.SettingData);
          }
-
-         if (PlayerPrefs.HasKey("SfxVolume"))
-         {
-            SetSfxVolume(PlayerPrefs.GetFloat("SfxVolume"));
-         }
-         else
-         {
-            PlayerPrefs.SetFloat("SfxVolume",1.0f);
-            SetSfxVolume(1.0f);
-         }
+        
+         
+         //4. 사운드 셋팅 적용
+         SetBgmVolume(Managers.Game.SettingData.audioVolume.bgm);
+         SetSfxVolume(Managers.Game.SettingData.audioVolume.sfx);
+         
+         // if (PlayerPrefs.HasKey("BgmVolume"))
+         // {
+         //    SetBgmVolume(PlayerPrefs.GetFloat("BgmVolume"));
+         // }
+         // else
+         // {
+         //    SetBgmVolume(1.0f);
+         // }
+         //
+         // if (PlayerPrefs.HasKey("SfxVolume"))
+         // {
+         //    SetSfxVolume(PlayerPrefs.GetFloat("SfxVolume"));
+         // }
+         // else
+         // {
+         //    PlayerPrefs.SetFloat("SfxVolume",1.0f);
+         //    SetSfxVolume(1.0f);
+         // }
+        
       }
       
       //AudioSource 생성 & 할당
