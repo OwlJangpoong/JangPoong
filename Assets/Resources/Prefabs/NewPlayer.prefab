@@ -270,7 +270,6 @@ MonoBehaviour:
   - {fileID: 1796551531270458315, guid: 4aaded2d3de56ac4fbcfc83bc526f699, type: 3}
   - {fileID: 1796551531270458315, guid: 6e69ac87758590f46a5b96e1715b220e, type: 3}
   - {fileID: 1796551531270458315, guid: aca31b052c8a90d4b878453f10c458d8, type: 3}
-  - {fileID: 1796551531270458315, guid: dded125598b01164290864fc211d73e3, type: 3}
   jangPoongPrefab: {fileID: 1796551531270458315, guid: 04c5ba4cb9a36134a9f3d3b16649b7dc, type: 3}
   jangPoongSpeed: 12
   jangPoongDistance: 5
