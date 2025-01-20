@@ -214,6 +214,8 @@ MonoBehaviour:
   isRunning: 0
   gameOver: {fileID: 0}
   gameOverFlag: 0
+  levelUpEffect: {fileID: 8771972552311404799, guid: bbf9e36a48d6c5648a13889afab076fd, type: 3}
+  levelUpToken: {fileID: 0}
 --- !u!114 &6730829060137949509
 MonoBehaviour:
   m_ObjectHideFlags: 0
