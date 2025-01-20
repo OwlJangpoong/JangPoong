@@ -1,6 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/FreeAssets/JMO Assets/Cartoon FX FREE (old legacy effects).unitypackage.meta
+guid: c63f5283f2f6f974ca7ec88912f3edc8
+========
 guid: 1a4732528135043bf889f71895183dbe
 folderAsset: yes
+>>>>>>>> 52f4bef24e46aa26d2edda8153f1319898c8300f:Assets/Resources/Background/Platformer Fantasy SET6.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

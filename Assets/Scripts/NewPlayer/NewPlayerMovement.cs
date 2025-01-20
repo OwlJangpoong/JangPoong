@@ -15,15 +15,15 @@ public class NewPlayerMovement : MonoBehaviour
     public NewPlayerAnimationController playerAnimator;
     private MovementRigidbody2D movement;
 
-    // Á¡ÇÁ µ¥ÀÌÅÍ
+    // ì í”„ ë°ì´í„°
     [SerializeField] float jumpForce = 600f, speed = 5.0f;
     float moveX;
 
-    public bool isSliding = false;    // ½½¶óÀÌµù ÁßÀÌ¸é true
-    private Vector2 slideDirection;    // ½½¶óÀÌµù ¹æÇâ
-    private float slideRemainingDistance;  // ³²Àº ½½¶óÀÌµù °Å¸®
-    private Vector2 originalColliderSize;  // ±âÁ¸ Player Collider Size
-    private Vector2 originalColliderOffset;  // ±âÁ¸ Player Collider Offset
+    public bool isSliding = false;    // ìŠ¬ë¼ì´ë”© ì¤‘ì´ë©´ true
+    private Vector2 slideDirection;    // ìŠ¬ë¼ì´ë”© ë°©í–¥
+    private float slideRemainingDistance;  // ë‚¨ì€ ìŠ¬ë¼ì´ë”© ê±°ë¦¬
+    private Vector2 originalColliderSize;  // ê¸°ì¡´ Player Collider Size
+    private Vector2 originalColliderOffset;  // ê¸°ì¡´ Player Collider Offset
 
     #region Move Speed Control Variables / Methods
     [SerializeField] private float originSlideSpeed = 7.0f;
@@ -37,7 +37,7 @@ public class NewPlayerMovement : MonoBehaviour
         switch (state)
         {
             case 0:
-                //¿ø·¡ ¼Óµµ´ë·Î
+                //ì›ë˜ ì†ë„ëŒ€ë¡œ
                 slideSpeed = originSlideSpeed;
                 break;
             case 1:
@@ -52,24 +52,25 @@ public class NewPlayerMovement : MonoBehaviour
     }
     #endregion
 
-    [SerializeField] private float slideDistance = 3.0f;  // ½½¶óÀÌµù °Å¸®
-    [SerializeField] private LayerMask groundLayer;  // Ground ·¹ÀÌ¾î ¼³Á¤
+    [SerializeField] private float slideDistance = 3.0f;  // ìŠ¬ë¼ì´ë”© ê±°ë¦¬
+    [SerializeField] private LayerMask groundLayer;  // Ground ë ˆì´ì–´ ì„¤ì •
 
-    public float speedMultiplier = 1.5f;                                // ´Ş¸®±âÇÒ ¶§ ¼Óµµ ¹è¼Ó
+    public float speedMultiplier = 1.5f;                                // ë‹¬ë¦¬ê¸°í•  ë•Œ ì†ë„ ë°°ì†
 
     public bool doubleJumpState = false;
     public bool isGround = false;
     public bool isJumping = false;
     public bool isDoubleJumping = false;
-    public bool isRunning = false;                                        // ´Ş¸®±â ÁßÀÌ¸é true
+    public bool isRunning = false;                                        // ë‹¬ë¦¬ê¸° ì¤‘ì´ë©´ true
 
-    [NonSerialized] public float slideSpeed = 7.0f;  // ½½¶óÀÌµù ¼Óµµ
+    [NonSerialized] public float slideSpeed = 7.0f;  // ìŠ¬ë¼ì´ë”© ì†ë„
 
 
     public GameObject gameOver;
-    public bool gameOverFlag = false; // true¸é °ÔÀÓ ¿À¹ö »óÅÂ
+    public bool gameOverFlag = false; // trueë©´ ê²Œì„ ì˜¤ë²„ ìƒíƒœ
 
-
+    [SerializeField] private GameObject levelUpEffect;
+    public LevelUpToken levelUpToken;
 
     private void Awake()
     {
@@ -82,21 +83,28 @@ public class NewPlayerMovement : MonoBehaviour
         originalColliderSize = CapsuleCollider2D.size;
         originalColliderOffset = CapsuleCollider2D.offset;
 
-        // ¼Óµµ ¼³Á¤
+        // ì†ë„ ì„¤ì •
         slideSpeed = originSlideSpeed;
         ssgSlideSpeed = originSlideSpeed * 0.5f;
         sgSlideSpeed = originSlideSpeed * 0.75f;
 
-        // speed controlAction µî·Ï
+        // speed controlAction ë“±ë¡
         movement.controlSpeedAction -= WalkSpeedState;
         movement.controlSpeedAction += WalkSpeedState;
 
-        // DieAction ¼³Á¤
+        // DieAction ì„¤ì •
         Managers.PlayerData.DieAction -= SetPlayerDead;
         Managers.PlayerData.DieAction += SetPlayerDead;
 
+        // ëª¨ë“  LevelUpToken ê°ì²´ë¥¼ ì°¾ì•„ ì´ë²¤íŠ¸ êµ¬ë…
+        LevelUpToken[] levelUpTokens = FindObjectsOfType<LevelUpToken>();
+        foreach (var token in levelUpTokens)
+        {
+            token.OnLevelUpTokenUpdated -= HandleLevelUpTokenUpdated;
+            token.OnLevelUpTokenUpdated += HandleLevelUpTokenUpdated;
+        }
 
-        // GAMEOVER ºñÈ°¼ºÈ­
+        // GAMEOVER ë¹„í™œì„±í™”
         gameOver.SetActive(false);
 
     }
@@ -133,23 +141,23 @@ public class NewPlayerMovement : MonoBehaviour
 
     }
 
-    #region ÀÌµ¿ & Á¡ÇÁ & ´õºí Á¡ÇÁ
+    #region ì´ë™ & ì í”„ & ë”ë¸” ì í”„
     private float GetHorizontalInput()
     {
         float x = 0;
 
-        if (Input.GetKey(Managers.KeyBind.leftKeyCode)) // ÁÂ·Î ÀÌµ¿ Å° ´­·¶À» ¶§
+        if (Input.GetKey(Managers.KeyBind.leftKeyCode)) // ì¢Œë¡œ ì´ë™ í‚¤ ëˆŒë €ì„ ë•Œ
         {
             x = -1;
         }
-        else if (Input.GetKey(Managers.KeyBind.rightKeyCode)) // ¿ì·Î ÀÌµ¿ Å° ´­·¶À» ¶§
+        else if (Input.GetKey(Managers.KeyBind.rightKeyCode)) // ìš°ë¡œ ì´ë™ í‚¤ ëˆŒë €ì„ ë•Œ
         {
             x = 1;
         }
         return x;
     }
 
-    // Á¡ÇÁ
+    // ì í”„
     void Jump()
     {
 
@@ -163,21 +171,21 @@ public class NewPlayerMovement : MonoBehaviour
             else
                 isGround = false;
 
-            // 1´Ü Á¡ÇÁ
+            // 1ë‹¨ ì í”„
             if (isGround && Input.GetKeyDown(Managers.KeyBind.jumpKeyCode))
             {
                 JumpAddForce();
                 isJumping = true;
-                isDoubleJumping = false;  // Ã¹ Á¡ÇÁ¿¡¼­´Â ´õºí Á¡ÇÁ false·Î À¯Áö
-                doubleJumpState = true; // ´õºí Á¡ÇÁ °¡´É
+                isDoubleJumping = false;  // ì²« ì í”„ì—ì„œëŠ” ë”ë¸” ì í”„ falseë¡œ ìœ ì§€
+                doubleJumpState = true; // ë”ë¸” ì í”„ ê°€ëŠ¥
             }
-            // ´õºí Á¡ÇÁ
+            // ë”ë¸” ì í”„
             else if (doubleJumpState && Input.GetKeyDown(Managers.KeyBind.jumpKeyCode))
             {
                 JumpAddForce();
-                doubleJumpState = false;  // ´õºí Á¡ÇÁ ºÒ°¡´É
-                isDoubleJumping = true;   // ´õºí Á¡ÇÁ »óÅÂ true
-                StartCoroutine(ResetDoubleJumpFlag());  // ´õºí Á¡ÇÁ »óÅÂ À¯Áö Å¸ÀÌ¸Ó ½ÃÀÛ
+                doubleJumpState = false;  // ë”ë¸” ì í”„ ë¶ˆê°€ëŠ¥
+                isDoubleJumping = true;   // ë”ë¸” ì í”„ ìƒíƒœ true
+                StartCoroutine(ResetDoubleJumpFlag());  // ë”ë¸” ì í”„ ìƒíƒœ ìœ ì§€ íƒ€ì´ë¨¸ ì‹œì‘
             }
 
             moveX = Input.GetAxis("Horizontal") * speed * speedMultiplier;
@@ -186,14 +194,14 @@ public class NewPlayerMovement : MonoBehaviour
 
     }
 
-    // ´õºí Á¡ÇÁ »óÅÂ À¯Áö Å¸ÀÌ¸Ó
+    // ë”ë¸” ì í”„ ìƒíƒœ ìœ ì§€ íƒ€ì´ë¨¸
     IEnumerator ResetDoubleJumpFlag()
     {
         yield return new WaitForSeconds(0.3f);
-        isDoubleJumping = false;  // ´õºí Á¡ÇÁ ¾Ö´Ï¸ŞÀÌ¼ÇÀÌ ÃæºĞÈ÷ Àç»ıµÈ ÈÄ false·Î º¯°æ
+        isDoubleJumping = false;  // ë”ë¸” ì í”„ ì• ë‹ˆë©”ì´ì…˜ì´ ì¶©ë¶„íˆ ì¬ìƒëœ í›„ falseë¡œ ë³€ê²½
     }
 
-    // Á¡ÇÁ Force
+    // ì í”„ Force
     void JumpAddForce()
     {
         rb.velocity = new Vector2(rb.velocity.x, 0f);
@@ -201,12 +209,12 @@ public class NewPlayerMovement : MonoBehaviour
     }
     #endregion
 
-    #region ½½¶óÀÌµù
+    #region ìŠ¬ë¼ì´ë”©
     private void UpdateSlide()
     {
         if (isGround)
         {
-            if (Input.GetKeyDown(Managers.KeyBind.slideKeyCode))  // ½½¶óÀÌµù Å° ´­·¶À» ¶§
+            if (Input.GetKeyDown(Managers.KeyBind.slideKeyCode))  // ìŠ¬ë¼ì´ë”© í‚¤ ëˆŒë €ì„ ë•Œ
             {
                 if (!isSliding)
                 {
@@ -221,33 +229,33 @@ public class NewPlayerMovement : MonoBehaviour
         }
     }
 
-    // ½½¶óÀÌµù ½ÃÀÛ
+    // ìŠ¬ë¼ì´ë”© ì‹œì‘
     private void StartSlide()
     {
         isSliding = true;
         slideRemainingDistance = slideDistance;
         slideDirection = new Vector2(transform.localScale.x, 0).normalized;
 
-        // Player Collider Å©±â¿Í À§Ä¡ Á¶Á¤
+        // Player Collider í¬ê¸°ì™€ ìœ„ì¹˜ ì¡°ì •
         CapsuleCollider2D.size = new Vector2(4.255104f, 4.660773f);
         CapsuleCollider2D.offset = new Vector2(0.5280471f, -2.357519f);
 
-        // ½½¶óÀÌµù ¾Ö´Ï¸ŞÀÌ¼Ç ½ÃÀÛ
+        // ìŠ¬ë¼ì´ë”© ì• ë‹ˆë©”ì´ì…˜ ì‹œì‘
         playerAnimator.StartSliding();
 
-        //Debug.Log("½½¶óÀÌµù ½ÃÀÛ");
+        //Debug.Log("ìŠ¬ë¼ì´ë”© ì‹œì‘");
     }
 
-    // ½½¶óÀÌµù À¯Áö
+    // ìŠ¬ë¼ì´ë”© ìœ ì§€
     private void HandleSliding()
     {
-        // ¸Ó¸® À§¿¡ Ground ·¹ÀÌ¾î À¯¹« Ã¼Å©
+        // ë¨¸ë¦¬ ìœ„ì— Ground ë ˆì´ì–´ ìœ ë¬´ ì²´í¬
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, 1.0f, groundLayer);
         if (hit.collider != null)
         {
-            // Debug.Log("¸Ó¸® À§¿¡ Àå¾Ö¹° Á¸Àç");
+            // Debug.Log("ë¨¸ë¦¬ ìœ„ì— ì¥ì• ë¬¼ ì¡´ì¬");
 
-            // ¸Ó¸® À§¿¡ Àå¾Ö¹°ÀÌ ÀÖ´Â µ¿¾È ½½¶óÀÌµù »óÅÂ À¯Áö
+            // ë¨¸ë¦¬ ìœ„ì— ì¥ì• ë¬¼ì´ ìˆëŠ” ë™ì•ˆ ìŠ¬ë¼ì´ë”© ìƒíƒœ ìœ ì§€
             rb.velocity = new Vector2(slideDirection.x * slideSpeed, rb.velocity.y);
             return;
         }
@@ -261,49 +269,49 @@ public class NewPlayerMovement : MonoBehaviour
         rb.velocity = new Vector2(slideDirection.x * slideSpeed, rb.velocity.y);
         slideRemainingDistance -= moveStep;
 
-        // ½½¶óÀÌµù Á¾·á Á¶°Ç
+        // ìŠ¬ë¼ì´ë”© ì¢…ë£Œ ì¡°ê±´
         if (slideRemainingDistance <= 0)
         {
             EndSlide();
         }
     }
 
-    // ½½¶óÀÌµù Á¾·á
+    // ìŠ¬ë¼ì´ë”© ì¢…ë£Œ
     private void EndSlide()
     {
         isSliding = false;
-        // Player Collider Å©±â ¹× À§Ä¡ ¿ø·¡´ë·Î º¹±¸
+        // Player Collider í¬ê¸° ë° ìœ„ì¹˜ ì›ë˜ëŒ€ë¡œ ë³µêµ¬
         CapsuleCollider2D.size = originalColliderSize;
         CapsuleCollider2D.offset = originalColliderOffset;
-        rb.velocity = Vector2.zero;  // ¼Óµµ ÃÊ±âÈ­
+        rb.velocity = Vector2.zero;  // ì†ë„ ì´ˆê¸°í™”
 
-        // ½½¶óÀÌµù Á¾·á ¾Ö´Ï¸ŞÀÌ¼Ç
+        // ìŠ¬ë¼ì´ë”© ì¢…ë£Œ ì• ë‹ˆë©”ì´ì…˜
         playerAnimator.StopSliding();
 
-        //Debug.Log("½½¶óÀÌµù Á¾·á");
+        //Debug.Log("ìŠ¬ë¼ì´ë”© ì¢…ë£Œ");
     }
     #endregion
 
-    #region ´Ş¸®±â Åä±Û
+    #region ë‹¬ë¦¬ê¸° í† ê¸€
     private void UpdateRun()
     {
 
         if (Input.GetKeyDown(Managers.KeyBind.runKeyCode))
         {
-            isRunning = !isRunning; // ´Ş¸®±â »óÅÂ Åä±Û
+            isRunning = !isRunning; // ë‹¬ë¦¬ê¸° ìƒíƒœ í† ê¸€
         }
 
     }
     #endregion
 
-    #region ÀåÇ³ ¹ß»ç
+    #region ì¥í’ ë°œì‚¬
     private void UpdateJangPoong()
     {
         if (EventSystem.current.IsPointerOverGameObject())
         {
-            return;  ////UI Å¬¸¯½Ã´Â ÀåÇ³ ¹ß»ç°¡ µÇÁö ¾Êµµ·Ï Ã³¸® (240802 µµÇö)
+            return;  ////UI í´ë¦­ì‹œëŠ” ì¥í’ ë°œì‚¬ê°€ ë˜ì§€ ì•Šë„ë¡ ì²˜ë¦¬ (240802 ë„í˜„)
         }
-        if (Input.GetKeyDown(KeyCode.C))    // cÅ° ·Î ÀåÇ³ ¹ß»ç
+        if (Input.GetKeyDown(KeyCode.C))    // cí‚¤ ë¡œ ì¥í’ ë°œì‚¬
         {
             if (playerDataManager.Mana >= playerDataManager.manaConsumption)
             {
@@ -311,47 +319,47 @@ public class NewPlayerMovement : MonoBehaviour
 
                 Managers.Sound.Play("56_Attack_03");
 
-                // ´Ş¸®±â Áß¿¡ ÀåÇ³ ¼Ó·Â Áõ°¡
+                // ë‹¬ë¦¬ê¸° ì¤‘ì— ì¥í’ ì†ë ¥ ì¦ê°€
                 if (isRunning)
                     playerDataManager.jangPoongSpeed = 14;
                 else
                     playerDataManager.jangPoongSpeed = 12;
 
                 Vector3 spawnPosition = transform.position;
-                spawnPosition.y += isSliding ? -0.38f : -0.08f;     // ½½¶óÀÌµù ½Ã¿¡´Â y°ª -0.08f¿¡¼­ ÀåÇ³ ¹ß»çµÇµµ·Ï
+                spawnPosition.y += isSliding ? -0.38f : -0.08f;     // ìŠ¬ë¼ì´ë”© ì‹œì—ëŠ” yê°’ -0.08fì—ì„œ ì¥í’ ë°œì‚¬ë˜ë„ë¡
 
                 GameObject jangPoong = Instantiate(playerDataManager.jangPoongPrefab, spawnPosition, Quaternion.identity);
                 Rigidbody2D jangPoongRb = jangPoong.GetComponent<Rigidbody2D>();
 
 
 
-                //ÀåÇ³ alive time ¼³Á¤°¡(240809) - µµÇö
+                //ì¥í’ alive time ì„¤ì •ê°€(240809) - ë„í˜„
                 JangpoongController jc = jangPoong.GetComponent<JangpoongController>();
                 jc.AliveTime = playerDataManager.jangPoongDistance / playerDataManager.jangPoongSpeed;
 
                 Vector2 jangPoongDirection = new Vector2(transform.localScale.x, 0).normalized;
                 jangPoongRb.velocity = jangPoongDirection * playerDataManager.jangPoongSpeed;
-                jangPoong.transform.localScale = new Vector3((jangPoongDirection.x > 0 ? 0.5f : -0.5f), 0.5f, 0.5f); //¼öÁ¤
+                jangPoong.transform.localScale = new Vector3((jangPoongDirection.x > 0 ? 0.5f : -0.5f), 0.5f, 0.5f); //ìˆ˜ì •
 
                 playerAnimator.JangPoongShooting();
 
-                //Destroy(jangPoong, playerDataManager.jangPoongDistance / playerDataManager.jangPoongSpeed); //Destory ·ÎÁ÷ ÀåÇ³ ¿ÀºêÁ§Æ®¿¡¼­ °ü¸®ÇÏµµ·Ï ¼öÁ¤(240809) - µµÇö
+                //Destroy(jangPoong, playerDataManager.jangPoongDistance / playerDataManager.jangPoongSpeed); //Destory ë¡œì§ ì¥í’ ì˜¤ë¸Œì íŠ¸ì—ì„œ ê´€ë¦¬í•˜ë„ë¡ ìˆ˜ì •(240809) - ë„í˜„
             }
-            else // ÀÜ¿© ¸¶³ª·® < 5
+            else // ì”ì—¬ ë§ˆë‚˜ëŸ‰ < 5
             {
-                Debug.Log("¸¶³ª·® ºÎÁ·");
+                Debug.Log("ë§ˆë‚˜ëŸ‰ ë¶€ì¡±");
             }
         }
     }
     #endregion
 
-    #region »ç¸Á
+    #region ì‚¬ë§
     private void SetPlayerDead()
     {
         movement.MoveTo(0);
         gameOverFlag = true;
         playerAnimator.PlayerDead();
-        Debug.Log("ÇÃ·¹ÀÌ¾î Á×À½");
+        Debug.Log("í”Œë ˆì´ì–´ ì£½ìŒ");
         gameOver.SetActive(true);
     }
     public void OnButtonClick_Restart()
@@ -359,15 +367,13 @@ public class NewPlayerMovement : MonoBehaviour
         gameOverFlag = false;
         gameOver.SetActive(false);
         playerAnimator.animator.SetBool("Dead", false);
-
-        // Àç½ÃÀÛÇÒ ¶§ HP°¡ 0ÀÎ »óÅÂ·Î ½ÃÀÛµÇ´Â ¹®Á¦ ÀÖÀ½
-
-
     }
-    public void OnButtonClick_Exit()
+    #endregion
+
+    #region ë ˆë²¨ì—…í† í° íŒŒí‹°í´
+    private void HandleLevelUpTokenUpdated()
     {
-        // Managers.Scene.LoadScene("Main");
+        Instantiate(levelUpEffect, transform.position, Quaternion.identity);
     }
-
     #endregion
 }

@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class LevelUpToken : ItemBase
 {
-/*    public override void UpdateCollision(Transform target)
-    {
-        target.GetComponent<PlayerDataManager>().LevelUpToken++;
-    }*/
+    public AudioClip audioClip;
+    public delegate void LevelUpTokenEventHandler();
+    public event LevelUpTokenEventHandler OnLevelUpTokenUpdated;
     public override void UpdateCollision(Transform target)
     {
         var playerDataManager = target.GetComponent<PlayerDataManager>();
@@ -15,6 +14,9 @@ public class LevelUpToken : ItemBase
         if (playerDataManager != null)
         {
             playerDataManager.LevelUpToken++;
+
+            OnLevelUpTokenUpdated?.Invoke();
+            Managers.Sound.Play(audioClip);
 
             Destroy(gameObject);
         }
