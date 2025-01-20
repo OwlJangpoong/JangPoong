@@ -48,10 +48,11 @@ public class AudioVolume
 //     private Dictionary<string, string> controls;
 // }
 
+[Serializable]
 public class SettingData
 {
     public AudioVolume audioVolume;
-    public Dictionary<string, string> controls; 
+    [JsonProperty("controls")] public Dictionary<string, string> controls; 
 
     // public event Action OnDataChanged;
     

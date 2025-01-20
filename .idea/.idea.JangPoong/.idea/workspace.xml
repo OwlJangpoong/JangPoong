@@ -6,14 +6,21 @@
   <component name="ChangeListManager">
     <list default="true" id="8d60103f-3d9b-4716-9d1c-3d51d042b424" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.JangPoong/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.JangPoong/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Data/InitData/Setting.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Data/InitData/Setting.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/Scene/Setting_UI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/Scene/Setting_UI.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Common/Define.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Common/Define.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Common/Mon_MovementRigidbody2D.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Common/Mon_MovementRigidbody2D.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Common/MovementRigidbody2D.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Common/MovementRigidbody2D.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/SettingData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/SettingData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Items/ItemBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Items/ItemBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/DataManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/DataManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/Managers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/Managers.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/SoundManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/SoundManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/KeyBinding/KeyBindingManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/KeyBinding/KeyBindingManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewPlayer/DoubleJump.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewPlayer/DoubleJump.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewPlayer/NewPlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewPlayer/NewPlayerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewPlayer/Sliding.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewPlayer/Sliding.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/JangpoongController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/JangpoongController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Stage/Intro.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Stage/Intro.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/KeyBinding/KeyBindingManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/KeyBinding/KeyBindingManager.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/KeyBinding/KeyBindingUIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/KeyBinding/KeyBindingUIManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
