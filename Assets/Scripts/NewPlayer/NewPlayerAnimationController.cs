@@ -17,10 +17,10 @@ public class NewPlayerAnimationController : MonoBehaviour
 
     public void UpdateAnimation(float x)
     {
-        // ÁÂ/¿ì ¹æÇâÅ° ÀÔ·ÂÀÌ ÀÖÀ» ¶§
+        // ì¢Œ/ìš° ë°©í–¥í‚¤ ì…ë ¥ì´ ìˆì„ ë•Œ
         if (x != 0)
         {
-            // ÇÃ·¹ÀÌ¾î ½ºÇÁ¶óÀÌÆ® ÁÂ/¿ì ¹İÀü : ¹Ù¶óº¸´Â ¹æÇâ ¼³Á¤
+            // í”Œë ˆì´ì–´ ìŠ¤í”„ë¼ì´íŠ¸ ì¢Œ/ìš° ë°˜ì „ : ë°”ë¼ë³´ëŠ” ë°©í–¥ ì„¤ì •
             SpriteFlipX(x);
         }
 
@@ -41,57 +41,69 @@ public class NewPlayerAnimationController : MonoBehaviour
         {
             animator.SetBool("isJumping", false);
         }
+            
 
     }
 
-    // SpriteRenderer ÄÄÆ÷³ÍÆ®ÀÇ FilpÀ» ÀÌ¿ëÇØ ÀÌ¹ÌÁö¸¦ ¹İÀüÇßÀ» ¶§
-    // È­¸é¿¡ Ãâ·ÂµÇ´Â ÀÌ¹ÌÁö ÀÚÃ¼¸¸ ¹İÀüµÇ±â ¶§¹®¿¡
-    // ÇÃ·¹ÀÌ¾îÀÇ Àü¹æ Æ¯Á¤ À§Ä¡¿¡¼­ ¹ß»çÃ¼¸¦ »ı¼ºÇÏ´Â °Í°ú °°ÀÌ
-    // ¹æÇâÀüÈ¯ÀÌ ÇÊ¿äÇÒ ¶§´Â Transform.Scale.x¸¦ -1, 1°ú °°ÀÌ ¼³Á¤
+    // SpriteRenderer ì»´í¬ë„ŒíŠ¸ì˜ Filpì„ ì´ìš©í•´ ì´ë¯¸ì§€ë¥¼ ë°˜ì „í–ˆì„ ë•Œ
+    // í™”ë©´ì— ì¶œë ¥ë˜ëŠ” ì´ë¯¸ì§€ ìì²´ë§Œ ë°˜ì „ë˜ê¸° ë•Œë¬¸ì—
+    // í”Œë ˆì´ì–´ì˜ ì „ë°© íŠ¹ì • ìœ„ì¹˜ì—ì„œ ë°œì‚¬ì²´ë¥¼ ìƒì„±í•˜ëŠ” ê²ƒê³¼ ê°™ì´
+    // ë°©í–¥ì „í™˜ì´ í•„ìš”í•  ë•ŒëŠ” Transform.Scale.xë¥¼ -1, 1ê³¼ ê°™ì´ ì„¤ì •
     private void SpriteFlipX(float x)
     {
         transform.localScale = new Vector3((x < 0 ? -1 : 1), 1, 1);
     }
 
-    // player ½½¶óÀÌµù ¾Ö´Ï¸ŞÀÌ¼Ç
+    // player ìŠ¬ë¼ì´ë”© ì• ë‹ˆë©”ì´ì…˜
     public void StartSliding()
     {
-        // Debug.Log("½½¶óÀÌµù ¾Ö´Ï¸ŞÀÌ¼Ç ½ÃÀÛ");
+        // Debug.Log("ìŠ¬ë¼ì´ë”© ì• ë‹ˆë©”ì´ì…˜ ì‹œì‘");
         animator.SetBool("isSliding", true);
     }
 
     public void StopSliding()
     {
-        // Debug.Log("½½¶óÀÌµù ¾Ö´Ï¸ŞÀÌ¼Ç Á¾·á");
+        // Debug.Log("ìŠ¬ë¼ì´ë”© ì• ë‹ˆë©”ì´ì…˜ ì¢…ë£Œ");
         animator.SetBool("isSliding", false);
     }
 
-    // ´Ş¸®±â ½Ã ¾Ö´Ï¸ŞÀÌ¼Ç ¹è¼Ó
+    // ë‹¬ë¦¬ê¸° ì‹œ ì• ë‹ˆë©”ì´ì…˜ ë°°ì†
     public void SetSpeedMultiplier(float multiplier)
     {
         animator.speed = multiplier;
     }
 
-    // player ÀåÇ³ ¾Ö´Ï¸ŞÀÌ¼Ç
+    // player ì¥í’ ì• ë‹ˆë©”ì´ì…˜
     public void JangPoongShooting()
     {
-        // Debug.Log("ÀåÇ³ ¾Ö´Ï¸ŞÀÌ¼Ç");
+        // Debug.Log("ì¥í’ ì• ë‹ˆë©”ì´ì…˜");
+/*        if (animator.GetBool("isShooting"))
+            return; // ì´ë¯¸ ì‹¤í–‰ ì¤‘ì´ë©´ ì¢…ë£Œ*/
+
         if (animator.GetBool("isShooting"))
-            animator.SetBool("isShooting", false); // ÀÌ¹Ì ½ÇÇà ÁßÀÌ¸é Á¾·á
-        animator.SetBool("isShooting", true);
+        {
+            OnShootingEnd();
+            // Debug.Log("ì¢…ë£Œí˜¸ì¶œ");
+        }
+        else
+        {
+            animator.SetBool("isShooting", true);
+            // Debug.Log("isShooting = true");
+        }
+        
     }
 
-    // ÀåÇ³ ¾Ö´Ï¸ŞÀÌ¼Ç Á¾·á
+    // ì¥í’ ì• ë‹ˆë©”ì´ì…˜ ì¢…ë£Œ
     public void OnShootingEnd()
     {
-        // Debug.Log("ÀåÇ³ ¾Ö´Ï¸ŞÀÌ¼Ç Á¾·á");
         animator.SetBool("isShooting", false);
+        // Debug.Log("isShooting = false");
     }
 
-    // ÇÃ·¹ÀÌ¾î Á×¾úÀ» ¶§
+    // í”Œë ˆì´ì–´ ì£½ì—ˆì„ ë•Œ
     public void PlayerDead()
     {
         animator.SetBool("Dead", true);
-        // Debug.Log("ÇÃ·¹ÀÌ¾î Áê±İ");
+        // Debug.Log("í”Œë ˆì´ì–´ ì¥¬ê¸ˆ");
     }
 }
