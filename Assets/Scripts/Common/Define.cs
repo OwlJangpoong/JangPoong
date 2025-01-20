@@ -1,4 +1,6 @@
 
+    using System.Collections.Generic;
+
     public class Define
     {
         public enum WorldObject
@@ -6,7 +8,7 @@
             Unknown,
             Player,
             Monster,
-            
+
         }
 
         public enum Layer
@@ -14,15 +16,16 @@
             Default = 0,
             PlayerDamaged = 3,
             Ground = 6,
-            Level1=7,
-            LevelN=8,
+            Level1 = 7,
+            LevelN = 8,
             Obstacle = 9,
-            
+
             Player = 15,
             Monster = 16,
             MonsterDie = 19,
-            
+
         }
+
         public enum State
         {
             Die,
@@ -38,6 +41,7 @@
             Click,
             Drag,
         }
+
         public enum MouseEvent
         {
             Press,
@@ -45,7 +49,7 @@
             PointerUp,
             Click,
         }
-        
+
         public enum Sound
         {
             Bgm,
@@ -62,6 +66,7 @@
             invisibility,
             none,
         }
+
         public enum SaveKey
         {
             tutorialDone,
@@ -73,9 +78,31 @@
             mpPotionSmallCnt,
             mpPotionLargeCnt,
             invisibilityPotionCnt,
-            monsterPoint
-    }
+            monsterPoint,
+            PlayerData,
+            ProgressData,
+            StatisticDatsa,
+            SettingData,
 
+        }
+ 
+        
+        
+        //file name 효율적으로 관리하기 위해 Dictionary 자료구조 사용 (하드 코딩 대신)
+        //키 : 파일 용도 등 파일 이름 구분자
+        //값 : 파일 이름(json 파일 이름)
+        /// <summary>
+        /// Key : PlayerData, ProgressData, StatisticData, SettingData
+        /// </summary>
+        public static readonly Dictionary<string, string> FileNames = new Dictionary<string, string>
+        {
+            { "PlayerData", "PlayerData.json" },
+            { "ProgressData", "Progress.json" },
+            { "StatisticData", "Statistic.json" },
+            { "SettingData", "Setting.json" }
+
+        };
         
     }
+   
 

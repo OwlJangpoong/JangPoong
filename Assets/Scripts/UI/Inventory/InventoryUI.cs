@@ -19,7 +19,8 @@ public class InventoryUI : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1) && Managers.Inventory.hpSmallCnt > 0)
         {
             Managers.Inventory.hpSmallCnt--;
-            StartCoroutine(AddHpAfterDelay(PlayerDataManager, 2f, 2f));
+            StartCoroutine(AddHpAfterDelay(2f, 2f));
+            //Managers.PlayerData.Hp += 2f;
             Debug.Log("hpSmall used");
         }
 
@@ -27,7 +28,8 @@ public class InventoryUI : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha2) && Managers.Inventory.hpLargeCnt > 0)
         {
             Managers.Inventory.hpLargeCnt--;
-            StartCoroutine(AddHpAfterDelay(PlayerDataManager, 3f, 4f));
+            StartCoroutine(AddHpAfterDelay(3f, 4f));
+            //Managers.PlayerData.Hp += 4f;
             Debug.Log("hpLarge used");
         }
 
@@ -35,7 +37,8 @@ public class InventoryUI : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha3) && Managers.Inventory.mpSmallCnt > 0)
         {
             Managers.Inventory.mpSmallCnt--;
-            StartCoroutine(AddManaAfterDelay(PlayerDataManager, 1.5f, 25));
+            StartCoroutine(AddManaAfterDelay(1.5f, 25));
+            //Managers.PlayerData.Mana += 25;
             Debug.Log("mpSmall used");
         }
 
@@ -43,7 +46,8 @@ public class InventoryUI : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha4) && Managers.Inventory.mpLargeCnt > 0)
         {
             Managers.Inventory.mpLargeCnt--;
-            StartCoroutine(AddManaAfterDelay(PlayerDataManager, 2f,50));
+            StartCoroutine(AddManaAfterDelay(2f,50));
+            //Managers.PlayerData.Mana += 50;
             Debug.Log("mpLarge used");
         }
 
@@ -68,22 +72,22 @@ public class InventoryUI : MonoBehaviour
         invisibilityPotion.text = "x" + Managers.Inventory.invinsibilityCnt;
     }
 
-    public System.Collections.IEnumerator AddHpAfterDelay(PlayerDataManager playerDataManager, float sec, float increase)
+    public System.Collections.IEnumerator AddHpAfterDelay(float sec, float increase)
     {
         // ���� ���ô� �ð�
         yield return new WaitForSeconds(sec);
 
         // HP ����
-        playerDataManager.GetComponent<PlayerDataManager>().Hp += increase;
+        Managers.PlayerData.Hp += increase;
     }
 
-    private System.Collections.IEnumerator AddManaAfterDelay(PlayerDataManager playerDataManager, float sec, int increase)
+    private System.Collections.IEnumerator AddManaAfterDelay( float sec, int increase)
     {
         // ���� ���ô� �ð�
         yield return new WaitForSeconds(sec);
 
         // Mana ����
-        playerDataManager.GetComponent<PlayerDataManager>().Mana += increase;
+        Managers.PlayerData.Mana += increase;
     }
 
     private System.Collections.IEnumerator StartInvisibilityAfterDelay(PlayerDataManager playerDataManager)

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class ResourceManager
@@ -13,6 +14,7 @@ public class ResourceManager
     //Load
     public T Load<T>(string path) where T : Object
     {
+        path = Path.Combine(Path.GetDirectoryName(path) ?? string.Empty, Path.GetFileNameWithoutExtension(path)); 
         T resource = Resources.Load<T>(path);
         if (resource == null)
         {
