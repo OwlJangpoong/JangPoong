@@ -9,9 +9,9 @@ using UnityEngine.SceneManagement;
 public class Tutorial_2 : MonoBehaviour
 {
 
-    public GameObject[] objects;                // ¼ø¼­´ë·Î µîÀåÇÒ ¿ÀºêÁ§Æ®µé
-    public float fadeDuration = 0.5f;           // ÆäÀÌµå ÀÎ/¾Æ¿ô ½Ã°£
-    private int currentIndex = 0;               // ÇöÀç È°¼ºÈ­µÈ ¿ÀºêÁ§Æ® ÀÎµ¦½º
+    public GameObject[] objects;                // ìˆœì„œëŒ€ë¡œ ë“±ì¥í•  ì˜¤ë¸Œì íŠ¸ë“¤
+    public float fadeDuration = 0.5f;           // í˜ì´ë“œ ì¸/ì•„ì›ƒ ì‹œê°„
+    private int currentIndex = 0;               // í˜„ì¬ í™œì„±í™”ëœ ì˜¤ë¸Œì íŠ¸ ì¸ë±ìŠ¤
 
     public Monster monster;
     [SerializeField] private AudioClip audioClip;
@@ -20,20 +20,20 @@ public class Tutorial_2 : MonoBehaviour
 
     private void Start()
     {
-        // ¸ğµç ¿ÀºêÁ§Æ®¸¦ ºñÈ°¼ºÈ­
+        // ëª¨ë“  ì˜¤ë¸Œì íŠ¸ë¥¼ ë¹„í™œì„±í™”
         foreach (GameObject obj in objects)
         {
             obj.SetActive(false);
         }
 
-        // ¿ÀºêÁ§Æ®°¡ Á¸ÀçÇÏ¸é ½ÃÄö½º ½ÇÇà
+        // ì˜¤ë¸Œì íŠ¸ê°€ ì¡´ì¬í•˜ë©´ ì‹œí€€ìŠ¤ ì‹¤í–‰
         if (objects.Length > 0)
         {
             StartCoroutine(HandleObjectSequence());
         }
 
-        // ¸ó½ºÅÍÀÇ Á×À½ ÀÌº¥Æ® ±¸µ¶
-        monster.stat.DieAction += OnMonsterDie;
+        // ëª¬ìŠ¤í„°ì˜ ì£½ìŒ ì´ë²¤íŠ¸ êµ¬ë…
+        // monster.stat.DieAction += OnMonsterDie;
     }
     private IEnumerator HandleObjectSequence()
     {
@@ -44,70 +44,70 @@ public class Tutorial_2 : MonoBehaviour
             UnityEngine.UI.Image image = currentObject.GetComponent<UnityEngine.UI.Image>();
             TextMeshProUGUI text = currentObject.GetComponentInChildren<TextMeshProUGUI>();
 
-            // ÇöÀç ¿ÀºêÁ§Æ® È°¼ºÈ­
+            // í˜„ì¬ ì˜¤ë¸Œì íŠ¸ í™œì„±í™”
             currentObject.SetActive(true);
 
-            // Ã¹ ¹øÂ° ¿ÀºêÁ§Æ®°¡ ÆäÀÌµå ÀÎ ÈÄ, ÀåÇ³ ¹ß»ç Å°°¡ ´­¸®±â Àü±îÁö´Â »ç¶óÁöÁö ¾ÊÀ½
+            // ì²« ë²ˆì§¸ ì˜¤ë¸Œì íŠ¸ê°€ í˜ì´ë“œ ì¸ í›„, ì¥í’ ë°œì‚¬ í‚¤ê°€ ëˆŒë¦¬ê¸° ì „ê¹Œì§€ëŠ” ì‚¬ë¼ì§€ì§€ ì•ŠìŒ
 
-            // Ã¹ ¹øÂ° ¿ÀºêÁ§Æ® ÆäÀÌµå ÀÎ
+            // ì²« ë²ˆì§¸ ì˜¤ë¸Œì íŠ¸ í˜ì´ë“œ ì¸
             yield return StartCoroutine(FadeIn(image, text));
 
-            // ÀåÇ³ ¹ß»ç Å° ÀÔ·ÂÀ» ±â´Ù¸²
+            // ì¥í’ ë°œì‚¬ í‚¤ ì…ë ¥ì„ ê¸°ë‹¤ë¦¼
             while (!Input.GetKeyDown(KeyCode.C))
             {
                 yield return null;
             }
 
-            // Ã¹ ¹øÂ° ¿ÀºêÁ§Æ® ÆäÀÌµå ¾Æ¿ô
+            // ì²« ë²ˆì§¸ ì˜¤ë¸Œì íŠ¸ í˜ì´ë“œ ì•„ì›ƒ
             yield return StartCoroutine(FadeOut(image, text));
 
-            // Ã¹ ¹øÂ° ¿ÀºêÁ§Æ® ºñÈ°¼ºÈ­
+            // ì²« ë²ˆì§¸ ì˜¤ë¸Œì íŠ¸ ë¹„í™œì„±í™”
             currentObject.SetActive(false);
 
-            // ´ÙÀ½ ¿ÀºêÁ§Æ®·Î
+            // ë‹¤ìŒ ì˜¤ë¸Œì íŠ¸ë¡œ
             currentIndex++;
 
-            // µÎ ¹øÂ° ¿ÀºêÁ§Æ®°¡ Á¸ÀçÇÏ¸é ¹Ù·Î ÆäÀÌµå ÀÎ
+            // ë‘ ë²ˆì§¸ ì˜¤ë¸Œì íŠ¸ê°€ ì¡´ì¬í•˜ë©´ ë°”ë¡œ í˜ì´ë“œ ì¸
             if (currentIndex < objects.Length)
             {
                 currentObject = objects[currentIndex];
                 image = currentObject.GetComponent<UnityEngine.UI.Image>();
                 text = currentObject.GetComponentInChildren<TextMeshProUGUI>();
 
-                // µÎ ¹øÂ° ¿ÀºêÁ§Æ® ÆäÀÌµå ÀÎ
+                // ë‘ ë²ˆì§¸ ì˜¤ë¸Œì íŠ¸ í˜ì´ë“œ ì¸
                 yield return StartCoroutine(FadeIn(image, text));
             }
 
-            /*                // µÎ ¹øÂ° ¿ÀºêÁ§Æ® ÆäÀÌµå ¾Æ¿ô
+            /*                // ë‘ ë²ˆì§¸ ì˜¤ë¸Œì íŠ¸ í˜ì´ë“œ ì•„ì›ƒ
                 yield return StartCoroutine(FadeOut(image, text));
 
-                // µÎ ¹øÂ° ¿ÀºêÁ§Æ® ºñÈ°¼ºÈ­
+                // ë‘ ë²ˆì§¸ ì˜¤ë¸Œì íŠ¸ ë¹„í™œì„±í™”
                 currentObject.SetActive(false);*/
         }
     }
 
-    // ¸ó½ºÅÍ°¡ Á×¾úÀ» ¶§ È£ÃâµÇ´Â ¸Ş¼­µå
+/*    // ëª¬ìŠ¤í„°ê°€ ì£½ì—ˆì„ ë•Œ í˜¸ì¶œë˜ëŠ” ë©”ì„œë“œ
     private void OnMonsterDie()
     {
-        Debug.Log("¸ó½ºÅÍ Ã³Ä¡");
+        Debug.Log("ëª¬ìŠ¤í„° ì²˜ì¹˜");
 
         fadeController = FindObjectOfType<UI_FadeController>();
 
-        // È¿°úÀ½ Àç»ı
+        // íš¨ê³¼ìŒ ì¬ìƒ
         Managers.Sound.Play(audioClip);
 
-        // ÆäÀÌµå ¾Æ¿ô ÈÄ ¾À ÀÌµ¿
+        // í˜ì´ë“œ ì•„ì›ƒ í›„ ì”¬ ì´ë™
         fadeController.RegisterCallback(OnFadeOutComplete);
         fadeController.FadeOut();
 
-    }
+    }*/
 
     private void OnFadeOutComplete()
     {
         StartCoroutine(Managers.Scene.LoadSceneAfterDelay(NextSceneName, 0.0f));
     }
 
-    #region ÆäÀÌµå ÀÎ
+    #region í˜ì´ë“œ ì¸
     private IEnumerator FadeIn(UnityEngine.UI.Image image, TextMeshProUGUI text)
     {
         float timer = 0f;
@@ -130,7 +130,7 @@ public class Tutorial_2 : MonoBehaviour
             yield return null;
         }
 
-        // ÃÖÁ¾ Alpha °ª ¼³Á¤
+        // ìµœì¢… Alpha ê°’ ì„¤ì •
         imageColor.a = 1f;
         textColor.a = 1f;
 
@@ -139,7 +139,7 @@ public class Tutorial_2 : MonoBehaviour
     }
     #endregion
 
-    #region ÆäÀÌµå ¾Æ¿ô
+    #region í˜ì´ë“œ ì•„ì›ƒ
     private IEnumerator FadeOut(UnityEngine.UI.Image image, TextMeshProUGUI text)
     {
         float timer = 0f;
@@ -162,7 +162,7 @@ public class Tutorial_2 : MonoBehaviour
             yield return null;
         }
 
-        // ÃÖÁ¾ Alpha °ª ¼³Á¤
+        // ìµœì¢… Alpha ê°’ ì„¤ì •
         imageColor.a = 0f;
         textColor.a = 0f;
 
