@@ -32,6 +32,12 @@ public class Intro : MonoBehaviour
         // PlayerPrefs.SetString("PlayerName", "전설");
         speaker.speakerName = PlayerPrefs.GetString("PlayerName");
         Debug.Log(speaker.speakerName);
+
+        turn++;
+        Debug.Log("현재 턴 : " + turn);
+        ImageChecker();
+        turnChecker();
+        Talk(dialogueText);
     }
 
     void Update()
@@ -44,7 +50,7 @@ public class Intro : MonoBehaviour
             return;
         }
 
-        if (Input.GetMouseButtonDown(0)) {
+        if (turn != -1 && Input.GetMouseButtonDown(0)) {
             turn++;
             Debug.Log("현재 턴 :" + turn);
             ImageChecker();
