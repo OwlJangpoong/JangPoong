@@ -16902,6 +16902,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI_Game_Root
       objectReference: {fileID: 0}
+    - target: {fileID: 3434804663096475363, guid: 59a9ebde221b047c38db217e49c37f57, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 4342769605657296861, guid: 59a9ebde221b047c38db217e49c37f57, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -17167,7 +17171,7 @@ GameObject:
   - component: {fileID: 1801080677}
   m_Layer: 0
   m_Name: UI
-  m_TagString: Untagged
+  m_TagString: UI_Root
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

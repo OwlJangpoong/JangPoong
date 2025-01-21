@@ -111,8 +111,14 @@ public class NewPlayerMovement : MonoBehaviour
         
         //gameover 오브젝트 자동 할당을 위한 코드 추가(250121)
         GameObject ui_Game_Root = GameObject.FindWithTag("UI_Root");
-        gameOver = ui_Game_Root.GetComponentInChildren<UI_GameOverButtons>(true).gameObject;
-        gameOver.SetActive(false);
+        if (ui_Game_Root.GetComponentInChildren<UI_GameOverButtons>(true))
+        {
+            gameOver = ui_Game_Root.GetComponentInChildren<UI_GameOverButtons>(true).gameObject;
+            gameOver.SetActive(false);
+        }
+       
+        
+
 
     }
 

@@ -9,10 +9,9 @@
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Data/Stage/State 0-3.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Data/Stage/State 0-3.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/NewPlayer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/NewPlayer.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/Scene/UI_Game_Root.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/Scene/UI_Game_Root.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Textures/Player/Hero-Sheet_Attack_Idle&amp;Walk.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Textures/Player/Hero-Sheet_Attack_Idle&amp;Walk.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/0-1 tutorial.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/0-1 tutorial.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/0-2 tutorial.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/0-2 tutorial.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/0-3 tutorial.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/0-3 tutorial.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Common/NewGameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Common/NewGameController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewPlayer/NewPlayerAnimationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewPlayer/NewPlayerAnimationController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewPlayer/NewPlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewPlayer/NewPlayerMovement.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
