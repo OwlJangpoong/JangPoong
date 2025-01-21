@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f441287a402884150b182a222e3775b7, type: 3}
-  m_Name: Stage1-2
+  m_Name: Stage1-3
   m_EditorClassIdentifier: 
-  cameraLimitMinX: -137.78
-  cameraLimitMaxX: -4.3
-  playerLimitMinX: -151.3
-  playerLimitMaxX: 9.3
-  playerPosition: {x: -140.2, y: -19}
-  cameraPosition: {x: -136.78, y: -16}
+  cameraLimitMinX: -25.62
+  cameraLimitMaxX: 84.38
+  playerLimitMinX: -34.12191
+  playerLimitMaxX: 88.29
+  playerPosition: {x: -17.66, y: -5}
+  cameraPosition: {x: -17.66, y: -2.7}
