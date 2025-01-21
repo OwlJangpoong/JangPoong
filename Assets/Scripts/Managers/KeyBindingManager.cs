@@ -1,57 +1,45 @@
 using UnityEngine;
 using System;
+using KeyBinding;
 
 public class KeyBindingManager
 {
-    private KeyCode GetKeyCodeFromName(string keyName)
+    
+    public KeyBinding.KeyBindingResult SetKeyBinding(Define.ControlKey controlKey, KeyCode newKeyCode)
     {
-        KeyCode keyCode;
-        string keyNameUpper = keyName.ToUpper();
-        if (Enum.TryParse(keyNameUpper, out keyCode))
+        
+        //<키 검사>
+        if (newKeyCode == KeyCode.None)
         {
-            if (Enum.IsDefined(typeof(KeyCode), keyCode))
+            Debug.Log("잘못된 키 입니다.");
+            return new KeyBindingResult(false, 0);
+        }
+        
+        
+        //이미 다른 키에 설정되어 있는지 확인한다.
+        foreach (var key in Managers.Game.settingData.controls.Values)
+        {
+            if (Enum.TryParse<KeyCode>(key, out KeyCode existingKey) && existingKey == newKeyCode)
             {
-                return keyCode;
+                Debug.Log("중복된 키입니다.");
+                return new KeyBindingResult(false, 1);
+                //리턴할 때 어떤 오륜지 넘기기
             }
-                
-     
-                Debug.LogWarning("Enum.isDefined오류오류");
-                return KeyCode.None;
-            
         }
-        Debug.LogWarning("Enum Parse 실패!!!!!!!!1");
-        Debug.LogWarning($"Invalid key name: {keyName}. Defaulting to KeyCode.None.");
-        return KeyCode.None;
         
-    }
-    
-    
-    
-    
-    public bool SetKeyBinding(Define.ControlKey controlKey, string keyCodeName)
-    {
-        //키 검사
-        //1.string을 KeyCode로 변환한다. 유효한 키코드인지 확인한다.
-        KeyCode newKeyCode = GetKeyCodeFromName(keyCodeName);
-        
-        //2. 새로운 키 코드가 KeyCode.None이 아니고, 저장된 키 코드와 비교해서 같은 키면 그냥 return, 다른 키면 변경 & 저장해준다.
-        if (newKeyCode != KeyCode.None && newKeyCode!=GetKeyCode(controlKey))
+        //기존과 동일한 키인지 확인
+        if (GetKeyCode(controlKey) == newKeyCode)
         {
-            string keyString = controlKey.ToString();
-            Managers.Game.settingData.controls[keyString] = keyCodeName;
+            Debug.Log("이미 설정된 키입니다. 바꿀 필요 없음");
+            return new KeyBindingResult(true);
+        }
         
-            //SettingData 저장
-            SaveKeyBinding();
-
-            return true;
-
-        }
-
-        else
-        {
-            Debug.Log("동일한 키이거나 잘못된 키 입니다.");
-            return false;
-        }
+        //저장
+        string keyString = controlKey.ToString();
+        Managers.Game.settingData.controls[keyString] = newKeyCode.ToString();
+        
+        SaveKeyBinding();
+        return new KeyBindingResult(true);
         
     }
     
@@ -77,15 +65,12 @@ public class KeyBindingManager
     {
         string keyString = controlKey.ToString();
         // 저장된 KeyCode 문자열을 가져오기
-        if (Managers.Game.settingData.controls.TryGetValue(keyString, out string keyCodeString))
+        if (Managers.Game.settingData.controls.TryGetValue(keyString, out string keyName))
         {
-            Debug.Log(keyCodeString);
-            // 문자열을 KeyCode로 변환
-            return GetKeyCodeFromName(keyCodeString);
-            // if (Enum.TryParse(typeof(KeyCode), keyCodeString, out object keyCode))
-            // {
-            //     return (KeyCode)keyCode;
-            // }
+            if (Enum.TryParse<KeyCode>(keyName, out KeyCode keyCode))
+            {
+                return keyCode;
+            }
         }
 
         // KeyCode가 없을 경우 기본값 반환 (필요 시 수정)
@@ -93,4 +78,35 @@ public class KeyBindingManager
         return KeyCode.None;
 
     }
+
+
+    #region Comment
+    // private KeyCode GetKeyCodeFromName(string keyName)
+    // {
+    //     KeyCode keyCode;
+    //     
+    //     // 알파벳 키라면 대문자로 변환 (알파멧 키만 대문자로 변환해야함! 다른 키는 변환하면 parsing 실패함)
+    //     if (keyName.Length == 1 && char.IsLetter(keyName[0]))
+    //     {
+    //         keyName = keyName.ToUpper();
+    //     }
+    //     if (Enum.TryParse(keyName, out keyCode))
+    //     {
+    //         if (Enum.IsDefined(typeof(KeyCode), keyCode))
+    //         {
+    //             return keyCode;
+    //         }
+    //             Debug.LogWarning("Enum.isDefined 오류");
+    //             return KeyCode.None;
+    //         
+    //     }
+    //     Debug.LogWarning($"Enum Parse 실패. Invalid key name: {keyName}. Defaulting to KeyCode.None.");
+    //     return KeyCode.None;
+    //     
+    // }
+    
+    
+    
+
+    #endregion
 }
