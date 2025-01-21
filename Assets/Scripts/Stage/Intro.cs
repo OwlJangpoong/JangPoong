@@ -16,13 +16,11 @@ public class Intro : MonoBehaviour
     [SerializeField] private Sprite[] imgArray;
     [SerializeField] private GameObject clickBlocker;
 
-
     private RectTransform imgRect;
     
     private int turn = -1;
-#pragma warning disable CS0414 // 필드가 대입되었으나 값이 사용되지 않습니다
     private bool isClick = false;
-#pragma warning restore CS0414 // 필드가 대입되었으나 값이 사용되지 않습니다
+
     void Awake()
     {
         imgRect = img.GetComponent<RectTransform>();
@@ -32,13 +30,24 @@ public class Intro : MonoBehaviour
     {
         // PlayerPrefs.SetString("PlayerName", "전설");
         speaker.speakerName = PlayerPrefs.GetString("PlayerName");
-        Debug.Log(speaker.speakerName);
+        Debug.Log("주인공의 이름 : " + speaker.speakerName);
 
+        //씬 진입씨 첫 턴은 자동 진행
         turn++;
         Debug.Log("현재 턴 : " + turn);
         ImageChecker();
         turnChecker();
         Talk(dialogueText);
+
+        //이미지들 활성화
+        img.gameObject.SetActive(true);
+        img2.gameObject.SetActive(true);
+
+        //페이드인아웃용 이미지 활성화
+        blackImg.gameObject.SetActive(true);
+
+        //클릭방지 오브젝트 비활성화
+        clickBlocker.SetActive(false);
     }
 
     void Update()
@@ -135,118 +144,107 @@ public class Intro : MonoBehaviour
                 break;
             case 13:
                 img2.gameObject.SetActive(false);
-
-                Sequence imageSequence3 = DOTween.Sequence();
-
-                imageSequence3.AppendCallback(() => img.color = new Color(1, 1, 1, 0));
-                imageSequence3.AppendCallback(() => img.sprite = imgArray[8]);
-                imageSequence3.AppendInterval(0.5f);
-
-                imageSequence3.Append(DOTween.To(() => img.color, x => img.color = x, new Color(1, 1, 1, 1), 0.5f));
+                img.sprite = imgArray[8];
                 break;
             case 14:
                 clickBlocker.SetActive(true);
 
-                Sequence imageSequence4 = DOTween.Sequence();
-                imageSequence4.Append(DOTween.To(() => blackImg.color, x => blackImg.color = x, new Color(0, 0, 0, 1), 1f)); // 페이드인
+                Sequence imageSequence3 = DOTween.Sequence();
+                imageSequence3.Append(DOTween.To(() => blackImg.color, x => blackImg.color = x, new Color(0, 0, 0, 1), 1f)); // 페이드인
 
                 // 이미지 변경 애니메이션
-                imageSequence4.AppendCallback(() => img.sprite = imgArray[9]); // 책 펼친 내용
-                imageSequence4.Append(DOTween.To(() => blackImg.color, x => blackImg.color = x, new Color(0, 0, 0, 0), 1f)); // 페이드아웃
-                imageSequence4.AppendInterval(1f); // 1초 대기
-                imageSequence4.Append(DOTween.To(() => blackImg.color, x => blackImg.color = x, new Color(0, 0, 0, 1), 1f)); // 페이드인
-                imageSequence4.AppendCallback(() => img.sprite = imgArray[10]); // 책 넘김
-                imageSequence4.Append(DOTween.To(() => blackImg.color, x => blackImg.color = x, new Color(0, 0, 0, 0), 1f)); // 페이드아웃
-                imageSequence4.AppendInterval(1f); // 1초 대기
-                imageSequence4.Append(DOTween.To(() => blackImg.color, x => blackImg.color = x, new Color(0, 0, 0, 1), 1f)); // 페이드인
-                imageSequence4.AppendCallback(() => img.sprite = imgArray[11]);
-                imageSequence4.AppendInterval(1f); // 1초 대기
-                imageSequence4.Append(DOTween.To(() => blackImg.color, x => blackImg.color = x, new Color(0, 0, 0, 0), 1f)); // 페이드아웃
+                imageSequence3.AppendCallback(() => img.sprite = imgArray[9]); // 책 펼친 내용
+                imageSequence3.Append(DOTween.To(() => blackImg.color, x => blackImg.color = x, new Color(0, 0, 0, 0), 1f)); // 페이드아웃
+                imageSequence3.AppendInterval(1f); // 1초 대기
+                imageSequence3.Append(DOTween.To(() => blackImg.color, x => blackImg.color = x, new Color(0, 0, 0, 1), 1f)); // 페이드인
+                imageSequence3.AppendCallback(() => img.sprite = imgArray[10]); // 책 넘김
+                imageSequence3.Append(DOTween.To(() => blackImg.color, x => blackImg.color = x, new Color(0, 0, 0, 0), 1f)); // 페이드아웃
+                imageSequence3.AppendInterval(1f); // 1초 대기
+                imageSequence3.Append(DOTween.To(() => blackImg.color, x => blackImg.color = x, new Color(0, 0, 0, 1), 1f)); // 페이드인
+                imageSequence3.AppendCallback(() => img.sprite = imgArray[11]);
+                imageSequence3.AppendInterval(1f); // 1초 대기
+                imageSequence3.Append(DOTween.To(() => blackImg.color, x => blackImg.color = x, new Color(0, 0, 0, 0), 1f)); // 페이드아웃
                 // 애니메이션 종료 후 클릭 차단 해제
-                imageSequence4.OnKill(() => {
+                imageSequence3.OnKill(() => {
                     clickBlocker.SetActive(false);
                 });
                 break;
-            // case 14:
-            //     img.sprite = imgArray[9];
-            //     break;
-            // case 15:
-            //     img.sprite = imgArray[10];
-            //     break;
-            // case 14:
-            //     img.sprite = imgArray[9]; //소환진 
-            //     break;
-            // case 15:
-            //     img.sprite = imgArray[10]; //소환진 
-            //     break;
-            // case 15:
-            //     speaker.speakerName = "???";
-            //     break;
-            // case 16:
-            //     img.sprite = imgArray[7]; //마법사 등장
-            //     speaker.speakerName = PlayerPrefs.GetString("PlayerName");
-            //     break;
-            // case 25:
-            //     speaker.speakerName = "차르덴";
-            //     break;
-            // case 26:
-            //     speaker.speakerName = PlayerPrefs.GetString("PlayerName");
-            //     break;
-            // case 27:
-            //     img.sprite = imgArray[8]; //차르덴 단독샷
-            //     speaker.speakerName = "차르덴";
-            //     break;
-            // case 28:
-            //     img.sprite = imgArray[9]; //국왕 납치
-            //     break;
-            // case 29:
-            //     img.sprite = imgArray[8]; //차르덴 단독샷
-            //     break;
-            // case 30:
-            //     img.sprite = imgArray[10]; //안타까워하는 주인공, 걱정하는 차르덴
-            //     speaker.speakerName = PlayerPrefs.GetString("PlayerName");
-            //     break;
-            // case 31:
-            //     img.sprite = imgArray[11]; //킹받은 표정 변화
-            //     break;
-            // case 34:
-            //     speaker.speakerName = "차르덴";
-            //     break;
-            // case 37:
-            //     img.sprite = imgArray[12]; //킹받은 주인공, 당황한 차르덴
-            //     speaker.speakerName = PlayerPrefs.GetString("PlayerName");
-            //     break;
-            // case 38:
-            //     speaker.speakerName = "차르덴";
-            //     break;
-            // case 42:
-            //     img.sprite = imgArray[13]; //부탁하는 차르덴
-            //     break;
-            // case 43:
-            //     img.sprite = imgArray[14]; //고민하는 주인공
-            //     speaker.speakerName = PlayerPrefs.GetString("PlayerName");
-            //     break;
-            // case 45:
-            //     speaker.speakerName = "차르덴";
-            //     break;
-            // case 47:
-            //     speaker.speakerName = PlayerPrefs.GetString("PlayerName");
-            //     break;
-            // case 48:
-            //     img.sprite = imgArray[15]; //국왕 사진
-            //     speaker.speakerName = "차르덴";
-            //     break;
-            // case 49:
-            //     img.sprite = imgArray[16]; //응큼 표정 주인공
-            //     speaker.speakerName = PlayerPrefs.GetString("PlayerName");
-            //     break;
-            // case 52:
-            //     img.sprite = imgArray[17]; //물약과 지도
-            //     speaker.speakerName = "차르덴";
-            //     break;
-            // case 56:
-            //     speaker.speakerName = PlayerPrefs.GetString("PlayerName");
-            //     break;
+            case 15:
+                speaker.speakerName = "???";
+                break;
+            case 16:
+                img.sprite = imgArray[12]; //주인공 & 차르덴 투샷
+                speaker.speakerName = PlayerPrefs.GetString("PlayerName");
+                break;
+            case 25:
+                speaker.speakerName = "차르덴";
+                break;
+            case 26:
+                speaker.speakerName = PlayerPrefs.GetString("PlayerName");
+                break;
+            case 27:
+                img.sprite = imgArray[13]; //차르덴 단독샷
+                speaker.speakerName = "차르덴";
+                break;
+            case 30:
+                img.sprite = imgArray[12]; //주인공 & 차르덴 투샷
+                speaker.speakerName = PlayerPrefs.GetString("PlayerName");
+                break;
+            case 34:
+                speaker.speakerName = "차르덴";
+                break;
+            case 37:
+                speaker.speakerName = PlayerPrefs.GetString("PlayerName");
+                break;
+            case 38:
+                speaker.speakerName = "차르덴";
+                break;
+            case 42:
+                img.sprite = imgArray[13];  //차르덴 단독샷
+                break;
+            case 43:
+                img.sprite = imgArray[12]; //주인공 & 차르덴 투샷
+                speaker.speakerName = PlayerPrefs.GetString("PlayerName");
+                break;
+            case 45:
+                speaker.speakerName = "차르덴";
+                break;
+            case 47:
+                speaker.speakerName = PlayerPrefs.GetString("PlayerName");
+                break;
+            case 48:
+                img.sprite = imgArray[14]; //국왕 사진
+                speaker.speakerName = "차르덴";
+                break;
+            case 49:
+                speaker.speakerName = PlayerPrefs.GetString("PlayerName");
+                break;
+            case 51:
+                img.sprite = imgArray[12];
+                speaker.speakerName = PlayerPrefs.GetString("PlayerName");
+                break;
+            case 52:
+                speaker.speakerName = "차르덴";
+                break;
+            case 54:
+                img.sprite = imgArray[15]; //붉은 포션
+                speaker.speakerName = "차르덴";
+                break;
+            case 55:
+                img.sprite = imgArray[16]; //보라 포션
+                break;
+            case 56:
+                img.sprite = imgArray[17]; //연두 포션
+                break;
+            case 57:
+                img.sprite = imgArray[18]; //노란 포션
+                break;
+            case 58:
+                img.sprite = imgArray[19]; //지도
+                break;
+            case 59:
+                speaker.speakerName = PlayerPrefs.GetString("PlayerName");
+                break;
         }
     }
     private void OnEnable()
