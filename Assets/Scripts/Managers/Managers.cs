@@ -22,7 +22,7 @@ public class Managers : MonoBehaviour
     private ResourceManager _resource = new ResourceManager();
     private SceneManagerEx _scene = new SceneManagerEx();
     private UIManager _ui = new UIManager();
-    private SoundManager sound = new SoundManager();
+    private SoundManager _sound = new SoundManager();
     private PlayerDataManager _playerData;
 
     private KeyBindingManager _keyBind = new KeyBindingManager();
@@ -43,7 +43,7 @@ public class Managers : MonoBehaviour
     public static UIManager UI { get { return Instance._ui; } }
     public static SoundManager Sound
     {
-        get { return Instance.sound; }
+        get { return Instance._sound; }
     }
 
     public static PlayerDataManager PlayerData
@@ -107,8 +107,13 @@ public class Managers : MonoBehaviour
 
 
             s_instance._data.Init();
-            s_instance.sound.Init();
-            s_instance._keyBind.LoadKeyBindings();
+            s_instance._game.Init();
+            
+            
+            //GameManager가 초기화된 다음에 sound랑 keybind가 초기화되어야 하는데...
+            s_instance._sound.Init();
+            //s_instance._keyBind.LoadKeyBinding();
+            
         }
 
     }

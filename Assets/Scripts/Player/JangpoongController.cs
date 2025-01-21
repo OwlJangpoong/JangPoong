@@ -9,7 +9,9 @@ public class JangpoongController : MonoBehaviour
     //=====장풍 레벨 정보, 데미지 관리, 업그레이드를 어떻게 처리할 것인가? ======//
     
     private Animator animator;
+#pragma warning disable CS0108 // 멤버가 상속된 멤버를 숨깁니다. new 키워드가 없습니다.
     private Collider2D collider2D;
+#pragma warning restore CS0108 // 멤버가 상속된 멤버를 숨깁니다. new 키워드가 없습니다.
     private Rigidbody2D rb;
    
     [SerializeField] private float damage = 0.5f;
