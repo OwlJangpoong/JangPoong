@@ -25,26 +25,15 @@ public class SoundManager
          audioMixer =  Managers.Resource.Load<AudioMixer>("Sounds/MasterAudioMixer");
          audioMixerGroups = audioMixer.FindMatchingGroups("Master");
          
-         //소리 데이터 저장 및 로드 - 데이터 연결 완료(0116)
-         //1. 저장된 Setting 파일이 있는지 확인한다.
-         //있으면 로드
-         if (Managers.Data.HasSaveDataFile(Define.SaveKey.SettingData))
-         {
-            Managers.Game.settingData = Managers.Data.LoadData<SettingData>(Define.SaveKey.SettingData);
-         }
+         //소리 데이터 저장 및 로드 - 데이터 연결 완료(250116)
+         //Sound 초기화 부분 GameManager로 이동. GameManager에서 Setting 데이터 처리하도록 수정 (250116)
          
-         //2. 없으면 초기화 파일 로드
-         else
+         //사운드 셋팅 적용
+         if (Managers.Game.settingData != null)
          {
-            Managers.Game.settingData = Managers.Data.LoadInitData<SettingData>(Define.SaveKey.SettingData);
-            
-            //초기화 후 저장 경로에 해당 데이터를 저장한다.
-            Managers.Data.SaveData<SettingData>(Define.SaveKey.SettingData, Managers.Game.settingData);
+            SetBgmVolume(Managers.Game.settingData.audioVolume.Bgm);
+            SetSfxVolume(Managers.Game.settingData.audioVolume.Sfx);
          }
-         
-         //4. 사운드 셋팅 적용
-         SetBgmVolume(Managers.Game.settingData.audioVolume.Bgm);
-         SetSfxVolume(Managers.Game.settingData.audioVolume.Sfx);
         
       }
       

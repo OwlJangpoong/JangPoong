@@ -108,8 +108,11 @@ public class Managers : MonoBehaviour
 
             s_instance._data.Init();
             s_instance._game.Init();
+            
+            
+            //GameManager가 초기화된 다음에 sound랑 keybind가 초기화되어야 하는데...
             s_instance._sound.Init();
-            s_instance._keyBind.LoadKeyBindings();
+            //s_instance._keyBind.LoadKeyBinding();
             
         }
 

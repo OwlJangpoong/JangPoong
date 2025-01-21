@@ -11,7 +11,7 @@ public abstract class ItemBase : MonoBehaviour
 
     private bool allowCollect = true; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¹ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-    public Define.Item itemType; // ¾ÆÀÌÅÛ Å¸ÀÔ
+    public Define.Item itemType; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½
 
     public void Setup()                                                    
     {
@@ -55,13 +55,13 @@ public abstract class ItemBase : MonoBehaviour
     // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (allowCollect && collision.transform.CompareTag("Player")) ;
+        if (allowCollect && collision.transform.CompareTag("Player"))
         {
             UpdateCollision(collision.transform);
             Destroy(gameObject);
         }
     }
 
-    // ItemBaseï¿½ï¿½ ï¿½ï¿½Ó¹Þ´ï¿?ï¿½ï¿½ï¿?Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ ï¿½Þ¼Òµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¼ï¿½
+    // ItemBaseï¿½ï¿½ ï¿½ï¿½Ó¹Þ´ï¿½?ï¿½ï¿½ï¿½?Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ ï¿½Þ¼Òµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¼ï¿½
     public abstract void UpdateCollision(Transform target);
 }

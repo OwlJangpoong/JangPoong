@@ -15,15 +15,15 @@ public class NewPlayerMovement : MonoBehaviour
     public NewPlayerAnimationController playerAnimator;
     private MovementRigidbody2D movement;
 
-    // Á¡ÇÁ µ¥ÀÌÅÍ
+    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     [SerializeField] float jumpForce = 600f, speed = 5.0f;
     float moveX;
 
-    public bool isSliding = false;    // ½½¶óÀÌµù ÁßÀÌ¸é true
-    private Vector2 slideDirection;    // ½½¶óÀÌµù ¹æÇâ
-    private float slideRemainingDistance;  // ³²Àº ½½¶óÀÌµù °Å¸®
-    private Vector2 originalColliderSize;  // ±âÁ¸ Player Collider Size
-    private Vector2 originalColliderOffset;  // ±âÁ¸ Player Collider Offset
+    public bool isSliding = false;    // ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ true
+    private Vector2 slideDirection;    // ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
+    private float slideRemainingDistance;  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Å¸ï¿½
+    private Vector2 originalColliderSize;  // ï¿½ï¿½ï¿½ï¿½ Player Collider Size
+    private Vector2 originalColliderOffset;  // ï¿½ï¿½ï¿½ï¿½ Player Collider Offset
 
     #region Move Speed Control Variables / Methods
     [SerializeField] private float originSlideSpeed = 7.0f;
@@ -37,7 +37,7 @@ public class NewPlayerMovement : MonoBehaviour
         switch (state)
         {
             case 0:
-                //¿ø·¡ ¼Óµµ´ë·Î
+                //ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½ï¿½ï¿½ï¿½
                 slideSpeed = originSlideSpeed;
                 break;
             case 1:
@@ -52,22 +52,22 @@ public class NewPlayerMovement : MonoBehaviour
     }
     #endregion
 
-    [SerializeField] private float slideDistance = 3.0f;  // ½½¶óÀÌµù °Å¸®
-    [SerializeField] private LayerMask groundLayer;  // Ground ·¹ÀÌ¾î ¼³Á¤
+    [SerializeField] private float slideDistance = 3.0f;  // ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Å¸ï¿½
+    [SerializeField] private LayerMask groundLayer;  // Ground ï¿½ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-    public float speedMultiplier = 1.5f;                                // ´Þ¸®±âÇÒ ¶§ ¼Óµµ ¹è¼Ó
+    public float speedMultiplier = 1.5f;                                // ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Óµï¿½ ï¿½ï¿½ï¿½
 
     public bool doubleJumpState = false;
     public bool isGround = false;
     public bool isJumping = false;
     public bool isDoubleJumping = false;
-    public bool isRunning = false;                                        // ´Þ¸®±â ÁßÀÌ¸é true
+    public bool isRunning = false;                                        // ï¿½Þ¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ true
 
-    [NonSerialized] public float slideSpeed = 7.0f;  // ½½¶óÀÌµù ¼Óµµ
+    [NonSerialized] public float slideSpeed = 7.0f;  // ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Óµï¿½
 
 
     public GameObject gameOver;
-    public bool gameOverFlag = false; // true¸é °ÔÀÓ ¿À¹ö »óÅÂ
+    public bool gameOverFlag = false; // trueï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 
 
@@ -82,21 +82,21 @@ public class NewPlayerMovement : MonoBehaviour
         originalColliderSize = CapsuleCollider2D.size;
         originalColliderOffset = CapsuleCollider2D.offset;
 
-        // ¼Óµµ ¼³Á¤
+        // ï¿½Óµï¿½ ï¿½ï¿½ï¿½ï¿½
         slideSpeed = originSlideSpeed;
         ssgSlideSpeed = originSlideSpeed * 0.5f;
         sgSlideSpeed = originSlideSpeed * 0.75f;
 
-        // speed controlAction µî·Ï
+        // speed controlAction ï¿½ï¿½ï¿½
         movement.controlSpeedAction -= WalkSpeedState;
         movement.controlSpeedAction += WalkSpeedState;
 
-        // DieAction ¼³Á¤
+        // DieAction ï¿½ï¿½ï¿½ï¿½
         Managers.PlayerData.DieAction -= SetPlayerDead;
         Managers.PlayerData.DieAction += SetPlayerDead;
 
 
-        // GAMEOVER ºñÈ°¼ºÈ­
+        // GAMEOVER ï¿½ï¿½È°ï¿½ï¿½È­
         gameOver.SetActive(false);
 
     }
@@ -133,23 +133,23 @@ public class NewPlayerMovement : MonoBehaviour
 
     }
 
-    #region ÀÌµ¿ & Á¡ÇÁ & ´õºí Á¡ÇÁ
+    #region ï¿½Ìµï¿½ & ï¿½ï¿½ï¿½ï¿½ & ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     private float GetHorizontalInput()
     {
         float x = 0;
 
-        if (Input.GetKey(Managers.KeyBind.leftKeyCode)) // ÁÂ·Î ÀÌµ¿ Å° ´­·¶À» ¶§
+        if (Input.GetKey(Managers.KeyBind.GetKeyCode(Define.ControlKey.leftKey))) // ï¿½Â·ï¿½ ï¿½Ìµï¿½ Å° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
         {
             x = -1;
         }
-        else if (Input.GetKey(Managers.KeyBind.rightKeyCode)) // ¿ì·Î ÀÌµ¿ Å° ´­·¶À» ¶§
+        else if (Input.GetKey(Managers.KeyBind.GetKeyCode(Define.ControlKey.rightKey))) // ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ Å° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
         {
             x = 1;
         }
         return x;
     }
 
-    // Á¡ÇÁ
+    // ï¿½ï¿½ï¿½ï¿½
     void Jump()
     {
 
@@ -163,21 +163,21 @@ public class NewPlayerMovement : MonoBehaviour
             else
                 isGround = false;
 
-            // 1´Ü Á¡ÇÁ
-            if (isGround && Input.GetKeyDown(Managers.KeyBind.jumpKeyCode))
+            // 1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+            if (isGround && Input.GetKeyDown(Managers.KeyBind.GetKeyCode(Define.ControlKey.jumpKey)))
             {
                 JumpAddForce();
                 isJumping = true;
-                isDoubleJumping = false;  // Ã¹ Á¡ÇÁ¿¡¼­´Â ´õºí Á¡ÇÁ false·Î À¯Áö
-                doubleJumpState = true; // ´õºí Á¡ÇÁ °¡´É
+                isDoubleJumping = false;  // Ã¹ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ falseï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+                doubleJumpState = true; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             }
-            // ´õºí Á¡ÇÁ
-            else if (doubleJumpState && Input.GetKeyDown(Managers.KeyBind.jumpKeyCode))
+            // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+            else if (doubleJumpState && Input.GetKeyDown(Managers.KeyBind.GetKeyCode(Define.ControlKey.jumpKey)))
             {
                 JumpAddForce();
-                doubleJumpState = false;  // ´õºí Á¡ÇÁ ºÒ°¡´É
-                isDoubleJumping = true;   // ´õºí Á¡ÇÁ »óÅÂ true
-                StartCoroutine(ResetDoubleJumpFlag());  // ´õºí Á¡ÇÁ »óÅÂ À¯Áö Å¸ÀÌ¸Ó ½ÃÀÛ
+                doubleJumpState = false;  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½
+                isDoubleJumping = true;   // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ true
+                StartCoroutine(ResetDoubleJumpFlag());  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½
             }
 
             moveX = Input.GetAxis("Horizontal") * speed * speedMultiplier;
@@ -186,14 +186,14 @@ public class NewPlayerMovement : MonoBehaviour
 
     }
 
-    // ´õºí Á¡ÇÁ »óÅÂ À¯Áö Å¸ÀÌ¸Ó
+    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½Ì¸ï¿½
     IEnumerator ResetDoubleJumpFlag()
     {
         yield return new WaitForSeconds(0.3f);
-        isDoubleJumping = false;  // ´õºí Á¡ÇÁ ¾Ö´Ï¸ÞÀÌ¼ÇÀÌ ÃæºÐÈ÷ Àç»ýµÈ ÈÄ false·Î º¯°æ
+        isDoubleJumping = false;  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ falseï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 
-    // Á¡ÇÁ Force
+    // ï¿½ï¿½ï¿½ï¿½ Force
     void JumpAddForce()
     {
         rb.velocity = new Vector2(rb.velocity.x, 0f);
@@ -201,12 +201,12 @@ public class NewPlayerMovement : MonoBehaviour
     }
     #endregion
 
-    #region ½½¶óÀÌµù
+    #region ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½
     private void UpdateSlide()
     {
         if (isGround)
         {
-            if (Input.GetKeyDown(Managers.KeyBind.slideKeyCode))  // ½½¶óÀÌµù Å° ´­·¶À» ¶§
+            if (Input.GetKeyDown(Managers.KeyBind.GetKeyCode(Define.ControlKey.slideKey)))  // ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ Å° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
             {
                 if (!isSliding)
                 {
@@ -221,33 +221,33 @@ public class NewPlayerMovement : MonoBehaviour
         }
     }
 
-    // ½½¶óÀÌµù ½ÃÀÛ
+    // ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
     private void StartSlide()
     {
         isSliding = true;
         slideRemainingDistance = slideDistance;
         slideDirection = new Vector2(transform.localScale.x, 0).normalized;
 
-        // Player Collider Å©±â¿Í À§Ä¡ Á¶Á¤
+        // Player Collider Å©ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
         CapsuleCollider2D.size = new Vector2(4.255104f, 4.660773f);
         CapsuleCollider2D.offset = new Vector2(0.5280471f, -2.357519f);
 
-        // ½½¶óÀÌµù ¾Ö´Ï¸ÞÀÌ¼Ç ½ÃÀÛ
+        // ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½
         playerAnimator.StartSliding();
 
-        //Debug.Log("½½¶óÀÌµù ½ÃÀÛ");
+        //Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½");
     }
 
-    // ½½¶óÀÌµù À¯Áö
+    // ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
     private void HandleSliding()
     {
-        // ¸Ó¸® À§¿¡ Ground ·¹ÀÌ¾î À¯¹« Ã¼Å©
+        // ï¿½Ó¸ï¿½ ï¿½ï¿½ï¿½ï¿½ Ground ï¿½ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, 1.0f, groundLayer);
         if (hit.collider != null)
         {
-            // Debug.Log("¸Ó¸® À§¿¡ Àå¾Ö¹° Á¸Àç");
+            // Debug.Log("ï¿½Ó¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ö¹ï¿½ ï¿½ï¿½ï¿½ï¿½");
 
-            // ¸Ó¸® À§¿¡ Àå¾Ö¹°ÀÌ ÀÖ´Â µ¿¾È ½½¶óÀÌµù »óÅÂ À¯Áö
+            // ï¿½Ó¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             rb.velocity = new Vector2(slideDirection.x * slideSpeed, rb.velocity.y);
             return;
         }
@@ -261,49 +261,49 @@ public class NewPlayerMovement : MonoBehaviour
         rb.velocity = new Vector2(slideDirection.x * slideSpeed, rb.velocity.y);
         slideRemainingDistance -= moveStep;
 
-        // ½½¶óÀÌµù Á¾·á Á¶°Ç
+        // ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (slideRemainingDistance <= 0)
         {
             EndSlide();
         }
     }
 
-    // ½½¶óÀÌµù Á¾·á
+    // ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
     private void EndSlide()
     {
         isSliding = false;
-        // Player Collider Å©±â ¹× À§Ä¡ ¿ø·¡´ë·Î º¹±¸
+        // Player Collider Å©ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         CapsuleCollider2D.size = originalColliderSize;
         CapsuleCollider2D.offset = originalColliderOffset;
-        rb.velocity = Vector2.zero;  // ¼Óµµ ÃÊ±âÈ­
+        rb.velocity = Vector2.zero;  // ï¿½Óµï¿½ ï¿½Ê±ï¿½È­
 
-        // ½½¶óÀÌµù Á¾·á ¾Ö´Ï¸ÞÀÌ¼Ç
+        // ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½
         playerAnimator.StopSliding();
 
-        //Debug.Log("½½¶óÀÌµù Á¾·á");
+        //Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½");
     }
     #endregion
 
-    #region ´Þ¸®±â Åä±Û
+    #region ï¿½Þ¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
     private void UpdateRun()
     {
 
-        if (Input.GetKeyDown(Managers.KeyBind.runKeyCode))
+        if (Input.GetKeyDown(Managers.KeyBind.GetKeyCode(Define.ControlKey.runKey)))
         {
-            isRunning = !isRunning; // ´Þ¸®±â »óÅÂ Åä±Û
+            isRunning = !isRunning; // ï¿½Þ¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
         }
 
     }
     #endregion
 
-    #region ÀåÇ³ ¹ß»ç
+    #region ï¿½ï¿½Ç³ ï¿½ß»ï¿½
     private void UpdateJangPoong()
     {
         if (EventSystem.current.IsPointerOverGameObject())
         {
-            return;  ////UI Å¬¸¯½Ã´Â ÀåÇ³ ¹ß»ç°¡ µÇÁö ¾Êµµ·Ï Ã³¸® (240802 µµÇö)
+            return;  ////UI Å¬ï¿½ï¿½ï¿½Ã´ï¿½ ï¿½ï¿½Ç³ ï¿½ß»ç°¡ ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ (240802 ï¿½ï¿½ï¿½ï¿½)
         }
-        if (Input.GetKeyDown(KeyCode.C))    // cÅ° ·Î ÀåÇ³ ¹ß»ç
+        if (Input.GetKeyDown(KeyCode.C))    // cÅ° ï¿½ï¿½ ï¿½ï¿½Ç³ ï¿½ß»ï¿½
         {
             if (playerDataManager.Mana >= playerDataManager.manaConsumption)
             {
@@ -311,47 +311,47 @@ public class NewPlayerMovement : MonoBehaviour
 
                 Managers.Sound.Play("56_Attack_03");
 
-                // ´Þ¸®±â Áß¿¡ ÀåÇ³ ¼Ó·Â Áõ°¡
+                // ï¿½Þ¸ï¿½ï¿½ï¿½ ï¿½ß¿ï¿½ ï¿½ï¿½Ç³ ï¿½Ó·ï¿½ ï¿½ï¿½ï¿½ï¿½
                 if (isRunning)
                     playerDataManager.jangPoongSpeed = 14;
                 else
                     playerDataManager.jangPoongSpeed = 12;
 
                 Vector3 spawnPosition = transform.position;
-                spawnPosition.y += isSliding ? -0.38f : -0.08f;     // ½½¶óÀÌµù ½Ã¿¡´Â y°ª -0.08f¿¡¼­ ÀåÇ³ ¹ß»çµÇµµ·Ï
+                spawnPosition.y += isSliding ? -0.38f : -0.08f;     // ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ã¿ï¿½ï¿½ï¿½ yï¿½ï¿½ -0.08fï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç³ ï¿½ß»ï¿½Çµï¿½ï¿½ï¿½
 
                 GameObject jangPoong = Instantiate(playerDataManager.jangPoongPrefab, spawnPosition, Quaternion.identity);
                 Rigidbody2D jangPoongRb = jangPoong.GetComponent<Rigidbody2D>();
 
 
 
-                //ÀåÇ³ alive time ¼³Á¤°¡(240809) - µµÇö
+                //ï¿½ï¿½Ç³ alive time ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(240809) - ï¿½ï¿½ï¿½ï¿½
                 JangpoongController jc = jangPoong.GetComponent<JangpoongController>();
                 jc.AliveTime = playerDataManager.jangPoongDistance / playerDataManager.jangPoongSpeed;
 
                 Vector2 jangPoongDirection = new Vector2(transform.localScale.x, 0).normalized;
                 jangPoongRb.velocity = jangPoongDirection * playerDataManager.jangPoongSpeed;
-                jangPoong.transform.localScale = new Vector3((jangPoongDirection.x > 0 ? 0.5f : -0.5f), 0.5f, 0.5f); //¼öÁ¤
+                jangPoong.transform.localScale = new Vector3((jangPoongDirection.x > 0 ? 0.5f : -0.5f), 0.5f, 0.5f); //ï¿½ï¿½ï¿½ï¿½
 
                 playerAnimator.JangPoongShooting();
 
-                //Destroy(jangPoong, playerDataManager.jangPoongDistance / playerDataManager.jangPoongSpeed); //Destory ·ÎÁ÷ ÀåÇ³ ¿ÀºêÁ§Æ®¿¡¼­ °ü¸®ÇÏµµ·Ï ¼öÁ¤(240809) - µµÇö
+                //Destroy(jangPoong, playerDataManager.jangPoongDistance / playerDataManager.jangPoongSpeed); //Destory ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç³ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(240809) - ï¿½ï¿½ï¿½ï¿½
             }
-            else // ÀÜ¿© ¸¶³ª·® < 5
+            else // ï¿½Ü¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ < 5
             {
-                Debug.Log("¸¶³ª·® ºÎÁ·");
+                Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
             }
         }
     }
     #endregion
 
-    #region »ç¸Á
+    #region ï¿½ï¿½ï¿½
     private void SetPlayerDead()
     {
         movement.MoveTo(0);
         gameOverFlag = true;
         playerAnimator.PlayerDead();
-        Debug.Log("ÇÃ·¹ÀÌ¾î Á×À½");
+        Debug.Log("ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½");
         gameOver.SetActive(true);
     }
     public void OnButtonClick_Restart()
@@ -360,7 +360,7 @@ public class NewPlayerMovement : MonoBehaviour
         gameOver.SetActive(false);
         playerAnimator.animator.SetBool("Dead", false);
 
-        // Àç½ÃÀÛÇÒ ¶§ HP°¡ 0ÀÎ »óÅÂ·Î ½ÃÀÛµÇ´Â ¹®Á¦ ÀÖÀ½
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ HPï¿½ï¿½ 0ï¿½ï¿½ ï¿½ï¿½ï¿½Â·ï¿½ ï¿½ï¿½ï¿½ÛµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 
     }

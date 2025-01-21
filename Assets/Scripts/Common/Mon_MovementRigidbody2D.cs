@@ -14,8 +14,12 @@ public class Mon_MovementRigidbody2D : MonoBehaviour
     [Header("Move")]
     [SerializeField]
     private float walkSpeed = 5; // 걷는 속도
+    
+#pragma warning disable CS0414 // 필드가 대입되었으나 값이 사용되지 않습니다
     [SerializeField]
     private float runSpeed = 8; // 뛰는 속도
+#pragma warning restore CS0414 // 필드가 대입되었으나 값이 사용되지 않습니다
+    
     public float WalkSpeed
     {
         get { return walkSpeed; }
@@ -46,7 +50,10 @@ public class Mon_MovementRigidbody2D : MonoBehaviour
     public Vector2 HeadPosition { get { return headPosition; } }
 
     private Rigidbody2D rigid2D; // 물리를 제어하는 컴포넌트
+    
+#pragma warning disable CS0108 // 멤버가 상속된 멤버를 숨깁니다. new 키워드가 없습니다.
     private Collider2D collider2D; // 현재 오브젝트의 충돌 범위
+#pragma warning restore CS0108 // 멤버가 상속된 멤버를 숨깁니다. new 키워드가 없습니다.
 
     public bool IsLongJump { set; get; } = false; // 낮은 점프, 높은 점프 체크
     [SerializeField] private bool isGrounded = false;

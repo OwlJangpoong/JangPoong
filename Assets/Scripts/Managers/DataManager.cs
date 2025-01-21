@@ -40,7 +40,7 @@ public class DataManager
 
     public void SetSlotNum()
     {
-        this.slotNum = slotNum;
+        //this.slotNum = slotNum;
         string slot = "Slot" + slotNum;
         
         saveFolderPath = Path.Combine(Application.persistentDataPath, "SaveData", slot);
@@ -85,7 +85,7 @@ public class DataManager
             //3. 파일 있으면 json 파일 읽기
             string json = File.ReadAllText(path);
             //4. 해당하는 클래스 형식으로 전환하기 & 반환
-            return JsonUtility.FromJson<T>(json);
+            return JsonConvert.DeserializeObject<T>(json);
         }
 
         //5. 파일 없으면 오류!
@@ -107,7 +107,7 @@ public class DataManager
         string path = Path.Combine(saveFolderPath, fileName);
         
         //2. 클래스를 Json 형식으로 전환
-        string json = JsonUtility.ToJson(data, true);
+        string json = JsonConvert.SerializeObject(data, Formatting.Indented); //들여쓰기, 줄바꿈 적용된 형태로 저장(유지보수 위해)
 
         //3. 이미 파일이 존재하고 있다면 덮어쓰기, 없다면 새로쓰기
         File.WriteAllText(path,json);
@@ -139,7 +139,7 @@ public class DataManager
 
         //4. 로드한 파일을 읽어서 클래스에 맞게 전환해서 반환한다.
         string json = initJsonFile.text;
-        return JsonUtility.FromJson<T>(json);
+        return JsonConvert.DeserializeObject<T>(json);
 
     }
 
