@@ -6,10 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="8d60103f-3d9b-4716-9d1c-3d51d042b424" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.JangPoong/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.JangPoong/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Background/forest/Sliced/mainlevbuild.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Background/forest/Sliced/mainlevbuild.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/0-3 tutorial.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/0-3 tutorial.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Common/NewGameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Common/NewGameController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Data/Stage/Stage Village1.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Data/Stage/Stage Village1.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Data/Stage/Stage1-1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Data/Stage/Stage1-1.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Data/Stage/Stage1-2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Data/Stage/Stage1-2.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/1-1 tutorial.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/1-1 tutorial.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/1-2 forest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/1-2 forest.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/1-3 goblin fight.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/1-3 goblin fight.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +43,7 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/SaveFilePathTest.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/dohyun/Desktop/이화/King/장풍전설/JangPoong/Assets/Scenes/0-3 tutorial.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Data/SettingData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ETC/KeyBindingResult.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/KeyBinding/UI_Setting_KeyCode.cs" root0="FORCE_HIGHLIGHTING" />
@@ -130,6 +134,7 @@
       <workItem from="1735819408273" duration="22839000" />
       <workItem from="1737421733571" duration="16321000" />
       <workItem from="1737456086739" duration="3214000" />
+      <workItem from="1737466023108" duration="987000" />
     </task>
     <servers />
   </component>

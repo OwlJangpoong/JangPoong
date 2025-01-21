@@ -11,8 +11,8 @@ public class NewPlayerAnimationController : MonoBehaviour
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        movement = GetComponent<NewPlayerMovement>();
-        rb = GetComponent<Rigidbody2D>();
+        movement = GetComponentInParent<NewPlayerMovement>();
+        rb = GetComponentInParent<Rigidbody2D>();
     }
 
     public void UpdateAnimation(float x)

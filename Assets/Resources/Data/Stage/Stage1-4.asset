@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f441287a402884150b182a222e3775b7, type: 3}
-  m_Name: Stage Village1
+  m_Name: Stage1-4
   m_EditorClassIdentifier: 
-  cameraLimitMinX: -16.12499
-  cameraLimitMaxX: 84.39502
-  playerLimitMinX: -24.25575
-  playerLimitMaxX: 84.39502
-  playerPosition: {x: -17.66, y: -5.055001}
-  cameraPosition: {x: -136.78, y: -5.055019}
+  cameraLimitMinX: -6.77
+  cameraLimitMaxX: 5.8
+  playerLimitMinX: -8.395001
+  playerLimitMaxX: 9.019139
+  playerPosition: {x: -8.395001, y: -6.06772}
+  cameraPosition: {x: -8.854428, y: -5.14}
