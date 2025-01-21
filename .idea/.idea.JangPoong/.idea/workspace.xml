@@ -6,13 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="8d60103f-3d9b-4716-9d1c-3d51d042b424" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.JangPoong/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.JangPoong/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Data/Stage/Stage Village1.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Data/Stage/Stage Village1.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Data/Stage/Stage1-1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Data/Stage/Stage1-1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Data/Stage/Stage1-2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Data/Stage/Stage1-2.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/1-1 tutorial.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/1-1 tutorial.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/1-2 forest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/1-2 forest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/1-3 goblin fight.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/1-3 goblin fight.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/NewPlayer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/NewPlayer.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewPlayer/NewPlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewPlayer/NewPlayerMovement.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

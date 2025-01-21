@@ -17,6 +17,7 @@ public class NewPlayerMovement : MonoBehaviour
     private PlayerDataManager playerDataManager;
     public NewPlayerAnimationController playerAnimator;
     private MovementRigidbody2D movement;
+    private Transform transformForSpriteControl; //Sprite와 관련된 처리는 이 변수 이용(Sprite와 애니메이션은 자식 오브젝트로 이동시켰기 때문)
 
     // 점프 데이터
     [SerializeField] float jumpForce = 600f, speed = 5.0f;
@@ -82,6 +83,7 @@ public class NewPlayerMovement : MonoBehaviour
         playerAnimator = GetComponentInChildren<NewPlayerAnimationController>();
         playerDataManager = GetComponentInChildren<PlayerDataManager>();
         movement = GetComponent<MovementRigidbody2D>();
+        transformForSpriteControl = playerAnimator.transform; //Sprite 컴포넌트 갖는 오브젝트의 transform
 
         originalColliderSize = CapsuleCollider2D.size;
         originalColliderOffset = CapsuleCollider2D.offset;
@@ -254,7 +256,7 @@ public class NewPlayerMovement : MonoBehaviour
     {
         isSliding = true;
         slideRemainingDistance = slideDistance;
-        slideDirection = new Vector2(transform.localScale.x, 0).normalized;
+        slideDirection = new Vector2(transformForSpriteControl.localScale.x, 0).normalized; //Player 프리팹 구조 변경으로 인한 코드 수정(250122)
 
         // Player Collider 크기와 위치 조정
         CapsuleCollider2D.size = new Vector2(4.255104f, 4.660773f);
@@ -357,7 +359,7 @@ public class NewPlayerMovement : MonoBehaviour
                 JangpoongController jc = jangPoong.GetComponent<JangpoongController>();
                 jc.AliveTime = playerDataManager.jangPoongDistance / playerDataManager.jangPoongSpeed;
 
-                Vector2 jangPoongDirection = new Vector2(transform.localScale.x, 0).normalized;
+                Vector2 jangPoongDirection = new Vector2(transformForSpriteControl.localScale.x, 0).normalized; //플레이어 프리팹 수정으로 인한 코드 변경 (250122)
                 jangPoongRb.velocity = jangPoongDirection * playerDataManager.jangPoongSpeed;
                 jangPoong.transform.localScale = new Vector3((jangPoongDirection.x > 0 ? 0.5f : -0.5f), 0.5f, 0.5f); //수정
 
