@@ -13,7 +13,7 @@ public class NewGameController : MonoBehaviour
     private void Awake()
     {
         playerMovement = GameObject.FindWithTag("Player").GetComponent<NewPlayerMovement>();
-        
+        playerMovement.SetUp(currentStageData);
         cameraFollow.SetUp(currentStageData);
     }
 }
