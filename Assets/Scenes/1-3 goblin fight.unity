@@ -352,7 +352,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1048575
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -394,7 +394,7 @@ MonoBehaviour:
   m_RenderShadows: 1
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
-  m_CameraType: 0
+  m_CameraType: 1
   m_Cameras: []
   m_RendererIndex: -1
   m_VolumeLayerMask:
@@ -846,7 +846,8 @@ MonoBehaviour:
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
-  m_Cameras: []
+  m_Cameras:
+  - {fileID: 40542029}
   m_RendererIndex: -1
   m_VolumeLayerMask:
     serializedVersion: 2
@@ -910,10 +911,10 @@ Camera:
   field of view: 60
   orthographic: 1
   orthographic size: 6
-  m_Depth: -10
+  m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1048576
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1075,7 +1076,7 @@ GameObject:
   - component: {fileID: 416822537}
   - component: {fileID: 416822536}
   - component: {fileID: 416822535}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Background00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1141,7 +1142,7 @@ Transform:
   m_GameObject: {fileID: 416822534}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2}
+  m_LocalPosition: {x: 0, y: 0, z: 4}
   m_LocalScale: {x: 22, y: 12, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1272,7 +1273,7 @@ GameObject:
   - component: {fileID: 517950150}
   - component: {fileID: 517950149}
   - component: {fileID: 517950148}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Background01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1338,7 +1339,7 @@ Transform:
   m_GameObject: {fileID: 517950147}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.36, z: 1}
+  m_LocalPosition: {x: 0, y: -1.36, z: 3}
   m_LocalScale: {x: 22, y: 12, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1678,7 +1679,7 @@ GameObject:
   - component: {fileID: 790582853}
   - component: {fileID: 790582852}
   - component: {fileID: 790582851}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Background02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1744,7 +1745,7 @@ Transform:
   m_GameObject: {fileID: 790582850}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.98, z: 0}
+  m_LocalPosition: {x: 0, y: -0.98, z: 2}
   m_LocalScale: {x: 22, y: 12, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3235,7 +3236,7 @@ GameObject:
   - component: {fileID: 1177857521}
   - component: {fileID: 1177857523}
   - component: {fileID: 1177857522}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Background03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3251,7 +3252,7 @@ Transform:
   m_GameObject: {fileID: 1177857520}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.98, z: 0}
+  m_LocalPosition: {x: 0, y: -0.98, z: 1}
   m_LocalScale: {x: 22, y: 12, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3517,7 +3518,7 @@ GameObject:
   - component: {fileID: 1328558145}
   - component: {fileID: 1328558147}
   - component: {fileID: 1328558146}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Background04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13059,17 +13060,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCamera: {fileID: 40542030}
-  backgrounds: []
-  backgroundClouds:
-  - background: {fileID: 416822535}
-    speed: 0.02
+  backgrounds:
   - background: {fileID: 517950148}
-    speed: 0.02
+    speed: 0.01
   - background: {fileID: 790582851}
     speed: 0.02
   - background: {fileID: 1177857522}
-    speed: 0.02
+    speed: 0.03
   - background: {fileID: 1328558146}
+    speed: 0.04
+  backgroundClouds:
+  - background: {fileID: 416822535}
     speed: 0.02
 --- !u!4 &1652364845
 Transform:
