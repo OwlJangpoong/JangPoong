@@ -8,6 +8,9 @@ using UnityEngine.SceneManagement;
 
 public class NewPlayerMovement : MonoBehaviour
 {
+    
+    //플레이어 맵 이동 제한
+    private StageData stageData; //삭제 금지!!! (250121)
 
     Rigidbody2D rb;
     CapsuleCollider2D CapsuleCollider2D;
@@ -76,7 +79,7 @@ public class NewPlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         CapsuleCollider2D = GetComponent<CapsuleCollider2D>();
-        playerAnimator = GetComponent<NewPlayerAnimationController>();
+        playerAnimator = GetComponentInChildren<NewPlayerAnimationController>();
         playerDataManager = GetComponentInChildren<PlayerDataManager>();
         movement = GetComponent<MovementRigidbody2D>();
 
@@ -105,7 +108,17 @@ public class NewPlayerMovement : MonoBehaviour
         }
 
         // GAMEOVER 비활성화
-        gameOver.SetActive(false);
+        
+        //gameover 오브젝트 자동 할당을 위한 코드 추가(250121)
+        GameObject ui_Game_Root = GameObject.FindWithTag("UI_Root");
+        if (ui_Game_Root.GetComponentInChildren<UI_GameOverButtons>(true))
+        {
+            gameOver = ui_Game_Root.GetComponentInChildren<UI_GameOverButtons>(true).gameObject;
+            gameOver.SetActive(false);
+        }
+       
+        
+
 
     }
 
@@ -137,6 +150,13 @@ public class NewPlayerMovement : MonoBehaviour
 
             playerAnimator.SetSpeedMultiplier(isRunning ? 1.5f : 1.0f);
             playerAnimator.UpdateAnimation(x);
+            
+            
+            /////플레이어 맵 이동 제한을 위한 코드! 삭제 금지 ----------
+            if (stageData == null) return;
+            float xPos = Mathf.Clamp(transform.position.x, stageData.PlayerLimitMinX, stageData.PlayerLimitMaxX);
+            transform.position = new Vector2(xPos, transform.position.y);
+            ////-------------
         }
 
     }
@@ -376,4 +396,17 @@ public class NewPlayerMovement : MonoBehaviour
         Instantiate(levelUpEffect, transform.position, Quaternion.identity);
     }
     #endregion
+
+
+    #region 플레이어 맵 이동 컨트롤
+    public void SetUp(StageData stageData)
+    {
+        this.stageData = stageData;
+        transform.position = this.stageData.PlayerPosition;
+    }
+    
+
+    #endregion
+    
+    
 }

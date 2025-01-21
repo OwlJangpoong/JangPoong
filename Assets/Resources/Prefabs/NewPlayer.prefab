@@ -9,9 +9,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5339203553801567142}
+  - component: {fileID: 1331666861332894128}
+  - component: {fileID: 7317300500258484545}
+  - component: {fileID: 2084115339966101801}
+  - component: {fileID: 2307299929205390895}
+  - component: {fileID: 5014994689593125597}
   m_Layer: 0
   m_Name: NewPlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,6 +37,165 @@ Transform:
   - {fileID: 8409272613187284120}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &1331666861332894128
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273658836822648338}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 3
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 4
+--- !u!70 &7317300500258484545
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273658836822648338}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.16, y: -0.07421255}
+  m_Size: {x: 4.381101, y: 9.124656}
+  m_Direction: 0
+--- !u!114 &2084115339966101801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273658836822648338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d75cc763e89b9f84b8b957e75bdeb9ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerAnimator: {fileID: 0}
+  jumpForce: 600
+  speed: 5
+  isSliding: 0
+  originSlideSpeed: 7
+  slideDistance: 3
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 448
+  speedMultiplier: 1.5
+  doubleJumpState: 0
+  isGround: 0
+  isJumping: 0
+  isDoubleJumping: 0
+  isRunning: 0
+  gameOver: {fileID: 0}
+  gameOverFlag: 0
+  levelUpEffect: {fileID: 8771972552311404799, guid: bbf9e36a48d6c5648a13889afab076fd, type: 3}
+  levelUpToken: {fileID: 0}
+--- !u!114 &2307299929205390895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273658836822648338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55370537da5887048a5f6561b6198d5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundCheckLayer:
+    serializedVersion: 2
+    m_Bits: 448
+  aboveColiisionLayer:
+    serializedVersion: 2
+    m_Bits: 448
+  belowColiisionLayer:
+    serializedVersion: 2
+    m_Bits: 448
+  originWalkSpeed: 5
+  runSpeed: 8
+  jumpForce: 10
+  lowGravityScale: 2
+  highGravityScale: 3
+  moveSpeed: 0
+--- !u!114 &5014994689593125597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273658836822648338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd354c9d2b5220540a40de4e03336f3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jangPoongPrefabs:
+  - {fileID: 1796551531270458315, guid: 04c5ba4cb9a36134a9f3d3b16649b7dc, type: 3}
+  - {fileID: 1796551531270458315, guid: 6314b03ae3e4ab34a87f9855c003a763, type: 3}
+  - {fileID: 1796551531270458315, guid: d626acc340430994face41f3298177e4, type: 3}
+  - {fileID: 1796551531270458315, guid: f5dbe407d01d78643a2461cfc6e2c6e2, type: 3}
+  - {fileID: 1796551531270458315, guid: 0090138bb934bce42a02872b0e72f008, type: 3}
+  - {fileID: 1796551531270458315, guid: b6043b489661f1646b5b16ee4004e72e, type: 3}
+  - {fileID: 1796551531270458315, guid: 4aaded2d3de56ac4fbcfc83bc526f699, type: 3}
+  - {fileID: 1796551531270458315, guid: 6e69ac87758590f46a5b96e1715b220e, type: 3}
+  - {fileID: 1796551531270458315, guid: aca31b052c8a90d4b878453f10c458d8, type: 3}
+  jangPoongPrefab: {fileID: 1796551531270458315, guid: 04c5ba4cb9a36134a9f3d3b16649b7dc, type: 3}
+  jangPoongSpeed: 12
+  jangPoongDistance: 5
+  jangPoongLevel: 1
+  jangPoongDamage: 0.5
+  levelUpToken: 0
+  monsterPoint: 0
+  maxMonsterPoint: 50
+  mana: 100
+  maxMana: 100
+  manaRegenerationRate: 3
+  manaConsumption: 5
+  hp: 10
+  maxHp: 10
+  invincibilityDuration: 2
+  spriteRenderer: {fileID: 2966149447988133855}
+  isInvisible: 0
 --- !u!1 &8182224592885942463
 GameObject:
   m_ObjectHideFlags: 0
@@ -42,16 +206,11 @@ GameObject:
   m_Component:
   - component: {fileID: 8409272613187284120}
   - component: {fileID: 2966149447988133855}
-  - component: {fileID: 5706143577403389963}
-  - component: {fileID: 1064833476731054375}
-  - component: {fileID: 637356460434143330}
   - component: {fileID: 6730829060137949509}
   - component: {fileID: 3438154664782414799}
-  - component: {fileID: 1004257030666869435}
-  - component: {fileID: 4720497631868394321}
   m_Layer: 15
   m_Name: Player
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,99 +282,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &5706143577403389963
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8182224592885942463}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 3
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 4
---- !u!70 &1064833476731054375
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8182224592885942463}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.16, y: -0.07421255}
-  m_Size: {x: 4.381101, y: 9.124656}
-  m_Direction: 0
---- !u!114 &637356460434143330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8182224592885942463}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d75cc763e89b9f84b8b957e75bdeb9ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerAnimator: {fileID: 0}
-  jumpForce: 600
-  speed: 5
-  isSliding: 0
-  originSlideSpeed: 7
-  slideDistance: 3
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 448
-  speedMultiplier: 1.5
-  doubleJumpState: 0
-  isGround: 0
-  isJumping: 0
-  isDoubleJumping: 0
-  isRunning: 0
-  gameOver: {fileID: 0}
-  gameOverFlag: 0
-  levelUpEffect: {fileID: 8771972552311404799, guid: bbf9e36a48d6c5648a13889afab076fd, type: 3}
-  levelUpToken: {fileID: 0}
 --- !u!114 &6730829060137949509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,7 +294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c483cb4c8d3d0f4cb7aab9e673d0905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  animator: {fileID: 3438154664782414799}
 --- !u!95 &3438154664782414799
 Animator:
   serializedVersion: 5
@@ -250,69 +316,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1004257030666869435
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8182224592885942463}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd354c9d2b5220540a40de4e03336f3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jangPoongPrefabs:
-  - {fileID: 1796551531270458315, guid: 04c5ba4cb9a36134a9f3d3b16649b7dc, type: 3}
-  - {fileID: 1796551531270458315, guid: 6314b03ae3e4ab34a87f9855c003a763, type: 3}
-  - {fileID: 1796551531270458315, guid: d626acc340430994face41f3298177e4, type: 3}
-  - {fileID: 1796551531270458315, guid: f5dbe407d01d78643a2461cfc6e2c6e2, type: 3}
-  - {fileID: 1796551531270458315, guid: 0090138bb934bce42a02872b0e72f008, type: 3}
-  - {fileID: 1796551531270458315, guid: b6043b489661f1646b5b16ee4004e72e, type: 3}
-  - {fileID: 1796551531270458315, guid: 4aaded2d3de56ac4fbcfc83bc526f699, type: 3}
-  - {fileID: 1796551531270458315, guid: 6e69ac87758590f46a5b96e1715b220e, type: 3}
-  - {fileID: 1796551531270458315, guid: aca31b052c8a90d4b878453f10c458d8, type: 3}
-  jangPoongPrefab: {fileID: 1796551531270458315, guid: 04c5ba4cb9a36134a9f3d3b16649b7dc, type: 3}
-  jangPoongSpeed: 12
-  jangPoongDistance: 5
-  jangPoongLevel: 1
-  jangPoongDamage: 0.5
-  levelUpToken: 0
-  monsterPoint: 0
-  maxMonsterPoint: 50
-  mana: 100
-  maxMana: 100
-  manaRegenerationRate: 3
-  manaConsumption: 5
-  hp: 10
-  maxHp: 10
-  invincibilityDuration: 2
-  spriteRenderer: {fileID: 2966149447988133855}
-  isInvisible: 0
---- !u!114 &4720497631868394321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8182224592885942463}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55370537da5887048a5f6561b6198d5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  groundCheckLayer:
-    serializedVersion: 2
-    m_Bits: 448
-  aboveColiisionLayer:
-    serializedVersion: 2
-    m_Bits: 448
-  belowColiisionLayer:
-    serializedVersion: 2
-    m_Bits: 448
-  originWalkSpeed: 5
-  runSpeed: 8
-  jumpForce: 10
-  lowGravityScale: 2
-  highGravityScale: 3
-  moveSpeed: 0
