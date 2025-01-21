@@ -20,8 +20,9 @@ public class Intro : MonoBehaviour
     private RectTransform imgRect;
     
     private int turn = -1;
+#pragma warning disable CS0414 // 필드가 대입되었으나 값이 사용되지 않습니다
     private bool isClick = false;
-    
+#pragma warning restore CS0414 // 필드가 대입되었으나 값이 사용되지 않습니다
     void Awake()
     {
         imgRect = img.GetComponent<RectTransform>();

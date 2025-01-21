@@ -146,11 +146,11 @@ public class NewPlayerMovement : MonoBehaviour
     {
         float x = 0;
 
-        if (Input.GetKey(Managers.KeyBind.leftKeyCode)) // 좌로 이동 키 눌렀을 때
+        if (Input.GetKey(Managers.KeyBind.GetKeyCode(Define.ControlKey.leftKey))) // 좌로 이동 키 눌렀을 때
         {
             x = -1;
         }
-        else if (Input.GetKey(Managers.KeyBind.rightKeyCode)) // 우로 이동 키 눌렀을 때
+        else if (Input.GetKey(Managers.KeyBind.GetKeyCode(Define.ControlKey.rightKey))) // 우로 이동 키 눌렀을 때
         {
             x = 1;
         }
@@ -172,7 +172,7 @@ public class NewPlayerMovement : MonoBehaviour
                 isGround = false;
 
             // 1단 점프
-            if (isGround && Input.GetKeyDown(Managers.KeyBind.jumpKeyCode))
+            if (isGround && Input.GetKeyDown(Managers.KeyBind.GetKeyCode(Define.ControlKey.jumpKey)))
             {
                 JumpAddForce();
                 isJumping = true;
@@ -180,7 +180,7 @@ public class NewPlayerMovement : MonoBehaviour
                 doubleJumpState = true; // 더블 점프 가능
             }
             // 더블 점프
-            else if (doubleJumpState && Input.GetKeyDown(Managers.KeyBind.jumpKeyCode))
+            else if (doubleJumpState && Input.GetKeyDown(Managers.KeyBind.GetKeyCode(Define.ControlKey.jumpKey)))
             {
                 JumpAddForce();
                 doubleJumpState = false;  // 더블 점프 불가능
@@ -214,7 +214,7 @@ public class NewPlayerMovement : MonoBehaviour
     {
         if (isGround)
         {
-            if (Input.GetKeyDown(Managers.KeyBind.slideKeyCode))  // 슬라이딩 키 눌렀을 때
+            if (Input.GetKeyDown(Managers.KeyBind.GetKeyCode(Define.ControlKey.slideKey)))  // 슬라이딩 키 눌렀을 때
             {
                 if (!isSliding)
                 {
@@ -296,7 +296,7 @@ public class NewPlayerMovement : MonoBehaviour
     private void UpdateRun()
     {
 
-        if (Input.GetKeyDown(Managers.KeyBind.runKeyCode))
+        if (Input.GetKeyDown(Managers.KeyBind.GetKeyCode(Define.ControlKey.runKey)))
         {
             isRunning = !isRunning; // 달리기 상태 토글
         }
