@@ -1,7 +1,4 @@
-using UnityEditor.PackageManager;
 
-namespace KeyBinding
-{
     public struct KeyBindingResult
     {
         public bool IsSuccess;
@@ -18,5 +15,5 @@ namespace KeyBinding
             ErrorType = errorType;
         }
     }
-}
+
 

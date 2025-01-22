@@ -1,11 +1,10 @@
 using UnityEngine;
 using System;
-using KeyBinding;
 
 public class KeyBindingManager
 {
     
-    public KeyBinding.KeyBindingResult SetKeyBinding(Define.ControlKey controlKey, KeyCode newKeyCode)
+    public KeyBindingResult SetKeyBinding(Define.ControlKey controlKey, KeyCode newKeyCode)
     {
         
         //<키 검사>

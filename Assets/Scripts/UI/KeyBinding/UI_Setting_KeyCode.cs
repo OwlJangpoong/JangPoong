@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using KeyBinding;
 using UnityEngine;
 using TMPro;
 using UI.KeyBinding;
