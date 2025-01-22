@@ -636,6 +636,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5273810490629454234, guid: 38c03a57e7d6642558337e64ef3f3ec4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5273810490629454234, guid: 38c03a57e7d6642558337e64ef3f3ec4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5273810490629454234, guid: 38c03a57e7d6642558337e64ef3f3ec4, type: 3}
@@ -648,6 +652,10 @@ PrefabInstance:
       objectReference: {fileID: 395921198366719439}
     - target: {fileID: 5273810490629454234, guid: 38c03a57e7d6642558337e64ef3f3ec4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 2201201040933242330}
+    - target: {fileID: 5273810490629454234, guid: 38c03a57e7d6642558337e64ef3f3ec4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 1385501238108337637}
     - target: {fileID: 5273810490629454234, guid: 38c03a57e7d6642558337e64ef3f3ec4, type: 3}
@@ -668,6 +676,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5273810490629454234, guid: 38c03a57e7d6642558337e64ef3f3ec4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 5273810490629454234, guid: 38c03a57e7d6642558337e64ef3f3ec4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
       value: SetTimeScale
       objectReference: {fileID: 0}
     - target: {fileID: 5273810490629454234, guid: 38c03a57e7d6642558337e64ef3f3ec4, type: 3}
@@ -680,6 +692,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5273810490629454234, guid: 38c03a57e7d6642558337e64ef3f3ec4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5273810490629454234, guid: 38c03a57e7d6642558337e64ef3f3ec4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
       value: UI_SettingScene, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5273810490629454234, guid: 38c03a57e7d6642558337e64ef3f3ec4, type: 3}
@@ -688,6 +704,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5273810490629454234, guid: 38c03a57e7d6642558337e64ef3f3ec4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5273810490629454234, guid: 38c03a57e7d6642558337e64ef3f3ec4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_IntArgument
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5273810490629454234, guid: 38c03a57e7d6642558337e64ef3f3ec4, type: 3}
@@ -712,7 +732,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5990170813386582613, guid: 38c03a57e7d6642558337e64ef3f3ec4, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 5990170813386582613, guid: 38c03a57e7d6642558337e64ef3f3ec4, type: 3}
       propertyPath: m_AnchorMax.y
@@ -728,7 +748,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8030487833123287429, guid: 38c03a57e7d6642558337e64ef3f3ec4, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 8030487833123287429, guid: 38c03a57e7d6642558337e64ef3f3ec4, type: 3}
       propertyPath: m_AnchorMax.y
@@ -736,7 +756,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8030487833123287429, guid: 38c03a57e7d6642558337e64ef3f3ec4, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 9008587168172333486, guid: 38c03a57e7d6642558337e64ef3f3ec4, type: 3}
       propertyPath: m_AnchorMax.x
