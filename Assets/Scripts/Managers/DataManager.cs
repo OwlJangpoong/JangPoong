@@ -102,6 +102,7 @@ public class DataManager
     /// <typeparam name="T">The class type of the data to save.</typeparam>
     public void SaveData<T>(Define.SaveKey saveKey, T data)
     {
+        Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!1데이터 저장 호출");
         //1. 저장 경로 설정
         string fileName = Define.FileNames[saveKey.ToString()];
         string path = Path.Combine(saveFolderPath, fileName);
