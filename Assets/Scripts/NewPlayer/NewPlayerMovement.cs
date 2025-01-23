@@ -333,7 +333,7 @@ public class NewPlayerMovement : MonoBehaviour
         {
             return;  ////UI 클릭시는 장풍 발사가 되지 않도록 처리 (240802 도현)
         }
-        if (Input.GetKeyDown(KeyCode.C))    // c키 로 장풍 발사
+        if (Input.GetKeyDown(Managers.KeyBind.GetKeyCode(Define.ControlKey.attackKey)))    // c키 로 장풍 발사
         {
             if (playerDataManager.Mana >= playerDataManager.manaConsumption)
             {

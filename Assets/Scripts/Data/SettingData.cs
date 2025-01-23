@@ -37,7 +37,7 @@ public class AudioVolume
         }
     }
 
-    public event Action<Define.SaveKey,SettingData> OnDataChanged;
+    //public event Action<Define.SaveKey,SettingData> OnDataChanged;
 }
 
 // [Serializable]

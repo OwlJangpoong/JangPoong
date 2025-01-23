@@ -74,7 +74,9 @@
             rightKey,
             jumpKey,
             slideKey,
-            runKey
+            runKey,
+            attackKey,
+            ultiKey,
         }
 
 

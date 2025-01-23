@@ -8,7 +8,9 @@
     "rightKey" : "RightArrow",
     "jumpKey" : "UpArrow",
     "slideKey" : "DownArrow",
-    "runKey" : "LeftShift"
+    "runKey" : "LeftShift",
+    "attackKey" : "C",
+    "ultiKey" : "X"
   }
   
 }
