@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using static LevelUpToken;
+using static UnityEngine.Rendering.DebugUI;
 
 public class InventoryUI : MonoBehaviour
 {
@@ -13,6 +15,12 @@ public class InventoryUI : MonoBehaviour
 
     public PlayerDataManager PlayerDataManager;
 
+    public delegate void Item_Hp_EventHandler(float increase);
+    public event Item_Hp_EventHandler OnHpPotionUsed;
+
+    public delegate void Item_Mana_EventHandler(int increase);
+    public event Item_Mana_EventHandler OnManaPotionUsed;
+
     public void Update()
     {
         // hpSmall ���
@@ -20,7 +28,6 @@ public class InventoryUI : MonoBehaviour
         {
             Managers.Inventory.hpSmallCnt--;
             StartCoroutine(AddHpAfterDelay(2f, 2f));
-            //Managers.PlayerData.Hp += 2f;
             Debug.Log("hpSmall used");
         }
 
@@ -29,7 +36,6 @@ public class InventoryUI : MonoBehaviour
         {
             Managers.Inventory.hpLargeCnt--;
             StartCoroutine(AddHpAfterDelay(3f, 4f));
-            //Managers.PlayerData.Hp += 4f;
             Debug.Log("hpLarge used");
         }
 
@@ -38,7 +44,6 @@ public class InventoryUI : MonoBehaviour
         {
             Managers.Inventory.mpSmallCnt--;
             StartCoroutine(AddManaAfterDelay(1.5f, 25));
-            //Managers.PlayerData.Mana += 25;
             Debug.Log("mpSmall used");
         }
 
@@ -47,7 +52,6 @@ public class InventoryUI : MonoBehaviour
         {
             Managers.Inventory.mpLargeCnt--;
             StartCoroutine(AddManaAfterDelay(2f,50));
-            //Managers.PlayerData.Mana += 50;
             Debug.Log("mpLarge used");
         }
 
@@ -79,6 +83,8 @@ public class InventoryUI : MonoBehaviour
 
         // HP ����
         Managers.PlayerData.Hp += increase;
+
+        OnHpPotionUsed?.Invoke(increase);
     }
 
     private System.Collections.IEnumerator AddManaAfterDelay( float sec, int increase)
@@ -88,6 +94,8 @@ public class InventoryUI : MonoBehaviour
 
         // Mana ����
         Managers.PlayerData.Mana += increase;
+
+        OnManaPotionUsed?.Invoke(increase);
     }
 
     private System.Collections.IEnumerator StartInvisibilityAfterDelay(PlayerDataManager playerDataManager)
@@ -133,4 +141,6 @@ public class InventoryUI : MonoBehaviour
 
         yield break;
     }
+
+    
 }

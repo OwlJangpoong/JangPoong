@@ -109,8 +109,6 @@ public class NewPlayerMovement : MonoBehaviour
             token.OnLevelUpTokenUpdated += HandleLevelUpTokenUpdated;
         }
 
-        // GAMEOVER 비활성화
-        
         //gameover 오브젝트 자동 할당을 위한 코드 추가(250121)
         GameObject ui_Game_Root = GameObject.FindWithTag("UI_Root");
         if (ui_Game_Root.GetComponentInChildren<UI_GameOverButtons>(true))
@@ -409,6 +407,5 @@ public class NewPlayerMovement : MonoBehaviour
     
 
     #endregion
-    
     
 }

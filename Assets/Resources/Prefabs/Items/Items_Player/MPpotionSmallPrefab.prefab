@@ -169,6 +169,7 @@ MonoBehaviour:
   spawnForce: {x: 1, y: 7}
   aliveTImeAfterSpwn: 5
   itemType: 2
+  audioClip: {fileID: 8300000, guid: ba39bf8baf6d13046889b2d64822381a, type: 3}
 --- !u!114 &984285808747963046
 MonoBehaviour:
   m_ObjectHideFlags: 0

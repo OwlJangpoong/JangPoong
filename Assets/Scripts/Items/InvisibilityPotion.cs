@@ -2,12 +2,14 @@ using UnityEngine;
 
 public class InvisibilityPotion : ItemBase
 {
+    public AudioClip audioClip;
     public override void UpdateCollision(Transform target)
     {
+        Managers.Sound.Play(audioClip);
         var playerDataManager = target.GetComponent<PlayerDataManager>();
         if (playerDataManager != null)
         {
-            // ÄÚ·çÆ¾À» PlayerDataManager¿¡¼­ ½ÇÇà
+            // ì½”ë£¨í‹´ì„ PlayerDataManagerì—ì„œ ì‹¤í–‰
             // playerDataManager.StartCoroutine(StartInvisibilityAfterDelay(playerDataManager));
 
             Destroy(gameObject);
@@ -16,10 +18,10 @@ public class InvisibilityPotion : ItemBase
 
 /*    private System.Collections.IEnumerator StartInvisibilityAfterDelay(PlayerDataManager playerDataManager)
     {
-        // Æ÷¼Ç ¸¶½Ã´Â ½Ã°£
+        // í¬ì…˜ ë§ˆì‹œëŠ” ì‹œê°„
         yield return new WaitForSeconds(2f);
 
-        // InvisibilityCoroutine ½ÇÇà
+        // InvisibilityCoroutine ì‹¤í–‰
         yield return playerDataManager.StartCoroutine(InvisibilityCoroutine(playerDataManager));
     }
 
@@ -27,26 +29,26 @@ public class InvisibilityPotion : ItemBase
     {
         Renderer renderer = playerDataManager.GetComponentInChildren<Renderer>();
 
-        // ÇöÀç »ö»ó ÀúÀå
+        // í˜„ì¬ ìƒ‰ìƒ ì €ì¥
         Color originalColor = renderer.material.color;
 
-        // Åõ¸íµµ ¼³Á¤ (Èå¸®°Ô º¸ÀÌ±â)
+        // íˆ¬ëª…ë„ ì„¤ì • (íë¦¬ê²Œ ë³´ì´ê¸°)
         Color invisibleColor = originalColor;
         invisibleColor.a = 0.5f;
         renderer.material.color = invisibleColor;
 
-        // Åõ¸íÈ­ Áß¿¡ ¸ÅÃÊ HP È¸º¹
+        // íˆ¬ëª…í™” ì¤‘ì— ë§¤ì´ˆ HP íšŒë³µ
         float duration = 15f;
         float elapsed = 0f;
 
         while (elapsed < duration)
         {
-            playerDataManager.Hp = Mathf.Clamp(playerDataManager.Hp + 0.4f, 0, playerDataManager.maxHp); // HP È¸º¹
-            elapsed += 1f; // 1ÃÊ ´ë±â
+            playerDataManager.Hp = Mathf.Clamp(playerDataManager.Hp + 0.4f, 0, playerDataManager.maxHp); // HP íšŒë³µ
+            elapsed += 1f; // 1ì´ˆ ëŒ€ê¸°
             yield return new WaitForSeconds(1f);
         }
 
-        // ¿ø·¡ »ö»óÀ¸·Î º¹¿ø
+        // ì›ë˜ ìƒ‰ìƒìœ¼ë¡œ ë³µì›
         renderer.material.color = originalColor;
     }*/
 }

@@ -369,6 +369,7 @@ MonoBehaviour:
   mpPotion_Large: {fileID: 4181502256535415174}
   invisibilityPotion: {fileID: 7741446284255058081}
   PlayerDataManager: {fileID: 0}
+  onPotionUsedText: {fileID: 0}
 --- !u!1 &2572208702174512348
 GameObject:
   m_ObjectHideFlags: 0
