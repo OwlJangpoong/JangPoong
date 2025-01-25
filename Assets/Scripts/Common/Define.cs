@@ -66,7 +66,21 @@
             invisibility,
             none,
         }
+        
+        //키보드 키코드 (데이터 저장할 때 Dictionary Key로 사용되므로 변경 시 주의!)
+        public enum ControlKey
+        {
+            leftKey,
+            rightKey,
+            jumpKey,
+            slideKey,
+            runKey,
+            attackKey,
+            ultiKey,
+        }
 
+
+        #region Saving Data
         public enum SaveKey
         {
             tutorialDone,
@@ -85,6 +99,8 @@
             SettingData,
 
         }
+        
+        
  
         
         
@@ -102,6 +118,11 @@
             { "SettingData", "Setting.json" }
 
         };
+        
+
+        #endregion
+
+
         
     }
    

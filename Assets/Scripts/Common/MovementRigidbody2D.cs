@@ -107,8 +107,9 @@ public class MovementRigidbody2D : MonoBehaviour
     private Vector2 headPosition; // 머리 위치
 
     private Rigidbody2D rigid2D; // 물리를 제어하는 컴포넌트
+#pragma warning disable CS0108 // 멤버가 상속된 멤버를 숨깁니다. new 키워드가 없습니다.
     private Collider2D collider2D; // 현재 오브젝트의 충돌 범위
-
+#pragma warning restore CS0108 // 멤버가 상속된 멤버를 숨깁니다. new 키워드가 없습니다.
     public bool IsLongJump { set; get; } = false; // 낮은 점프, 높은 점프 체크
     public bool IsGrounded { private set; get; } = false; // 바닥 체크 (바닥에 닿아있을 때 true)
     public Collider2D HitAboveObject { private set; get; } // 머리에 충돌한 오브젝트 정보

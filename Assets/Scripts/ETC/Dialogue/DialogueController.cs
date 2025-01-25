@@ -26,7 +26,7 @@ public class DialogueController : MonoBehaviour
     }
 
     private bool conversationEnded;
-    private bool isTyping;
+    public bool isTyping;
     private bool dialoguePlayed;
 
     private string currentParagraph;
@@ -36,10 +36,6 @@ public class DialogueController : MonoBehaviour
 
     private const string HTML_ALPHA = "<color=#00000000>";
     private const float MAX_TYPE_TIME = 0.1f;
-
-    public bool getIsTyping(){
-        return isTyping;
-    }
 
     public void DisplayNextParagraph(DialogueText dialogueText)
     {

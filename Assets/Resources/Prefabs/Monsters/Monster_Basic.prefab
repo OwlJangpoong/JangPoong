@@ -149,7 +149,6 @@ GameObject:
   - component: {fileID: 7325471442741571676}
   - component: {fileID: 9006180457225617730}
   - component: {fileID: 1770653796052766881}
-  - component: {fileID: 1910870213796737494}
   m_Layer: 16
   m_Name: Monster_Basic
   m_TagString: Monster
@@ -257,35 +256,9 @@ MonoBehaviour:
   belowColiisionLayer:
     serializedVersion: 2
     m_Bits: 0
-  walkSpeed: 2.5
+  originWalkSpeed: 5
   runSpeed: 2.5
   jumpForce: 13
   lowGravityScale: 2
   highGravityScale: 3.5
   moveSpeed: 0
---- !u!114 &1910870213796737494
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6690925772208334918}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 945f455c96c4349b6b116fc706cbcd01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destPos: {x: 0, y: 0, z: 0}
-  state: 3
-  target: {fileID: 0}
-  stat: {fileID: 0}
-  moveRange: 2
-  scanRange: 6
-  attackRange: 1
-  obstacleLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  waitTime: 1.5
-  isJumping: 0
-  dir: {x: 0, y: 0, z: 0}
-  attackDelay: 3

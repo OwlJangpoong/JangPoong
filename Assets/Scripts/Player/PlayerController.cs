@@ -129,11 +129,11 @@ public class PlayerController : MonoBehaviour
     private float GetHorizontalInput()
     {
         float x = 0;
-        if (Input.GetKey(Managers.KeyBind.leftKeyCode))
+        if (Input.GetKey(Managers.KeyBind.GetKeyCode(Define.ControlKey.leftKey)))
         {
             x = -1;
         }
-        else if (Input.GetKey(Managers.KeyBind.rightKeyCode))
+        else if (Input.GetKey(Managers.KeyBind.GetKeyCode(Define.ControlKey.rightKey)))
         {
             x = 1;
         }
@@ -175,7 +175,7 @@ public class PlayerController : MonoBehaviour
             isRunning = false;
         }*/
 
-        if (Input.GetKeyDown(Managers.KeyBind.runKeyCode))
+        if (Input.GetKeyDown(Managers.KeyBind.GetKeyCode(Define.ControlKey.runKey)))
         {
             isRunning = !isRunning; // 달리기 상태 토글
         }
@@ -185,17 +185,17 @@ public class PlayerController : MonoBehaviour
     #region 점프, 더블점프
     private void UpdateJump()
     {
-        if (Input.GetKeyDown(Managers.KeyBind.jumpKeyCode))
+        if (Input.GetKeyDown(Managers.KeyBind.GetKeyCode(Define.ControlKey.jumpKey)))
         {
             movement.Jump();
         }
 
         // 더블 점프 체크
-        if (Input.GetKey(Managers.KeyBind.jumpKeyCode))
+        if (Input.GetKey(Managers.KeyBind.GetKeyCode(Define.ControlKey.jumpKey)))
         {
             movement.IsLongJump = true;
         }
-        else if (Input.GetKeyUp(Managers.KeyBind.jumpKeyCode))
+        else if (Input.GetKeyUp(Managers.KeyBind.GetKeyCode(Define.ControlKey.jumpKey)))
         {
             movement.IsLongJump = false;
         }
@@ -207,7 +207,7 @@ public class PlayerController : MonoBehaviour
     {
         if (movement.IsGrounded)
         {                          // 공중 슬라이딩 방지 (isGrounded : 바닥에 닿았을 때 true)
-            if (Input.GetKeyDown(Managers.KeyBind.slideKeyCode))     // 슬라이딩 키 눌렀을 때
+            if (Input.GetKeyDown(Managers.KeyBind.GetKeyCode(Define.ControlKey.slideKey)))     // 슬라이딩 키 눌렀을 때
             {
                 if (!isSliding)
                 {

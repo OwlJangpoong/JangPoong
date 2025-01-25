@@ -4,7 +4,13 @@
     "sfx" : 1.0
   },
   "controls" : {
-    
+    "leftKey" : "LeftArrow",
+    "rightKey" : "RightArrow",
+    "jumpKey" : "UpArrow",
+    "slideKey" : "DownArrow",
+    "runKey" : "LeftShift",
+    "attackKey" : "C",
+    "ultiKey" : "X"
   }
   
 }

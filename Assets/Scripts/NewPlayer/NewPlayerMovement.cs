@@ -1,19 +1,23 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.U2D.Aseprite;
+// using UnityEditor.U2D.Aseprite;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class NewPlayerMovement : MonoBehaviour
 {
+    
+    //플레이어 맵 이동 제한
+    private StageData stageData; //삭제 금지!!! (250121)
 
     Rigidbody2D rb;
     CapsuleCollider2D CapsuleCollider2D;
     private PlayerDataManager playerDataManager;
     public NewPlayerAnimationController playerAnimator;
     private MovementRigidbody2D movement;
+    private Transform transformForSpriteControl; //Sprite와 관련된 처리는 이 변수 이용(Sprite와 애니메이션은 자식 오브젝트로 이동시켰기 때문)
 
     // 점프 데이터
     [SerializeField] float jumpForce = 600f, speed = 5.0f;
@@ -76,9 +80,10 @@ public class NewPlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         CapsuleCollider2D = GetComponent<CapsuleCollider2D>();
-        playerAnimator = GetComponent<NewPlayerAnimationController>();
+        playerAnimator = GetComponentInChildren<NewPlayerAnimationController>();
         playerDataManager = GetComponentInChildren<PlayerDataManager>();
         movement = GetComponent<MovementRigidbody2D>();
+        transformForSpriteControl = playerAnimator.transform; //Sprite 컴포넌트 갖는 오브젝트의 transform
 
         originalColliderSize = CapsuleCollider2D.size;
         originalColliderOffset = CapsuleCollider2D.offset;
@@ -105,7 +110,17 @@ public class NewPlayerMovement : MonoBehaviour
         }
 
         // GAMEOVER 비활성화
-        gameOver.SetActive(false);
+        
+        //gameover 오브젝트 자동 할당을 위한 코드 추가(250121)
+        GameObject ui_Game_Root = GameObject.FindWithTag("UI_Root");
+        if (ui_Game_Root.GetComponentInChildren<UI_GameOverButtons>(true))
+        {
+            gameOver = ui_Game_Root.GetComponentInChildren<UI_GameOverButtons>(true).gameObject;
+            gameOver.SetActive(false);
+        }
+       
+        
+
 
     }
 
@@ -137,6 +152,13 @@ public class NewPlayerMovement : MonoBehaviour
 
             playerAnimator.SetSpeedMultiplier(isRunning ? 1.5f : 1.0f);
             playerAnimator.UpdateAnimation(x);
+            
+            
+            /////플레이어 맵 이동 제한을 위한 코드! 삭제 금지 ----------
+            if (stageData == null) return;
+            float xPos = Mathf.Clamp(transform.position.x, stageData.PlayerLimitMinX, stageData.PlayerLimitMaxX);
+            transform.position = new Vector2(xPos, transform.position.y);
+            ////-------------
         }
 
     }
@@ -146,11 +168,11 @@ public class NewPlayerMovement : MonoBehaviour
     {
         float x = 0;
 
-        if (Input.GetKey(Managers.KeyBind.leftKeyCode)) // 좌로 이동 키 눌렀을 때
+        if (Input.GetKey(Managers.KeyBind.GetKeyCode(Define.ControlKey.leftKey))) // 좌로 이동 키 눌렀을 때
         {
             x = -1;
         }
-        else if (Input.GetKey(Managers.KeyBind.rightKeyCode)) // 우로 이동 키 눌렀을 때
+        else if (Input.GetKey(Managers.KeyBind.GetKeyCode(Define.ControlKey.rightKey))) // 우로 이동 키 눌렀을 때
         {
             x = 1;
         }
@@ -172,7 +194,7 @@ public class NewPlayerMovement : MonoBehaviour
                 isGround = false;
 
             // 1단 점프
-            if (isGround && Input.GetKeyDown(Managers.KeyBind.jumpKeyCode))
+            if (isGround && Input.GetKeyDown(Managers.KeyBind.GetKeyCode(Define.ControlKey.jumpKey)))
             {
                 JumpAddForce();
                 isJumping = true;
@@ -180,7 +202,7 @@ public class NewPlayerMovement : MonoBehaviour
                 doubleJumpState = true; // 더블 점프 가능
             }
             // 더블 점프
-            else if (doubleJumpState && Input.GetKeyDown(Managers.KeyBind.jumpKeyCode))
+            else if (doubleJumpState && Input.GetKeyDown(Managers.KeyBind.GetKeyCode(Define.ControlKey.jumpKey)))
             {
                 JumpAddForce();
                 doubleJumpState = false;  // 더블 점프 불가능
@@ -214,7 +236,7 @@ public class NewPlayerMovement : MonoBehaviour
     {
         if (isGround)
         {
-            if (Input.GetKeyDown(Managers.KeyBind.slideKeyCode))  // 슬라이딩 키 눌렀을 때
+            if (Input.GetKeyDown(Managers.KeyBind.GetKeyCode(Define.ControlKey.slideKey)))  // 슬라이딩 키 눌렀을 때
             {
                 if (!isSliding)
                 {
@@ -234,7 +256,7 @@ public class NewPlayerMovement : MonoBehaviour
     {
         isSliding = true;
         slideRemainingDistance = slideDistance;
-        slideDirection = new Vector2(transform.localScale.x, 0).normalized;
+        slideDirection = new Vector2(transformForSpriteControl.localScale.x, 0).normalized; //Player 프리팹 구조 변경으로 인한 코드 수정(250122)
 
         // Player Collider 크기와 위치 조정
         CapsuleCollider2D.size = new Vector2(4.255104f, 4.660773f);
@@ -296,7 +318,7 @@ public class NewPlayerMovement : MonoBehaviour
     private void UpdateRun()
     {
 
-        if (Input.GetKeyDown(Managers.KeyBind.runKeyCode))
+        if (Input.GetKeyDown(Managers.KeyBind.GetKeyCode(Define.ControlKey.runKey)))
         {
             isRunning = !isRunning; // 달리기 상태 토글
         }
@@ -311,7 +333,7 @@ public class NewPlayerMovement : MonoBehaviour
         {
             return;  ////UI 클릭시는 장풍 발사가 되지 않도록 처리 (240802 도현)
         }
-        if (Input.GetKeyDown(KeyCode.C))    // c키 로 장풍 발사
+        if (Input.GetKeyDown(Managers.KeyBind.GetKeyCode(Define.ControlKey.attackKey)))    // c키 로 장풍 발사
         {
             if (playerDataManager.Mana >= playerDataManager.manaConsumption)
             {
@@ -337,7 +359,7 @@ public class NewPlayerMovement : MonoBehaviour
                 JangpoongController jc = jangPoong.GetComponent<JangpoongController>();
                 jc.AliveTime = playerDataManager.jangPoongDistance / playerDataManager.jangPoongSpeed;
 
-                Vector2 jangPoongDirection = new Vector2(transform.localScale.x, 0).normalized;
+                Vector2 jangPoongDirection = new Vector2(transformForSpriteControl.localScale.x, 0).normalized; //플레이어 프리팹 수정으로 인한 코드 변경 (250122)
                 jangPoongRb.velocity = jangPoongDirection * playerDataManager.jangPoongSpeed;
                 jangPoong.transform.localScale = new Vector3((jangPoongDirection.x > 0 ? 0.5f : -0.5f), 0.5f, 0.5f); //수정
 
@@ -376,4 +398,17 @@ public class NewPlayerMovement : MonoBehaviour
         Instantiate(levelUpEffect, transform.position, Quaternion.identity);
     }
     #endregion
+
+
+    #region 플레이어 맵 이동 컨트롤
+    public void SetUp(StageData stageData)
+    {
+        this.stageData = stageData;
+        transform.position = this.stageData.PlayerPosition;
+    }
+    
+
+    #endregion
+    
+    
 }
