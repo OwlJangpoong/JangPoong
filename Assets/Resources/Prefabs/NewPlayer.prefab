@@ -187,6 +187,9 @@ MonoBehaviour:
   levelUpToken: 0
   monsterPoint: 0
   maxMonsterPoint: 50
+  ultPrefab: {fileID: 1796551531270458315, guid: fb9a438aefb263d478c57e6bc6a84c4c, type: 3}
+  ultSpeed: 5
+  ultDamage: 20
   mana: 100
   maxMana: 100
   manaRegenerationRate: 3
