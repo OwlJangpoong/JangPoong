@@ -30,9 +30,6 @@ public class InventoryManager
     public int mpPotion_Small_cnt;
     public int mpPotion_Large_cnt;
     public int invisibilityPotion_cnt;
-
-    //public InventoryUI inventoryUI;
-
     
     //인벤토리 아이템 추가/제거
     public void InventoryItem(Define.Item itemType, int num)
@@ -59,7 +56,12 @@ public class InventoryManager
         Debug.Log($"현재 {itemType.ToString()} 개수 : {inventory[itemType]}");
     }
     
-    //특정 아이템 개수 반환
+    
+    /// <summary>
+    /// 지정된 itemType에 해당하는 아이템의 현재 보유 개수를 반환한다.
+    /// </summary>
+    /// <param name="itemType">아이템 유형(Define.Item)</param>
+    /// <returns>보유 중인 아이템 개수 (없으면 0 반환)</returns>
     public int GetItemCount(Define.Item itemType)
     {
         return inventory.ContainsKey(itemType)?inventory[itemType] : 0;
@@ -74,95 +76,6 @@ public class InventoryManager
         //Dictionary의 값들을 배열로 변환하여 반환
         return inventory.Values.ToArray();
     }
-
-    public int hpSmallCnt
-    {
-        get { return hpPotion_Small_cnt; }
-        set
-        {
-            if(value != hpPotion_Small_cnt)
-            {
-                hpPotion_Small_cnt = value;
-                if(hpPotion_Small_cnt <= 0)
-                {
-                    hpPotion_Small_cnt = 0;
-                }
-                //UpdateItemCntText();
-            }
-        }
-    }
-
-    public int hpLargeCnt
-    {
-        get { return hpPotion_Large_cnt; }
-        set
-        {
-            if (value != hpPotion_Large_cnt)
-            {
-                hpPotion_Large_cnt = value;
-                if (hpPotion_Large_cnt <= 0)
-                {
-                    hpPotion_Large_cnt = 0;
-                }
-                //UpdateItemCntText();
-            }
-        }
-    }
-
-    public int mpSmallCnt
-    {
-        get { return mpPotion_Small_cnt; }
-        set
-        {
-            if (value != mpPotion_Small_cnt)
-            {
-                mpPotion_Small_cnt = value;
-                if (mpPotion_Small_cnt <= 0)
-                {
-                    mpPotion_Small_cnt = 0;
-                }
-                //UpdateItemCntText();
-            }
-        }
-    }
-
-    public int mpLargeCnt
-    {
-        get { return mpPotion_Large_cnt; }
-        set
-        {
-            if (value != mpPotion_Large_cnt)
-            {
-                mpPotion_Large_cnt = value;
-                if (mpPotion_Large_cnt <= 0)
-                {
-                    mpPotion_Large_cnt = 0;
-                }
-                //UpdateItemCntText();
-            }
-        }
-    }
-
-    public int invinsibilityCnt
-    {
-        get { return invisibilityPotion_cnt; }
-        set
-        {
-            if (value != invisibilityPotion_cnt)
-            {
-                invisibilityPotion_cnt = value;
-                if (invisibilityPotion_cnt <= 0)
-                {
-                    invisibilityPotion_cnt = 0;
-                }
-                //UpdateItemCntText();
-            }
-        }
-    }
-
-    // public void UpdateItemCntText()
-    // {
-    //     Debug.Log("upd");
-    // }
+    
 
 }

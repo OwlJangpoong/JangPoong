@@ -64,6 +64,7 @@
             mpPotionSmall,
             mpPotionLarge,
             invisibilityPotion,
+            levelUpToken,
             length,
         }
         
