@@ -363,13 +363,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c936368f75d2c12458b1e67bdcc11628, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UI_itemTexts:
+  - {fileID: 8499773166423007838}
+  - {fileID: 6605319601619482571}
+  - {fileID: 6804866647123127413}
+  - {fileID: 4181502256535415174}
+  - {fileID: 7741446284255058081}
   hpPotion_Small: {fileID: 8499773166423007838}
   hpPotion_Large: {fileID: 6605319601619482571}
   mpPotion_Small: {fileID: 6804866647123127413}
   mpPotion_Large: {fileID: 4181502256535415174}
   invisibilityPotion: {fileID: 7741446284255058081}
   PlayerDataManager: {fileID: 0}
-  onPotionUsedText: {fileID: 0}
 --- !u!1 &2572208702174512348
 GameObject:
   m_ObjectHideFlags: 0

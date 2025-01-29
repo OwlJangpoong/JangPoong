@@ -8,13 +8,13 @@ public class Silvan : NPC, ITalkable
 
     private void OnEnable()
     {
-        // DialogueControllerÀÇ OnConversationEnd ÀÌº¥Æ® ±¸µ¶
+        // DialogueControllerï¿½ï¿½ OnConversationEnd ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½
         dialogueController.OnConversationEnd += HandleConversationEnd;
     }
 
     private void OnDisable()
     {
-        // ±¸µ¶ ÇØÁ¦
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         dialogueController.OnConversationEnd -= HandleConversationEnd;
     }
 
@@ -28,14 +28,15 @@ public class Silvan : NPC, ITalkable
         dialogueController.DisplayNextParagraph(dialogueText);
     }
 
-    // ´ëÈ­ Á¾·á ½Ã
+    // ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
     private void HandleConversationEnd()
     {
-        // Åõ¸í ¹°¾à 2°³ Áö±Ş
-        Managers.Inventory.invinsibilityCnt += 2;
-        Debug.Log(Managers.Inventory.invinsibilityCnt + "°³");
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        //Managers.Inventory.invinsibilityCnt += 2;
+        Managers.Inventory.InventoryItem(Define.Item.invisibilityPotion, 2);
+        Debug.Log($"í˜„ì¬ íˆ¬ëª…í™” í¬ì…˜ ê°œìˆ˜ : {Managers.Inventory.GetItemCount(Define.Item.invisibilityPotion)}ê°œ");
 
-        // Scene ÀüÈ¯
+        // Scene ï¿½ï¿½È¯
         SceneManager.LoadScene("2-1 to demon castle");
     }
 }

@@ -263,10 +263,14 @@ public class Intro : MonoBehaviour
     private void HandleConversationEnd()
     {
         // 각 물약 1개씩 지급
-        Managers.Inventory.hpSmallCnt += 1;
-        Managers.Inventory.hpLargeCnt += 1;
-        Managers.Inventory.mpSmallCnt += 1;
-        Managers.Inventory.mpLargeCnt += 1;
+        // Managers.Inventory.hpSmallCnt += 1;
+        // Managers.Inventory.hpLargeCnt += 1;
+        // Managers.Inventory.mpSmallCnt += 1;
+        // Managers.Inventory.mpLargeCnt += 1;
+        for (int i = 0; i < (int)Define.Item.levelUpToken; i++)
+        {
+            Managers.Inventory.InventoryItem((Define.Item)i,1);
+        }
 
         // Scene 전환
         SceneManager.LoadScene("0-1 tutorial");

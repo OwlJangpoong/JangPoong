@@ -59,12 +59,13 @@
 
         public enum Item
         {
-            hpSmall,
-            hpLarge,
-            mpSmall,
-            mpLarge,
-            invisibility,
-            none,
+            hpPotionSmall,
+            hpPotionLarge,
+            mpPotionSmall,
+            mpPotionLarge,
+            invisibilityPotion,
+            levelUpToken,
+            length,
         }
         
         //키보드 키코드 (데이터 저장할 때 Dictionary Key로 사용되므로 변경 시 주의!)
@@ -84,19 +85,11 @@
         public enum SaveKey
         {
             tutorialDone,
-            playerHp,
-            playerMana,
-            levelToken,
-            hpPotionSmallCnt,
-            hpPotionLargeCnt,
-            mpPotionSmallCnt,
-            mpPotionLargeCnt,
-            invisibilityPotionCnt,
-            monsterPoint,
             PlayerData,
             ProgressData,
             StatisticDatsa,
             SettingData,
+            InventoryData,
 
         }
         
@@ -115,7 +108,8 @@
             { "PlayerData", "PlayerData.json" },
             { "ProgressData", "Progress.json" },
             { "StatisticData", "Statistic.json" },
-            { "SettingData", "Setting.json" }
+            { "SettingData", "Setting.json" },
+            {"InventoryData", "Inventory.json"}
 
         };
         

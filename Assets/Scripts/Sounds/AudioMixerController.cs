@@ -19,8 +19,8 @@ public class AudioMixerController : MonoBehaviour
     {
         audioMixer = Managers.Sound.audioMixer;
 
-        bgmSlider.value = Managers.Game.settingData.audioVolume.Bgm;
-        sfxSlider.value = Managers.Game.settingData.audioVolume.Sfx;
+        bgmSlider.value = Managers.Game._settingData.audioVolume.Bgm;
+        sfxSlider.value = Managers.Game._settingData.audioVolume.Sfx;
             
         bgmSlider.onValueChanged.RemoveAllListeners();
         sfxSlider.onValueChanged.RemoveAllListeners();
@@ -31,10 +31,10 @@ public class AudioMixerController : MonoBehaviour
     private void SetBgmVolume (float volume)
     { 
         Debug.Log("슬라이드 값 변경에 따른 이벤트 호출");
-        if (Mathf.Abs(volume - Managers.Game.settingData.audioVolume.Bgm) > epsilon)
+        if (Mathf.Abs(volume - Managers.Game._settingData.audioVolume.Bgm) > epsilon)
         {
             Managers.Sound.SetBgmVolume(volume);
-            Managers.Data.SaveData(Define.SaveKey.SettingData, Managers.Game.settingData);
+            Managers.Data.SaveData(Define.SaveKey.SettingData, Managers.Game._settingData);
         }
             
     }
@@ -42,10 +42,10 @@ public class AudioMixerController : MonoBehaviour
     private void SetSfxVolume(float volume)
     {
         
-        if (Mathf.Abs(volume - Managers.Game.settingData.audioVolume.Sfx) > epsilon)
+        if (Mathf.Abs(volume - Managers.Game._settingData.audioVolume.Sfx) > epsilon)
         {
             Managers.Sound.SetSfxVolume(volume);
-            Managers.Data.SaveData(Define.SaveKey.SettingData, Managers.Game.settingData);
+            Managers.Data.SaveData(Define.SaveKey.SettingData, Managers.Game._settingData);
         }
             
     }
