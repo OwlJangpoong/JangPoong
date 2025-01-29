@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 public class DataManager
 {
     //File/Folder Path for Save, Load
-    private int slotNum;
+    private int slotNum = 1;
     private string saveFolderPath=""; //  "SaveData" 폴더까지의 경로
 
     private string slotFolderPath=""; // "SaveData/(슬롯이름)" 폴더 아래에 데이터 파일 저장됨
@@ -15,6 +15,7 @@ public class DataManager
     public void Init ()
     {
         saveFolderPath = Path.Combine(Application.persistentDataPath, "SaveData");
+        SetSlotNum();
         
         //"SaveData" 폴더가 있는지 확인.
         //1. 없으면 폴더 생성
@@ -43,7 +44,13 @@ public class DataManager
         //this.slotNum = slotNum;
         string slot = "Slot" + slotNum;
         
-        saveFolderPath = Path.Combine(Application.persistentDataPath, "SaveData", slot);
+        slotFolderPath = Path.Combine(Application.persistentDataPath, "SaveData", slot);
+        if (!Directory.Exists(slotFolderPath))
+        {
+            Debug.Log($"{slot} 폴더가 없습니다. 폴더를 생성합니다.");
+            Directory.CreateDirectory(slotFolderPath);
+        }
+
     }
 
     /// <summary>
@@ -57,19 +64,19 @@ public class DataManager
         
         //1. 파일 경로 설정
         string path;
+        string fileName = Define.FileNames[saveKey.ToString()];
         
         //setting 파일만 경로가 다르기 때문에 saveKey가 SettingData인지 확인.
         //setting 파일 -> saveFolderPath / 나머지 파일 -> slotFolderPath
         if (saveKey == Define.SaveKey.SettingData)
         {
-            string fileName = Define.FileNames[saveKey.ToString()];
+            
             path = Path.Combine(saveFolderPath, fileName);
         }
         else
         {
             if (!string.IsNullOrEmpty(slotFolderPath))
             {
-                string fileName = Define.FileNames[saveKey.ToString()];
                 path = Path.Combine(slotFolderPath, fileName);
             }
             else
@@ -102,10 +109,28 @@ public class DataManager
     /// <typeparam name="T">The class type of the data to save.</typeparam>
     public void SaveData<T>(Define.SaveKey saveKey, T data)
     {
-        Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!1데이터 저장 호출");
+        Debug.Log("!!!!!!!데이터 저장 호출");
         //1. 저장 경로 설정
         string fileName = Define.FileNames[saveKey.ToString()];
-        string path = Path.Combine(saveFolderPath, fileName);
+
+        string path;
+        if (saveKey == Define.SaveKey.SettingData)
+        {
+            path = Path.Combine(saveFolderPath, fileName);
+        }
+        else
+        {
+            if (!string.IsNullOrEmpty(slotFolderPath))
+            {
+                path = Path.Combine(slotFolderPath, fileName);
+            }
+            else
+            {
+                Debug.LogWarning($"Can't Find Desired Slot Folder");
+                return;
+            }
+        }
+        
         
         //2. 클래스를 Json 형식으로 전환
         string json = JsonConvert.SerializeObject(data, Formatting.Indented); //들여쓰기, 줄바꿈 적용된 형태로 저장(유지보수 위해)

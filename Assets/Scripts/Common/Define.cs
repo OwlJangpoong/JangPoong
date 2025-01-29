@@ -85,19 +85,11 @@
         public enum SaveKey
         {
             tutorialDone,
-            playerHp,
-            playerMana,
-            levelToken,
-            hpPotionSmallCnt,
-            hpPotionLargeCnt,
-            mpPotionSmallCnt,
-            mpPotionLargeCnt,
-            invisibilityPotionCnt,
-            monsterPoint,
             PlayerData,
             ProgressData,
             StatisticDatsa,
             SettingData,
+            InventoryData,
 
         }
         
@@ -116,7 +108,8 @@
             { "PlayerData", "PlayerData.json" },
             { "ProgressData", "Progress.json" },
             { "StatisticData", "Statistic.json" },
-            { "SettingData", "Setting.json" }
+            { "SettingData", "Setting.json" },
+            {"InventoryData", "Inventory.json"}
 
         };
         

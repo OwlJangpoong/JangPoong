@@ -108,12 +108,6 @@ public class InventoryUI : MonoBehaviour
         {
             UI_itemTexts[i].text = "x" + itemCnts[i];
         }
-        //
-        // hpPotion_Small.text = "x" + Managers.Inventory.hpSmallCnt;
-        // hpPotion_Large.text = "x" + Managers.Inventory.hpLargeCnt;
-        // mpPotion_Small.text = "x" + Managers.Inventory.mpSmallCnt;
-        // mpPotion_Large.text = "x" + Managers.Inventory.mpLargeCnt;
-        // invisibilityPotion.text = "x" + Managers.Inventory.invinsibilityCnt;
     }
 
     //코드 리팩토링 : 아이템 사용 체크 관련 코드 간소화 및 중복 코드 정리를 위한 메소드 생성

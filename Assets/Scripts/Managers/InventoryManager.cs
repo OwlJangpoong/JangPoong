@@ -6,7 +6,9 @@ using UnityEngine;
 
 public class InventoryManager
 {
-    private Dictionary<Define.Item, int> inventory;
+    private bool _isInitialized = false;
+
+    private InventoryData currentInventory;
     //public event Action OnInventoryLoaded;
     public event Action OnInventoryUpdated; // 인벤토리 데이터가 변경될 때 호출되는 이벤트(추가/ 삭제 등)
     
@@ -15,26 +17,24 @@ public class InventoryManager
 
     public void Init()
     {
-        inventory = new Dictionary<Define.Item, int>();
-        // 초기화
-        foreach (Define.Item itemType in System.Enum.GetValues(typeof(Define.Item)))
-        {
-            inventory[itemType] = 0; // 모든 아이템 개수를 0으로 초기화
-        }
+        if (_isInitialized) return;
+        //초기화
+        Debug.Log("InventoryManager 초기화!");
+
+        currentInventory = Managers.Game.GameInventory;
+        Debug.Log(currentInventory.items[Define.Item.hpPotionSmall]);
+        
+        
+        _isInitialized = true;
+
     }
-    
-    
-    
-    public int hpPotion_Small_cnt;
-    public int hpPotion_Large_cnt;
-    public int mpPotion_Small_cnt;
-    public int mpPotion_Large_cnt;
-    public int invisibilityPotion_cnt;
+
+    #region Inventory Interface
     
     //인벤토리 아이템 추가/제거
     public void InventoryItem(Define.Item itemType, int num)
     {
-        if (!inventory.ContainsKey(itemType))
+        if (!currentInventory.items.ContainsKey(itemType))
         {
             Debug.LogWarning($"Unknown item type: {itemType.ToString()}");
             return;
@@ -46,14 +46,14 @@ public class InventoryManager
             return;
         }
 
-        inventory[itemType] += num;
-        if (inventory[itemType] < 0)
+        currentInventory.items[itemType] += num;
+        if (currentInventory.items[itemType] < 0)
         {
-            inventory[itemType] = 0;
+            currentInventory.items[itemType] = 0;
         }
         OnInventoryUpdated?.Invoke();
         
-        Debug.Log($"현재 {itemType.ToString()} 개수 : {inventory[itemType]}");
+        Debug.Log($"현재 {itemType.ToString()} 개수 : {currentInventory.items[itemType]}");
     }
     
     
@@ -64,7 +64,7 @@ public class InventoryManager
     /// <returns>보유 중인 아이템 개수 (없으면 0 반환)</returns>
     public int GetItemCount(Define.Item itemType)
     {
-        return inventory.ContainsKey(itemType)?inventory[itemType] : 0;
+        return currentInventory.items.ContainsKey(itemType)?currentInventory.items[itemType] : 0;
     }
 
     /// <summary>
@@ -74,8 +74,37 @@ public class InventoryManager
     public int[] GetAllItemCount()
     {
         //Dictionary의 값들을 배열로 변환하여 반환
-        return inventory.Values.ToArray();
+        return currentInventory.items.Values.ToArray();
     }
+    
+
+    #endregion
+
+    #region Inventory Data Control
+
+    public void CommitInventoryState()
+    {
+        Debug.Log("InventoryManager: 최종 Inventory 상태 저장을 요청합니다");
+        Managers.Game.GameInventory = currentInventory;
+
+
+    }
+
+    public void RestoreInventoryState()
+    {
+        Debug.Log("InventoryManager : Inventory 상태를 복구합니다. 이전 데이터를 가져와 덮어씁니다.");
+
+        currentInventory = Managers.Game.GameInventory;
+
+    }
+
+    #endregion
+    
+    
+    
+    
+    
+    
     
 
 }

@@ -28,7 +28,7 @@ public class Managers : MonoBehaviour
     private PlayerDataManager _playerData;
 
     private KeyBindingManager _keyBind = new KeyBindingManager();
-    private InventoryManager _inventory = new InventoryManager();
+    private InventoryManager _inventory; // 초기에는 null
     
     
     public static DataManager Data { get { return Instance._data; } }
@@ -74,6 +74,11 @@ public class Managers : MonoBehaviour
     {
         get
         {
+            if (Instance._inventory == null)
+            {
+                Instance._inventory = new InventoryManager(); // 처음 접근할 때 생성
+                Instance._inventory.Init();
+            }
             return Instance._inventory;
         }
     }
@@ -114,7 +119,7 @@ public class Managers : MonoBehaviour
             
             
             s_instance._sound.Init();
-            s_instance._inventory.Init();
+            //s_instance._inventory.Init();
             //s_instance._keyBind.LoadKeyBinding();
             
             

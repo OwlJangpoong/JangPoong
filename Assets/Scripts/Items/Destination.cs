@@ -36,6 +36,7 @@ public class Destination : MonoBehaviour
     {
         if (other.CompareTag("Player") && Input.GetKey(KeyCode.F))
         {
+            Managers.Inventory.CommitInventoryState();
             GoToNextState();
         }
     }
@@ -71,6 +72,6 @@ public class Destination : MonoBehaviour
     }
 
     private void OnFadeOutComplete(){
-        StartCoroutine(Managers.Scene.LoadSceneAfterDelay(NextSceneName, 0.0f));
+        StartCoroutine(Managers.Scene.LoadSceneAfterDelay(NextSceneName, 0.5f));
     }
 }

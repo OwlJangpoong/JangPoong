@@ -19,7 +19,6 @@ public class AudioVolume
             if (bgm != value)
             {
                 bgm = value;
-                //OnDataChanged?.Invoke(Define.SaveKey.SettingData, Managers.Game.settingData);
             }
         }
     }
@@ -32,40 +31,17 @@ public class AudioVolume
             if (sfx != value)
             {
                 sfx = value;
-                //OnDataChanged?.Invoke(Define.SaveKey.SettingData, Managers.Game.settingData);
             }
         }
     }
 
-    //public event Action<Define.SaveKey,SettingData> OnDataChanged;
 }
 
-// [Serializable]
-// public class Controls
-// {
-//     private Dictionary<string, string> controls;
-// }
 
 [Serializable]
 public class SettingData
 {
-    public AudioVolume audioVolume;
-    [JsonProperty("controls")] public Dictionary<string, string> controls; 
-
-    // public event Action OnDataChanged;
-    
-    //생성자
-    public SettingData()
-    {
-        audioVolume = new AudioVolume();
-        controls = new Dictionary<string, string>();
-        
-        
-        // audioVolume.OnDataChanged += (saveKey, data) =>
-        // {
-        //     Debug.Log("OnDataChanged event triggered");
-        //     Managers.Data.SaveData(saveKey, data);
-        // };
-    }
+    public AudioVolume audioVolume = new AudioVolume();
+    [JsonProperty("controls")] public Dictionary<string, string> controls = new Dictionary<string, string>(); 
     
 }

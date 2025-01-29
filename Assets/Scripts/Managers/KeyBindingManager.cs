@@ -16,7 +16,7 @@ public class KeyBindingManager
         
         
         //이미 다른 키에 설정되어 있는지 확인한다.
-        foreach (var key in Managers.Game.settingData.controls.Values)
+        foreach (var key in Managers.Game._settingData.controls.Values)
         {
             if (Enum.TryParse<KeyCode>(key, out KeyCode existingKey) && existingKey == newKeyCode)
             {
@@ -35,7 +35,7 @@ public class KeyBindingManager
         
         //저장
         string keyString = controlKey.ToString();
-        Managers.Game.settingData.controls[keyString] = newKeyCode.ToString();
+        Managers.Game._settingData.controls[keyString] = newKeyCode.ToString();
         
         SaveKeyBinding();
         return new KeyBindingResult(true);
@@ -49,7 +49,7 @@ public class KeyBindingManager
     /// </summary>
     public void SaveKeyBinding()
     {
-        Managers.Data.SaveData(Define.SaveKey.SettingData, Managers.Game.settingData);
+        Managers.Data.SaveData(Define.SaveKey.SettingData, Managers.Game._settingData);
         Debug.Log($"Save SettingData");
     }
 
@@ -64,7 +64,7 @@ public class KeyBindingManager
     {
         string keyString = controlKey.ToString();
         // 저장된 KeyCode 문자열을 가져오기
-        if (Managers.Game.settingData.controls.TryGetValue(keyString, out string keyName))
+        if (Managers.Game._settingData.controls.TryGetValue(keyString, out string keyName))
         {
             if (Enum.TryParse<KeyCode>(keyName, out KeyCode keyCode))
             {
