@@ -7,6 +7,8 @@ public class Managers : MonoBehaviour
 {
     //Singleton
     static Managers s_instance; //유일성 보장
+    private static bool _isInitialized = false; //초기화 완료 여부
+    public static bool IsInitialized => _isInitialized; // 외부에서 상태 확인 가능
 
     static Managers Instance { get
     {
@@ -112,7 +114,12 @@ public class Managers : MonoBehaviour
             
             
             s_instance._sound.Init();
+            s_instance._inventory.Init();
             //s_instance._keyBind.LoadKeyBinding();
+            
+            
+            
+            _isInitialized = true; // 초기화 완료
             
         }
 
