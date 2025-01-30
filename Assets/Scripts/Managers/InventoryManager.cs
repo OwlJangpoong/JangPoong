@@ -21,7 +21,7 @@ public class InventoryManager
         //초기화
         Debug.Log("InventoryManager 초기화!");
 
-        currentInventory = Managers.Game.GameInventory;
+        currentInventory = Managers.Game.GameInventory.DeepCopy();
         
         
         _isInitialized = true;
@@ -84,7 +84,7 @@ public class InventoryManager
     public void CommitInventoryState()
     {
         Debug.Log("InventoryManager: 최종 Inventory 상태 저장을 요청합니다");
-        Managers.Game.GameInventory = currentInventory;
+        Managers.Game.GameInventory = currentInventory.DeepCopy();
 
 
     }
@@ -93,7 +93,7 @@ public class InventoryManager
     {
         Debug.Log("InventoryManager : Inventory 상태를 복구합니다. 이전 데이터를 가져와 덮어씁니다.");
 
-        currentInventory = Managers.Game.GameInventory;
+        currentInventory = Managers.Game.GameInventory.DeepCopy();
         Debug.Log($"{currentInventory.items[Define.Item.hpPotionSmall]}, {Managers.Game.GameInventory.items[Define.Item.hpPotionSmall]}");
     }
 
