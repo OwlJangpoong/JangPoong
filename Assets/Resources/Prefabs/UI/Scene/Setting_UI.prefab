@@ -146,13 +146,14 @@ GameObject:
   - component: {fileID: 6519683923450950620}
   - component: {fileID: 3543672056372575042}
   - component: {fileID: 5074192137475140959}
+  - component: {fileID: 1107016557569213302}
   m_Layer: 5
-  m_Name: Testbtn
+  m_Name: UI_Button_KeyReset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8733390101167351645
 RectTransform:
   m_ObjectHideFlags: 0
@@ -170,8 +171,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 282, y: -327}
-  m_SizeDelta: {x: 120, y: 60}
+  m_AnchoredPosition: {x: 261, y: -327}
+  m_SizeDelta: {x: 160, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6519683923450950620
 CanvasRenderer:
@@ -254,19 +255,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3543672056372575042}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: KeyBindingUIManager, Assembly-CSharp
-        m_MethodName: OnButtonClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &1107016557569213302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339831675636211321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a6816e59f6e547b88834dd771bf6a2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1928818222614085873
 GameObject:
   m_ObjectHideFlags: 0
@@ -1333,7 +1334,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uD14C\uC2A4\uD2B8"
+  m_text: "\uD0A4 \uCD08\uAE30\uD654"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bd73df3feaeda4dac89ca6c112308298, type: 2}
   m_sharedMaterial: {fileID: 2187095669032760298, guid: bd73df3feaeda4dac89ca6c112308298, type: 2}
@@ -2916,9 +2917,9 @@ RectTransform:
   m_Children:
   - {fileID: 3270185875576025425}
   - {fileID: 2431854416952383040}
+  - {fileID: 8733390101167351645}
   - {fileID: 8380221844008585259}
   - {fileID: 6491833546614629316}
-  - {fileID: 8733390101167351645}
   - {fileID: 8839335723544387421}
   m_Father: {fileID: 2633488161862176517}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

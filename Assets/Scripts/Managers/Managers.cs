@@ -45,7 +45,15 @@ public class Managers : MonoBehaviour
     public static UIManager UI { get { return Instance._ui; } }
     public static SoundManager Sound
     {
-        get { return Instance._sound; }
+        get
+        {
+            if (Instance._sound == null)
+            {
+                Instance._sound = new SoundManager(); //처음 접근할 때 생성하고 초기화한다.
+                Instance._sound.Init();
+            }
+            return Instance._sound;
+        }
     }
 
     public static PlayerDataManager PlayerData
@@ -66,6 +74,11 @@ public class Managers : MonoBehaviour
     {
         get
         {
+            if (Instance._keyBind == null)
+            {
+                Instance._keyBind = new KeyBindingManager(); //처음 접근할 때 생성하고 초기화한다.
+                //Instance._keyBind.
+            }
             return Instance._keyBind;
         }
     }
@@ -119,10 +132,7 @@ public class Managers : MonoBehaviour
             
             
             s_instance._sound.Init();
-            //s_instance._inventory.Init();
-            //s_instance._keyBind.LoadKeyBinding();
-            
-            
+
             
             _isInitialized = true; // 초기화 완료
             

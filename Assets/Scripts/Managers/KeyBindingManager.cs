@@ -3,6 +3,7 @@ using System;
 
 public class KeyBindingManager
 {
+    public event Action OnResetKeyBinding;
     
     public KeyBindingResult SetKeyBinding(Define.ControlKey controlKey, KeyCode newKeyCode)
     {
@@ -16,7 +17,7 @@ public class KeyBindingManager
         
         
         //이미 다른 키에 설정되어 있는지 확인한다.
-        foreach (var key in Managers.Game._settingData.controls.Values)
+        foreach (var key in Managers.Game.Setting.controls.Values)
         {
             if (Enum.TryParse<KeyCode>(key, out KeyCode existingKey) && existingKey == newKeyCode)
             {
@@ -35,7 +36,7 @@ public class KeyBindingManager
         
         //저장
         string keyString = controlKey.ToString();
-        Managers.Game._settingData.controls[keyString] = newKeyCode.ToString();
+        Managers.Game.Setting.controls[keyString] = newKeyCode.ToString();
         
         SaveKeyBinding();
         return new KeyBindingResult(true);
@@ -49,7 +50,7 @@ public class KeyBindingManager
     /// </summary>
     public void SaveKeyBinding()
     {
-        Managers.Data.SaveData(Define.SaveKey.SettingData, Managers.Game._settingData);
+        Managers.Data.SaveData(Define.SaveKey.SettingData, Managers.Game.Setting);
         Debug.Log($"Save SettingData");
     }
 
@@ -64,7 +65,7 @@ public class KeyBindingManager
     {
         string keyString = controlKey.ToString();
         // 저장된 KeyCode 문자열을 가져오기
-        if (Managers.Game._settingData.controls.TryGetValue(keyString, out string keyName))
+        if (Managers.Game.Setting.controls.TryGetValue(keyString, out string keyName))
         {
             if (Enum.TryParse<KeyCode>(keyName, out KeyCode keyCode))
             {
@@ -78,34 +79,31 @@ public class KeyBindingManager
 
     }
 
+    public void ResetKeyBinding()
+    {
+        Debug.Log("키 설정을 초기화를 시작합니다.");
+        //초기화 파일 가져오기
+        SettingData initSetting = Managers.Data.LoadInitData<SettingData>(Define.SaveKey.SettingData);
+        
+        //초기화 데이터의 controls 딕셔너리의 키만 추출하여 GameManager의 controls를 초기화 데이터로 덮어쓴다.
+        foreach (var key in initSetting.controls.Keys)
+        {
+            Managers.Game.Setting.controls[key] = initSetting.controls[key];
+            
+            Debug.Log($"{key}키 초기화 : {Managers.Game.Setting.controls[key]}");
+            
+        }
+        
+       
+        
+        Debug.Log("초기화된 데이터를 저장합니다");
+        SaveKeyBinding();
+        
+        //이벤트 호출 : 구독한 이벤트 핸들러 모두 실행(UI 업데이트 등)
+        OnResetKeyBinding?.Invoke();
+        
 
-    #region Comment
-    // private KeyCode GetKeyCodeFromName(string keyName)
-    // {
-    //     KeyCode keyCode;
-    //     
-    //     // 알파벳 키라면 대문자로 변환 (알파멧 키만 대문자로 변환해야함! 다른 키는 변환하면 parsing 실패함)
-    //     if (keyName.Length == 1 && char.IsLetter(keyName[0]))
-    //     {
-    //         keyName = keyName.ToUpper();
-    //     }
-    //     if (Enum.TryParse(keyName, out keyCode))
-    //     {
-    //         if (Enum.IsDefined(typeof(KeyCode), keyCode))
-    //         {
-    //             return keyCode;
-    //         }
-    //             Debug.LogWarning("Enum.isDefined 오류");
-    //             return KeyCode.None;
-    //         
-    //     }
-    //     Debug.LogWarning($"Enum Parse 실패. Invalid key name: {keyName}. Defaulting to KeyCode.None.");
-    //     return KeyCode.None;
-    //     
-    // }
-    
-    
-    
 
-    #endregion
+
+    }
 }
