@@ -6,31 +6,47 @@ using Newtonsoft.Json;
 
 public class GameManager
 {
-    private bool isInit = false;
-    public bool IsInit
+    // private bool isInit = false;
+    // public bool IsInit
+    // {
+    //     get => isInit;
+    // }
+    
+    
+    private SettingData _setting;
+    private InventoryData _gameInventory;
+
+
+    public SettingData Setting
     {
-        get => isInit;
+        get
+        {
+            if (_setting == null)
+            {
+                LoadData(Define.SaveKey.SettingData, out _setting);
+            }
+
+            return _setting;
+        }
     }
-    public SettingData _settingData;
-    private InventoryData gameInventory;
     
     public InventoryData GameInventory
     {
         get
         {
-            if (gameInventory == null)
+            if (_gameInventory == null)
             {
-                LoadData(Define.SaveKey.InventoryData, out gameInventory);
+                LoadData(Define.SaveKey.InventoryData, out _gameInventory);
             }
 
-            return gameInventory;
+            return _gameInventory;
         }
 
         set
         {
             Debug.Log("GameManager : Inventory 상태 업데이트 후 로컬 저장 요청");
-            gameInventory = value;
-            Managers.Data.SaveData(Define.SaveKey.InventoryData, gameInventory);
+            _gameInventory = value;
+            Managers.Data.SaveData(Define.SaveKey.InventoryData, _gameInventory);
         }
     }
     
@@ -38,26 +54,19 @@ public class GameManager
     // public PlayerData playerData;
     // public ProgressData progressData;
     // public StatisticData statisticData;
+
     
-    
-    //초기화 완료 이벤트
-    public event Action OnDataLoaded;
-    
-    
-    //Setting Data 불러오기
-    //
     public void Init()
     {
         
         Debug.Log("GameManager Init 호출");
-        LoadData(Define.SaveKey.SettingData, out _settingData);
         
-        isInit = true;
+        // isInit = true;
         
-        Debug.Log($"GameManager.Init called. OnInitialized is {(OnDataLoaded == null ? "null" : "not null")}");
+        // Debug.Log($"GameManager.Init called. OnInitialized is {(OnDataLoaded == null ? "null" : "not null")}");
         //데이터 읽어와서 초기화 완료됐음을 알림
-        OnDataLoaded?.Invoke();
-        Debug.Log("GameManager: Data loaded and OnDataLoaded invoked.");
+        // OnDataLoaded?.Invoke();
+        // Debug.Log("GameManager: Data loaded and OnDataLoaded invoked.");
         
 
     }
