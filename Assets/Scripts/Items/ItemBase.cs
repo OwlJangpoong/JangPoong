@@ -46,6 +46,7 @@ public abstract class ItemBase : MonoBehaviour
     {
         if (allowCollect && collision.CompareTag("Player"))
         {
+            Debug.Log(itemType.ToString());
             UpdateCollision(collision.transform);
             Managers.Inventory.InventoryItem(itemType, 1);
             Destroy(gameObject);

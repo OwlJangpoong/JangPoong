@@ -268,7 +268,7 @@ public class Monster : MonoBehaviour
         }
         else if (Physics2D.Raycast(transform.position, direction, 1.5f, LayerMask.GetMask("Level1")))
         {
-            Debug.Log("점프 가능");
+            //Debug.Log("점프 가능");
             return 1;
         }
         else

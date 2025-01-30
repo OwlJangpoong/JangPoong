@@ -14,6 +14,7 @@ public class UI_GameOverButtons : MonoBehaviour
     {
         exitButton.onClick.AddListener(Exit);
         restartButton.onClick.AddListener(Restart);
+        movement = Managers.PlayerData.GetComponent<NewPlayerMovement>();
     }
 
     public void Exit()
@@ -24,6 +25,7 @@ public class UI_GameOverButtons : MonoBehaviour
     public void Restart()
     {
         movement.OnButtonClick_Restart();
+        Managers.Inventory.RestoreInventoryState();
         Managers.Scene.LoadScene();
     }
 }

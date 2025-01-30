@@ -11,12 +11,6 @@ public class InventoryUI : MonoBehaviour
     //배열로 자료구조 변경
     [SerializeField, Tooltip("hpSmall, hpLarge, mpSmall, mpLarge, invisibility 순으로 아이템 개수를 표시하는 TMP_Text UI 오브젝트를 넣어주세요.")] public TMP_Text[] UI_itemTexts; 
     
-    
-    [SerializeField] public TMP_Text hpPotion_Small;
-    [SerializeField] public TMP_Text hpPotion_Large;
-    [SerializeField] public TMP_Text mpPotion_Small;
-    [SerializeField] public TMP_Text mpPotion_Large;
-    [SerializeField] public TMP_Text invisibilityPotion;
 
     public PlayerDataManager PlayerDataManager;
 
@@ -40,6 +34,7 @@ public class InventoryUI : MonoBehaviour
         }
 
         // 초기화 완료 후 이벤트 연결 및 UI 업데이트
+        Managers.Inventory.OnInventoryUpdated -= UpdateItemCntTextUI;
         Managers.Inventory.OnInventoryUpdated += UpdateItemCntTextUI;
         UpdateItemCntTextUI(); // 초기 아이템 개수 표시
     }
@@ -103,7 +98,6 @@ public class InventoryUI : MonoBehaviour
             Debug.LogError("아이템 개수를 표시하는 UI 텍스트 배열이 비어있거나 초기화되지 않았습니다.");
             return;
         }
-
         for (int i = 0; i < itemCnts.Length && i < UI_itemTexts.Length; i++)
         {
             UI_itemTexts[i].text = "x" + itemCnts[i];
