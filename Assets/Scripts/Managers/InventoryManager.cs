@@ -21,8 +21,7 @@ public class InventoryManager
         //초기화
         Debug.Log("InventoryManager 초기화!");
 
-        currentInventory = Managers.Game.GameInventory;
-        Debug.Log(currentInventory.items[Define.Item.hpPotionSmall]);
+        currentInventory = Managers.Game.GameInventory.DeepCopy();
         
         
         _isInitialized = true;
@@ -36,7 +35,7 @@ public class InventoryManager
     {
         if (!currentInventory.items.ContainsKey(itemType))
         {
-            Debug.LogWarning($"Unknown item type: {itemType.ToString()}");
+            Debug.LogWarning($"Unknown item type: {itemType.ToString()}"); //장풍 레벨업 토큰이면 log warning 떠도 무시해도 됩니다. 게임 진행에 영향을 미치지 않습니다.
             return;
         }
 
@@ -85,7 +84,7 @@ public class InventoryManager
     public void CommitInventoryState()
     {
         Debug.Log("InventoryManager: 최종 Inventory 상태 저장을 요청합니다");
-        Managers.Game.GameInventory = currentInventory;
+        Managers.Game.GameInventory = currentInventory.DeepCopy();
 
 
     }
@@ -94,8 +93,8 @@ public class InventoryManager
     {
         Debug.Log("InventoryManager : Inventory 상태를 복구합니다. 이전 데이터를 가져와 덮어씁니다.");
 
-        currentInventory = Managers.Game.GameInventory;
-
+        currentInventory = Managers.Game.GameInventory.DeepCopy();
+        Debug.Log($"{currentInventory.items[Define.Item.hpPotionSmall]}, {Managers.Game.GameInventory.items[Define.Item.hpPotionSmall]}");
     }
 
     #endregion
