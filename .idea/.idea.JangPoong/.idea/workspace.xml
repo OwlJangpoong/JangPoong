@@ -6,9 +6,35 @@
   <component name="ChangeListManager">
     <list default="true" id="8d60103f-3d9b-4716-9d1c-3d51d042b424" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.JangPoong/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.JangPoong/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Data/InitData/PlayerData.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Data/InitData/PlayerData.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerDataManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/PlayerDataManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerDataManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/PlayerDataManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/jangpoong/jangpoong Lv10.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/jangpoong/jangpoong Lv10.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/jangpoong/jangpoong Lv2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/jangpoong/jangpoong Lv2.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/jangpoong/jangpoong Lv3.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/jangpoong/jangpoong Lv3.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/jangpoong/jangpoong Lv4.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/jangpoong/jangpoong Lv4.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/jangpoong/jangpoong Lv5.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/jangpoong/jangpoong Lv5.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/jangpoong/jangpoong Lv6.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/jangpoong/jangpoong Lv6.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/jangpoong/jangpoong Lv7.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/jangpoong/jangpoong Lv7.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/jangpoong/jangpoong Lv8.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/jangpoong/jangpoong Lv8.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/jangpoong/jangpoong Lv9.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/jangpoong/jangpoong Lv9.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Common/Define.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Common/Define.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Items/HPpotionLarge.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Items/HPpotionLarge.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Items/HPpotionSmall.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Items/HPpotionSmall.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Items/InvisibilityPotion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Items/InvisibilityPotion.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Items/LevelUpToken.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Items/LevelUpToken.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Items/MPpotionLarge.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Items/MPpotionLarge.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Items/MPpotionSmall.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Items/MPpotionSmall.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/Managers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/Managers.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/PlayerDataManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/PlayerDataManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/PlayerDataManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/PlayerDataManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Monsters/Goblin/Goblin_BatController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Monsters/Goblin/Goblin_BatController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Monsters/Monster.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Monsters/Monster.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewPlayer/NewPlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewPlayer/NewPlayerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Obstacles/StickyGoo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Obstacles/StickyGoo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/JangpoongController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/JangpoongController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Inventory/InventoryUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Inventory/InventoryUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Scene/UI_Background.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Scene/UI_Background.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Scene/UI_PlayerHp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Scene/UI_PlayerHp.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Scene/UI_PlayerHp_old.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Scene/UI_PlayerHp_old.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +68,7 @@
     <setting file="mock:///Users/dohyun/Desktop/이화/King/장풍전설/JangPoong/Assets/Scripts/Common/Define.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Data/SettingData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ETC/KeyBindingResult.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerStats.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///Users/dohyun/Desktop/이화/King/장풍전설/JangPoong/Assets/Scripts/UI/Inventory/InventoryUI.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/KeyBinding/UI_Setting_KeyCode.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@14.0.10/Runtime/UniversalAdditionalCameraData.cs" root0="SKIP_HIGHLIGHTING" />
