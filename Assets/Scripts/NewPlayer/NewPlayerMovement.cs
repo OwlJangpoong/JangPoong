@@ -131,6 +131,20 @@ public class NewPlayerMovement : MonoBehaviour
         UpdateJangPoong();
         UpdateUlt();
 
+        // 기본 이동, HandleSliding 파트 FixedUpdate문으로 옮김 (250201 다인)
+
+        /////플레이어 맵 이동 제한을 위한 코드! 삭제 금지 ----------
+        if (stageData == null) return;
+        float xPos = Mathf.Clamp(transform.position.x, stageData.PlayerLimitMinX, stageData.PlayerLimitMaxX);
+        transform.position = new Vector2(xPos, transform.position.y);
+        ////-------------
+        
+    }
+
+    // 물리 엔진 업데이트되는 함수
+    void FixedUpdate()
+    {
+        // 기본 이동
         float x = GetHorizontalInput();
 
         if (gameOverFlag == true)
@@ -151,30 +165,33 @@ public class NewPlayerMovement : MonoBehaviour
 
             playerAnimator.SetSpeedMultiplier(isRunning ? 1.5f : 1.0f);
             playerAnimator.UpdateAnimation(x);
-            
-            
-            /////플레이어 맵 이동 제한을 위한 코드! 삭제 금지 ----------
-            if (stageData == null) return;
-            float xPos = Mathf.Clamp(transform.position.x, stageData.PlayerLimitMinX, stageData.PlayerLimitMaxX);
-            transform.position = new Vector2(xPos, transform.position.y);
-            ////-------------
         }
 
+        // 슬라이딩 유지
+        if (isSliding)
+        {
+            HandleSliding();
+        }
     }
+
 
     #region 이동 & 점프 & 더블 점프
     private float GetHorizontalInput()
     {
         float x = 0;
 
-        if (Input.GetKey(Managers.KeyBind.GetKeyCode(Define.ControlKey.leftKey))) // 좌로 이동 키 눌렀을 때
+        if (!isSliding)
         {
-            x = -1;
+            if (Input.GetKey(Managers.KeyBind.GetKeyCode(Define.ControlKey.leftKey))) // 좌로 이동 키 눌렀을 때
+            {
+                x = -1;
+            }
+            else if (Input.GetKey(Managers.KeyBind.GetKeyCode(Define.ControlKey.rightKey))) // 우로 이동 키 눌렀을 때
+            {
+                x = 1;
+            }
         }
-        else if (Input.GetKey(Managers.KeyBind.GetKeyCode(Define.ControlKey.rightKey))) // 우로 이동 키 눌렀을 때
-        {
-            x = 1;
-        }
+
         return x;
     }
 
@@ -244,17 +261,17 @@ public class NewPlayerMovement : MonoBehaviour
             }
         }
 
-        if (isSliding)
-        {
-            HandleSliding();
-        }
+        /*     if (isSliding)
+          {
+              HandleSliding();
+          }*/
     }
 
-    // 슬라이딩 시작
-    private void StartSlide()
+        // 슬라이딩 시작
+        private void StartSlide()
     {
         isSliding = true;
-        slideRemainingDistance = slideDistance;
+        slideRemainingDistance = isRunning ? slideDistance*speedMultiplier : slideDistance;
         slideDirection = new Vector2(transformForSpriteControl.localScale.x, 0).normalized; //Player 프리팹 구조 변경으로 인한 코드 수정(250122)
 
         // Player Collider 크기와 위치 조정
@@ -277,18 +294,23 @@ public class NewPlayerMovement : MonoBehaviour
             // Debug.Log("머리 위에 장애물 존재");
 
             // 머리 위에 장애물이 있는 동안 슬라이딩 상태 유지
-            rb.velocity = new Vector2(slideDirection.x * slideSpeed, rb.velocity.y);
+            rb.velocity = new Vector2(slideDirection.x * slideSpeed * (isRunning ? speedMultiplier : 1f), rb.velocity.y);
+            // rb.velocity = new Vector2(slideDirection.x * slideSpeed, rb.velocity.y);
             return;
         }
 
-        float moveStep = slideSpeed * Time.deltaTime;
+        float moveStep = isRunning ? slideSpeed * Time.deltaTime * speedMultiplier : slideSpeed * Time.deltaTime;
+        //float moveStep = slideSpeed * Time.deltaTime;
         if (moveStep > slideRemainingDistance)
         {
             moveStep = slideRemainingDistance;
         }
 
-        rb.velocity = new Vector2(slideDirection.x * slideSpeed, rb.velocity.y);
+        rb.velocity = new Vector2(slideDirection.x * slideSpeed * (isRunning ? speedMultiplier : 1f), rb.velocity.y);
+        // rb.velocity = new Vector2(slideDirection.x * slideSpeed, rb.velocity.y);
+
         slideRemainingDistance -= moveStep;
+        // Debug.Log($"moveStep: {moveStep}, slideRemainingDistance: {slideRemainingDistance}");
 
         // 슬라이딩 종료 조건
         if (slideRemainingDistance <= 0)
