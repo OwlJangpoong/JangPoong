@@ -83,10 +83,10 @@ public class InventoryUI : MonoBehaviour
         //
         // // �κ��丮 ������ ���� ���� ���� ������Ʈ
         
-        CheckItemUse(KeyCode.Alpha1, Define.Item.hpPotionSmall, 2f, 2f, PotionEffectAfterDelay);
-        CheckItemUse(KeyCode.Alpha2, Define.Item.hpPotionLarge, 3f, 4f, PotionEffectAfterDelay);
-        CheckItemUse(KeyCode.Alpha3, Define.Item.mpPotionSmall, 1.5f, 25f, PotionEffectAfterDelay);
-        CheckItemUse(KeyCode.Alpha4, Define.Item.mpPotionLarge, 2f, 50f, PotionEffectAfterDelay);
+        CheckItemUse(KeyCode.Alpha1, Define.Item.hpPotionSmall, 0f, 2f, PotionEffectAfterDelay);
+        CheckItemUse(KeyCode.Alpha2, Define.Item.hpPotionLarge, 0f, 4f, PotionEffectAfterDelay);
+        CheckItemUse(KeyCode.Alpha3, Define.Item.mpPotionSmall, 0f, 25f, PotionEffectAfterDelay);
+        CheckItemUse(KeyCode.Alpha4, Define.Item.mpPotionLarge, 0f, 50f, PotionEffectAfterDelay);
         CheckItemUse(KeyCode.Alpha5, Define.Item.invisibilityPotion, 0f, 0f,PotionEffectAfterDelay);
     }   
 
