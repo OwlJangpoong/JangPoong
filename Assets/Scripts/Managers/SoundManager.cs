@@ -29,11 +29,8 @@ public class SoundManager
          //Sound 초기화 부분 GameManager로 이동. GameManager에서 Setting 데이터 처리하도록 수정 (250116)
          
          //사운드 셋팅 적용
-         if (Managers.Game.settingData != null)
-         {
-            SetBgmVolume(Managers.Game.settingData.audioVolume.Bgm);
-            SetSfxVolume(Managers.Game.settingData.audioVolume.Sfx);
-         }
+         SetBgmVolume(Managers.Game.Setting.audioVolume.Bgm);
+         SetSfxVolume(Managers.Game.Setting.audioVolume.Sfx);
         
       }
       
@@ -67,14 +64,14 @@ public class SoundManager
    
    public void SetBgmVolume(float volume)
    {
-      Managers.Game.settingData.audioVolume.Bgm = volume; //json으로 데이터 저장 변경
+      Managers.Game.Setting.audioVolume.Bgm = volume; //json으로 데이터 저장 변경
       float bgmVolume = Mathf.Log10(volume) * 20;
       audioMixer.SetFloat("BGM", bgmVolume);
    }
 
    public void SetSfxVolume(float volume)
    {
-      Managers.Game.settingData.audioVolume.Sfx = volume; //json으로 데이터 저장 변경
+      Managers.Game.Setting.audioVolume.Sfx = volume; //json으로 데이터 저장 변경
       float sfxVolume = Mathf.Log10(volume) * 20;
       audioMixer.SetFloat("SFX", sfxVolume);
    }

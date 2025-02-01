@@ -24,6 +24,11 @@ public class PlayerDataManager : MonoBehaviour
     [SerializeField] public int monsterPoint = 0;
     [SerializeField] public int maxMonsterPoint = 50;
 
+    // 궁극기 설정
+    [SerializeField] public GameObject ultPrefab;
+    [SerializeField] public float ultSpeed = 5.0f; //일반 장풍의 1/2 속도
+    [SerializeField] public float ultDamage = 20f;
+
     [Header("Mana")]
     // 마나 데이터 설정
     // mana int로 변경

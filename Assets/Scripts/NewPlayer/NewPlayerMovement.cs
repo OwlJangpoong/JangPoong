@@ -129,6 +129,7 @@ public class NewPlayerMovement : MonoBehaviour
         UpdateSlide();
         UpdateRun();
         UpdateJangPoong();
+        UpdateUlt();
 
         float x = GetHorizontalInput();
 
@@ -368,6 +369,55 @@ public class NewPlayerMovement : MonoBehaviour
             else // 잔여 마나량 < 5
             {
                 Debug.Log("마나량 부족");
+            }
+        }
+    }
+    #endregion
+
+    #region 궁극기 발사
+    private void UpdateUlt()
+    {
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return;  ////UI 클릭시는 장풍 발사가 되지 않도록 처리 (240802 도현)
+        }
+        if (Input.GetKeyDown(Managers.KeyBind.GetKeyCode(Define.ControlKey.ultiKey)))    // x키로 궁극기 발사
+        {
+            if (playerDataManager.MonsterPoint >= playerDataManager.maxMonsterPoint) // 몬스터 포인트가 50 이상일 경우
+            {
+                //playerDataManager.MonsterPoint -= playerDataManager.maxMonsterPoint;
+
+                Managers.Sound.Play("56_Attack_03"); // 일단 장풍이랑 같은 소리 나게 설정
+
+                // 달리기 중에 궁극기 속력 증가
+                if (isRunning)
+                    playerDataManager.ultSpeed = 7;
+                else
+                    playerDataManager.ultSpeed = 6;
+
+                Vector3 spawnPosition = transform.position;
+                spawnPosition.y += isSliding ? -0.38f : -0.08f;     // 슬라이딩 시에는 y값 -0.08f에서 궁극기 발사되도록
+
+                GameObject ult = Instantiate(playerDataManager.ultPrefab, spawnPosition, Quaternion.identity);
+                Rigidbody2D ultRb = ult.GetComponent<Rigidbody2D>();
+
+
+
+                //궁극기 alive time 설정가(240809) - 도현
+                UltController uc = ult.GetComponent<UltController>();
+                uc.AliveTime = 5f;
+
+                Vector2 ultDirection = new Vector2(transformForSpriteControl.localScale.x, 0).normalized; //플레이어 프리팹 수정으로 인한 코드 변경 (250122)
+                ultRb.velocity = ultDirection * playerDataManager.ultSpeed;
+                ult.transform.localScale = new Vector3((ultDirection.x > 0 ? 1f : -1f), 1f, 1f); // 궁극기 크기는 장풍의 2배 크기
+
+                playerAnimator.JangPoongShooting(); //애니메이션은 장풍 쏠 때와 동일
+
+                //Destroy(jangPoong, playerDataManager.jangPoongDistance / playerDataManager.jangPoongSpeed); //Destory 로직 장풍 오브젝트에서 관리하도록 수정(240809) - 도현
+            }
+            else // 몬스터 포인트 < 50
+            {
+                Debug.Log("몬스터 포인트 부족");
             }
         }
     }

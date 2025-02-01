@@ -263,10 +263,18 @@ public class Intro : MonoBehaviour
     private void HandleConversationEnd()
     {
         // 각 물약 1개씩 지급
-        Managers.Inventory.hpSmallCnt += 1;
-        Managers.Inventory.hpLargeCnt += 1;
-        Managers.Inventory.mpSmallCnt += 1;
-        Managers.Inventory.mpLargeCnt += 1;
+        // Managers.Inventory.hpSmallCnt += 1;
+        // Managers.Inventory.hpLargeCnt += 1;
+        // Managers.Inventory.mpSmallCnt += 1;
+        // Managers.Inventory.mpLargeCnt += 1;
+        
+        //인벤토리에 아이템 추가
+        for (int i = 0; i < (int)Define.Item.levelUpToken; i++)
+        {
+            Managers.Inventory.InventoryItem((Define.Item)i,1);
+        }
+        //씬 이동 전에 인벤토리 데이터 저장되도록 처리 : GameManager로 커밋한다.
+        Managers.Inventory.CommitInventoryState();
 
         // Scene 전환
         SceneManager.LoadScene("0-1 tutorial");

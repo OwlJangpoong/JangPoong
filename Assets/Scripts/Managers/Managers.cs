@@ -7,6 +7,8 @@ public class Managers : MonoBehaviour
 {
     //Singleton
     static Managers s_instance; //유일성 보장
+    private static bool _isInitialized = false; //초기화 완료 여부
+    public static bool IsInitialized => _isInitialized; // 외부에서 상태 확인 가능
 
     static Managers Instance { get
     {
@@ -26,7 +28,7 @@ public class Managers : MonoBehaviour
     private PlayerDataManager _playerData;
 
     private KeyBindingManager _keyBind = new KeyBindingManager();
-    private InventoryManager _inventory = new InventoryManager();
+    private InventoryManager _inventory; // 초기에는 null
     
     
     public static DataManager Data { get { return Instance._data; } }
@@ -43,7 +45,15 @@ public class Managers : MonoBehaviour
     public static UIManager UI { get { return Instance._ui; } }
     public static SoundManager Sound
     {
-        get { return Instance._sound; }
+        get
+        {
+            if (Instance._sound == null)
+            {
+                Instance._sound = new SoundManager(); //처음 접근할 때 생성하고 초기화한다.
+                Instance._sound.Init();
+            }
+            return Instance._sound;
+        }
     }
 
     public static PlayerDataManager PlayerData
@@ -64,6 +74,11 @@ public class Managers : MonoBehaviour
     {
         get
         {
+            if (Instance._keyBind == null)
+            {
+                Instance._keyBind = new KeyBindingManager(); //처음 접근할 때 생성하고 초기화한다.
+                //Instance._keyBind.
+            }
             return Instance._keyBind;
         }
     }
@@ -72,6 +87,11 @@ public class Managers : MonoBehaviour
     {
         get
         {
+            if (Instance._inventory == null)
+            {
+                Instance._inventory = new InventoryManager(); // 처음 접근할 때 생성
+                Instance._inventory.Init();
+            }
             return Instance._inventory;
         }
     }
@@ -112,7 +132,9 @@ public class Managers : MonoBehaviour
             
             
             s_instance._sound.Init();
-            //s_instance._keyBind.LoadKeyBinding();
+
+            
+            _isInitialized = true; // 초기화 완료
             
         }
 

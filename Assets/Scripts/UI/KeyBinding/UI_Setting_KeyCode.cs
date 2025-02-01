@@ -37,19 +37,27 @@ public class UI_Setting_KeyCode : MonoBehaviour
 
     }
 
-    private void OnEnable()
+    private void Start()
     {
-        if (Managers.Game != null)
-        {
-            // 이벤트 구독
-            Managers.Game.OnDataLoaded += Init;
+        StartCoroutine(WaitForManagersInitialization());
+    }
 
-            // GameManager가 이미 초기화된 상태라면 바로 초기화
-            if (Managers.Game.IsInit)
-            {
-                Init();
-            }
+    private IEnumerator WaitForManagersInitialization()
+    {
+        // Managers 초기화 대기
+        while (!Managers.IsInitialized)
+        {
+            yield return null; // 다음 프레임까지 대기
         }
+        
+        
+        //Managers 초기화 완료 후 UI 초기화 진행
+        Init();
+        //이벤트 구독
+        Managers.KeyBind.OnResetKeyBinding -= Init;
+        Managers.KeyBind.OnResetKeyBinding += Init;
+        
+
     }
 
     private void Init()
