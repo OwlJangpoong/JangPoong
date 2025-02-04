@@ -19,6 +19,7 @@ public class PlayerStatsController : MonoBehaviour
     
     //Invisibility 투명화
     public bool IsInvisible { get; set; } = false;
+    public float invisibleDuration = 15;
     
     
     //플레이어 관련 컴포넌트
@@ -171,8 +172,10 @@ public class PlayerStatsController : MonoBehaviour
         spriteRenderer.color = invisibleColor;
         
         //투명화 상태 15초 유지
-        float duration = 15f;
+        float duration = invisibleDuration;
         float elapsed = 0f;
+        
+        Debug.Log($"{elapsed}/{duration}");
         while (elapsed < duration)
         {
             elapsed += 1f; // 1초마다 증가

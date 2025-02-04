@@ -8,10 +8,9 @@ using UnityEngine.Serialization;
 public class InventoryUI : MonoBehaviour
 {
     //배열로 자료구조 변경
-    [SerializeField, Tooltip("hpSmall, hpLarge, mpSmall, mpLarge, invisibility 순으로 아이템 개수를 표시하는 TMP_Text UI 오브젝트를 넣어주세요.")] public TMP_Text[] UI_itemTexts; 
+    [SerializeField, Tooltip("hpSmall, hpLarge, mpSmall, mpLarge, invisibility 순으로 아이템 개수를 표시하는 TMP_Text UI 오브젝트를 넣어주세요.")] public TMP_Text[] UI_itemTexts;
     
-
-    [FormerlySerializedAs("playerStats")] [FormerlySerializedAs("PlayerDataManager")] public PlayerStatsController playerStatsController;
+    private PlayerStatsController playerStatsController;
 
     public delegate void Item_Hp_EventHandler(float increase);
     public event Item_Hp_EventHandler OnHpPotionUsed;
@@ -19,7 +18,7 @@ public class InventoryUI : MonoBehaviour
     public delegate void Item_Mana_EventHandler(int increase);
     public event Item_Mana_EventHandler OnManaPotionUsed;
 
-    public delegate void Item_Invisible_EventHandler();
+    public delegate void Item_Invisible_EventHandler(float durationTime);
 
     public event Item_Invisible_EventHandler OnInvisiblePositionUsed; 
 
@@ -35,6 +34,9 @@ public class InventoryUI : MonoBehaviour
         {
             yield return null; // 다음 프레임까지 대기
         }
+        
+        //초기화 완료 후 변수 할당
+        playerStatsController = GameObject.FindWithTag("Player").GetComponent<PlayerStatsController>();
 
         // 초기화 완료 후 이벤트 연결 및 UI 업데이트
         Managers.Inventory.OnInventoryUpdated -= UpdateItemCntTextUI;
@@ -115,9 +117,9 @@ public class InventoryUI : MonoBehaviour
         //hp, mana full인 상태에서 아이템 사용 방지 처리
         if (Input.GetKeyDown(key) && Managers.Inventory.GetItemCount(itemType) > 0)
         {
-            if (IsMax(itemType))
+            if (!CanUse(itemType))
             {
-                Debug.Log("이미 최대치입니다!");
+                Debug.Log("이미 최대치이거나 포션 사용 중 입니다!");
                 return;
             }
             
@@ -128,16 +130,19 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
-    private bool IsMax(Define.Item itemType)
+    private bool CanUse(Define.Item itemType)
     {
         switch (itemType)
         {
             case Define.Item.hpPotionLarge: case Define.Item.hpPotionSmall:
                 float epsilon = 0.00001f;
-                return ((Managers.Player.MaxHp - Managers.Player.Hp) < epsilon);
+                return ((Managers.Player.MaxHp - Managers.Player.Hp) > epsilon);
             
             case Define.Item.mpPotionLarge: case Define.Item.mpPotionSmall:
-                return (Managers.Player.MaxMana == Managers.Player.Mana);
+                return (Managers.Player.MaxMana != Managers.Player.Mana);
+            
+            case Define.Item.invisibilityPotion:
+                return !playerStatsController.IsInvincible;
             
             default: return true;
         }
@@ -166,11 +171,13 @@ public class InventoryUI : MonoBehaviour
                 // Managers.Player.Mana += (int)increase;
                 OnManaPotionUsed?.Invoke((int)increase);
                 break;
-            case 5:
-                OnInvisiblePositionUsed?.Invoke();
+            case 4:
                 // playerStatsController.isInvisible = true; //����ȭ ���� ����
                 // playerStatsController.IsInvincible = true;//���� ���� ����
                 // yield return Managers.Player.StartCoroutine(InvisibilityCoroutine(Managers.Player));
+                
+                OnInvisiblePositionUsed?.Invoke(playerStatsController.invisibleDuration);
+                
                 yield return StartCoroutine(playerStatsController.InvisibilityCoroutine());
                 break;
         }

@@ -28,6 +28,10 @@ public class UI_ItemUsedText : MonoBehaviour
 
         InventoryUI.OnManaPotionUsed -= ManaPotionUsedText;
         InventoryUI.OnManaPotionUsed += ManaPotionUsedText;
+
+        InventoryUI.OnInvisiblePositionUsed -= InvisiblePotionUsedText;
+        InventoryUI.OnInvisiblePositionUsed += InvisiblePotionUsedText;
+        
         
         // 모든 LevelUpToken 객체를 찾아 이벤트 구독 -> 코드 수정(250203)
         // LevelUpToken[] levelUpTokens = FindObjectsOfType<LevelUpToken>();
@@ -57,6 +61,15 @@ public class UI_ItemUsedText : MonoBehaviour
         SetTextColor("#2D5299"); // MP 색상 (파란색)
         onItemUsedText.gameObject.SetActive(true);
         onItemUsedText.text = "+ " + increase + " MP";
+        StartCoroutine(HidePotionUsedText());
+    }
+
+    public void InvisiblePotionUsedText(float durationTime)
+    {
+        ResetTextAlpha();
+        SetTextColor("A1A1A1");
+        onItemUsedText.gameObject.SetActive(true);
+        onItemUsedText.text = "투명화 " + durationTime + "초";
         StartCoroutine(HidePotionUsedText());
     }
 
