@@ -286,7 +286,7 @@ public class NewPlayerMovement : MonoBehaviour
         private void StartSlide()
     {
         isSliding = true;
-        slideRemainingDistance = isRunning ? slideDistance*speedMultiplier : slideDistance;
+        slideRemainingDistance = Managers.Player.IsRunning ? slideDistance*speedMultiplier : slideDistance;
         slideDirection = new Vector2(transformForSpriteControl.localScale.x, 0).normalized; //Player 프리팹 구조 변경으로 인한 코드 수정(250122)
 
         // Player Collider 크기와 위치 조정
@@ -309,19 +309,19 @@ public class NewPlayerMovement : MonoBehaviour
             // Debug.Log("머리 위에 장애물 존재");
 
             // 머리 위에 장애물이 있는 동안 슬라이딩 상태 유지
-            rb.velocity = new Vector2(slideDirection.x * slideSpeed * (isRunning ? speedMultiplier : 1f), rb.velocity.y);
+            rb.velocity = new Vector2(slideDirection.x * slideSpeed * (Managers.Player.IsRunning ? speedMultiplier : 1f), rb.velocity.y);
             // rb.velocity = new Vector2(slideDirection.x * slideSpeed, rb.velocity.y);
             return;
         }
 
-        float moveStep = isRunning ? slideSpeed * Time.deltaTime * speedMultiplier : slideSpeed * Time.deltaTime;
+        float moveStep = Managers.Player.IsRunning ? slideSpeed * Time.deltaTime * speedMultiplier : slideSpeed * Time.deltaTime;
         //float moveStep = slideSpeed * Time.deltaTime;
         if (moveStep > slideRemainingDistance)
         {
             moveStep = slideRemainingDistance;
         }
 
-        rb.velocity = new Vector2(slideDirection.x * slideSpeed * (isRunning ? speedMultiplier : 1f), rb.velocity.y);
+        rb.velocity = new Vector2(slideDirection.x * slideSpeed * (Managers.Player.IsRunning ? speedMultiplier : 1f), rb.velocity.y);
         // rb.velocity = new Vector2(slideDirection.x * slideSpeed, rb.velocity.y);
 
         slideRemainingDistance -= moveStep;
