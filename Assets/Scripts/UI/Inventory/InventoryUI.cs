@@ -111,12 +111,35 @@ public class InventoryUI : MonoBehaviour
     private void CheckItemUse(KeyCode key, Define.Item itemType, float sec, float increase,
         System.Func<Define.Item, float, float, IEnumerator> effectCoroutine)
     {
+        
+        //hp, mana full인 상태에서 아이템 사용 방지 처리
         if (Input.GetKeyDown(key) && Managers.Inventory.GetItemCount(itemType) > 0)
         {
+            if (IsMax(itemType))
+            {
+                Debug.Log("이미 최대치입니다!");
+                return;
+            }
+            
             Managers.Inventory.InventoryItem(itemType,-1);
             StartCoroutine(effectCoroutine(itemType, sec, increase));
             Debug.Log($"{itemType} used");
             UpdateItemCntTextUI();
+        }
+    }
+
+    private bool IsMax(Define.Item itemType)
+    {
+        switch (itemType)
+        {
+            case Define.Item.hpPotionLarge: case Define.Item.hpPotionSmall:
+                float epsilon = 0.00001f;
+                return ((Managers.Player.MaxHp - Managers.Player.Hp) < epsilon);
+            
+            case Define.Item.mpPotionLarge: case Define.Item.mpPotionSmall:
+                return (Managers.Player.MaxMana == Managers.Player.Mana);
+            
+            default: return true;
         }
     }
     
