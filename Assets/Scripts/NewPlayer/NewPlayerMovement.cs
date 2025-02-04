@@ -65,7 +65,7 @@ public class NewPlayerMovement : MonoBehaviour
     public bool isGround = false;
     public bool isJumping = false;
     public bool isDoubleJumping = false;
-    public bool isRunning = false;                                        // 달리기 중이면 true
+    //public bool isRunning = false;  // 달리기 중이면 true //전역 관리로 변경(250204)
 
     [NonSerialized] public float slideSpeed = 7.0f;  // 슬라이딩 속도
 
@@ -147,12 +147,12 @@ public class NewPlayerMovement : MonoBehaviour
                 movement.MoveTo(x);
             }
 
-            if (isRunning)
+            if (Managers.Player.IsRunning)
             {
                 movement.MoveTo(x * speedMultiplier);
             }
 
-            playerAnimator.SetSpeedMultiplier(isRunning ? 1.5f : 1.0f);
+            playerAnimator.SetSpeedMultiplier(Managers.Player.IsRunning ? 1.5f : 1.0f);
             playerAnimator.UpdateAnimation(x);
             
             
@@ -322,7 +322,7 @@ public class NewPlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(Managers.KeyBind.GetKeyCode(Define.ControlKey.runKey)))
         {
-            isRunning = !isRunning; // 달리기 상태 토글
+            Managers.Player.IsRunning = !Managers.Player.IsRunning; // 달리기 상태 토글
         }
 
     }

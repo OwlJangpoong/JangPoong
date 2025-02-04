@@ -22,8 +22,8 @@ public class PlayerManager
     
     
     //MosterPoint
-    public int MonsterPoint { get; private set; }
-    public int MaxMonsterPoint { get; private set; }
+    public int MonsterPoint { get; private set; } = 50;
+    public int MaxMonsterPoint { get; private set; } = 50;
     
     //JangPoong
     public int CurrentJangPoongLevel { get; private set; } = 1;
