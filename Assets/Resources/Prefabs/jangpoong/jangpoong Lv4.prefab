@@ -183,4 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 388e4c18cbce5492a918af615cf224fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1.6
+  jangPoongSpeed: 10
+  jangPoongDistance: 5
+  jangPoongLevel: 3
+  jangPoongDamage: 0
