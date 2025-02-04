@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine.PlayerLoop;
 
 public class PlayerManager
 {
@@ -150,6 +151,7 @@ public class PlayerManager
         
         
         //이벤트 구독
+        OnTokenCntChanged -= UpdateJangPoongLevel;
         OnTokenCntChanged += UpdateJangPoongLevel;
 
     }

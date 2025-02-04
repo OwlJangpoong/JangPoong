@@ -126,7 +126,6 @@ MonoBehaviour:
   isGround: 0
   isJumping: 0
   isDoubleJumping: 0
-  isRunning: 0
   gameOver: {fileID: 0}
   gameOverFlag: 0
   levelUpEffect: {fileID: 8771972552311404799, guid: bbf9e36a48d6c5648a13889afab076fd, type: 3}
@@ -171,6 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manaRegenerationRate: 3
   invincibilityDuration: 2
+  invisibleDuration: 15
   spriteRenderer: {fileID: 2966149447988133855}
 --- !u!1 &8182224592885942463
 GameObject:
@@ -311,6 +311,10 @@ PrefabInstance:
     - target: {fileID: 3912098901278704007, guid: b29ae407f943b4fa1857d9e7be648f4c, type: 3}
       propertyPath: m_Name
       value: UI_ItemUsedText_WorldSpace
+      objectReference: {fileID: 0}
+    - target: {fileID: 3912098901278704007, guid: b29ae407f943b4fa1857d9e7be648f4c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4610395301590850486, guid: b29ae407f943b4fa1857d9e7be648f4c, type: 3}
       propertyPath: m_Pivot.x

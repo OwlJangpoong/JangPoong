@@ -36,6 +36,8 @@ public class UltController : MonoBehaviour
         _collider2D = GetComponent<Collider2D>();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        
+        InitializeUlt();
     }
 
 
