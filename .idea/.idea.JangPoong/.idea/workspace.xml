@@ -5,39 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d60103f-3d9b-4716-9d1c-3d51d042b424" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/PlayerManager.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.JangPoong/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.JangPoong/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Common/Define.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Common/Define.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Common/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Common/GameController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Items/HPpotionLarge.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Items/HPpotionLarge.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Items/HPpotionSmall.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Items/HPpotionSmall.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Items/InvisibilityPotion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Items/InvisibilityPotion.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Items/LevelUpToken.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Items/LevelUpToken.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Items/MPpotionLarge.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Items/MPpotionLarge.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Items/MPpotionSmall.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Items/MPpotionSmall.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/Managers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/Managers.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/PlayerDataManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/PlayerManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/PlayerDataManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/ResourceManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/ResourceManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Monsters/Goblin/Goblin_BatController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Monsters/Goblin/Goblin_BatController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Monsters/Monster.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Monsters/Monster.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Monsters/MonsterWeaponCollider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Monsters/MonsterWeaponCollider.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewPlayer/NewPlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewPlayer/NewPlayerMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Obstacles/StickyGoo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Obstacles/StickyGoo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Obstacles/Thorn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Obstacles/Thorn.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/JangpoongController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/JangpoongController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/UltController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/UltController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Buttons/UI_GameOverButtons.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Buttons/UI_GameOverButtons.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Inventory/InventoryUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Inventory/InventoryUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Scene/UI_Background.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Scene/UI_Background.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Scene/UI_ItemUsedText.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Scene/UI_ItemUsedText.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Scene/UI_JangPoongLevel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Scene/UI_JangPoongLevel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Scene/UI_MonsterPoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Scene/UI_MonsterPoint.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Scene/UI_MonsterPointBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Scene/UI_MonsterPointBar.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Scene/UI_PlayerHp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Scene/UI_PlayerHp.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Scene/UI_PlayerHp_old.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Scene/UI_PlayerHp_old.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Scene/UI_PlayerMana.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Scene/UI_PlayerMana.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/WorldSpace/UI_HPBar.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/WorldSpace/UI_HPBar.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,26 +58,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;DataManager&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;File.Encoding&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "DataManager",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;/Users/dohyun/Library/Application Support/JetBrains/Rider2024.1/resharper-host/DecompilerCache&quot;,
-      &quot;/Users/dohyun/Library/Application Support/JetBrains/Rider2024.1/resharper-host/SourcesCache&quot;,
-      &quot;/Users/dohyun/Library/Application Support/Symbols/src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "/Users/dohyun/Library/Application Support/JetBrains/Rider2024.1/resharper-host/DecompilerCache",
+      "/Users/dohyun/Library/Application Support/JetBrains/Rider2024.1/resharper-host/SourcesCache",
+      "/Users/dohyun/Library/Application Support/Symbols/src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Unity 에디터에 연결.Unity 에디터에 연결">
     <configuration name="유닛 테스트(배치 모드)" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/2022.3.24f1/Unity.app/Contents/MacOS/Unity" />
@@ -175,7 +144,7 @@
       <workItem from="1737466023108" duration="987000" />
       <workItem from="1737615279926" duration="1927000" />
       <workItem from="1738122698860" duration="20397000" />
-      <workItem from="1738645124795" duration="2519000" />
+      <workItem from="1738645124795" duration="3865000" />
     </task>
     <servers />
   </component>

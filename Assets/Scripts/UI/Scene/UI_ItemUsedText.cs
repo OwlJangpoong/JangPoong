@@ -5,12 +5,24 @@ using UnityEngine;
 
 public class UI_ItemUsedText : MonoBehaviour
 {
-    public TMP_Text onItemUsedText;
-
-    public InventoryUI InventoryUI;
+    [SerializeField] private TMP_Text onItemUsedText;
+    [SerializeField] private InventoryUI InventoryUI;
 
     private void Start()
     {
+        onItemUsedText = GetComponent<TMP_Text>();
+        
+        GameObject ui_root = GameObject.FindWithTag("UI_Root");
+        if (ui_root == null)
+        {
+            Debug.LogError("Can't find gameobject which has 'UI_Root' tag");
+            return;
+        }
+        else
+        {
+            InventoryUI = Util.FindChild<InventoryUI>(ui_root, null, true);
+        }
+        
         InventoryUI.OnHpPotionUsed -= HpPotionUsedText;
         InventoryUI.OnHpPotionUsed += HpPotionUsedText;
 
@@ -26,6 +38,8 @@ public class UI_ItemUsedText : MonoBehaviour
         // }
         Managers.Player.OnTokenCntChanged -= LevelUpTokenUsedText;
         Managers.Player.OnTokenCntChanged += LevelUpTokenUsedText;
+
+        onItemUsedText.text = string.Empty;
     }
 
     public void HpPotionUsedText(float increase)
