@@ -129,7 +129,8 @@
             Level7,
             Level8,
             Level9,
-            Level10
+            Level10,
+            Length
         }
 
         public static readonly float[] JangPoongDamageList =

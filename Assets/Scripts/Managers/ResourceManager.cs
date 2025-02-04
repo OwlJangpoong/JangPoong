@@ -12,6 +12,12 @@ public class ResourceManager
 
 
     //Load
+    /// <summary>
+    /// Resources 폴더 아래의 리소스를 로드하는 메소드
+    /// </summary>
+    /// <param name="path">Resources를 기준으로 하위 path(Resources는 제외한 경로)</param>
+    /// <typeparam name="T">로드하고자 하는 리소의 타입(자료형)</typeparam>
+    /// <returns>로드한 리소스 반환. 로드 실패시 null 반환</returns>
     public T Load<T>(string path) where T : Object
     {
         path = Path.Combine(Path.GetDirectoryName(path) ?? string.Empty, Path.GetFileNameWithoutExtension(path)); 

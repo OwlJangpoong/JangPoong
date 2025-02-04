@@ -15,7 +15,7 @@ public class UI_Background : MonoBehaviour
     private void Init()
     {
         UIBackground = GetComponent<Image>();
-        Managers.PlayerData.UpdateHpAction += SetUIBackground;
+        Managers.Player.OnHpChanged += SetUIBackground;
     }
 
     public void SetUIBackground(float currentHp)

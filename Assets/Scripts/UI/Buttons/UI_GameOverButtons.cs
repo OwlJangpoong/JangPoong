@@ -14,7 +14,17 @@ public class UI_GameOverButtons : MonoBehaviour
     {
         exitButton.onClick.AddListener(Exit);
         restartButton.onClick.AddListener(Restart);
-        movement = Managers.PlayerData.GetComponent<NewPlayerMovement>();
+
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player.GetComponent<NewPlayerMovement>() == null)
+        {
+            movement = Util.FindChild<NewPlayerMovement>(player);
+        }
+        else
+        {
+            movement = player.GetComponent<NewPlayerMovement>();
+        }
+        
     }
 
     public void Exit()

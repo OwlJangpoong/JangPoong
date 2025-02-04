@@ -8,25 +8,22 @@ public class UI_MonsterPoint : MonoBehaviour
     private int maxMonsterPoint;
     private int currentMonsterPoint;
 
-    void Awake()
+    void Start()
     {
         Init();
 
     }
     private void Init()
     {
-        Managers.PlayerData.UpdateMonsterPointAction += SetUIMonsterPoint;
-
         monsterPointText = GetComponentInChildren<TMP_Text>(true);
+        Managers.Player.OnMonsterPointChanged += SetUIMonsterPoint;
     }
 
     public void SetUIMonsterPoint(int val)
     {
-        maxMonsterPoint = Managers.PlayerData.maxMonsterPoint;
-        currentMonsterPoint = Managers.PlayerData.MonsterPoint;
+        maxMonsterPoint = Managers.Player.MaxMonsterPoint;
+        currentMonsterPoint = val;
 
         monsterPointText.text = $"MonsterPoint : {currentMonsterPoint}/{maxMonsterPoint}";
-
     }
-
 }

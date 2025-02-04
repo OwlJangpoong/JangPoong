@@ -19,7 +19,7 @@ public class UI_PlayerMana : MonoBehaviour
     private void Init()
     {
         manaSlider = GetComponent<Slider>();
-        Managers.PlayerData.UpdateManaAction += SetUIMana;
+        Managers.Player.OnManaChanged += SetUIMana;
 
         manaText = GetComponentInChildren<TMP_Text>(true);
 
@@ -27,10 +27,10 @@ public class UI_PlayerMana : MonoBehaviour
 
     public void SetUIMana(int val)
     {
-        maxMana = Managers.PlayerData.MaxMana;
-        currentMana = Managers.PlayerData.Mana;
+        maxMana = Managers.Player.MaxMana;
+        currentMana = Managers.Player.Mana;
         manaSlider.maxValue = maxMana;
-        manaSlider.value = Managers.PlayerData.Mana;
+        manaSlider.value = Managers.Player.Mana;
 
         manaText.text = $"{currentMana}/{maxMana}";
     }

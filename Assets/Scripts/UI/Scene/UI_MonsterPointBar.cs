@@ -7,7 +7,7 @@ public class UI_MonsterPointBar : MonoBehaviour
     private float maxMonsterPoint;
     private float currentMonsterPoint;
     
-    void Awake()
+    void Start()
     {
        Init();
         
@@ -15,22 +15,15 @@ public class UI_MonsterPointBar : MonoBehaviour
     private void Init()
     {
         monsterPointSlider = GetComponent<Slider>();
-        Managers.PlayerData.UpdateMonsterPointAction += SetUIMonsterPoint;
+        Managers.Player.OnMonsterPointChanged += SetUIMonsterPoint;
     }
 
     public void SetUIMonsterPoint(int val)
     {
-        maxMonsterPoint = Managers.PlayerData.maxMonsterPoint;
-        currentMonsterPoint = Managers.PlayerData.MonsterPoint;
+        maxMonsterPoint = Managers.Player.MaxMonsterPoint;
+        currentMonsterPoint = val;
         monsterPointSlider.maxValue = maxMonsterPoint;
         monsterPointSlider.value = currentMonsterPoint;
     }
 
-    
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -7,7 +7,7 @@ public class HPpotionLarge : ItemBase
     {
         Managers.Sound.Play(audioClip);
 
-        var playerDataManager = target.GetComponent<PlayerDataManager>();
+        var playerDataManager = target.GetComponent<PlayerStatsController>();
 
         if (playerDataManager != null)
         {

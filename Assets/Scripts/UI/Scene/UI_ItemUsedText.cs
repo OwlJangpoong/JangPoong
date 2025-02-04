@@ -16,14 +16,16 @@ public class UI_ItemUsedText : MonoBehaviour
 
         InventoryUI.OnManaPotionUsed -= ManaPotionUsedText;
         InventoryUI.OnManaPotionUsed += ManaPotionUsedText;
-
-        // 모든 LevelUpToken 객체를 찾아 이벤트 구독
-        LevelUpToken[] levelUpTokens = FindObjectsOfType<LevelUpToken>();
-        foreach (var token in levelUpTokens)
-        {
-            token.OnLevelUpTokenUpdated -= LevelUpTokenUsedText;
-            token.OnLevelUpTokenUpdated += LevelUpTokenUsedText;
-        }
+        
+        // 모든 LevelUpToken 객체를 찾아 이벤트 구독 -> 코드 수정(250203)
+        // LevelUpToken[] levelUpTokens = FindObjectsOfType<LevelUpToken>();
+        // foreach (var token in levelUpTokens)
+        // {
+        //     token.OnLevelUpTokenUpdated -= LevelUpTokenUsedText;
+        //     token.OnLevelUpTokenUpdated += LevelUpTokenUsedText;
+        // }
+        Managers.Player.OnTokenCntChanged -= LevelUpTokenUsedText;
+        Managers.Player.OnTokenCntChanged += LevelUpTokenUsedText;
     }
 
     public void HpPotionUsedText(float increase)
@@ -44,7 +46,7 @@ public class UI_ItemUsedText : MonoBehaviour
         StartCoroutine(HidePotionUsedText());
     }
 
-    public void LevelUpTokenUsedText()
+    public void LevelUpTokenUsedText(int tokenCnt)
     {
         ResetTextAlpha();
         SetTextColor("#358067");

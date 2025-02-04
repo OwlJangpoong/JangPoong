@@ -24,10 +24,10 @@ public class Managers : MonoBehaviour
     private ResourceManager _resource = new ResourceManager();
     private SceneManagerEx _scene = new SceneManagerEx();
     private UIManager _ui = new UIManager();
-    private SoundManager _sound = new SoundManager();
-    private PlayerDataManager _playerData;
 
-    private KeyBindingManager _keyBind = new KeyBindingManager();
+    private SoundManager _sound;
+    private PlayerManager player;
+    private KeyBindingManager _keyBind;
     private InventoryManager _inventory; // 초기에는 null
     
     
@@ -56,16 +56,17 @@ public class Managers : MonoBehaviour
         }
     }
 
-    public static PlayerDataManager PlayerData
+    public static PlayerManager Player
     {
         get
         {
-            if (Instance._playerData == null)
+            if (Instance.player == null)
             {
-                Instance._playerData = GameObject.FindObjectOfType<PlayerDataManager>();
+                Instance.player = new PlayerManager();
+                Instance.player.Init();
             }
 
-            return Instance._playerData;
+            return Instance.player;
         }
     }
 
@@ -129,9 +130,7 @@ public class Managers : MonoBehaviour
             s_instance._data.Init();
             s_instance._game.Init();
             
-            
-            
-            s_instance._sound.Init();
+            // s_instance._sound.Init();
 
             
             _isInitialized = true; // 초기화 완료

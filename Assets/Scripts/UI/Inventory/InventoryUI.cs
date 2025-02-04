@@ -3,8 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using static LevelUpToken;
-using static UnityEngine.Rendering.DebugUI;
+using UnityEngine.Serialization;
 
 public class InventoryUI : MonoBehaviour
 {
@@ -12,13 +11,17 @@ public class InventoryUI : MonoBehaviour
     [SerializeField, Tooltip("hpSmall, hpLarge, mpSmall, mpLarge, invisibility 순으로 아이템 개수를 표시하는 TMP_Text UI 오브젝트를 넣어주세요.")] public TMP_Text[] UI_itemTexts; 
     
 
-    public PlayerDataManager PlayerDataManager;
+    [FormerlySerializedAs("playerStats")] [FormerlySerializedAs("PlayerDataManager")] public PlayerStatsController playerStatsController;
 
     public delegate void Item_Hp_EventHandler(float increase);
     public event Item_Hp_EventHandler OnHpPotionUsed;
 
     public delegate void Item_Mana_EventHandler(int increase);
     public event Item_Mana_EventHandler OnManaPotionUsed;
+
+    public delegate void Item_Invisible_EventHandler();
+
+    public event Item_Invisible_EventHandler OnInvisiblePositionUsed; 
 
     private void Start()
     {
@@ -83,10 +86,10 @@ public class InventoryUI : MonoBehaviour
         //
         // // �κ��丮 ������ ���� ���� ���� ������Ʈ
         
-        CheckItemUse(KeyCode.Alpha1, Define.Item.hpPotionSmall, 2f, 2f, PotionEffectAfterDelay);
-        CheckItemUse(KeyCode.Alpha2, Define.Item.hpPotionLarge, 3f, 4f, PotionEffectAfterDelay);
-        CheckItemUse(KeyCode.Alpha3, Define.Item.mpPotionSmall, 1.5f, 25f, PotionEffectAfterDelay);
-        CheckItemUse(KeyCode.Alpha4, Define.Item.mpPotionLarge, 2f, 50f, PotionEffectAfterDelay);
+        CheckItemUse(KeyCode.Alpha1, Define.Item.hpPotionSmall, 0f, 2f, PotionEffectAfterDelay);
+        CheckItemUse(KeyCode.Alpha2, Define.Item.hpPotionLarge, 0f, 4f, PotionEffectAfterDelay);
+        CheckItemUse(KeyCode.Alpha3, Define.Item.mpPotionSmall, 0f, 25f, PotionEffectAfterDelay);
+        CheckItemUse(KeyCode.Alpha4, Define.Item.mpPotionLarge, 0f, 50f, PotionEffectAfterDelay);
         CheckItemUse(KeyCode.Alpha5, Define.Item.invisibilityPotion, 0f, 0f,PotionEffectAfterDelay);
     }   
 
@@ -127,20 +130,25 @@ public class InventoryUI : MonoBehaviour
         //invisibility : 4
         
         //플레이어 데이터 저장 구축 후 아래 코드 다시 리팩토링 예정(250129)
+        //코드 수정 완료(250203)
         switch ((int)itemType)
         {
             case 0: case 1:
-                Managers.PlayerData.Hp += increase;
+                Managers.Player.SetHp(Managers.Player.Hp+increase);
+                // Managers.Player.Hp += increase;
                 OnHpPotionUsed?.Invoke(increase);
                 break;
             case 2: case 3:
-                Managers.PlayerData.Mana += (int)increase;
+                Managers.Player.SetMana(Managers.Player.Mana+(int)increase);
+                // Managers.Player.Mana += (int)increase;
                 OnManaPotionUsed?.Invoke((int)increase);
                 break;
             case 5:
-                PlayerDataManager.isInvisible = true; //����ȭ ���� ����
-                PlayerDataManager.IsInvincible = true;//���� ���� ����
-                yield return Managers.PlayerData.StartCoroutine(InvisibilityCoroutine(Managers.PlayerData));
+                OnInvisiblePositionUsed?.Invoke();
+                // playerStatsController.isInvisible = true; //����ȭ ���� ����
+                // playerStatsController.IsInvincible = true;//���� ���� ����
+                // yield return Managers.Player.StartCoroutine(InvisibilityCoroutine(Managers.Player));
+                yield return StartCoroutine(playerStatsController.InvisibilityCoroutine());
                 break;
         }
        
@@ -180,38 +188,7 @@ public class InventoryUI : MonoBehaviour
     //     yield return playerDataManager.StartCoroutine(InvisibilityCoroutine(playerDataManager));
     // }
 
-    private System.Collections.IEnumerator InvisibilityCoroutine(PlayerDataManager playerDataManager)
-    {
-        Renderer renderer = playerDataManager.GetComponentInChildren<Renderer>();
-
-        // ���� ���� ����
-        Color originalColor = renderer.material.color;
-
-        // ������ ���� (�帮�� ���̱�)
-        Color invisibleColor = originalColor;
-        invisibleColor.a = 0.5f;
-        renderer.material.color = invisibleColor;
-
-        //����ȭ �߿� ���� HP ȸ��
-        float duration = 15f;
-        float elapsed = 0f;
-
-        while (elapsed < duration)
-        {
-            // playerDataManager.Hp = Mathf.Clamp(playerDataManager.Hp + 0.4f, 0, playerDataManager.maxHp); // HP ȸ��
-            elapsed += 1f; // 1�� ���
-            yield return new WaitForSeconds(1f);
-        }
-
-        // ���� �������� ����
-        renderer.material.color = originalColor;
-        //����ȭ ���� ����
-        PlayerDataManager.isInvisible = false; 
-        // ����ȭ �� ���� ȿ�� ���� ����
-        PlayerDataManager.IsInvincible = false;
-
-        yield break;
-    }
-
+   //InvisibilityCoroutine Function (투명화 효과 코루틴) 코드 이동 -> PlayerStatsController로 이동
+   
     
 }

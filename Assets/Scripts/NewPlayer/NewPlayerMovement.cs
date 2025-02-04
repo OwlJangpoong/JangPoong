@@ -14,7 +14,7 @@ public class NewPlayerMovement : MonoBehaviour
 
     Rigidbody2D rb;
     CapsuleCollider2D CapsuleCollider2D;
-    private PlayerDataManager playerDataManager;
+    private PlayerStatsController playerStatsController;
     public NewPlayerAnimationController playerAnimator;
     private MovementRigidbody2D movement;
     private Transform transformForSpriteControl; //Sprite와 관련된 처리는 이 변수 이용(Sprite와 애니메이션은 자식 오브젝트로 이동시켰기 때문)
@@ -74,14 +74,13 @@ public class NewPlayerMovement : MonoBehaviour
     public bool gameOverFlag = false; // true면 게임 오버 상태
 
     [SerializeField] private GameObject levelUpEffect;
-    public LevelUpToken levelUpToken;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         CapsuleCollider2D = GetComponent<CapsuleCollider2D>();
         playerAnimator = GetComponentInChildren<NewPlayerAnimationController>();
-        playerDataManager = GetComponentInChildren<PlayerDataManager>();
+        playerStatsController = GetComponent<PlayerStatsController>();
         movement = GetComponent<MovementRigidbody2D>();
         transformForSpriteControl = playerAnimator.transform; //Sprite 컴포넌트 갖는 오브젝트의 transform
 
@@ -98,16 +97,20 @@ public class NewPlayerMovement : MonoBehaviour
         movement.controlSpeedAction += WalkSpeedState;
 
         // DieAction 설정
-        Managers.PlayerData.DieAction -= SetPlayerDead;
-        Managers.PlayerData.DieAction += SetPlayerDead;
+        Managers.Player.OnDie -= SetPlayerDead;
+        Managers.Player.OnDie += SetPlayerDead;
 
-        // 모든 LevelUpToken 객체를 찾아 이벤트 구독
-        LevelUpToken[] levelUpTokens = FindObjectsOfType<LevelUpToken>();
-        foreach (var token in levelUpTokens)
-        {
-            token.OnLevelUpTokenUpdated -= HandleLevelUpTokenUpdated;
-            token.OnLevelUpTokenUpdated += HandleLevelUpTokenUpdated;
-        }
+        // // 모든 LevelUpToken 객체를 찾아 이벤트 구독 => playermanager 수정하면서 중앙에서 관리하는 이벤트를 구독하는 것으로 변경(250203). 모듈화, 확장성 용이
+        // LevelUpToken[] levelUpTokens = FindObjectsOfType<LevelUpToken>();
+        // foreach (var token in levelUpTokens)
+        // {
+        //     token.OnLevelUpTokenUpdated -= HandleLevelUpTokenUpdated;
+        //     token.OnLevelUpTokenUpdated += HandleLevelUpTokenUpdated;
+        // }
+        
+        //LevelUpToken 획득 파티클 이벤트
+        Managers.Player.OnTokenCntChanged-=HandleLevelUpTokenUpdated;
+        Managers.Player.OnTokenCntChanged+=HandleLevelUpTokenUpdated;
 
         //gameover 오브젝트 자동 할당을 위한 코드 추가(250121)
         GameObject ui_Game_Root = GameObject.FindWithTag("UI_Root");
@@ -334,34 +337,45 @@ public class NewPlayerMovement : MonoBehaviour
         }
         if (Input.GetKeyDown(Managers.KeyBind.GetKeyCode(Define.ControlKey.attackKey)))    // c키 로 장풍 발사
         {
-            if (playerDataManager.Mana >= playerDataManager.manaConsumption)
+            if (Managers.Player.Mana >= playerStatsController.ManaConsumption)
             {
-                playerDataManager.Mana -= playerDataManager.manaConsumption;
+                Managers.Player.SetMana(Managers.Player.Mana - playerStatsController.ManaConsumption);
 
                 Managers.Sound.Play("56_Attack_03");
-
-                // 달리기 중에 장풍 속력 증가
-                if (isRunning)
-                    playerDataManager.jangPoongSpeed = 14;
-                else
-                    playerDataManager.jangPoongSpeed = 12;
+                
 
                 Vector3 spawnPosition = transform.position;
                 spawnPosition.y += isSliding ? -0.38f : -0.08f;     // 슬라이딩 시에는 y값 -0.08f에서 장풍 발사되도록
 
-                GameObject jangPoong = Instantiate(playerDataManager.jangPoongPrefab, spawnPosition, Quaternion.identity);
-                Rigidbody2D jangPoongRb = jangPoong.GetComponent<Rigidbody2D>();
-
-
-
-                //장풍 alive time 설정가(240809) - 도현
-                JangpoongController jc = jangPoong.GetComponent<JangpoongController>();
-                jc.AliveTime = playerDataManager.jangPoongDistance / playerDataManager.jangPoongSpeed;
-
-                Vector2 jangPoongDirection = new Vector2(transformForSpriteControl.localScale.x, 0).normalized; //플레이어 프리팹 수정으로 인한 코드 변경 (250122)
-                jangPoongRb.velocity = jangPoongDirection * playerDataManager.jangPoongSpeed;
-                jangPoong.transform.localScale = new Vector3((jangPoongDirection.x > 0 ? 0.5f : -0.5f), 0.5f, 0.5f); //수정
-
+                GameObject jangPoong =
+                    Instantiate(Managers.Player.jangPoongPrefab_list[Managers.Player.CurrentJangPoongLevel],
+                        spawnPosition, Quaternion.identity);
+                
+                //direction만 설정해주고 나머지 설정은 장풍 오브젝트 내에서 처리(아래 코드들)
+                jangPoong.GetComponent<JangpoongController>().jangPoongDirection = new Vector2(transformForSpriteControl.localScale.x, 0).normalized;
+                
+                ////================== 장풍 오브젝트가 생성될 때 오브젝트에서 설정되도록 수정(250202 도현)=================/////
+                // 달리기 중에 장풍 속력 증가 
+                // if (isRunning)
+                //     Managers.Player.jangPoongSpeed = 14;
+                // else
+                //     Managers.Player.jangPoongSpeed = 12;
+                
+                // Rigidbody2D jangPoongRb = jangPoong.GetComponent<Rigidbody2D>();
+                //
+                //
+                //
+                // //장풍 alive time 설정가(240809) - 도현
+                // JangpoongController jc = jangPoong.GetComponent<JangpoongController>();
+                // jc.AliveTime = Managers.Player.jangPoongDistance / Managers.Player.jangPoongSpeed;
+                //
+                // Vector2 jangPoongDirection = new Vector2(transformForSpriteControl.localScale.x, 0).normalized; //플레이어 프리팹 수정으로 인한 코드 변경 (250122)
+                //
+                // jangPoongRb.velocity = jangPoongDirection * Managers.Player.jangPoongSpeed;
+                // jangPoong.transform.localScale = new Vector3((jangPoongDirection.x > 0 ? 0.5f : -0.5f), 0.5f, 0.5f); //수정
+                /////====================================////
+                
+                
                 playerAnimator.JangPoongShooting();
 
                 //Destroy(jangPoong, playerDataManager.jangPoongDistance / playerDataManager.jangPoongSpeed); //Destory 로직 장풍 오브젝트에서 관리하도록 수정(240809) - 도현
@@ -383,33 +397,38 @@ public class NewPlayerMovement : MonoBehaviour
         }
         if (Input.GetKeyDown(Managers.KeyBind.GetKeyCode(Define.ControlKey.ultiKey)))    // x키로 궁극기 발사
         {
-            if (playerDataManager.MonsterPoint >= playerDataManager.maxMonsterPoint) // 몬스터 포인트가 50 이상일 경우
+            if (Managers.Player.MonsterPoint >= Managers.Player.MaxMonsterPoint) // 몬스터 포인트가 50 이상일 경우
             {
                 //playerDataManager.MonsterPoint -= playerDataManager.maxMonsterPoint;
 
                 Managers.Sound.Play("56_Attack_03"); // 일단 장풍이랑 같은 소리 나게 설정
 
+                
+                //250202 코드 이동 - UltController에서 처리//
                 // 달리기 중에 궁극기 속력 증가
-                if (isRunning)
-                    playerDataManager.ultSpeed = 7;
-                else
-                    playerDataManager.ultSpeed = 6;
+                // if (isRunning)
+                //     Managers.Player.ultSpeed = 7;
+                // else
+                //     Managers.Player.ultSpeed = 6;
 
                 Vector3 spawnPosition = transform.position;
                 spawnPosition.y += isSliding ? -0.38f : -0.08f;     // 슬라이딩 시에는 y값 -0.08f에서 궁극기 발사되도록
 
-                GameObject ult = Instantiate(playerDataManager.ultPrefab, spawnPosition, Quaternion.identity);
-                Rigidbody2D ultRb = ult.GetComponent<Rigidbody2D>();
-
-
-
+                
+                //250202 코드 리팩토링 - PlayerManager//
+                GameObject ult = Instantiate(Managers.Player.ultPrefab, spawnPosition, Quaternion.identity); 
+                
+                //===250202 코드 리팩토링 - PlayerManager===//
+                // Rigidbody2D ultRb = ult.GetComponent<Rigidbody2D>();
                 //궁극기 alive time 설정가(240809) - 도현
-                UltController uc = ult.GetComponent<UltController>();
-                uc.AliveTime = 5f;
+                // UltController uc = ult.GetComponent<UltController>();
+                // uc.AliveTime = 5f;
 
-                Vector2 ultDirection = new Vector2(transformForSpriteControl.localScale.x, 0).normalized; //플레이어 프리팹 수정으로 인한 코드 변경 (250122)
-                ultRb.velocity = ultDirection * playerDataManager.ultSpeed;
-                ult.transform.localScale = new Vector3((ultDirection.x > 0 ? 1f : -1f), 1f, 1f); // 궁극기 크기는 장풍의 2배 크기
+                
+                ult.GetComponent<UltController>().ultDirection = new Vector2(transformForSpriteControl.localScale.x, 0).normalized; //플레이어 프리팹 수정으로 인한 코드 변경 (250122) + direction만 설정해주고 나머지 설정은 ult 오브젝트에서 처리(250202)
+                
+                // ultRb.velocity = ultDirection * Managers.Player.ultSpeed;
+                // ult.transform.localScale = new Vector3((ultDirection.x > 0 ? 1f : -1f), 1f, 1f); // 궁극기 크기는 장풍의 2배 크기
 
                 playerAnimator.JangPoongShooting(); //애니메이션은 장풍 쏠 때와 동일
 
@@ -441,7 +460,7 @@ public class NewPlayerMovement : MonoBehaviour
     #endregion
 
     #region 레벨업토큰 파티클
-    private void HandleLevelUpTokenUpdated()
+    private void HandleLevelUpTokenUpdated(int tokenCnt)
     {
         Instantiate(levelUpEffect, transform.position, Quaternion.identity);
     }

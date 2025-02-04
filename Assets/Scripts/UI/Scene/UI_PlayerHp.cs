@@ -16,27 +16,19 @@ public class UI_PlayerHp : MonoBehaviour
     private void Init()
     {
         hpSlider = GetComponent<Slider>();
-        Managers.PlayerData.UpdateHpAction += SetUIHp;
+        Managers.Player.OnHpChanged += SetUIHp;
 
         hpText = GetComponentInChildren<TMP_Text>(true);
     }
 
     public void SetUIHp(float val)
     {
-        maxHp = Managers.PlayerData.maxHp;
-        currentHp = Managers.PlayerData.Hp;
+        maxHp = Managers.Player.MaxHp;
+        currentHp = val;
         hpSlider.maxValue = maxHp;
-        hpSlider.value = currentHp;
+        hpSlider.value = val;
 
         hpText.text = $"{currentHp}/{maxHp}";
 
-    }
-
-    
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
