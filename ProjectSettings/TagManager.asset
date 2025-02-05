@@ -54,3 +54,6 @@ TagManager:
   - name: item
     uniqueID: 1576567303
     locked: 0
+  - name: UI
+    uniqueID: 1330956873
+    locked: 0

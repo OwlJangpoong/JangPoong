@@ -6,7 +6,7 @@ public class InvisibilityPotion : ItemBase
     public override void UpdateCollision(Transform target)
     {
         Managers.Sound.Play(audioClip);
-        var playerDataManager = target.GetComponent<PlayerDataManager>();
+        var playerDataManager = target.GetComponent<PlayerStatsController>();
         if (playerDataManager != null)
         {
             // 코루틴을 PlayerDataManager에서 실행
