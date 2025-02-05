@@ -7,7 +7,7 @@ public class UI_Background : MonoBehaviour
 {   
     private Image UIBackground;
 
-    void Awake()
+    void Start()
     {
         Init();
     }
@@ -17,6 +17,8 @@ public class UI_Background : MonoBehaviour
         UIBackground = GetComponent<Image>();
         Managers.Player.OnHpChanged -= SetUIBackground;
         Managers.Player.OnHpChanged += SetUIBackground;
+        
+        SetUIBackground(Managers.Player.Hp);
     }
     
     //오브젝트 파괴시 don't destroy로 살아있는 오브젝트의 이벤트를 구독 중이라면 해제해준다.

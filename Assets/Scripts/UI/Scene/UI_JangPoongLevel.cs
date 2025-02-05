@@ -64,7 +64,6 @@ public class UI_JangPoongLevel : MonoBehaviour
 
     private void HandleLevelUpTokenUpdated(int jangPoongLevel)
     {
-        if(jpImg==null) Debug.LogError("jpImg is null");
         jpImg.sprite = jangPoongImgs[jangPoongLevel-1]; //이미지 배열 인덱스는 0부터 시작하므로 -1 해준다.
         jplevel.text = "Lv." + (jangPoongLevel);
         

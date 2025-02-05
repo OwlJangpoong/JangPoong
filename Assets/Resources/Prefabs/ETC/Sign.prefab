@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1591595177516706711}
   - component: {fileID: 1188509151676119143}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: ItemImg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 8962213948592109315}
   - component: {fileID: 3734051519096971848}
   - component: {fileID: 6747967524049581613}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: Sign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,7 +229,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5449702414820431295}
   - component: {fileID: 7140090654590918643}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: BgImg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -316,7 +316,7 @@ GameObject:
   - component: {fileID: 4644078419647445854}
   - component: {fileID: 2363831079607307188}
   - component: {fileID: 1840821673586085803}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: SignText
   m_TagString: Untagged
   m_Icon: {fileID: 0}

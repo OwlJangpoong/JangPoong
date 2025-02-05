@@ -7,7 +7,12 @@ using UnityEngine.PlayerLoop;
 
 public class PlayerManager
 {
-    //플레이어 관련 리소스
+    private bool _isInitialized = false;
+    
+    //플레이어 이름
+    public string PlayerName { get; private set; }
+
+//플레이어 관련 리소스
     public List<GameObject> jangPoongPrefab_list =
         new List<GameObject>(Enumerable.Repeat<GameObject>(null, (int)Define.JangPoongLevel.Length + 1));  //레벨에 따른 장풍 프리랩을 담는 배열 (0번 인덱스는 비워두고 1부터 채우기 위해 length+1 길이로 선언)
     public GameObject ultPrefab;
@@ -16,18 +21,18 @@ public class PlayerManager
     
     //"Hp & Mana"
     //초기화는 로컬 데이터 로드 or init해서 게임 시작할 때 한다.
-    public float Hp { get; private set; } = 10.0f;
-    public float MaxHp { get; private set; } = 10.0f;
-    public int Mana { get; private set; } = 100;
-    public int MaxMana { get; private set; } = 100;
+    public float Hp { get; private set; }
+    public float MaxHp { get; private set; }
+    public int Mana { get; private set; }
+    public int MaxMana { get; private set; }
     
     
     //MosterPoint
-    public int MonsterPoint { get; private set; } = 50;
-    public int MaxMonsterPoint { get; private set; } = 50;
+    public int MonsterPoint { get; private set; }
+    public int MaxMonsterPoint { get; private set; }
     
     //JangPoong
-    public int CurrentJangPoongLevel { get; private set; } = 1;
+    public int CurrentJangPoongLevel { get; private set; }
     
     //LevelUpToken
     //먹은 레벨업 토큰 수
@@ -35,8 +40,7 @@ public class PlayerManager
 
 
     //달리기 토글 여부
-    public bool IsRunning { get; set; } = false;
-    
+    public bool IsRunning { get; set; }
     
     //이벤트
     public event Action<float> OnHpChanged;
@@ -55,9 +59,38 @@ public class PlayerManager
     
     #endregion
 
+    #region Event Function
 
-    #region Set Player Stats (Set~ 메소드 모음)
+    //초기화 함수
+    public void Init()
+    {
+        if (_isInitialized) return;
+        
+        Debug.Log("PlayerManager 초기화");
+        //플레이어 데이터 변수 초기화=셋팅 (전역 관리)
+        LoadPlayerData();
+        
+        //이벤트 구독
+        OnTokenCntChanged -= UpdateJangPoongLevel;
+        OnTokenCntChanged += UpdateJangPoongLevel;
+        
+        //리스트 초기화 : 장풍 프리팹 로드해서 리스트에 넣어주기
+        LoadJangPoongPrefabs();
+        LoadUltPrefab();
+        
+        _isInitialized = true;
+    }
 
+    #endregion
+
+    #region PlayerStats Interface (Set Player Stats : Set 메소드 모음)
+
+    public void SetName(string name)
+    {
+        PlayerName = name;
+    }
+    
+    
     public void SetHp(float value)
     {
         float hp = Mathf.Clamp(value, 0, MaxHp);
@@ -98,6 +131,7 @@ public class PlayerManager
     public void SetMaxMonsterPoint(int value)
     {
         MaxMonsterPoint = Mathf.Max(MaxMonsterPoint, value);
+        OnMonsterPointChanged?.Invoke(MonsterPoint);
     }
 
     public void SetTokenCnt(int value)
@@ -118,42 +152,7 @@ public class PlayerManager
         CurrentJangPoongLevel = Mathf.Clamp(level, 1, 10);
         
         OnJangPongLevelChanged?.Invoke(CurrentJangPoongLevel);
-    }
-
-    #endregion
-    
-
-    // 장풍 레벨 설정
-
-    // 데이터 초기화 (필요 시 사용)
-    // public void ResetData()
-    // {
-    //     Hp = MaxHp;
-    //     Mana = MaxMana;
-    //     MonsterPoint = 0;
-    // }
-
-
-
-  
-    #region Event Function
-
-    //초기화 함수
-    public void Init()
-    {
-        Debug.Log("PlayerManager 초기화");
-        //플레이어 데이터 변수 초기화=셋팅 (전역 관리)
-        LoadPlayerData();
-        
-        //리스트 초기화 : 장풍 프리팹 로드해서 리스트에 넣어주기
-        LoadJangPoongPrefabs();
-        LoadUltPrefab();
-        
-        
-        //이벤트 구독
-        OnTokenCntChanged -= UpdateJangPoongLevel;
-        OnTokenCntChanged += UpdateJangPoongLevel;
-
+        Debug.Log($"current jangpoong level : {CurrentJangPoongLevel}");
     }
 
     #endregion
@@ -207,16 +206,55 @@ public class PlayerManager
         //그 이상은 레벨 10으로 유지
         
         CurrentJangPoongLevel = Mathf.Clamp(tokenCnt + 1, 1, 10);
+        Debug.Log($"<color=green>{CurrentJangPoongLevel}</color>");
         OnJangPongLevelChanged?.Invoke(CurrentJangPoongLevel);
     }
     #endregion
+    
 
-    #region Player Data (Global)
+    #region Player Data Load/Save (Global)
 
+    /// <summary>
+    /// GameManager에서 PlayerData 가져오기(백업용 데이터 가져오기)
+    /// </summary>
     private void LoadPlayerData()
     {
-        //로컬에 저장된 or 초기화된 데이터를 읽어와서 플레이어 데이터 변수 셋팅하기
+        PlayerData localdata = Managers.Game.Player;
+        //플레이어 데이터 변수 셋팅하기
+       // SetName(localdata.playerName);
+       // SetHp(localdata.hp);
+       // SetMaxHp(localdata.maxHp);
+       // SetMana(localdata.mana);
+       // SetMaxMana(localdata.maxMana);
+       // SetMonsterPoint(localdata.monsterPoint);
+       // SetMaxMonsterPoint(localdata.maxMonsterPoint);
+       // SetJangPoongLevel(localdata.currentJangPoongLevel);
+       // SetTokenCnt(localdata.tokenCnt);
+       // IsRunning = localdata.isRunning;
+       //
+       
+       
+       
+       this.PlayerName = localdata.playerName;
+       this.Hp = localdata.hp;
+       this.MaxHp = localdata.maxHp;
+       this.Mana = localdata.mana;
+       this.MaxMana = localdata.maxMana;
+       this.MonsterPoint = localdata.monsterPoint;
+       this.MaxMonsterPoint = localdata.maxMonsterPoint;
+       this.CurrentJangPoongLevel = localdata.currentJangPoongLevel;
+       this.TokenCnt = localdata.tokenCnt;
+       IsRunning = localdata.isRunning;
+
+       // // 만약 이벤트를 통해 외부에 알리거나 추가 처리가 필요하다면, 이벤트도 호출할 수 있습니다.
+       // OnHpChanged?.Invoke(Hp);
+       // OnManaChanged?.Invoke(Mana);
+       // OnMonsterPointChanged?.Invoke(MonsterPoint);
+       // OnTokenCntChanged?.Invoke(TokenCnt);
+       // OnJangPongLevelChanged?.Invoke(CurrentJangPoongLevel);
+
     }
+    
 
     
 

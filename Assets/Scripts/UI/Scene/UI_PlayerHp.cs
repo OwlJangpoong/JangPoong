@@ -21,6 +21,8 @@ public class UI_PlayerHp : MonoBehaviour
         Managers.Player.OnHpChanged += SetUIHp;
 
         hpText = GetComponentInChildren<TMP_Text>(true);
+        
+        SetUIHp(Managers.Player.Hp);
     }
 
     

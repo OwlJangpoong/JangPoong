@@ -269,6 +269,6 @@ MonoBehaviour:
   - {fileID: 822467434, guid: 648d56c6807bb471fa3ab3c7925192d1, type: 3}
   - {fileID: 399788235, guid: 7c0a5abf9d16841f28b6e3e67204d70a, type: 3}
   - {fileID: -904046403, guid: 69081c28d6cd14f43a625fc4922152b0, type: 3}
-  levelUpToken: {fileID: 0}
+  - {fileID: -90498517, guid: 476b522a871eb4098a52f8eb6a886f27, type: 3}
   jpImg: {fileID: 548473371270410781}
   jplevel: {fileID: 489483777236163651}
