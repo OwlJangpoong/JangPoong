@@ -11,12 +11,13 @@ public class GameManager
     // {
     //     get => isInit;
     // }
-    
+
+    #region 게임 관련 저장 데이터 클래스 변수 & 프로퍼티
     
     private SettingData _setting;
     private InventoryData _gameInventory;
-
-
+    private PlayerData _player;
+    
     public SettingData Setting
     {
         get
@@ -49,25 +50,39 @@ public class GameManager
             Managers.Data.SaveData(Define.SaveKey.InventoryData, _gameInventory);
         }
     }
+
+    public PlayerData Player
+    {
+        get
+        {
+            if (_player == null)
+            {
+                LoadData(Define.SaveKey.PlayerData,out _player);
+            }
+
+            return _player;
+        }
+        set
+        {
+            Debug.Log("GameManager : Player 데이터 업데이트 후 로컬 저장 요청");
+            _player = value;
+            Managers.Data.SaveData(Define.SaveKey.PlayerData, _player);
+        }
+    }
     
-    
-    // public PlayerData playerData;
     // public ProgressData progressData;
     // public StatisticData statisticData;
+
+    #endregion
+    
+    
+
+    
 
     
     public void Init()
     {
-        
         Debug.Log("GameManager Init 호출");
-        
-        // isInit = true;
-        
-        // Debug.Log($"GameManager.Init called. OnInitialized is {(OnDataLoaded == null ? "null" : "not null")}");
-        //데이터 읽어와서 초기화 완료됐음을 알림
-        // OnDataLoaded?.Invoke();
-        // Debug.Log("GameManager: Data loaded and OnDataLoaded invoked.");
-        
 
     }
 
@@ -82,6 +97,7 @@ public class GameManager
             Debug.Log($"<color=red>로컬에 저장된 {dataType.ToString()} 데이터를 가져옵니다.</color>");
              dataVariable = Managers.Data.LoadData<T>(dataType);
         }
+
          
         //2. 없으면 초기화 파일 로드
         else
@@ -97,6 +113,27 @@ public class GameManager
 
 
     #region Comment
+    
+    
+    //초기 Init() 
+    // public void Init()
+    // {
+    //     
+    //     Debug.Log("GameManager Init 호출");
+    //     
+    //     isInit = true;
+    //     
+    //     Debug.Log($"GameManager.Init called. OnInitialized is {(OnDataLoaded == null ? "null" : "not null")}");
+    //     //데이터 읽어와서 초기화 완료됐음을 알림
+    //     OnDataLoaded?.Invoke();
+    //     Debug.Log("GameManager: Data loaded and OnDataLoaded invoked.");
+    //     
+    //
+    // }
+
+    
+    
+    
 
     // public void SetSettingData()
     // {

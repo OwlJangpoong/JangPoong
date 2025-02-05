@@ -11,7 +11,7 @@ public class UI_PlayerMana : MonoBehaviour
     
     
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
        Init();
         
@@ -23,6 +23,8 @@ public class UI_PlayerMana : MonoBehaviour
         Managers.Player.OnManaChanged += SetUIMana;
 
         manaText = GetComponentInChildren<TMP_Text>(true);
+        
+        SetUIMana(Managers.Player.Mana);
 
     }
     //오브젝트 파괴시 don't destroy로 살아있는 오브젝트의 이벤트를 구독 중이라면 해제해준다.

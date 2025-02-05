@@ -120,6 +120,7 @@ public class SoundManager
       else
       {
          AudioSource audioSource = audioSources[(int)Define.Sound.Sfx];
+         if(audioSource==null) Debug.Log("Errrororororo");
          audioSource.PlayOneShot(audioClip);
       }
    }
