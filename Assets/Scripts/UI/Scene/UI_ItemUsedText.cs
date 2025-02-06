@@ -91,6 +91,7 @@ public class UI_ItemUsedText : MonoBehaviour
 
     public void LevelUpTokenUsedText(int tokenCnt)
     {
+        if (tokenCnt >= 10) return; //장풍레벨 10 도달 이후 = 획득 토큰 수 10개 이상인 경우 메시지 표시하지 않는다.
         ResetTextAlpha();
         SetTextColor("#358067");
         onItemUsedText.gameObject.SetActive(true);

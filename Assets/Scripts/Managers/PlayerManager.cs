@@ -137,7 +137,7 @@ public class PlayerManager
     public void SetTokenCnt(int value)
     {
         TokenCnt = Mathf.Clamp(value, 0, 9999);
-        
+        Debug.Log("Token cnt : " + TokenCnt );
         OnTokenCntChanged?.Invoke(TokenCnt);
     }
     
