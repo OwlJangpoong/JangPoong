@@ -213,51 +213,42 @@ public class PlayerManager
     
 
     #region Player Data Load/Save (Global)
-
+    
+    
     /// <summary>
     /// GameManager에서 PlayerData 가져오기(백업용 데이터 가져오기)
     /// </summary>
     private void LoadPlayerData()
     {
         PlayerData localdata = Managers.Game.Player;
-        //플레이어 데이터 변수 셋팅하기
-       // SetName(localdata.playerName);
-       // SetHp(localdata.hp);
-       // SetMaxHp(localdata.maxHp);
-       // SetMana(localdata.mana);
-       // SetMaxMana(localdata.maxMana);
-       // SetMonsterPoint(localdata.monsterPoint);
-       // SetMaxMonsterPoint(localdata.maxMonsterPoint);
-       // SetJangPoongLevel(localdata.currentJangPoongLevel);
-       // SetTokenCnt(localdata.tokenCnt);
-       // IsRunning = localdata.isRunning;
-       //
-       
-       
-       
-       this.PlayerName = localdata.playerName;
-       this.Hp = localdata.hp;
-       this.MaxHp = localdata.maxHp;
-       this.Mana = localdata.mana;
-       this.MaxMana = localdata.maxMana;
-       this.MonsterPoint = localdata.monsterPoint;
-       this.MaxMonsterPoint = localdata.maxMonsterPoint;
-       this.CurrentJangPoongLevel = localdata.currentJangPoongLevel;
-       this.TokenCnt = localdata.tokenCnt;
-       IsRunning = localdata.isRunning;
-
-       // // 만약 이벤트를 통해 외부에 알리거나 추가 처리가 필요하다면, 이벤트도 호출할 수 있습니다.
-       // OnHpChanged?.Invoke(Hp);
-       // OnManaChanged?.Invoke(Mana);
-       // OnMonsterPointChanged?.Invoke(MonsterPoint);
-       // OnTokenCntChanged?.Invoke(TokenCnt);
-       // OnJangPongLevelChanged?.Invoke(CurrentJangPoongLevel);
+        this.PlayerName = localdata.playerName;
+        this.Hp = localdata.hp;
+        this.MaxHp = localdata.maxHp;
+        this.Mana = localdata.mana;
+        this.MaxMana = localdata.maxMana;
+        this.MonsterPoint = localdata.monsterPoint;
+        this.MaxMonsterPoint = localdata.maxMonsterPoint;
+        this.CurrentJangPoongLevel = localdata.currentJangPoongLevel;
+        this.TokenCnt = localdata.tokenCnt;
+        IsRunning = localdata.isRunning;
 
     }
-    
 
     
+    public void CommitPlayerData()
+    {
+        Debug.Log("PlayerManager : 최종 Player 데이터 저장을 요청합니다.");
+        Managers.Game.Player = new PlayerData(this.PlayerName, this.Hp, this.MaxHp, this.Mana, this.MaxMana,
+            this.MonsterPoint, this.MaxMonsterPoint, this.CurrentJangPoongLevel, this.TokenCnt, this.IsRunning);
+    }
 
+    public void RestorePlayerData()
+    {
+        Debug.Log("PlayerManager : Player 데이터를 복구합니다. 이전 데이터를 가져와 덮어씁니다.");
+        LoadPlayerData();
+    }
+
+   
     #endregion
     
 }

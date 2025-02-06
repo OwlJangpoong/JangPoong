@@ -76,13 +76,12 @@ public class GameManager
     #endregion
     
     
-
     
-
     
     public void Init()
     {
         Debug.Log("GameManager Init 호출");
+        
 
     }
 
@@ -108,6 +107,12 @@ public class GameManager
             //초기화 후 저장 경로에 해당 데이터를 저장한다.
             Managers.Data.SaveData<T>(dataType, dataVariable);
         }
+    }
+
+
+    public void StartNewGame()
+    {
+        
     }
     
 

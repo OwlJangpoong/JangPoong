@@ -701,7 +701,7 @@ GameObject:
   m_Component:
   - component: {fileID: 540740696}
   - component: {fileID: 540740697}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: BgImg (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1013,10 +1013,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0.068
       objectReference: {fileID: 0}
-    - target: {fileID: 6415817406097157307, guid: 25eb6526b59c84845b130dde38577d2d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1313,6 +1309,10 @@ PrefabInstance:
     - target: {fileID: 2156643252541490763, guid: 25eb6526b59c84845b130dde38577d2d, type: 3}
       propertyPath: m_Name
       value: Sign (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2156643252541490763, guid: 25eb6526b59c84845b130dde38577d2d, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 3734051519096971848, guid: 25eb6526b59c84845b130dde38577d2d, type: 3}
       propertyPath: guideObj
@@ -21419,7 +21419,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1635520994}
   - component: {fileID: 1635520995}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: ItemImg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22752,7 +22752,7 @@ GameObject:
   - component: {fileID: 1994366382}
   - component: {fileID: 1994366384}
   - component: {fileID: 1994366383}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: SignText
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -197,8 +197,17 @@ public class DataManager
 
         return File.Exists(path);
     }
+
+    public void DeleteAllFilesInSlot()
+    {
+        Debug.Log(Util.DeleteAllFilesInFolder(slotFolderPath)?"슬롯 초기화 성공":"슬롯 초기화 실패");
+    }
     
     
+
+
+    #region comment
+
     //
     // public void Init()
     // {
@@ -298,4 +307,8 @@ public class DataManager
     //     Util.DeleteAllFilesInFolder(saveFolderPath);
     //     // InitializeData();
     // }
+
+    #endregion
+    
+    
 }

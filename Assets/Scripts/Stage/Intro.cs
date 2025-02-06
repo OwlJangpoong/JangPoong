@@ -29,7 +29,7 @@ public class Intro : MonoBehaviour
     void Start()
     {
         // PlayerPrefs.SetString("PlayerName", "전설");
-        speaker.speakerName = PlayerPrefs.GetString("PlayerName");
+        speaker.speakerName = Managers.Player.PlayerName;
         Debug.Log("주인공의 이름 : " + speaker.speakerName);
 
         //씬 진입씨 첫 턴은 자동 진행
