@@ -50,6 +50,7 @@ public class Managers : MonoBehaviour
             if (Instance._sound == null)
             {
                 Instance._sound = new SoundManager(); //처음 접근할 때 생성하고 초기화한다.
+                Debug.Log("처음 접근할때만 호출한다.");
                 Instance._sound.Init();
             }
             return Instance._sound;
