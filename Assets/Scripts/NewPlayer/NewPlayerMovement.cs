@@ -182,11 +182,15 @@ public class NewPlayerMovement : MonoBehaviour
             playerAnimator.UpdateAnimation(x);
         }
 
-        // 슬라이딩 유지
-        if (isSliding)
+        if(gameOverFlag == false)
         {
-            HandleSliding();
+            // 슬라이딩 유지
+            if (isSliding)
+            {
+                HandleSliding();
+            }
         }
+
     }
 
 

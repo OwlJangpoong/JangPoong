@@ -26,6 +26,7 @@ public class PlayerStatsController : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
     private Color originColor;
     
+    private NewPlayerMovement NewPlayerMovement;
 
     #region Event Function
 
@@ -42,6 +43,7 @@ public class PlayerStatsController : MonoBehaviour
         
         //이벤트 리스너 구독
         
+        NewPlayerMovement = GetComponentInChildren<NewPlayerMovement>();
     }
     
 
@@ -55,7 +57,15 @@ public class PlayerStatsController : MonoBehaviour
     {
         //Mana = Mathf.Min(mana + manaRegenerationRate, maxMana);  //코드 리팩토링하면서 아래 코드로 수정함.(250202)
         //
-        Managers.Player.SetMana(Managers.Player.Mana + manaRegenerationRate);
+        if(NewPlayerMovement.gameOverFlag == true)
+        {
+            return;
+        }
+        else
+        {
+            Managers.Player.SetMana(Managers.Player.Mana + manaRegenerationRate);
+        }
+        
     }
     
     
