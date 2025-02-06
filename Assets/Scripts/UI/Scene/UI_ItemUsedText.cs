@@ -83,7 +83,7 @@ public class UI_ItemUsedText : MonoBehaviour
     public void InvisiblePotionUsedText(float durationTime)
     {
         ResetTextAlpha();
-        SetTextColor("A1A1A1");
+        SetTextColor("#848484");
         onItemUsedText.gameObject.SetActive(true);
         onItemUsedText.text = "투명화 " + durationTime + "초";
         StartCoroutine(HidePotionUsedText());

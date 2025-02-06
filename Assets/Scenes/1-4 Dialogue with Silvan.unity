@@ -3692,7 +3692,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3277918429069365308, guid: 597e20d0a89032a4fa0e2cff1c45f5d9, type: 3}
       propertyPath: m_text
-      value: Stage 1-4
+      value: "\uC774\uC7A5\uC758 \uC9D1"
       objectReference: {fileID: 0}
     - target: {fileID: 3277918429069365308, guid: 597e20d0a89032a4fa0e2cff1c45f5d9, type: 3}
       propertyPath: m_fontSize

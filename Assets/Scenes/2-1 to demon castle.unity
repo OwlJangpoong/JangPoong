@@ -11172,7 +11172,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5923509366256424297, guid: 59a9ebde221b047c38db217e49c37f57, type: 3}
       propertyPath: m_text
-      value: Stage 2-1
+      value: "\uB9C8\uC655\uC758 \uC232"
       objectReference: {fileID: 0}
     - target: {fileID: 6524858663461264794, guid: 59a9ebde221b047c38db217e49c37f57, type: 3}
       propertyPath: m_IsActive
