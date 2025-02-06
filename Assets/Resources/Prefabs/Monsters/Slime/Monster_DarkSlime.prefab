@@ -37,6 +37,18 @@ PrefabInstance:
       value: -0.5231534
       objectReference: {fileID: 0}
     - target: {fileID: 2520970358692504815, guid: 6c4f3d4828c3e41fdb4978368a0d21d7, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 6c4f3d4828c3e41fdb4978368a0d21d7, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 6c4f3d4828c3e41fdb4978368a0d21d7, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 6c4f3d4828c3e41fdb4978368a0d21d7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.9
       objectReference: {fileID: 0}
@@ -76,10 +88,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 6c4f3d4828c3e41fdb4978368a0d21d7, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2601874532076664223, guid: 6c4f3d4828c3e41fdb4978368a0d21d7, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6016842671243142753, guid: 6c4f3d4828c3e41fdb4978368a0d21d7, type: 3}
+      propertyPath: stat
+      value: 
+      objectReference: {fileID: 2871802095814766634}
     - target: {fileID: 6016842671243142753, guid: 6c4f3d4828c3e41fdb4978368a0d21d7, type: 3}
       propertyPath: attackRange
       value: 2
@@ -90,11 +110,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6016842671243142753, guid: 6c4f3d4828c3e41fdb4978368a0d21d7, type: 3}
       propertyPath: lootTable.Array.data[0].dropChance
-      value: 2
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6016842671243142753, guid: 6c4f3d4828c3e41fdb4978368a0d21d7, type: 3}
       propertyPath: lootTable.Array.data[1].dropChance
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6093398972416209118, guid: 6c4f3d4828c3e41fdb4978368a0d21d7, type: 3}
       propertyPath: m_Radius
@@ -128,6 +148,14 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.49056333
       objectReference: {fileID: 0}
+    - target: {fileID: 7090912312003108852, guid: 6c4f3d4828c3e41fdb4978368a0d21d7, type: 3}
+      propertyPath: monsterData
+      value: 
+      objectReference: {fileID: 11400000, guid: 64bdf6dd91c4b47ad838fc5febee585a, type: 2}
+    - target: {fileID: 7090912312003108852, guid: 6c4f3d4828c3e41fdb4978368a0d21d7, type: 3}
+      propertyPath: currentDamage
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 7105893733869397302, guid: 6c4f3d4828c3e41fdb4978368a0d21d7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.18
@@ -157,3 +185,14 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c4f3d4828c3e41fdb4978368a0d21d7, type: 3}
+--- !u!114 &2871802095814766634 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7090912312003108852, guid: 6c4f3d4828c3e41fdb4978368a0d21d7, type: 3}
+  m_PrefabInstance: {fileID: 5025256218350940126}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dd3a8538ff56437491576cdf0178e80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

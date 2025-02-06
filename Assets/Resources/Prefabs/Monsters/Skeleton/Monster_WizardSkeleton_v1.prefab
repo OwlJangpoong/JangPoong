@@ -33,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.178, y: -2.5, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6614612098860732944}
@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dd3a8538ff56437491576cdf0178e80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterData: {fileID: 0}
+  monsterData: {fileID: 11400000, guid: 61021b9dde2674198acca4e318b85caa, type: 2}
   currentDamage: 0
 --- !u!70 &7566463327903339268
 CapsuleCollider2D:
@@ -140,8 +140,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.021997094, y: -1.4782125}
-  m_Size: {x: 5.0847383, y: 6.9014215}
+  m_Offset: {x: 0.00813663, y: -1.4782125}
+  m_Size: {x: 4.90394, y: 6.9014215}
   m_Direction: 0
 --- !u!58 &1174720915983470109
 CircleCollider2D:
