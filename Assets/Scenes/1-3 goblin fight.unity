@@ -19162,7 +19162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: cfce0cea076109f478783201b2a9f57f, type: 3}
   NextSceneName: 1-4 Dialogue with Silvan
-  flagEffect: {fileID: 4901937047330083892, guid: 75e3e0c90c8704babb0a417fd712a3b7, type: 3}
+  flagEffect: {fileID: 2708598583397607911, guid: 6398d43fe79ea0140913dc5530c646af, type: 3}
   fadeController: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
