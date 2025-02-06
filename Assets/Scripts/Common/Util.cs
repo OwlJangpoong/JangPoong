@@ -64,23 +64,45 @@ public class Util
     
     
     //파일 삭제
-    public static void DeleteAllFilesInFolder(string folderPath = null)
+    public static bool DeleteAllFilesInFolder(string folderPath = null)
     {
+        
+        //폴더 자체를 삭제하는 방법
         if (!string.IsNullOrEmpty(folderPath) && Directory.Exists(folderPath))
         {
-            // 해당 폴더 내 모든 파일 가져오기
-            string[] files = Directory.GetFiles(folderPath);
-
-            foreach (string file in files)
-            {
-                File.Delete(file); // 파일 삭제
-                Debug.Log($"삭제됨: {file}");
-            }
+            // 해당 폴더 삭제 (true를 사용하면 내부 파일/서브폴더까지 삭제됨)
+            Directory.Delete(folderPath, true);
+        
+            Debug.Log($"폴더 및 모든 파일 삭제됨: {folderPath}");
+            return true;
         }
         else
         {
             Debug.Log($"지정된 폴더가 존재하지 않습니다: {folderPath}");
+            return false;
         }
+
+        
+        ////폴더는 살리고 내부 파일만 삭제하는 방법
+        // if (!string.IsNullOrEmpty(folderPath) && Directory.Exists(folderPath))
+        // {
+        //     // 해당 폴더 내 모든 파일 가져오기
+        //     string[] files = Directory.GetFiles(folderPath);
+        //
+        //     foreach (string file in files)
+        //     {
+        //         File.Delete(file); // 파일 삭제
+        //         Debug.Log($"삭제됨: {file}");
+        //     }
+        //
+        //     return true;
+        // }
+        // else
+        // {
+        //     Debug.Log($"지정된 폴더가 존재하지 않습니다: {folderPath}");
+        //
+        //     return false;
+        // }
     }
 
 }

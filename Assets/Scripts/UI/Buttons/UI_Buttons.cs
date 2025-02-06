@@ -9,7 +9,11 @@ public class UI_Buttons: MonoBehaviour
     {
         Debug.Log("새 게임");
         Managers.RestPlayData();
-        Managers.Scene.LoadScene("1-1 tutorial");
+        
+        Managers.Data.Init();
+        Managers.Data.DeleteAllFilesInSlot();
+        Managers.Data.SetSlotNum();
+        Managers.Player.Init();
 
     }
 

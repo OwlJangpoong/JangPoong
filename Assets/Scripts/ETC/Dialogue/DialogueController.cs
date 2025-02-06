@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class DialogueController : MonoBehaviour
 {
 
-    // ´ëÈ­ Á¾·á ÀÌº¥Æ® ¼±¾ð
+    // ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½
     public event Action OnConversationEnd;
 
     [SerializeField] private TextMeshProUGUI NPCNameText;
@@ -69,8 +69,9 @@ public class DialogueController : MonoBehaviour
 
             NPCNameText.text = currentSpeaker.speakerName;
             NPCImage.sprite = currentSpeaker.characterImage;
-
-            typeDialogueCoroutine = StartCoroutine(TypeDialogueText(currentParagraph));
+            
+            if(this.gameObject.activeSelf)
+                typeDialogueCoroutine = StartCoroutine(TypeDialogueText(currentParagraph));
         }
         //conversation is being typed out
         else
@@ -111,7 +112,7 @@ public class DialogueController : MonoBehaviour
         //return bool to false
         conversationEnded = false;
 
-        // ´ëÈ­ Á¾·á ÀÌº¥Æ® È£Ãâ
+        // ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® È£ï¿½ï¿½
         OnConversationEnd?.Invoke();
 
         //deactivate gameobject
@@ -120,7 +121,7 @@ public class DialogueController : MonoBehaviour
             gameObject.SetActive(false);
         }
 
-        // Debug.Log("´ëÈ­ Á¾·á");
+        // Debug.Log("ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½");
     }
 
     private IEnumerator TypeDialogueText(string text)

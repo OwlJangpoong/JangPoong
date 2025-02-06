@@ -37,6 +37,7 @@ public class Destination : MonoBehaviour
         if (other.CompareTag("Player") && Input.GetKey(KeyCode.F))
         {
             Managers.Inventory.CommitInventoryState();
+            Managers.Player.CommitPlayerData();
             GoToNextState();
         }
     }
