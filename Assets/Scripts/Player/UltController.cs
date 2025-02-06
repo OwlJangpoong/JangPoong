@@ -84,12 +84,14 @@ public class UltController : MonoBehaviour
     
     private IEnumerator DestroyAfterTime()
     {
-        yield return new WaitForSeconds(aliveTime);
+        yield return new WaitForSeconds(aliveTime-0.5f);
+        
+        animator.SetTrigger("Extinct");
 
-        // if (!isColliding)
-        // {
+        yield return new WaitForSeconds(0.5f);
+        
         Destroy(gameObject);
-        // }
+
     }
 
 
@@ -100,20 +102,28 @@ public class UltController : MonoBehaviour
 
 
     #region AnimationEventMethod
-    public void JangpoongVanish()
-    {
-        Destroy(gameObject);
-    }
+    // public void JangpoongVanish()
+    // {
+    //     Destroy(gameObject);
+    // }
 
     public void IncreaseScale()
     {
         Vector3 scale = transform.localScale;
-
+        
         // 각 축에 대해 동일한 크기 증가 적용
         scale = Vector3.Scale(scale.normalized, Vector3.one * 0.2f) + scale;
 
         // 변경된 크기를 오브젝트에 적용
-        transform.localScale = scale; }
+        transform.localScale = scale; 
+        
+        
+    }
+
+    public void UltFly()
+    {
+        animator.SetTrigger("Fly");
+    }
     
 
     #endregion

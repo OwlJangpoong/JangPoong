@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 1700025037, guid: b9e3d9e0466684fce9bc4614edc23bdc, type: 3}
+  m_Sprite: {fileID: -57350465, guid: 4f25e5881e6974245b2cb81c8b6bf3d5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -125,7 +125,7 @@ Animator:
   m_GameObject: {fileID: 1796551531270458315}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 24db5bd5c9f5442a8955a08d9757be19, type: 2}
+  m_Controller: {fileID: 9100000, guid: 50d699e6a07d04211a4558a0d9f7a750, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -183,4 +183,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b0238d84934f7e4f86bcba7cc665583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  ultSpeed: 5
+  ultDamage: 20
+  ultDirection: {x: 0, y: 0}
