@@ -94,4 +94,10 @@ public class UI_Buttons: MonoBehaviour
 #endif
         Application.Quit();
     }
+
+    public void OnClick2Tutorial()
+    {
+        Debug.Log("인트로 스킵");
+        Managers.Scene.LoadScene("0-1 tutorial");
+    }
 }
