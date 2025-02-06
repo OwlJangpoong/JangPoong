@@ -115,12 +115,16 @@ PrefabInstance:
       value: +itemUsed
       objectReference: {fileID: 0}
     - target: {fileID: 2157701581760951696, guid: 3d34efa1013d1d04c901009f0e302671, type: 3}
-      propertyPath: m_fontSize
-      value: 40
+      propertyPath: m_fontStyle
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2157701581760951696, guid: 3d34efa1013d1d04c901009f0e302671, type: 3}
       propertyPath: m_fontSizeBase
-      value: 40
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 2157701581760951696, guid: 3d34efa1013d1d04c901009f0e302671, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4286874756
       objectReference: {fileID: 0}
     - target: {fileID: 5520491941645011697, guid: 3d34efa1013d1d04c901009f0e302671, type: 3}
       propertyPath: m_Name
@@ -160,7 +164,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5943291984284163173, guid: 3d34efa1013d1d04c901009f0e302671, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 50
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 5943291984284163173, guid: 3d34efa1013d1d04c901009f0e302671, type: 3}
       propertyPath: m_LocalPosition.x
