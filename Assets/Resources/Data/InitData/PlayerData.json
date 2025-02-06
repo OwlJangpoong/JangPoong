@@ -1,5 +1,6 @@
 {
   "playerName": "개발모드",
+  "currentStage" : "0 Intro",
   "hp": 10.0,
   "maxHp": 10.0,
   "mana": 100,

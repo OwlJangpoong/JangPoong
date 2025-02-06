@@ -61,6 +61,23 @@ public class Util
         return null;
 
     }
+
+    /// <summary>
+    /// Hexadecimal code -> Color로 변경하여 반환
+    /// 변경실패시 Color.white
+    /// </summary>
+    /// <param name="hexColor">#을 포함하는 hexadecimal code</param>
+    /// <returns>Color 자료형</returns>
+    public static Color HexToColor(string hexColor)
+    {
+        // 텍스트 색상 설정 (HEX 값으로 변경)
+        if (ColorUtility.TryParseHtmlString(hexColor, out Color color))
+        {
+            return color;
+        }
+        return Color.white;
+    }
+    
     
     
     //파일 삭제

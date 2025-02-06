@@ -8,11 +8,18 @@ using UnityEngine.PlayerLoop;
 public class PlayerManager
 {
     private bool _isInitialized = false;
-    
-    //플레이어 이름
-    public string PlayerName { get; private set; }
 
-//플레이어 관련 리소스
+    #region data 식별용
+
+    public string PlayerName { get; private set; }
+    public string currentStage = null;
+    
+    
+
+    #endregion
+   
+
+    //플레이어 관련 리소스
     public List<GameObject> jangPoongPrefab_list =
         new List<GameObject>(Enumerable.Repeat<GameObject>(null, (int)Define.JangPoongLevel.Length + 1));  //레벨에 따른 장풍 프리랩을 담는 배열 (0번 인덱스는 비워두고 1부터 채우기 위해 length+1 길이로 선언)
     public GameObject ultPrefab;
