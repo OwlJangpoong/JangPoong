@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc022283ccccd384ebd140d92d5a8489, type: 3}
-  m_Name: Intro_speaker
+  m_Name: Player_speaker
   m_EditorClassIdentifier: 
-  speakerName: "\uC804\uC124"
-  characterImage: {fileID: 21300000, guid: f8a74f9750eef264fb5966f5b9df53de, type: 3}
+  speakerName: 
+  characterImage: {fileID: -50044408, guid: 4e98094226874564ca964dc12f538459, type: 3}

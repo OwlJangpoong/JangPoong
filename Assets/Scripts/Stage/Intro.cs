@@ -4,12 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
+using TMPro;
 public class Intro : MonoBehaviour
 {   
     [SerializeField] private DialogueText dialogueText;
     [SerializeField] private DialogueController dialogueController;
     [SerializeField] private GameObject dialogueBox;
-    [SerializeField] private GameObject dialogueBox2;
     [SerializeField] private Speaker speaker;
     [SerializeField] private Image img;
     [SerializeField] private Image img2;
@@ -18,9 +18,21 @@ public class Intro : MonoBehaviour
     [SerializeField] private GameObject clickBlocker;
 
     private RectTransform imgRect;
-    
+
     private int turn = -1;
     private bool isClick = false;
+
+    // dialogueBox 설정 할당
+    private RectTransform dBRectTransform;
+    private Image dBImg;
+    public Sprite dBnewSprite;
+
+    // dialogueBox 자식 오브젝트 Name, Dialogue, NPCImg 할당
+    public TextMeshProUGUI NameTmp;
+    private RectTransform NameTmpRectTransform;
+
+    public TextMeshProUGUI DialogueTmp;
+    private RectTransform DialogueTmpRectTransform;
 
     void Awake()
     {
@@ -49,6 +61,15 @@ public class Intro : MonoBehaviour
 
         //클릭방지 오브젝트 비활성화
         clickBlocker.SetActive(false);
+
+        //dialogueBox 초기값 설정
+        dBRectTransform = dialogueBox.GetComponent<RectTransform>();
+        dBImg = dialogueBox.GetComponent<Image>();
+
+        NameTmpRectTransform = NameTmp.GetComponent<RectTransform>();
+
+        DialogueTmpRectTransform = DialogueTmp.GetComponent<RectTransform>();
+
     }
 
     void Update()
@@ -73,7 +94,6 @@ public class Intro : MonoBehaviour
     private void turnChecker(){
         if(string.IsNullOrWhiteSpace(dialogueText.paragraphs[turn])){
             dialogueBox.SetActive(false);
-            dialogueBox2.SetActive(false);
         }
         else{
             dialogueBox.SetActive(true);
@@ -87,8 +107,23 @@ public class Intro : MonoBehaviour
         }
         if(turn == 15)
         {
-            dialogueBox2.SetActive(true);
-            dialogueBox.SetActive(false);
+            // 대화창 변경
+            dBRectTransform.anchoredPosition = new Vector2(40f, -350f);
+
+            dBRectTransform.sizeDelta = new Vector2(960f, 192f);
+
+            dBImg.sprite = dBnewSprite;
+
+            NameTmpRectTransform.anchoredPosition = new Vector2(-74f, 44f);
+            NameTmp.color = Color.black;
+            NameTmp.fontStyle = FontStyles.Normal;
+
+            DialogueTmpRectTransform.anchoredPosition = new Vector2(0f, 31f);
+            DialogueTmp.color = Color.black;
+            DialogueTmp.alignment = TextAlignmentOptions.MidlineLeft;
+            DialogueTmp.fontStyle = FontStyles.Normal;
+
+
         }
     }
 
@@ -177,11 +212,14 @@ public class Intro : MonoBehaviour
                 });
                 break;
             case 15:
-                speaker.speakerName = "???";
+                // 적용 안됨
+                Speaker speaker2 = speaker;
+                speaker2.speakerName = "???";
                 break;
             case 16:
                 img.sprite = imgArray[12]; //주인공 & 차르덴 투샷
-                speaker.speakerName = PlayerPrefs.GetString("PlayerName");
+                speaker.speakerName = Managers.Player.PlayerName;
+                // speaker.speakerName = PlayerPrefs.GetString("PlayerName");
                 break;
             case 25:
                 speaker.speakerName = "차르덴";
