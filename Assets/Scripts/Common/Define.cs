@@ -87,7 +87,7 @@
             tutorialDone,
             PlayerData,
             ProgressData,
-            StatisticDatsa,
+            StatisticData,
             SettingData,
             InventoryData,
 

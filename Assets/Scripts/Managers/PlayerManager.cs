@@ -238,6 +238,7 @@ public class PlayerManager
         this.CurrentJangPoongLevel = localdata.currentJangPoongLevel;
         this.TokenCnt = localdata.tokenCnt;
         IsRunning = localdata.isRunning;
+        this.currentStage = localdata.currentStage;
 
     }
 
@@ -246,7 +247,7 @@ public class PlayerManager
     {
         Debug.Log("PlayerManager : 최종 Player 데이터 저장을 요청합니다.");
         Managers.Game.Player = new PlayerData(this.PlayerName, this.Hp, this.MaxHp, this.Mana, this.MaxMana,
-            this.MonsterPoint, this.MaxMonsterPoint, this.CurrentJangPoongLevel, this.TokenCnt, this.IsRunning);
+            this.MonsterPoint, this.MaxMonsterPoint, this.CurrentJangPoongLevel, this.TokenCnt, this.IsRunning, this.currentStage);
     }
 
     public void RestorePlayerData()

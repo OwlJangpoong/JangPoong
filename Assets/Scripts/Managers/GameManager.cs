@@ -11,12 +11,19 @@ public class GameManager
     // {
     //     get => isInit;
     // }
+    
 
     #region 게임 관련 저장 데이터 클래스 변수 & 프로퍼티
     
     private SettingData _setting;
     private InventoryData _gameInventory;
     private PlayerData _player;
+    private StatisticData _statistic;
+
+    private DateTime sessionStartTime;
+    private float sessionElapsedTime = 0;
+    
+    
     
     public SettingData Setting
     {
@@ -25,6 +32,7 @@ public class GameManager
             if (_setting == null)
             {
                 LoadData(Define.SaveKey.SettingData, out _setting);
+                
             }
 
             return _setting;
@@ -71,7 +79,17 @@ public class GameManager
     }
     
     // public ProgressData progressData;
-    // public StatisticData statisticData;
+    public StatisticData Statistic
+    {
+        get
+        {
+            if (_statistic == null)
+            {
+                LoadStatisticData();
+            }
+            return _statistic;
+        }
+    }
 
     #endregion
     
@@ -82,19 +100,60 @@ public class GameManager
     {
         Debug.Log("GameManager Init 호출");
         
+        
 
     }
 
+    public void Update()
+    {
+        sessionElapsedTime = (float)(DateTime.Now - sessionStartTime).TotalSeconds;
+    }
+
+
+
+
+    #region StatisticData Control
+
+    public void LoadStatisticData()
+    {
+        sessionStartTime = DateTime.Now;
+        LoadData(Define.SaveKey.StatisticData, out _statistic);
+        // Managers.Instance.StartCoroutine(AutoSaveCoroutine());
+    }
+
+    private IEnumerator AutoSaveCoroutine()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(300f); // 5분마다 저장
+            SaveStatisticData();
+        }
+    }
+    
+    public void SaveStatisticData()
+    {
+        _statistic.totalPlayTime += sessionElapsedTime;
+        _statistic.lastPlayTime = DateTime.Now.ToString("yyyy-MM-dd tt hh:mm:ss");
+        Managers.Data.SaveData(Define.SaveKey.PlayerData, _player);
+        
+    }
+    
+    
+    #endregion
+    
+    
+    
+
+    #region Load/Save Interface
 
     public void LoadData<T>(Define.SaveKey dataType, out T dataVariable)
     {
-        Debug.Log($"<color=green>SetData({dataType.ToString()}, {typeof(T)})호출 </color>");
         //1. 저장된 Setting 파일이 있는지 확인한다.
         //있으면 로드
         if (Managers.Data.HasSaveDataFile(dataType))
         {
             Debug.Log($"<color=red>로컬에 저장된 {dataType.ToString()} 데이터를 가져옵니다.</color>");
-             dataVariable = Managers.Data.LoadData<T>(dataType);
+            dataVariable = Managers.Data.LoadData<T>(dataType);
         }
 
          
@@ -109,11 +168,8 @@ public class GameManager
         }
     }
 
-
-    public void StartNewGame()
-    {
-        
-    }
+    #endregion
+    
     
 
 

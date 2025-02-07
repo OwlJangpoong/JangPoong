@@ -12,7 +12,6 @@ public class UI_Buttons: MonoBehaviour
         
         Managers.Data.Init();
         Managers.Data.DeleteAllFilesInSlot();
-        Managers.Data.SetSlotNum();
         Managers.Player.Init();
 
     }
