@@ -11,8 +11,9 @@ public class UI_Slot : MonoBehaviour
     private UI_SlotPanel slotPanel;
     private Color emptyColor;   //C0C0C0    
     private Color fullColor;   //65CFAC
-    
-    [Header("Slot info object & variables")]
+
+    [Header("Slot info & variables")] 
+    public int slotNum;
     public TMP_Text emptyTxt;
     public GameObject slotText;
     public TMP_Text playerName;
@@ -20,7 +21,8 @@ public class UI_Slot : MonoBehaviour
     public TMP_Text stage;
     public bool hasData;
 
-    [Header("PopUp Dialog Panelss")] public GameObject NewGamePanelDialogue;
+    [Header("PopUp Dialog Panels")] 
+    public GameObject NewGamePanelDialogue;
     public GameObject LoadGamePanelDialogue;
     public GameObject NoSavePanelDialogue;
     public GameObject SlotWarningDiaglogue;
@@ -67,6 +69,7 @@ public class UI_Slot : MonoBehaviour
 
     public void SetActivePopUpPanel()
     {
+        Managers.Data.SetSlotNum(slotNum);
         //새로하기
         if (slotPanel.isNewGame)
         {

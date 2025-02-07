@@ -7,12 +7,18 @@ public class UI_Buttons: MonoBehaviour
 {
     public void OnClickNewGame()
     {
-        Debug.Log("새 게임");
-        Managers.RestPlayData();
+        Debug.Log($"슬롯{Managers.Data.SlotNum} : 새 게임을 시작합니다.");
+        // Managers.RestPlayData(); //PlayPrefs 사용 안함
         
-        Managers.Data.Init();
-        Managers.Data.DeleteAllFilesInSlot();
+        Managers.Data.DeleteAllFilesInSlot(); //슬롯 내 모든 파일 삭제
+        
+        //필요한 데이터 파일 초기화 및 셋팅
+        //Inventory Data, PlayerData, StatisticData, ProgressData
         Managers.Player.Init();
+        Managers.Inventory.Init();
+        //통계데이터
+        Managers.Game.LoadStatisticData();
+        //프로그래스 데이터
 
     }
 

@@ -58,6 +58,7 @@ public class UI_InputFields : MonoBehaviour
             // PlayerPrefs.SetString("PlayerName", playerName);
             // Debug.Log(PlayerPrefs.GetString("PlayerName"));
             Managers.Player.SetName(text); //플레이어 매니져쪽을 변경할지 GameManager쪽을 변경할지 추후 결정.. 어차피 이름은 초반에 한 번만 설정하고 절대 변경안하나까....????
+            Managers.Player.CommitPlayerData();
             
             //페이드용 패널 활성화
             fadePanel.gameObject.SetActive(true); 

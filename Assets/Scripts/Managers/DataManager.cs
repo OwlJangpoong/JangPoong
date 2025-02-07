@@ -7,6 +7,7 @@ public class DataManager
 {
     //File/Folder Path for Save, Load
     private int slotNum = 1;
+    public int SlotNum { get => slotNum; set => slotNum = value; }
     private int totalSlots = 3;
     private string saveFolderPath=""; //  "SaveData" 폴더까지의 경로
 
@@ -33,11 +34,6 @@ public class DataManager
             // SaveData<SettingData>(Define.SaveKey.SettingData, Managers.Game.SettingData);
         }
         // 2. 있으면 setting 데이터 파일이 존재할 것. setting 데이터 파일을 로드한다.
-        else
-        {
-            // Debug.Log("저장된 SettingData 파일을 로드합니다.");
-            // Managers.Game.SettingData = LoadData<SettingData>(Define.SaveKey.SettingData);
-        }
     }
 
   
@@ -186,24 +182,14 @@ public class DataManager
         string slot = "Slot" + slotNum;
         
         slotFolderPath = Path.Combine(Application.persistentDataPath, "SaveData", slot);
-        // if (!Directory.Exists(slotFolderPath))
-        // {
-        //     Debug.Log($"{slot} 폴더가 없습니다. 폴더를 생성합니다.");
-        //     Directory.CreateDirectory(slotFolderPath);
-        // }
+        if (!Directory.Exists(slotFolderPath))
+        {
+            Debug.Log($"{slot} 폴더가 없습니다. 폴더를 생성합니다.");
+            Directory.CreateDirectory(slotFolderPath);
+        }
 
     }
     
-    public void InitializeSlot()
-    {
-        
-        if (!Directory.Exists(saveFolderPath))
-        {
-            Directory.CreateDirectory(saveFolderPath);
-        }
-        
-        //모든 데이터 
-    }
     
     
 
@@ -212,13 +198,6 @@ public class DataManager
         Debug.Log(Util.DeleteAllFilesInFolder(slotFolderPath)?"슬롯 초기화 성공":"슬롯 초기화 실패");
     }
     
-    private bool IsFolderEmpty(string folderPath)
-    {
-        return Directory.GetFiles(folderPath).Length == 0 && Directory.GetDirectories(folderPath).Length == 0;
-    }
-
-
-
     public (bool hasInfo, string playerName, string lastPlayTime, string currentStag) GetSlotInfo(int slotNumber)
     {
         SetSlotNum(slotNumber);

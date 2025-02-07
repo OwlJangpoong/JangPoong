@@ -116,8 +116,10 @@ public class GameManager
 
     public void LoadStatisticData()
     {
-        sessionStartTime = DateTime.Now;
         LoadData(Define.SaveKey.StatisticData, out _statistic);
+        sessionStartTime = DateTime.Now;
+        UpdateLastPlayTime();
+        Managers.Data.SaveData(Define.SaveKey.StatisticData,_statistic);
         // Managers.Instance.StartCoroutine(AutoSaveCoroutine());
     }
 
@@ -133,9 +135,14 @@ public class GameManager
     public void SaveStatisticData()
     {
         _statistic.totalPlayTime += sessionElapsedTime;
-        _statistic.lastPlayTime = DateTime.Now.ToString("yyyy-MM-dd tt hh:mm:ss");
+        UpdateLastPlayTime();
         Managers.Data.SaveData(Define.SaveKey.PlayerData, _player);
         
+    }
+
+    private void UpdateLastPlayTime()
+    {
+        _statistic.lastPlayTime = DateTime.Now.ToString("yyyy-MM-dd tt hh:mm:ss");
     }
     
     

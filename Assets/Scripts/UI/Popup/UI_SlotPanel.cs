@@ -25,7 +25,6 @@ public class UI_SlotPanel : MonoBehaviour
         if (slotsContainer != null)
         {
             slots = slotsContainer.GetComponentsInChildren<UI_Slot>(true);
-            Debug.Log(slots.Length);
         }
         else
         {
