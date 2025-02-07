@@ -141,7 +141,8 @@ public class Monster : MonoBehaviour
         //이동 정지
         movement2D.MoveTo(0);
         //몬스터포인트 추가
-        Managers.PlayerData.MonsterPoint += stat.monsterData.MonsterPoint;
+        Managers.Player.SetMonsterPoint(Managers.Player.MonsterPoint+ stat.monsterData.MonsterPoint);
+        // Managers.Player.MonsterPoint += stat.monsterData.MonsterPoint;
         Debug.Log("몬스터포인트 추가 : " + stat.monsterData.MonsterPoint);
         
         //아이템 드랍
@@ -161,7 +162,7 @@ public class Monster : MonoBehaviour
     {
         if (player!=null && direction.magnitude <= scanRange)
         {
-            if (player.GetComponent<PlayerDataManager>().IsInvisible)
+            if (player.GetComponent<PlayerStatsController>().IsInvisible)
             {
                 target = null;
             }

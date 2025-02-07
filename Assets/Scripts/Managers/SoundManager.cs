@@ -49,8 +49,10 @@ public class SoundManager
             go.transform.parent = root.transform;
          }
 
+         Debug.Log("@Sound 생성");
       }
       
+      Debug.Log(audioSources);
       //bgm 연속 재생
       audioSources[(int)Define.Sound.Bgm].loop = true;
       
@@ -120,6 +122,7 @@ public class SoundManager
       else
       {
          AudioSource audioSource = audioSources[(int)Define.Sound.Sfx];
+         if(audioSource==null) Debug.Log("Errrororororo");
          audioSource.PlayOneShot(audioClip);
       }
    }

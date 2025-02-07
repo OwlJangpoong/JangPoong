@@ -41,7 +41,10 @@ public class MonsterWeaponCollider : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("플레이어 충돌");
-            Managers.PlayerData.OnAttacked(GetComponentInParent<MonsterStat>().monsterData.Damage);
+            
+            //250203 수정
+            other.GetComponent<PlayerStatsController>().OnAttacked(GetComponentInParent<MonsterStat>().monsterData.Damage);
+            // Managers.Player.OnAttacked(GetComponentInParent<MonsterStat>().monsterData.Damage);
         }
     }
     
@@ -62,7 +65,14 @@ public class MonsterWeaponCollider : MonoBehaviour
             if (collider.CompareTag("Player"))
             {
                 Debug.Log("몬스터가 플레이어를 공격합니다.");
-                Managers.PlayerData.OnAttacked(GetComponentInParent<MonsterStat>().monsterData.Damage);
+                // Managers.Player.OnAttacked(GetComponentInParent<MonsterStat>().monsterData.Damage);
+                
+                //250203 수정
+                collider.GetComponent<PlayerStatsController>().OnAttacked(GetComponentInParent<MonsterStat>().monsterData.Damage);
+                
+                
+                
+                
                 // playerDataManager.OnAttacked(GetComponentInParent<MonsterStat>().monsterData.Damage);
                 return;
             }

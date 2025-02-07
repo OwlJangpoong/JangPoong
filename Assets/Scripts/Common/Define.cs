@@ -116,8 +116,32 @@
 
         #endregion
 
+        #region JangPoong
 
-        
+        public enum JangPoongLevel
+        {
+            Level1,
+            Level2,
+            Level3,
+            Level4,
+            Level5,
+            Level6,
+            Level7,
+            Level8,
+            Level9,
+            Level10,
+            Length
+        }
+
+        public static readonly float[] JangPoongDamageList =
+        {
+            0.5f, 0.9f, 1.4f, 1.9f, 2.6f, 3.5f, 4.1f, 4.9f, 5.6f, 6.5f
+        };
+
+        #endregion
+
+
+
     }
    
 

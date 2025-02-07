@@ -3,30 +3,63 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class UltController : MonoBehaviour
 {  
-    //=====장풍 레벨 정보, 데미지 관리, 업그레이드를 어떻게 처리할 것인가? ======//
+    [Header("Ult Stats")]
+    [SerializeField] private float ultSpeed = 5.0f; //일반 장풍의 1/2 속도
+    [SerializeField] private float ultDamage = 20f;
     
-    private Animator animator;
-#pragma warning disable CS0108 // 멤버가 상속된 멤버를 숨깁니다. new 키워드가 없습니다.
-    private Collider2D collider2D;
-#pragma warning restore CS0108 // 멤버가 상속된 멤버를 숨깁니다. new 키워드가 없습니다.
-    private Rigidbody2D rb;
-   
-    [SerializeField] private float damage = 20f;
-    // private bool isColliding = false;
-
-        
+    [SerializeField] public Vector2 ultDirection;
+    
+    
+    [Header("Ult Status")] 
     private float aliveTime;
-    public float AliveTime
+    
+    
+    //궁극기 관련 컴포넌트
+    private Animator animator;
+    private Collider2D _collider2D;
+    private Rigidbody2D rb;
+    
+    
+    
+    void Start()
     {
-        set
-        {
-            aliveTime = value;
-        }
+        Init();
+        StartCoroutine(nameof(DestroyAfterTime));
+    }
+
+    void Init()
+    {
+        _collider2D = GetComponent<Collider2D>();
+        animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
+        
+        InitializeUlt();
+    }
+
+
+    #region Ult Control Method
+
+    private void InitializeUlt()
+    {
+        //speed
+        ultSpeed = Managers.Player.IsRunning ? 7 : 6;
+
+        //velocity
+        rb.velocity = ultDirection * ultSpeed;
+        
+        //local scale
+        transform.localScale = new Vector3((ultDirection.x > 0 ? 1f : -1f), 1f, 1f);// 궁극기 크기는 장풍의 2배 크기
+        
+        //alive time
+        aliveTime = 5f;
     }
     
+    
+
     //1. 충돌
     //충돌 여부에 따라 애니메이션 조절
     //충돌시 폭파 애니메이션, 충돌 x시 일정 시간이 지나면 사라지도록
@@ -44,66 +77,53 @@ public class UltController : MonoBehaviour
         if (other.gameObject.layer == (int)Define.Layer.Monster)
         {
             Debug.Log("몬스터 공격받음");
-            other.GetComponent<MonsterStat>().OnAttacked(damage);
+            other.GetComponent<MonsterStat>().OnAttacked(ultDamage);
         }
     }
     
-    // //3. 좌우 이동에 따라 장풍 좌우 반전 처리
-    // private void SetDirection()
-    // {
-    //     if (rb.velocity.x < 0)
-    //     {
-    //         Vector3 scale = transform.localScale;
-    //         scale.x = -Mathf.Abs(transform.localScale.x);
-    //         transform.localScale = scale;
-    //         Debug.Log(transform.localScale.x);
-    //     }
-    // }
-    //
-    //
-    // Start is called before the first frame update
-    void Start()
-    {
-        Init();
-        StartCoroutine(nameof(DestroyAfterTime));
-    }
-
-    void Init()
-    {
-        collider2D = GetComponent<Collider2D>();
-        animator = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody2D>();
-    }
-
     
     private IEnumerator DestroyAfterTime()
     {
-        yield return new WaitForSeconds(aliveTime);
+        yield return new WaitForSeconds(aliveTime-0.5f);
+        
+        animator.SetTrigger("Extinct");
 
-        // if (!isColliding)
-        // {
-            Destroy(gameObject);
-        // }
+        yield return new WaitForSeconds(0.5f);
+        
+        Destroy(gameObject);
+
     }
 
+
+    #endregion
+    
+  
 
 
 
     #region AnimationEventMethod
-    public void JangpoongVanish()
-    {
-        Destroy(gameObject);
-    }
+    // public void JangpoongVanish()
+    // {
+    //     Destroy(gameObject);
+    // }
 
     public void IncreaseScale()
     {
         Vector3 scale = transform.localScale;
-
+        
         // 각 축에 대해 동일한 크기 증가 적용
         scale = Vector3.Scale(scale.normalized, Vector3.one * 0.2f) + scale;
 
         // 변경된 크기를 오브젝트에 적용
-        transform.localScale = scale; }
+        transform.localScale = scale; 
+        
+        
+    }
+
+    public void UltFly()
+    {
+        animator.SetTrigger("Fly");
+    }
     
 
     #endregion

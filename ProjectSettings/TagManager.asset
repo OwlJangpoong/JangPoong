@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Monster
   - UI_Root
+  - OneWayPlatform
+  - Boss fight
   layers:
   - Default
   - TransparentFX
@@ -51,4 +53,7 @@ TagManager:
     locked: 0
   - name: item
     uniqueID: 1576567303
+    locked: 0
+  - name: UI
+    uniqueID: 1330956873
     locked: 0

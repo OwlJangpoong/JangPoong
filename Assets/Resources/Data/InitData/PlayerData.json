@@ -1,5 +1,12 @@
 {
-  "name" : "노네임드",
-  "hp" : 10.0,
-  "mana" : 100
+  "playerName": "개발모드",
+  "hp": 10.0,
+  "maxHp": 10.0,
+  "mana": 100,
+  "maxMana": 100,
+  "monsterPoint": 0,
+  "maxMonsterPoint": 50,
+  "currentJangPoongLevel": 1,
+  "tokenCnt": 0,
+  "isRunning": false
 }

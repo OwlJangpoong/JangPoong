@@ -36,7 +36,7 @@ EditorBuildSettings:
     path: Assets/Scenes/2-1 to demon castle.unity
     guid: 548471d9355214ac880d9753d53e76b9
   - enabled: 1
-    path: Assets/Scenes/2-2 inside demon castle.unity
+    path: Assets/Scenes/2-2 skeleton fight.unity
     guid: 9a2bb7317bdaff3489e0161cb192d037
   - enabled: 1
     path: Assets/Scenes/UI/Chapters.unity

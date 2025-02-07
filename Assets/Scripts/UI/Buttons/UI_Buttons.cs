@@ -9,7 +9,11 @@ public class UI_Buttons: MonoBehaviour
     {
         Debug.Log("새 게임");
         Managers.RestPlayData();
-        Managers.Scene.LoadScene("1-1 tutorial");
+        
+        Managers.Data.Init();
+        Managers.Data.DeleteAllFilesInSlot();
+        Managers.Data.SetSlotNum();
+        Managers.Player.Init();
 
     }
 
@@ -89,5 +93,11 @@ public class UI_Buttons: MonoBehaviour
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
         Application.Quit();
+    }
+
+    public void OnClick2Tutorial()
+    {
+        Debug.Log("인트로 스킵");
+        Managers.Scene.LoadScene("0-1 tutorial");
     }
 }
