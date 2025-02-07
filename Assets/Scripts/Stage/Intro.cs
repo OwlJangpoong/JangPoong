@@ -9,6 +9,7 @@ public class Intro : MonoBehaviour
     [SerializeField] private DialogueText dialogueText;
     [SerializeField] private DialogueController dialogueController;
     [SerializeField] private GameObject dialogueBox;
+    [SerializeField] private GameObject dialogueBox2;
     [SerializeField] private Speaker speaker;
     [SerializeField] private Image img;
     [SerializeField] private Image img2;
@@ -72,6 +73,7 @@ public class Intro : MonoBehaviour
     private void turnChecker(){
         if(string.IsNullOrWhiteSpace(dialogueText.paragraphs[turn])){
             dialogueBox.SetActive(false);
+            dialogueBox2.SetActive(false);
         }
         else{
             dialogueBox.SetActive(true);
@@ -81,6 +83,11 @@ public class Intro : MonoBehaviour
     {
         dialogueController.DisplayNextParagraph(dialogueText);
         if (turn == 0){
+            dialogueBox.SetActive(false);
+        }
+        if(turn == 15)
+        {
+            dialogueBox2.SetActive(true);
             dialogueBox.SetActive(false);
         }
     }
