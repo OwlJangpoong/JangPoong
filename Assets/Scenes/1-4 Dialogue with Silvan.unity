@@ -2366,7 +2366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05fffd28e9e1da044b1bf2d757e70a60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMovement: {fileID: 0}
+  playerMovement: {fileID: 1355526594}
   cameraFollow: {fileID: 1275566048}
   currentStageData: {fileID: 11400000, guid: 42946233ab1654c979df834f0d613f83, type: 2}
 --- !u!4 &1194961060 stripped
@@ -3431,6 +3431,17 @@ MonoBehaviour:
   typeSpeed: 15
   playerUI: {fileID: 414004631}
   isTyping: 0
+--- !u!114 &1355526594 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2084115339966101801, guid: d0ecd624d98703b4bbde7b9d35ed8f80, type: 3}
+  m_PrefabInstance: {fileID: 1036468802}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d75cc763e89b9f84b8b957e75bdeb9ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1364807667
 GameObject:
   m_ObjectHideFlags: 0
