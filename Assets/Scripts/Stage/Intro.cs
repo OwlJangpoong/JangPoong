@@ -223,7 +223,7 @@ public class Intro : MonoBehaviour
                 bubbleImg.transform.Rotate(0f, 180f, 0f);
                 break;
             case 26:
-                speaker.speakerName = PlayerPrefs.GetString("PlayerName");
+                speaker.speakerName = Managers.Player.PlayerName;
                 bubbleImg.transform.Rotate(0f, 180f, 0f);
                 break;
             case 27:
@@ -234,7 +234,7 @@ public class Intro : MonoBehaviour
                 break;
             case 30:
                 img.sprite = imgArray[12]; //주인공 & 차르덴 투샷
-                speaker.speakerName = PlayerPrefs.GetString("PlayerName");
+                speaker.speakerName = Managers.Player.PlayerName;
                 bubbleImg.transform.Rotate(0f, 180f, 0f);
                 break;
             case 34:
@@ -242,7 +242,7 @@ public class Intro : MonoBehaviour
                 bubbleImg.transform.Rotate(0f, 180f, 0f);
                 break;
             case 37:
-                speaker.speakerName = PlayerPrefs.GetString("PlayerName");
+                speaker.speakerName = Managers.Player.PlayerName;
                 bubbleImg.transform.Rotate(0f, 180f, 0f);
                 break;
             case 38:
@@ -255,7 +255,7 @@ public class Intro : MonoBehaviour
                 break;
             case 43:
                 img.sprite = imgArray[12]; //주인공 & 차르덴 투샷
-                speaker.speakerName = PlayerPrefs.GetString("PlayerName");
+                speaker.speakerName = Managers.Player.PlayerName;
                 bubbleImg.transform.Rotate(0f, 180f, 0f);
                 break;
             case 45:
@@ -263,7 +263,7 @@ public class Intro : MonoBehaviour
                 bubbleImg.transform.Rotate(0f, 180f, 0f);
                 break;
             case 47:
-                speaker.speakerName = PlayerPrefs.GetString("PlayerName");
+                speaker.speakerName = Managers.Player.PlayerName;
                 bubbleImg.transform.Rotate(0f, 180f, 0f);
                 break;
             case 48:
@@ -273,13 +273,13 @@ public class Intro : MonoBehaviour
                 bubbleImg.transform.Rotate(0f, 180f, 0f);
                 break;
             case 49:
-                speaker.speakerName = PlayerPrefs.GetString("PlayerName");
+                speaker.speakerName = Managers.Player.PlayerName;
                 bubbleImg.transform.Rotate(0f, 180f, 0f);
                 break;
             case 51:
                 img.sprite = imgArray[12];
-                speaker.speakerName = PlayerPrefs.GetString("PlayerName");
-                
+                speaker.speakerName = Managers.Player.PlayerName;
+
                 break;
             case 52:
                 speaker.speakerName = "차르덴";
@@ -302,7 +302,7 @@ public class Intro : MonoBehaviour
                 img.sprite = imgArray[19]; //지도
                 break;
             case 59:
-                speaker.speakerName = PlayerPrefs.GetString("PlayerName");
+                speaker.speakerName = Managers.Player.PlayerName;
                 bubbleImg.transform.Rotate(0f, 180f, 0f);
                 break;
         }
