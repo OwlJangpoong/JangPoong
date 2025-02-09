@@ -28323,6 +28323,10 @@ PrefabInstance:
       propertyPath: m_text
       value: "\uC232 \uC18D"
       objectReference: {fileID: 0}
+    - target: {fileID: 6319823221215110379, guid: 59a9ebde221b047c38db217e49c37f57, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7717852424032840452, guid: 59a9ebde221b047c38db217e49c37f57, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
