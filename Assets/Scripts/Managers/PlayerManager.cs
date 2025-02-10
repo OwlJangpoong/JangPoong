@@ -80,6 +80,7 @@ public class PlayerManager
         //이벤트 구독
         OnTokenCntChanged -= UpdateJangPoongLevel;
         OnTokenCntChanged += UpdateJangPoongLevel;
+       
         
         //리스트 초기화 : 장풍 프리팹 로드해서 리스트에 넣어주기
         LoadJangPoongPrefabs();
@@ -104,9 +105,15 @@ public class PlayerManager
         hp =  Mathf.Round(hp * 100) / 100f;
         Hp = hp;
         OnHpChanged?.Invoke(Hp);
-        
-        if (Hp <= 0) 
+
+        if (Hp <= 0)
+        {
+            Managers.Game.Statistic.deathCnt++;
+            Managers.Game.SaveStatisticData();
             OnDie?.Invoke(); //사망
+            
+        }
+            
         
     }
 
@@ -257,6 +264,12 @@ public class PlayerManager
     }
 
    
+    #endregion
+
+    #region MyRegion
+
+    
+
     #endregion
     
 }

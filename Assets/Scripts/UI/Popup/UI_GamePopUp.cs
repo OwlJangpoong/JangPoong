@@ -33,6 +33,7 @@ public class UI_GamePopUp : MonoBehaviour
     #region MyRegion
         public void OnPause()
         {
+            Managers.Game.PauseSession();
             SetTimeScale(0);
             playerUI.SetActive(false);
             pauseUI.SetActive(true);
@@ -41,6 +42,7 @@ public class UI_GamePopUp : MonoBehaviour
 
         public void OnResume()
         {
+            Managers.Game.ResumeSession();
             SetTimeScale(1);
             pauseUI.SetActive(false);
             playerUI.SetActive(true);
@@ -56,6 +58,7 @@ public class UI_GamePopUp : MonoBehaviour
 
         public void OnExitGame()
         {
+            Managers.Game.EndSession();
             Debug.Log("exit scene으로");
             Managers.Scene.LoadScene("Exit");
         }

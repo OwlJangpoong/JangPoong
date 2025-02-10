@@ -6,11 +6,8 @@ using Newtonsoft.Json;
 
 public class GameManager
 {
-    // private bool isInit = false;
-    // public bool IsInit
-    // {
-    //     get => isInit;
-    // }
+    public bool isSessionStart = false;
+    private int cnt = 0;
     
 
     #region 게임 관련 저장 데이터 클래스 변수 & 프로퍼티
@@ -103,42 +100,65 @@ public class GameManager
         
 
     }
-
-    public void Update()
-    {
-        sessionElapsedTime = (float)(DateTime.Now - sessionStartTime).TotalSeconds;
-    }
-
-
+    
 
 
     #region StatisticData Control
 
     public void LoadStatisticData()
     {
+        Debug.Log("load statistic data 호출");
+        
+        //데이터 로드
         LoadData(Define.SaveKey.StatisticData, out _statistic);
+        
+        //세션 시간 초기화
         sessionStartTime = DateTime.Now;
+        sessionElapsedTime = 0;
+        
+        //마지막 플레이 시간 업데이트
         UpdateLastPlayTime();
-        Managers.Data.SaveData(Define.SaveKey.StatisticData,_statistic);
-        // Managers.Instance.StartCoroutine(AutoSaveCoroutine());
+        
+        // 데이터 저장 (초기화된 경우 대비)
+        SaveStatisticData();
+        
+        // 세션 시작 플래그 설정 (누적 플레이 시간 업데이트 활성화)
+        isSessionStart = true;
+        
+        // 자동 저장 코루틴 실행 (CoroutineRunner 사용)
+        CoroutineRunner.Instance.StartCoroutine(AutoSaveCoroutine());
+        
     }
 
     private IEnumerator AutoSaveCoroutine()
     {
         while (true)
         {
-            yield return new WaitForSeconds(300f); // 5분마다 저장
+            yield return new WaitForSeconds(120f); // 2분마다 저장
             SaveStatisticData();
         }
     }
     
     public void SaveStatisticData()
     {
-        _statistic.totalPlayTime += sessionElapsedTime;
+        Debug.Log($"통계 데이터 저장합니다. : {++cnt}회");
+
+        // 현재까지 플레이한 시간 계산 (이전 sessionStartTime 기준)
+        float elapsedSinceLastSave = (float)(DateTime.Now - sessionStartTime).TotalSeconds;
+    
+        // 누적 플레이 시간 업데이트
+        _statistic.totalPlayTime += elapsedSinceLastSave;
+
+        // 마지막 플레이 시간 갱신
         UpdateLastPlayTime();
-        Managers.Data.SaveData(Define.SaveKey.PlayerData, _player);
-        
+
+        // 세션 시작 시간 갱신 (새로운 저장 주기 시작)
+        sessionStartTime = DateTime.Now;
+
+        // 저장
+        Managers.Data.SaveData(Define.SaveKey.StatisticData, _statistic);
     }
+
 
     private void UpdateLastPlayTime()
     {
@@ -176,54 +196,36 @@ public class GameManager
     }
 
     #endregion
-    
-    
 
 
-    #region Comment
-    
-    
-    //초기 Init() 
-    // public void Init()
-    // {
-    //     
-    //     Debug.Log("GameManager Init 호출");
-    //     
-    //     isInit = true;
-    //     
-    //     Debug.Log($"GameManager.Init called. OnInitialized is {(OnDataLoaded == null ? "null" : "not null")}");
-    //     //데이터 읽어와서 초기화 완료됐음을 알림
-    //     OnDataLoaded?.Invoke();
-    //     Debug.Log("GameManager: Data loaded and OnDataLoaded invoked.");
-    //     
-    //
-    // }
 
-    
-    
-    
+    #region session
 
-    // public void SetSettingData()
-    // {
-    //     //1. 저장된 Setting 파일이 있는지 확인한다.
-    //     //있으면 로드
-    //     if (Managers.Data.HasSaveDataFile(Define.SaveKey.SettingData))
-    //     {
-    //         Debug.Log("<color=red>로컬에 저장된 데이터를 가져옵니다.</color>");
-    //         settingData = Managers.Data.LoadData<SettingData>(Define.SaveKey.SettingData);
-    //     }
-    //      
-    //     //2. 없으면 초기화 파일 로드
-    //     else
-    //     {
-    //         Debug.Log("<color=red>로컬에 저장된 데이터가 없습니다. 파일을 초기화합니다.</color>");
-    //         settingData = Managers.Data.LoadInitData<SettingData>(Define.SaveKey.SettingData);
-    //         
-    //         //초기화 후 저장 경로에 해당 데이터를 저장한다.
-    //         Managers.Data.SaveData<SettingData>(Define.SaveKey.SettingData, Managers.Game.settingData);
-    //     }
-    // }
+    public void PauseSession()
+    {
+        Debug.Log("게임 플레이 일시 중지!");
+        isSessionStart = false;
+        CoroutineRunner.Instance.StopAllRunningCoroutines();
+        SaveStatisticData(); // 현재까지의 플레이 시간 저장
+    }
     
+    public void ResumeSession()
+    {
+        Debug.Log("게임 플레이 재개!");
+        isSessionStart = true;
+        sessionStartTime = DateTime.Now; // 세션 시간 다시 초기화
+        CoroutineRunner.Instance.StartCoroutine(AutoSaveCoroutine());
+    }
+    
+    public void EndSession()
+    {
+        Debug.Log("게임 세션 종료!");
+        SaveStatisticData();
+        isSessionStart = false;
+        
+        CoroutineRunner.Instance.StopAllRunningCoroutines();
+    }
+
 
     #endregion
 

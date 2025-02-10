@@ -30,7 +30,9 @@ public class SceneManagerEx
       
       //PlayerData의 currentStage 업데이트하기
       if (string.IsNullOrEmpty(sceneName)) sceneName = GetActiveScene();
-      if(Define.ReverseSceneNames.TryGetValue(sceneName, out string nextStage) && Managers.Player!=null)
+
+      bool stageScene = Define.ReverseSceneNames.TryGetValue(sceneName, out string nextStage);
+      if(stageScene && Managers.Player!=null)
       {
           Debug.Log($"씬 전환: {sceneName} (스테이지 업데이트)");
           //currentStage를 씬 전환 직전에 업데이트
@@ -44,16 +46,18 @@ public class SceneManagerEx
       Managers.Clear();
       SceneManager.LoadScene(sceneName);
 
-
-      // ✅ 다시하기 (Restart)일 때는 변경된 데이터 무시 & PlayerData 복구
+      if (!stageScene) return; //스테이지 씬아니면 저장x
+      
       if (isRestart)
       {
-          RestoreData();
+          RestoreData(); // 다시하기일 경우, 데이터 복구
       }
       else
       {
-          CommitData();
+          CommitData();  // 일반적인 씬 전환일 경우, 데이터 저장
       }
+      
+      Managers.Game.SaveStatisticData();     
    }
 
    private void RestoreData()
