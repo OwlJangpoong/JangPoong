@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
+using TMPro;
 public class Intro : MonoBehaviour
 {   
     [SerializeField] private DialogueText dialogueText;
@@ -17,9 +18,20 @@ public class Intro : MonoBehaviour
     [SerializeField] private GameObject clickBlocker;
 
     private RectTransform imgRect;
-    
+
     private int turn = -1;
     private bool isClick = false;
+
+    // dialogueBox 설정 할당
+    private RectTransform dBRectTransform;
+    public GameObject bubbleImg;
+
+    // dialogueBox 자식 오브젝트 Name, Dialogue, NPCImg 할당
+    public TextMeshProUGUI NameTmp;
+    private RectTransform NameTmpRectTransform;
+
+    public TextMeshProUGUI DialogueTmp;
+    private RectTransform DialogueTmpRectTransform;
 
     void Awake()
     {
@@ -48,6 +60,13 @@ public class Intro : MonoBehaviour
 
         //클릭방지 오브젝트 비활성화
         clickBlocker.SetActive(false);
+
+        //dialogueBox 초기값 설정
+        dBRectTransform = dialogueBox.GetComponent<RectTransform>();
+
+        NameTmpRectTransform = NameTmp.GetComponent<RectTransform>();
+
+        DialogueTmpRectTransform = DialogueTmp.GetComponent<RectTransform>();
     }
 
     void Update()
@@ -80,8 +99,29 @@ public class Intro : MonoBehaviour
     public void Talk(DialogueText dialogueText)
     {
         dialogueController.DisplayNextParagraph(dialogueText);
-        if (turn == 0){
+        if (turn == 0)
+        {
             dialogueBox.SetActive(false);
+        }
+        if (turn == 15)
+        {
+            // 대화창 변경
+            dBRectTransform.anchoredPosition = new Vector2(40f, -410f);
+
+            dBRectTransform.sizeDelta = new Vector2(960f, 192f);
+
+            bubbleImg.SetActive(true);
+
+            NameTmpRectTransform.anchoredPosition = new Vector2(-134f, 28f);
+            NameTmpRectTransform.localScale = new Vector3(0.3501655f, 0.3501655f, 0.3501655f);
+            NameTmp.color = Color.black;
+            NameTmp.fontStyle = FontStyles.Normal;
+
+            DialogueTmpRectTransform.anchoredPosition = new Vector2(0f, 8f);
+            DialogueTmp.color = Color.black;
+            // DialogueTmp.alignment = TextAlignmentOptions.MidlineLeft;
+            DialogueTmp.fontStyle = FontStyles.Normal;
+
         }
     }
 
@@ -174,57 +214,76 @@ public class Intro : MonoBehaviour
                 break;
             case 16:
                 img.sprite = imgArray[12]; //주인공 & 차르덴 투샷
-                speaker.speakerName = PlayerPrefs.GetString("PlayerName");
+                speaker.speakerName = Managers.Player.PlayerName;
+                // speaker.speakerName = PlayerPrefs.GetString("PlayerName");
+                bubbleImg.transform.Rotate(0f, 180f, 0f);
                 break;
             case 25:
                 speaker.speakerName = "차르덴";
+                bubbleImg.transform.Rotate(0f, 180f, 0f);
                 break;
             case 26:
-                speaker.speakerName = PlayerPrefs.GetString("PlayerName");
+                speaker.speakerName = Managers.Player.PlayerName;
+                bubbleImg.transform.Rotate(0f, 180f, 0f);
                 break;
             case 27:
                 img.sprite = imgArray[13]; //차르덴 단독샷
                 speaker.speakerName = "차르덴";
+                // 말풍선 다르게
+                bubbleImg.transform.Rotate(0f, 180f, 0f);
                 break;
             case 30:
                 img.sprite = imgArray[12]; //주인공 & 차르덴 투샷
-                speaker.speakerName = PlayerPrefs.GetString("PlayerName");
+                speaker.speakerName = Managers.Player.PlayerName;
+                bubbleImg.transform.Rotate(0f, 180f, 0f);
                 break;
             case 34:
                 speaker.speakerName = "차르덴";
+                bubbleImg.transform.Rotate(0f, 180f, 0f);
                 break;
             case 37:
-                speaker.speakerName = PlayerPrefs.GetString("PlayerName");
+                speaker.speakerName = Managers.Player.PlayerName;
+                bubbleImg.transform.Rotate(0f, 180f, 0f);
                 break;
             case 38:
                 speaker.speakerName = "차르덴";
+                bubbleImg.transform.Rotate(0f, 180f, 0f);
                 break;
             case 42:
                 img.sprite = imgArray[13];  //차르덴 단독샷
+                // 말풍선 다르게
                 break;
             case 43:
                 img.sprite = imgArray[12]; //주인공 & 차르덴 투샷
-                speaker.speakerName = PlayerPrefs.GetString("PlayerName");
+                speaker.speakerName = Managers.Player.PlayerName;
+                bubbleImg.transform.Rotate(0f, 180f, 0f);
                 break;
             case 45:
                 speaker.speakerName = "차르덴";
+                bubbleImg.transform.Rotate(0f, 180f, 0f);
                 break;
             case 47:
-                speaker.speakerName = PlayerPrefs.GetString("PlayerName");
+                speaker.speakerName = Managers.Player.PlayerName;
+                bubbleImg.transform.Rotate(0f, 180f, 0f);
                 break;
             case 48:
                 img.sprite = imgArray[14]; //국왕 사진
                 speaker.speakerName = "차르덴";
+                // 말풍선 다르게
+                bubbleImg.transform.Rotate(0f, 180f, 0f);
                 break;
             case 49:
-                speaker.speakerName = PlayerPrefs.GetString("PlayerName");
+                speaker.speakerName = Managers.Player.PlayerName;
+                bubbleImg.transform.Rotate(0f, 180f, 0f);
                 break;
             case 51:
                 img.sprite = imgArray[12];
-                speaker.speakerName = PlayerPrefs.GetString("PlayerName");
+                speaker.speakerName = Managers.Player.PlayerName;
+
                 break;
             case 52:
                 speaker.speakerName = "차르덴";
+                bubbleImg.transform.Rotate(0f, 180f, 0f);
                 break;
             case 54:
                 img.sprite = imgArray[15]; //붉은 포션
@@ -243,7 +302,8 @@ public class Intro : MonoBehaviour
                 img.sprite = imgArray[19]; //지도
                 break;
             case 59:
-                speaker.speakerName = PlayerPrefs.GetString("PlayerName");
+                speaker.speakerName = Managers.Player.PlayerName;
+                bubbleImg.transform.Rotate(0f, 180f, 0f);
                 break;
         }
     }
