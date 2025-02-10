@@ -328,15 +328,48 @@ public class Intro : MonoBehaviour
         // Managers.Inventory.mpSmallCnt += 1;
         // Managers.Inventory.mpLargeCnt += 1;
         
+        DisableUIInteraction();
+        
         //인벤토리에 아이템 추가
         for (int i = 0; i < (int)Define.Item.levelUpToken; i++)
         {
             Managers.Inventory.InventoryItem((Define.Item)i,1);
         }
         //씬 이동 전에 인벤토리 데이터 저장되도록 처리 : GameManager로 커밋한다.
-        Managers.Inventory.CommitInventoryState();
+        // Managers.Inventory.CommitInventoryState();
 
         // Scene 전환
-        SceneManager.LoadScene("0-1 tutorial");
+        GameObject fadePanel = GetComponent<UI_FadeController>().panel;
+        StartCoroutine(FadeEffect.Fade(fadePanel.GetComponent<Image>(), 0f, 1f, 0.5f, 0f,
+            () => {
+                Managers.Scene.LoadScene("0-1 tutorial");
+                EnableUIInteraction(); // ✅ 씬 이동 후 클릭 가능하게 복구
+            }));
+
+
+    }
+    
+    // ✅ 클릭 방지를 위한 UI 비활성화
+    private void DisableUIInteraction()
+    {
+        CanvasGroup canvasGroup = GetComponent<CanvasGroup>();
+        if (canvasGroup)
+        {
+            canvasGroup.interactable = false;
+            canvasGroup.blocksRaycasts = false;
+        }
+    }
+
+// ✅ 씬 이동 후 UI 다시 활성화
+    private void EnableUIInteraction()
+    {
+        CanvasGroup canvasGroup = GetComponent<CanvasGroup>();
+        if (canvasGroup)
+        {
+            canvasGroup.interactable = true;
+            canvasGroup.blocksRaycasts = true;
+        }
     }
 }
+
+
