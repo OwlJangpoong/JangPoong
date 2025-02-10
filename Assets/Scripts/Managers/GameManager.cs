@@ -147,7 +147,7 @@ public class GameManager
         float elapsedSinceLastSave = (float)(DateTime.Now - sessionStartTime).TotalSeconds;
     
         // 누적 플레이 시간 업데이트
-        _statistic.totalPlayTime += elapsedSinceLastSave;
+        Statistic.totalPlayTime += elapsedSinceLastSave;
 
         // 마지막 플레이 시간 갱신
         UpdateLastPlayTime();

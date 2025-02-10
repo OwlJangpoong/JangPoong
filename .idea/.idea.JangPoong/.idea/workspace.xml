@@ -6,12 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="8d60103f-3d9b-4716-9d1c-3d51d042b424" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.JangPoong/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.JangPoong/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeAssets/Classic Legacy Pack - Village/Environment/Thumbs.db.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Data/Stage/Stage1-4 1.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Data/Stage/Stage1-4 1.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Data/Stage/Stage1-4.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Data/Stage/Stage1-4.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/1-4 Dialogue with Silvan.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/1-4 Dialogue with Silvan.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/UI/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/UI/Main.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animations/Anim_Jangpoong/jp_Extinct 10.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Animations/Anim_Jangpoong/jp_Extinct 10.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/2-2 skeleton fight.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/2-2 skeleton fight.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/2-2-2 saving silvia.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/2-2-2 saving silvia.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/2-3 inside the castle.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/2-3 inside the castle.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Ending cut scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Ending cut scene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Timeline.playable" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Timeline.playable" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Common/Define.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Common/Define.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,5 +184,24 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <option name="LAST_COMMIT_MESSAGE" value="" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Common/FadeEffect.cs</url>
+          <line>123</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Common/FadeEffect.cs" containingFunctionPresentation="메서드 'Fade'">
+            <startOffsets>
+              <option value="3500" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3548" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
