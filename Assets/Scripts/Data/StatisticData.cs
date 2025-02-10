@@ -15,6 +15,15 @@ public class StatisticData
     public int deathCnt; //누적 사망 수
     public int killCnt; //누적 킬 수
     public float totalPlayTime; //누적 플레이 시간
-    
 
+    public string GetFormatPlayTime()
+    {
+        float totalSeconds = this.totalPlayTime;
+        int hours = Mathf.FloorToInt(totalSeconds / 3600);
+        int minutes = Mathf.FloorToInt((totalSeconds % 3600) / 60);
+        int seconds = Mathf.FloorToInt(totalSeconds % 60);
+        
+        return $"{hours}시간 {minutes}분 {seconds}초";
+    }
+    
 }
