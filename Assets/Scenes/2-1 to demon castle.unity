@@ -341,7 +341,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8522482556922223177, guid: 410b7b02884724d04911feb529cd2bc4, type: 3}
       propertyPath: NextSceneName
-      value: 2-2 inside demon castle
+      value: 2-2 skeleton fight
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
