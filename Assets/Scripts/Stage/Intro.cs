@@ -320,7 +320,7 @@ public class Intro : MonoBehaviour
     }
 
     // 대화 종료 시
-    private void HandleConversationEnd()
+    public void HandleConversationEnd()
     {
         // 각 물약 1개씩 지급
         // Managers.Inventory.hpSmallCnt += 1;
