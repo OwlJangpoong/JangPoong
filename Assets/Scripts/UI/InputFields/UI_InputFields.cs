@@ -64,8 +64,8 @@ public class UI_InputFields : MonoBehaviour
             fadePanel.gameObject.SetActive(true); 
             
             //페이드 코루틴 호출
-            StartCoroutine(FadeEffect.Fade(fadePanel, 0f, 1f,
-                action: new UnityAction(() => Managers.Scene.LoadScene("0 Intro"))));
+            StartCoroutine(FadeEffect.Fade(fadePanel, 0f, 1f,fadeTime:0.5f,
+                action: () => Managers.Scene.LoadScene("0 Intro")));
             
             
         }

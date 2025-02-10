@@ -1,5 +1,6 @@
 
     using System.Collections.Generic;
+    using System.Linq;
 
     public class Define
     {
@@ -127,6 +128,9 @@
             { "2-2 마왕성 앞 묘지", "2-2 to demon castle" },
             { "2-3 마왕성", "2-3 inside the castle" }
         };
+        
+        public static readonly Dictionary<string, string> ReverseSceneNames = SceneNames.ToDictionary(x => x.Value, x => x.Key);
+
         
 
         #endregion

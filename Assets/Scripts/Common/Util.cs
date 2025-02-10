@@ -122,4 +122,13 @@ public class Util
          }
     }
 
+    
+ 
+    public static string GetSceneNameByStageName(string stageName)
+    {
+        string sceneName;
+        Define.SceneNames.TryGetValue(stageName, out sceneName);
+        Debug.Log($"sceneName : {sceneName}");
+        return sceneName;
+    }
 }
