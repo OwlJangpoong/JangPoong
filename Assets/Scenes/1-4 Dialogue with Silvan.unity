@@ -1449,7 +1449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a5db28ed1bc447f8743bbb16674271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCamera: {fileID: 0}
+  targetCamera: {fileID: 798262031}
   backgrounds:
   - background: {fileID: 1312453830}
     speed: 0.002
@@ -1635,7 +1635,8 @@ MonoBehaviour:
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
-  m_Cameras: []
+  m_Cameras:
+  - {fileID: 1275566045}
   m_RendererIndex: -1
   m_VolumeLayerMask:
     serializedVersion: 2
@@ -2280,25 +2281,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1537459937}
     m_Modifications:
-    - target: {fileID: 5474366313668600131, guid: ca1ebe070d00940af8b30ab4a8e77870, type: 3}
+    - target: {fileID: 3783913286866002759, guid: ca1ebe070d00940af8b30ab4a8e77870, type: 3}
       propertyPath: cameraFollow
       value: 
       objectReference: {fileID: 1275566048}
-    - target: {fileID: 5474366313668600131, guid: ca1ebe070d00940af8b30ab4a8e77870, type: 3}
+    - target: {fileID: 3783913286866002759, guid: ca1ebe070d00940af8b30ab4a8e77870, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1355526594}
+    - target: {fileID: 3783913286866002759, guid: ca1ebe070d00940af8b30ab4a8e77870, type: 3}
       propertyPath: currentStageData
       value: 
       objectReference: {fileID: 11400000, guid: 42946233ab1654c979df834f0d613f83, type: 2}
-    - target: {fileID: 5474366313668600131, guid: ca1ebe070d00940af8b30ab4a8e77870, type: 3}
-      propertyPath: playerController
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 6740402733320776952, guid: ca1ebe070d00940af8b30ab4a8e77870, type: 3}
       propertyPath: m_Name
       value: GameController
-      objectReference: {fileID: 0}
-    - target: {fileID: 6740402733320776952, guid: ca1ebe070d00940af8b30ab4a8e77870, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6752990515286685173, guid: ca1ebe070d00940af8b30ab4a8e77870, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2340,35 +2337,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5474366313668600131, guid: ca1ebe070d00940af8b30ab4a8e77870, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6740402733320776952, guid: ca1ebe070d00940af8b30ab4a8e77870, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1194961059}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca1ebe070d00940af8b30ab4a8e77870, type: 3}
---- !u!1 &1194961058 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6740402733320776952, guid: ca1ebe070d00940af8b30ab4a8e77870, type: 3}
-  m_PrefabInstance: {fileID: 1194961057}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1194961059
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1194961058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05fffd28e9e1da044b1bf2d757e70a60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerMovement: {fileID: 1355526594}
-  cameraFollow: {fileID: 1275566048}
-  currentStageData: {fileID: 11400000, guid: 42946233ab1654c979df834f0d613f83, type: 2}
 --- !u!4 &1194961060 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6752990515286685173, guid: ca1ebe070d00940af8b30ab4a8e77870, type: 3}
@@ -3164,7 +3137,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1048575
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -3206,7 +3179,7 @@ MonoBehaviour:
   m_RenderShadows: 1
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
-  m_CameraType: 0
+  m_CameraType: 1
   m_Cameras: []
   m_RendererIndex: -1
   m_VolumeLayerMask:

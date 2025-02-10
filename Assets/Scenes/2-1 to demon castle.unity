@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 38010037}
   - component: {fileID: 38010036}
   - component: {fileID: 38010035}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Background00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6142,83 +6142,6 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
---- !u!1 &673756547
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 673756548}
-  - component: {fileID: 673756549}
-  m_Layer: 0
-  m_Name: Wall (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &673756548
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 673756547}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 88.4, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 953022279}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &673756549
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 673756547}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 7.4790897}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 38.50963}
-  m_EdgeRadius: 0
 --- !u!1 &822910006
 GameObject:
   m_ObjectHideFlags: 0
@@ -10283,7 +10206,7 @@ GameObject:
   - component: {fileID: 877262072}
   - component: {fileID: 877262071}
   - component: {fileID: 877262070}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Background01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10403,7 +10326,6 @@ Transform:
   - {fileID: 618966127}
   - {fileID: 1944652418}
   - {fileID: 247796415}
-  - {fileID: 673756548}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1031332161
@@ -10417,7 +10339,7 @@ GameObject:
   - component: {fileID: 1031332162}
   - component: {fileID: 1031332164}
   - component: {fileID: 1031332163}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Background03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10489,6 +10411,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1031332161}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1042949732 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2084115339966101801, guid: d0ecd624d98703b4bbde7b9d35ed8f80, type: 3}
+  m_PrefabInstance: {fileID: 116307135}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d75cc763e89b9f84b8b957e75bdeb9ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1127312820
 GameObject:
   m_ObjectHideFlags: 0
@@ -10556,7 +10489,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1048575
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -10577,7 +10510,7 @@ Transform:
   m_GameObject: {fileID: 1127312820}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.5, y: -2.95, z: -10}
+  m_LocalPosition: {x: -3.5, y: -1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10598,7 +10531,7 @@ MonoBehaviour:
   m_RenderShadows: 1
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
-  m_CameraType: 0
+  m_CameraType: 1
   m_Cameras: []
   m_RendererIndex: -1
   m_VolumeLayerMask:
@@ -10692,7 +10625,8 @@ MonoBehaviour:
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
-  m_Cameras: []
+  m_Cameras:
+  - {fileID: 1127312822}
   m_RendererIndex: -1
   m_VolumeLayerMask:
     serializedVersion: 2
@@ -10759,7 +10693,7 @@ Camera:
   m_Depth: -10
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1048576
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -10850,7 +10784,7 @@ GameObject:
   - component: {fileID: 1264568295}
   - component: {fileID: 1264568297}
   - component: {fileID: 1264568296}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Background04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13932,6 +13866,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1127312825}
     - target: {fileID: 3783913286866002759, guid: ca1ebe070d00940af8b30ab4a8e77870, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1042949732}
+    - target: {fileID: 3783913286866002759, guid: ca1ebe070d00940af8b30ab4a8e77870, type: 3}
       propertyPath: currentStageData
       value: 
       objectReference: {fileID: 11400000, guid: 3f0704f3a83eb428b96f6a0e3c4f8c36, type: 2}
@@ -14100,7 +14038,7 @@ GameObject:
   - component: {fileID: 1973448245}
   - component: {fileID: 1973448244}
   - component: {fileID: 1973448243}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Background02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14201,7 +14139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a5db28ed1bc447f8743bbb16674271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCamera: {fileID: 1127312823}
+  targetCamera: {fileID: 1189954632}
   backgrounds: []
   backgroundClouds:
   - background: {fileID: 38010035}
