@@ -9,7 +9,7 @@ public class UI_Slot : MonoBehaviour
 {
     private Button slot;
     private UI_SlotPanel slotPanel;
-    private Color emptyColor;   //C0C0C0    
+    private Color emptyColor;   //D4D3D3
     private Color fullColor;   //65CFAC
 
     [Header("Slot info & variables")] 
@@ -30,7 +30,7 @@ public class UI_Slot : MonoBehaviour
     {
         slot = GetComponent<Button>();
         slotPanel = GetComponentInParent<UI_SlotPanel>();
-        emptyColor = Util.HexToColor("#C0C0C0");
+        emptyColor = Util.HexToColor("#D4D3D3");
         fullColor = Util.HexToColor("#65CFAC");
         
         slot.onClick.RemoveListener(SetActivePopUpPanel);

@@ -602,11 +602,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0218b38f219427bbced5963b21efef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotText: {fileID: 254912753162654185}
+  slotNum: 0
   emptyTxt: {fileID: 6115636611227054002}
+  slotText: {fileID: 254912753162654185}
   playerName: {fileID: 5595769583275399298}
   lastPlayTime: {fileID: 4306372507728424016}
   stage: {fileID: 382159241514012302}
+  hasData: 0
+  NewGamePanelDialogue: {fileID: 0}
+  LoadGamePanelDialogue: {fileID: 0}
+  NoSavePanelDialogue: {fileID: 0}
+  SlotWarningDiaglogue: {fileID: 0}
 --- !u!1 &7887507599187313744
 GameObject:
   m_ObjectHideFlags: 0

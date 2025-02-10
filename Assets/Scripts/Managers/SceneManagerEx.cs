@@ -24,19 +24,48 @@ public class SceneManagerEx
    /// sceneNames로 넘겨받은 씬을 불러온다. 매개변수가 없는 경우 현재 씬을 다시 로드한다.
    /// </summary>
    /// <param name="sceneName"></param>
-   public void LoadScene(string sceneName = "")
+   public void LoadScene(string sceneName = "" , bool isRestart = false)
    {
       BeforeScene = GetActiveScene();
-      if (string.IsNullOrEmpty(sceneName))
+      
+      //PlayerData의 currentStage 업데이트하기
+      if (string.IsNullOrEmpty(sceneName)) sceneName = GetActiveScene();
+      if(Define.ReverseSceneNames.TryGetValue(sceneName, out string nextStage) && Managers.Player!=null)
       {
-         Managers.Clear();
-         SceneManager.LoadScene(GetActiveScene());
+          Debug.Log($"씬 전환: {sceneName} (스테이지 업데이트)");
+          //currentStage를 씬 전환 직전에 업데이트
+          Managers.Player.currentStage = nextStage;
       }
       else
       {
-         Managers.Clear();
-         SceneManager.LoadScene(sceneName);
+          Debug.Log("define 목록에 있는 씬 아님!!!");
       }
+      
+      Managers.Clear();
+      SceneManager.LoadScene(sceneName);
+
+
+      // ✅ 다시하기 (Restart)일 때는 변경된 데이터 무시 & PlayerData 복구
+      if (isRestart)
+      {
+          RestoreData();
+      }
+      else
+      {
+          CommitData();
+      }
+   }
+
+   private void RestoreData()
+   {
+       Managers.Inventory.RestoreInventoryState();
+       Managers.Player.RestorePlayerData();
+   }
+
+   private void CommitData()
+   {
+       Managers.Inventory.CommitInventoryState();
+       Managers.Player.CommitPlayerData();
    }
    
    //LoadScene by SceneNames

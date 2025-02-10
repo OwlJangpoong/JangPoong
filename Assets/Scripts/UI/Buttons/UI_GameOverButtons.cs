@@ -35,8 +35,6 @@ public class UI_GameOverButtons : MonoBehaviour
     public void Restart()
     {
         movement.OnButtonClick_Restart();
-        Managers.Inventory.RestoreInventoryState();
-        Managers.Player.RestorePlayerData();
-        Managers.Scene.LoadScene();
+        Managers.Scene.LoadScene("",true);
     }
 }

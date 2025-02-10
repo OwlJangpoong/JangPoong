@@ -100,8 +100,18 @@ public static class FadeEffect
 
         
         //페이드 효과를 재생할 대상(target)이 없으면 코루틴 메소드 종료
-        if (target == null) yield break;
-
+        if (target == null)
+        {
+            Debug.Log("No target. fade 효과 종료합니다.");
+            yield break;
+        }
+        
+        //꺼져있으면 켜준다.
+        if (!target.gameObject.activeSelf)
+        {
+            Debug.Log("fade 대상 set active true");
+            target.gameObject.SetActive(true);
+        }
         float percent = 0;
         float elapsedTime = 0f;
 
