@@ -33,6 +33,7 @@ public class TriggerForBattle : MonoBehaviour
 
     public void EndBattle()
     {
+        Managers.Sound.Play("06 Victory Fanfare");
         Walls.gameObject.SetActive(false);
     }
     

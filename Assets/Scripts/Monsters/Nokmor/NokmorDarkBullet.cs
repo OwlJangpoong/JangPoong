@@ -32,7 +32,7 @@ public class NokmorDarkBullet : MonoBehaviour
             isShooting = value;
             if (value)
             {
-                Destroy(gameObject, aliveTime); // 일정 시간이 지나면 삭제
+                StartCoroutine(DestroyAfterDelay(aliveTime));
             }
         }
     }
@@ -55,6 +55,16 @@ public class NokmorDarkBullet : MonoBehaviour
             other.GetComponent<PlayerStatsController>().OnAttacked(damage);
 
             // 총알 삭제
+            Destroy(gameObject);
+        }
+    }
+    
+    private IEnumerator DestroyAfterDelay(float time)
+    {
+        yield return new WaitForSeconds(time);
+
+        if (this != null && gameObject != null) // ✅ 이미 삭제된 경우 체크
+        {
             Destroy(gameObject);
         }
     }

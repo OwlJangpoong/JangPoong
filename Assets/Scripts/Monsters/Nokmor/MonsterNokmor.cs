@@ -7,6 +7,10 @@ public class MonsterNokmor : Monster
     [Header("UI")]
     public UI_HpBar_Boss UIHpBarBoss;
 
+    [Header("Map Move Limit")] public Transform minMoveX;
+    public Transform maxMoveX;
+    
+
     #region hp 재생 관련 변수
 
     private float lastHitTime;
@@ -19,7 +23,7 @@ public class MonsterNokmor : Monster
 
     private bool isAttacking;
     private float lastAttackType=-1f;
-    private float[] attackTypes = { 0f, 0.2f, 0.4f, 0.6f, 0.8f, 1f };
+    private float[] attackTypes = { 0f, 0.4f, 0.6f};
 
     private MonsterWeaponCollider weaponCollider;
 
@@ -30,7 +34,6 @@ public class MonsterNokmor : Monster
     public GameObject bulletPrefab;
     public Transform firePoint; // 보스의 위치 (총알 스폰 기준)
     public float spawnRadius = 2f; // 총알이 생성되는 범위
-    private List<GameObject> bullets = new List<GameObject>();
     #endregion
 
     #region DarkCreature 관련 변수
@@ -59,6 +62,11 @@ public class MonsterNokmor : Monster
     {
         Init(); //부모 클래스의 Init() 호출
         UIHpBarBoss.gameObject.SetActive(true); //UI_HP_Bar active 하여 Start() 호출되도록 설정 (반드시 hp bar는 꺼둔 상태여야한다.)
+        
+        //min, max 제한
+        minMoveRangeX = minMoveX.position.x;
+        maxMoveRangeX = maxMoveX.position.x;
+        
         
         //이벤트 구독
         weaponCollider = GetComponentInChildren<MonsterWeaponCollider>(true);
@@ -113,7 +121,7 @@ public class MonsterNokmor : Monster
         lastAttackType = attackType; // 현재 공격을 다음 비교에 사용
         anim.SetFloat("AttackType", attackType);
         anim.SetTrigger("Attack");
-
+        
     }
     
     public float GetAttackDuration()
@@ -123,10 +131,10 @@ public class MonsterNokmor : Monster
         // ✅ attackType에 따라 애니메이션 길이 다르게 설정
         switch (attackType)
         {
-            case 0f: return 1.0f; // Slash
+            case 0f: return 2.0f; // Slash
             case 0.2f: return 1.2f; // Dark Energy
-            case 0.4f: return 2.5f; // Dark Bullet
-            case 0.6f: return 1.5f; // Dark Creature
+            case 0.4f: return 3.5f; // Dark Bullet
+            case 0.6f: return 2.5f; // Dark Creature
             case 0.8f: return 2.0f; // Gravity
             case 1.0f: return 2.2f; // Black Hole
             default: return 1.0f;
@@ -192,7 +200,8 @@ public class MonsterNokmor : Monster
      
      private IEnumerator DarkBulletCoroutine()
      {
-         bullets.Clear();
+         List<GameObject> bullets = new List<GameObject>();
+         
          float[] spawnDelays = { 0.3f, 0.8f, 1.3f, 1.8f };
 
          for (int i = 0; i < spawnDelays.Length; i++)
@@ -202,6 +211,7 @@ public class MonsterNokmor : Monster
              Vector2 spawnPos = (Vector2)firePoint.position + Random.insideUnitCircle * spawnRadius;
              GameObject bullet = Instantiate(bulletPrefab, spawnPos, Quaternion.identity);
 
+             if (bullet == null) continue; // 생성 실패 시 무시
              
              // 보스의 localScale.x 값에 따라 방향 설정
              float directionMultiplier = transform.localScale.x > 0 ? -1f : 1f;
@@ -226,13 +236,20 @@ public class MonsterNokmor : Monster
          }
 
          yield return new WaitForSeconds(0.2f); // 총알 생성 후 잠깐 대기
+         
 
          // 🔥 모든 총알을 한 번에 발사
          foreach (var bullet in bullets)
          {
-             NokmorDarkBullet bulletController = bullet.GetComponent<NokmorDarkBullet>();
-             bulletController.IsShooting = true; // 한 번에 발사
+             if (bullet == null) continue; // ✅ 삭제된 오브젝트는 무시
+             NokmorDarkBullet bulletController = bullet.GetComponent<NokmorDarkBullet>(); 
+             if (bulletController != null)
+             {
+                 bulletController.IsShooting = true; // 한 번에 발사
+             }
          }
+         
+         bullets.Clear();
 
          
      }
@@ -373,5 +390,17 @@ public class MonsterNokmor : Monster
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere(firePoint.position, spawnRadius);
     }
+    
+    private void OnDrawGizmosSelected()
+    {
+        // ✅ ScanRange 기즈모 (파란색)
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, scanRange);
+
+        // ✅ AttackRange 기즈모 (빨간색)
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
+    }
+
 
 }

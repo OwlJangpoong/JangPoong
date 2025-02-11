@@ -92,7 +92,7 @@ public class Monster : MonoBehaviour
     #region Event Functions
     public virtual void Init()
     {
-        Debug.Log("몬스터이니트이니트");
+        
         stat = gameObject.GetComponent<MonsterStat>();
         
         MonsterData md = Managers.Resource.Load<MonsterData>($"Data/Monster/{statFileName}");

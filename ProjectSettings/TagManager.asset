@@ -9,6 +9,7 @@ TagManager:
   - OneWayPlatform
   - Boss fight
   - FxTemporaire
+  - Trigger
   layers:
   - Default
   - TransparentFX
