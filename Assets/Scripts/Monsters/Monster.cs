@@ -156,7 +156,15 @@ public class Monster : MonoBehaviour
         
         
     }
-    
+
+    public virtual void OnAttacked(float damage)
+    {
+        if (stat != null)
+        {
+            stat.OnAttacked(damage);
+        }
+    }
+
     #endregion
 
     #region Control
@@ -260,7 +268,7 @@ public class Monster : MonoBehaviour
     /// </summary>
     /// <param name="direction"></param>
     /// <returns></returns>
-    public int Detect(Vector3 direction)
+    public virtual int Detect(Vector3 direction)
     {
         direction.y = 0;
         direction.z = 0;

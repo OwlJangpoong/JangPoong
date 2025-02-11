@@ -17,4 +17,4 @@ MonoBehaviour:
   playerLimitMinX: -48
   playerLimitMaxX: 128.13
   playerPosition: {x: -22.1, y: -19.05}
-  cameraPosition: {x: -22.1, y: -15.05}
+  cameraPosition: {x: -22.1, y: -20.8}
