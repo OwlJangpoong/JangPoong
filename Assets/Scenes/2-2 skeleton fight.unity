@@ -259,6 +259,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monster_NecroSkeleton_v1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6870335330506310317, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -315,6 +319,10 @@ PrefabInstance:
     - target: {fileID: 6870335330506310317, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
       propertyPath: m_Name
       value: Monster_NecroSkeleton_v1 (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6870335330506310317, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -708,6 +716,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monster_WizardSkeleton_v1 (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.55171347
@@ -764,6 +776,10 @@ PrefabInstance:
     - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_Name
       value: Monster_WizardSkeleton_v1 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1242,6 +1258,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monster_WizardSkeleton_v1 (33)
       objectReference: {fileID: 0}
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_LocalPosition.x
       value: 13.879681
@@ -1382,6 +1402,10 @@ PrefabInstance:
     - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_Name
       value: Monster_WizardSkeleton_v1 (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1524,6 +1548,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monster_WizardSkeleton_v1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.4339285
@@ -1665,6 +1693,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monster_WizardSkeleton_v1 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_LocalPosition.x
       value: 81.16277
@@ -1721,6 +1753,10 @@ PrefabInstance:
     - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_Name
       value: Monster_WizardSkeleton_v1 (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2321,6 +2357,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monster_NecroSkeleton_v1 (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 6870335330506310317, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2337,6 +2377,10 @@ PrefabInstance:
     - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_Name
       value: Monster_WizardSkeleton_v1 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2518,6 +2562,10 @@ PrefabInstance:
     - target: {fileID: 6870335330506310317, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
       propertyPath: m_Name
       value: Monster_NecroSkeleton_v1 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6870335330506310317, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2703,6 +2751,10 @@ PrefabInstance:
     - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_Name
       value: Monster_WizardSkeleton_v1 (32)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3048,6 +3100,10 @@ PrefabInstance:
     - target: {fileID: 6870335330506310317, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
       propertyPath: m_Name
       value: Monster_NecroSkeleton_v1 (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6870335330506310317, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3768,6 +3824,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monster_NecroSkeleton_v1 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 6870335330506310317, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4036,6 +4096,10 @@ PrefabInstance:
     - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_Name
       value: Monster_WizardSkeleton_v1 (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4917,6 +4981,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monster_NecroSkeleton_v1 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 6870335330506310317, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5057,6 +5125,10 @@ PrefabInstance:
     - target: {fileID: 6870335330506310317, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
       propertyPath: m_Name
       value: Monster_NecroSkeleton_v1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6870335330506310317, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6116,6 +6188,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monster_NecroSkeleton_v1 (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 6870335330506310317, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6172,6 +6248,10 @@ PrefabInstance:
     - target: {fileID: 6870335330506310317, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
       propertyPath: m_Name
       value: Monster_NecroSkeleton_v1 (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6870335330506310317, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6272,6 +6352,10 @@ PrefabInstance:
     - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_Name
       value: Monster_WizardSkeleton_v1 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6470,6 +6554,10 @@ PrefabInstance:
     - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_Name
       value: Monster_WizardSkeleton_v1 (30)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6755,6 +6843,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monster_NecroSkeleton_v1 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 6870335330506310317, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6771,6 +6863,10 @@ PrefabInstance:
     - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_Name
       value: Monster_WizardSkeleton_v1 (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6828,6 +6924,10 @@ PrefabInstance:
     - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_Name
       value: Monster_WizardSkeleton_v1 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7018,10 +7118,14 @@ PrefabInstance:
       propertyPath: NextSceneName
       value: 2-2-2 saving silvia
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8522482556922223177, guid: 410b7b02884724d04911feb529cd2bc4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4157229526812629998, guid: 410b7b02884724d04911feb529cd2bc4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1745725753}
   m_SourcePrefab: {fileID: 100100000, guid: 410b7b02884724d04911feb529cd2bc4, type: 3}
 --- !u!4 &1047045980 stripped
 Transform:
@@ -7039,6 +7143,10 @@ PrefabInstance:
     - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_Name
       value: Monster_WizardSkeleton_v1 (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7096,6 +7204,10 @@ PrefabInstance:
     - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_Name
       value: Monster_WizardSkeleton_v1 (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7519,6 +7631,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monster_NecroSkeleton_v1 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 6870335330506310317, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7659,6 +7775,10 @@ PrefabInstance:
     - target: {fileID: 6870335330506310317, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
       propertyPath: m_Name
       value: Monster_NecroSkeleton_v1 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6870335330506310317, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7801,6 +7921,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monster_NecroSkeleton_v1 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6870335330506310317, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7817,6 +7941,10 @@ PrefabInstance:
     - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_Name
       value: Monster_WizardSkeleton_v1 (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8043,6 +8171,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monster_WizardSkeleton_v1 (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.3338265
@@ -8140,6 +8272,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monster_NecroSkeleton_v1 (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 6870335330506310317, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8156,6 +8292,10 @@ PrefabInstance:
     - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_Name
       value: Monster_WizardSkeleton_v1 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8213,6 +8353,10 @@ PrefabInstance:
     - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_Name
       value: Monster_WizardSkeleton_v1 (36)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8606,6 +8750,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monster_WizardSkeleton_v1 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_LocalPosition.x
       value: 48.802773
@@ -8747,6 +8895,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monster_WizardSkeleton_v1 (29)
       objectReference: {fileID: 0}
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.1758995
@@ -8803,6 +8955,10 @@ PrefabInstance:
     - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_Name
       value: Monster_WizardSkeleton_v1 (31)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8944,6 +9100,10 @@ PrefabInstance:
     - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_Name
       value: Monster_WizardSkeleton_v1 (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9338,6 +9498,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monster_WizardSkeleton_v1 (27)
       objectReference: {fileID: 0}
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_LocalPosition.x
       value: 43.572964
@@ -9435,6 +9599,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monster_NecroSkeleton_v1 (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 6870335330506310317, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9451,6 +9619,10 @@ PrefabInstance:
     - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_Name
       value: Monster_WizardSkeleton_v1 (34)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_LocalPosition.x
@@ -25120,6 +25292,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monster_NecroSkeleton_v1 (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 6870335330506310317, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25345,6 +25521,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monster_NecroSkeleton_v1 (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 6870335330506310317, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25361,6 +25541,10 @@ PrefabInstance:
     - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_Name
       value: Monster_WizardSkeleton_v1 (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_LocalPosition.x
@@ -25514,6 +25698,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monster_WizardSkeleton_v1 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_LocalPosition.x
       value: 59.81894
@@ -25611,6 +25799,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monster_NecroSkeleton_v1 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 6870335330506310317, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25667,6 +25859,10 @@ PrefabInstance:
     - target: {fileID: 6870335330506310317, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
       propertyPath: m_Name
       value: Monster_NecroSkeleton_v1 (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6870335330506310317, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25756,6 +25952,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2113790251}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1745725752 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4157229526812629998, guid: 410b7b02884724d04911feb529cd2bc4, type: 3}
+  m_PrefabInstance: {fileID: 1047045979}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1745725753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1745725752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d13b9a50d71924485d4782c797d0da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: bb7260696c26c264ca40adf9530d3df0, type: 3}
+  NextSceneName: 2-2-2 saving silvia
+  flagEffect: {fileID: 2708598583397607911, guid: 6398d43fe79ea0140913dc5530c646af, type: 3}
+  fadeController: {fileID: 0}
 --- !u!1001 &1761507559
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25767,6 +25984,10 @@ PrefabInstance:
     - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_Name
       value: Monster_WizardSkeleton_v1 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_LocalPosition.x
@@ -26449,6 +26670,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monster_WizardSkeleton_v1 (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_LocalPosition.x
       value: 41.303696
@@ -26545,6 +26770,10 @@ PrefabInstance:
     - target: {fileID: 6870335330506310317, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
       propertyPath: m_Name
       value: Monster_NecroSkeleton_v1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6870335330506310317, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -26983,6 +27212,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monster_WizardSkeleton_v1 (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_LocalPosition.x
       value: 45.84223
@@ -27123,6 +27356,10 @@ PrefabInstance:
     - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_Name
       value: Monster_WizardSkeleton_v1 (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_LocalPosition.x
@@ -27394,6 +27631,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monster_WizardSkeleton_v1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.815742
@@ -27450,6 +27691,10 @@ PrefabInstance:
     - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_Name
       value: Monster_WizardSkeleton_v1 (35)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_LocalPosition.x
@@ -27884,6 +28129,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monster_NecroSkeleton_v1 (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 6870335330506310317, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27900,6 +28149,10 @@ PrefabInstance:
     - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_Name
       value: Monster_WizardSkeleton_v1 (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_LocalPosition.x
@@ -27957,6 +28210,10 @@ PrefabInstance:
     - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_Name
       value: Monster_WizardSkeleton_v1 (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
       propertyPath: m_LocalPosition.x
