@@ -781,11 +781,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1166417591 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1796551531270458315, guid: 18041719e09c047b1acb10ace130dd2b, type: 3}
-  m_PrefabInstance: {fileID: 1842254416}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1172407899
 GameObject:
   m_ObjectHideFlags: 0
@@ -3091,7 +3086,7 @@ MonoBehaviour:
   attackCoolTime: 3
   lootTable: []
   UIHpBarBoss: {fileID: 1849061607}
-  bulletPrefab: {fileID: 1166417591}
+  bulletPrefab: {fileID: 1796551531270458315, guid: 18041719e09c047b1acb10ace130dd2b, type: 3}
   firePoint: {fileID: 1530550699}
   spawnRadius: 2.62
 --- !u!114 &7566463326922672627
