@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonsterWizardSkeleton : Monster
+public class MonsterNecroSkeleton : Monster
 {
     public override void Init()
     {
@@ -10,7 +10,7 @@ public class MonsterWizardSkeleton : Monster
     }
 
     // 피 자동 회복
-    public bool isRecovering = false;
+    /*public bool isRecovering = false;
 
     public override void OnAttacked(float damage)
     {
@@ -35,23 +35,29 @@ public class MonsterWizardSkeleton : Monster
 
         Debug.Log("위자드 자동 회복 후 CurrentHp : " + stat.CurrentHp);
         isRecovering = false;
-    }
+    }*/
 
-    // 얼음 원거리 공격
+
+    // 마법진 소환 후 미니 스켈레톤 소환
+    // 마법진 소환 후 미니 스켈레톤 소환
     public GameObject magicCircle;
-    public GameObject icePrefab; // ice 프리팹 추가
+    public GameObject miniPrefab;
 
-    private GameObject iceInstance = null; // ice 생성 여부 확인
+    private GameObject miniInstance = null;
 
     Vector3 targetScale2 = new Vector3(5f, 5f, 5f);
+
+    // 소환 위치 범위 (이 값을 수정해서 소환 위치를 조정할 수 있음)
+    public float spawnRangeX = 10f;  // X축 소환 범위
+    public float spawnHeight = 0f;   // Y축 높이 고정 (예: 0으로 고정)
 
     public override int Detect(Vector3 direction)
     {
         int detectResult = base.Detect(direction); // 부모 클래스의 Detect 실행
 
-        if (detectResult != -1 && iceInstance == null) // 감지가 성공하면 실행
+        if (detectResult != -1 && miniInstance == null) // 감지가 성공하면 실행
         {
-            magicCircle.SetActive(true);
+            // magicCircle.SetActive(true);
             StartCoroutine(AnimateSequence());
         }
 
@@ -63,19 +69,27 @@ public class MonsterWizardSkeleton : Monster
         // 1. magicCircle 크기 키우기
         yield return StartCoroutine(ScaleObject(magicCircle, Vector3.zero, targetScale2, 2f));
 
-        // 2. ice가 이미 생성된 경우 새로 만들지 않음
-        if (iceInstance == null && target != null)
+        // 2. miniPrefab이 이미 생성된 경우 새로 만들지 않음
+        if (miniInstance == null && target != null)
         {
-            iceInstance = Instantiate(icePrefab, target.position + Vector3.up * 50, Quaternion.identity, this.transform);
+            // 3마리 미니 스켈레톤 소환
+            for (int i = 0; i < 3; i++)
+            {
+                // X축 범위 내에서 랜덤 위치를 계산
+                Vector3 randomPosition = transform.position + new Vector3(
+                    Random.Range(-spawnRangeX, spawnRangeX), // X축 범위 10 내에서 랜덤
+                    spawnHeight,                             // Y축은 고정
+                    0);                                      // Z축 고정 (2D이므로 0으로 설정)
 
-            yield return StartCoroutine(MoveObject(iceInstance, iceInstance.transform.position, target.position, 2f)); // 1초 동안 target으로 이동
+                miniInstance = Instantiate(miniPrefab, randomPosition, Quaternion.identity);  // 부모 없이 생성
 
-            // 낙하 완료 후 제거
-            Destroy(iceInstance.gameObject, 0.5f);
-            iceInstance = null;
+                // 소환 후 잠시 대기
+                yield return new WaitForSeconds(0f); // 0초 대기 후 다음 소환
+            }
         }
     }
 
+    // 크기 변화 처리
     private IEnumerator ScaleObject(GameObject obj, Vector3 startScale, Vector3 endScale, float duration)
     {
         float time = 0;
@@ -91,6 +105,7 @@ public class MonsterWizardSkeleton : Monster
         obj.transform.localScale = endScale; // 마지막 보정
     }
 
+    // 랜덤 위치로 미니 오브젝트를 이동시키는 코루틴
     private IEnumerator MoveObject(GameObject obj, Vector3 startPos, Vector3 endPos, float duration)
     {
         float time = 0;
@@ -104,5 +119,6 @@ public class MonsterWizardSkeleton : Monster
 
         obj.transform.position = endPos; // 마지막 보정
     }
+
 
 }

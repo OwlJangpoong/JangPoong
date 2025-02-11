@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b3edb929f3991de4fab797b98f8efadd
+guid: 91a75d16d0d881a489505a82ebeff989
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -93,30 +93,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MagicSkel_Attack_0
+      name: NecroSkeleton_attack_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1500
-        height: 1100
+        width: 1000
+        height: 1500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: edbd3a0bbe079c04e903b4bd328ed91f
-      internalID: 21942344
+      spriteID: 31cff6f33bcbb9b428f6f38940f7065e
+      internalID: 159164154
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MagicSkel_Attack_1
+      name: NecroSkeleton_attack_1
       rect:
         serializedVersion: 2
-        x: 1500
+        x: 1000
         y: 0
-        width: 1500
-        height: 1100
+        width: 1000
+        height: 1500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +132,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb5386362d7137541bd47ab60d0b408d
-      internalID: -461809317
+      spriteID: baae521a287175d4aa2b04f33c9b65f4
+      internalID: -247104572
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MagicSkel_Attack_2
+      name: NecroSkeleton_attack_2
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 0
+        width: 1000
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d847a23731ab8eb47be96152df64eaea
+      internalID: -938003076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NecroSkeleton_attack_3
       rect:
         serializedVersion: 2
         x: 3000
         y: 0
-        width: 1500
-        height: 1100
+        width: 1000
+        height: 1500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23b9aea8bd03c334da6393aadb5874ec
-      internalID: -1999169331
+      spriteID: b3a0ab6330090aa48bcd14bedc8bd6a5
+      internalID: 1434244009
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MagicSkel_Attack_3
+      name: NecroSkeleton_attack_4
       rect:
         serializedVersion: 2
-        x: 4500
+        x: 4000
         y: 0
-        width: 1500
-        height: 1100
+        width: 1000
+        height: 1500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,20 +195,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d95872e200bc2dd4bb37bacee29b04c7
-      internalID: 980672168
+      spriteID: 49a7f5a2cbcaa074189b283dce392276
+      internalID: 750196201
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MagicSkel_Attack_4
+      name: NecroSkeleton_attack_5
+      rect:
+        serializedVersion: 2
+        x: 5000
+        y: 0
+        width: 1000
+        height: 1500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f5ea166b0364d149ae30650fc50325c
+      internalID: -1089466662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NecroSkeleton_attack_6
       rect:
         serializedVersion: 2
         x: 6000
         y: 0
-        width: 1500
-        height: 1100
+        width: 1000
+        height: 1500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,20 +237,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e7519c5de53b3245bf9c7e9f59dbf93
-      internalID: 261615259
+      spriteID: 612a9e10da76f9b4dbcf79bb7e86c5bc
+      internalID: -6954555
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MagicSkel_Attack_5
+      name: NecroSkeleton_attack_7
       rect:
         serializedVersion: 2
-        x: 7500
+        x: 7000
         y: 0
-        width: 1500
-        height: 1100
+        width: 1000
+        height: 1500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,92 +258,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d0e326ceb5778b44fa331d6e9f27760e
-      internalID: 2129644632
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MagicSkel_Attack_6
-      rect:
-        serializedVersion: 2
-        x: 9000
-        y: 0
-        width: 1500
-        height: 1100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4349419fbb3baf44e9e7f72ce4376d68
-      internalID: 1231722727
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MagicSkel_Attack_7
-      rect:
-        serializedVersion: 2
-        x: 10500
-        y: 0
-        width: 1500
-        height: 1100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0184b6c506edd6f40963bf00cbc27f8e
-      internalID: 652646492
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MagicSkel_Attack_8
-      rect:
-        serializedVersion: 2
-        x: 12000
-        y: 0
-        width: 1500
-        height: 1100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: eaa48541509048a409232913f3f55079
-      internalID: -1557863740
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MagicSkel_Attack_9
-      rect:
-        serializedVersion: 2
-        x: 13500
-        y: 0
-        width: 1500
-        height: 1100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 171676f54df98634d8ac8b3990095332
-      internalID: -1376816911
+      spriteID: c1ea470a615cb404ab92406d9d22da89
+      internalID: 2112137265
       vertices: []
       indices: 
       edges: []
@@ -330,16 +275,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      MagicSkel_Attack_0: 21942344
-      MagicSkel_Attack_1: -461809317
-      MagicSkel_Attack_2: -1999169331
-      MagicSkel_Attack_3: 980672168
-      MagicSkel_Attack_4: 261615259
-      MagicSkel_Attack_5: 2129644632
-      MagicSkel_Attack_6: 1231722727
-      MagicSkel_Attack_7: 652646492
-      MagicSkel_Attack_8: -1557863740
-      MagicSkel_Attack_9: -1376816911
+      NecroSkeleton_attack_0: 159164154
+      NecroSkeleton_attack_1: -247104572
+      NecroSkeleton_attack_2: -938003076
+      NecroSkeleton_attack_3: 1434244009
+      NecroSkeleton_attack_4: 750196201
+      NecroSkeleton_attack_5: -1089466662
+      NecroSkeleton_attack_6: -6954555
+      NecroSkeleton_attack_7: 2112137265
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
