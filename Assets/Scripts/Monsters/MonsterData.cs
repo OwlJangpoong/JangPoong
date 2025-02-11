@@ -26,5 +26,9 @@ public class MonsterData : ScriptableObject
 
 
 
+    public void IncreaseMaxHp(float increase)
+    {
+        maxHp += increase;
+    }
 }
 

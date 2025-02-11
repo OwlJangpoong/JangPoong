@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using TMPro;
 
@@ -118,6 +119,13 @@ public class MovementRigidbody2D : MonoBehaviour
 
     public Vector2 Velocity => rigid2D.velocity; // rigid2D.velocity를 반환하는 GET만 가능한 프로퍼티 Velocity 정의
 
+    
+    
+    //넉백 추가 (250211)
+    private bool isKnockedBack = false; // 넉백 상태 변수
+    
+    
+    
     private void Awake()
     {
         rigid2D = GetComponent<Rigidbody2D>();
@@ -138,9 +146,13 @@ public class MovementRigidbody2D : MonoBehaviour
 
     private void Update()
     {
-        UpdateCollision();
-        JumpHeight();
-        JumpAdditive();
+        if (!isKnockedBack)
+        {
+            UpdateCollision();
+            JumpHeight();
+            JumpAdditive();
+        }
+        
         UpdateGroundedState();
     }
 
@@ -165,8 +177,11 @@ public class MovementRigidbody2D : MonoBehaviour
 
         // x축 방향 속력을 x * moveSpeed로 설정
 
-        moveSpeed = walkSpeed;
-        rigid2D.velocity = new Vector2(x * moveSpeed, rigid2D.velocity.y);
+        if (!isKnockedBack) //넉백 중에는 이동 금지
+        {
+            float moveSpeed = walkSpeed;
+            rigid2D.velocity = new Vector2(x * moveSpeed, rigid2D.velocity.y);
+        }
     }
 
     private void UpdateCollision()
@@ -252,5 +267,28 @@ public class MovementRigidbody2D : MonoBehaviour
     {
         rigid2D.velocity = new Vector2(rigid2D.velocity.x, 0);
     }
+    
+    
+    public void ApplyKnockback(Vector2 force, float duration)
+    {
+        StartCoroutine(KnockbackRoutine(force, duration));
+    }
+
+    private IEnumerator KnockbackRoutine(Vector2 force, float duration)
+    {
+        isKnockedBack = true;
+
+        // 넉백 적용 전에 기존 속도 초기화
+        rigid2D.velocity = Vector2.zero;
+        
+        //  넉백 적용
+        rigid2D.AddForce(force, ForceMode2D.Impulse);
+
+        yield return new WaitForSeconds(duration);
+
+        // 넉백 종료 후 다시 정상 이동 가능
+        isKnockedBack = false;
+    }
+    
 }
 

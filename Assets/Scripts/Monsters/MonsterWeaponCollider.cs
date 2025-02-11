@@ -13,6 +13,9 @@ public class MonsterWeaponCollider : MonoBehaviour
     
     //사망 action 구독
     private MonsterStat stat;
+    
+    //연결된 공격 or 이벤트 처리를 위한 이벤트
+    public event Action<Collider2D> OnWeaponAttack;
 
     private void Awake()
     {
@@ -45,6 +48,8 @@ public class MonsterWeaponCollider : MonoBehaviour
             //250203 수정
             other.GetComponent<PlayerStatsController>().OnAttacked(GetComponentInParent<MonsterStat>().monsterData.Damage);
             // Managers.Player.OnAttacked(GetComponentInParent<MonsterStat>().monsterData.Damage);
+            
+           
         }
     }
     
@@ -70,7 +75,7 @@ public class MonsterWeaponCollider : MonoBehaviour
                 //250203 수정
                 collider.GetComponent<PlayerStatsController>().OnAttacked(GetComponentInParent<MonsterStat>().monsterData.Damage);
                 
-                
+                OnWeaponAttack?.Invoke(collider);
                 
                 
                 // playerDataManager.OnAttacked(GetComponentInParent<MonsterStat>().monsterData.Damage);

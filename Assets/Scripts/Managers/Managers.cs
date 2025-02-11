@@ -132,8 +132,8 @@ public class Managers : MonoBehaviour
             s_instance._game.Init();
             
             // s_instance._sound.Init();
-
-            
+            //
+            //
             _isInitialized = true; // 초기화 완료
             
         }
