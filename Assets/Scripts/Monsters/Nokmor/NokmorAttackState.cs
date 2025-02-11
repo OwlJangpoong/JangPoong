@@ -12,6 +12,18 @@ public class NokmorAttackState : MonsterAttackState
         
         float attackDuration = nokmor.GetAttackDuration(); 
         nokmor.StartCoroutine(EndAttackAfterDelay(attackDuration));
+        
+        
+        //스킬 호출
+        float attackType = animator.GetFloat("AttackType");
+        if (Mathf.Approximately(attackType,0.4f))
+        {
+            nokmor.DarkBulletAttack();
+        }
+        else if (Mathf.Approximately(attackType, 0.6f))
+        {
+            //
+        }
     }
     
     

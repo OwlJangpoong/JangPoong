@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class MonsterNokmor : Monster
@@ -14,7 +15,7 @@ public class MonsterNokmor : Monster
     
     #endregion
 
-    #region Attack
+    #region Attack 관련 기본 변수
 
     private bool isAttacking;
     private float lastAttackType=-1f;
@@ -23,13 +24,19 @@ public class MonsterNokmor : Monster
     private MonsterWeaponCollider weaponCollider;
 
     #endregion
-    
+
+    #region DarkBullet 관련 변수
+    [Header("Dark Bullet Attack")] 
+    public GameObject bulletPrefab;
+    public Transform firePoint; // 보스의 위치 (총알 스폰 기준)
+    public float spawnRadius = 2f; // 총알이 생성되는 범위
+    private List<GameObject> bullets = new List<GameObject>();
+    #endregion
     
     protected override void Start()
     {
         Init(); //부모 클래스의 Init() 호출
         UIHpBarBoss.gameObject.SetActive(true); //UI_HP_Bar active 하여 Start() 호출되도록 설정 (반드시 hp bar는 꺼둔 상태여야한다.)
-        
         
         //이벤트 구독
         weaponCollider = GetComponentInChildren<MonsterWeaponCollider>(true);
@@ -96,7 +103,7 @@ public class MonsterNokmor : Monster
         {
             case 0f: return 1.0f; // Slash
             case 0.2f: return 1.2f; // Dark Energy
-            case 0.4f: return 1.5f; // Dark Bullet
+            case 0.4f: return 2.5f; // Dark Bullet
             case 0.6f: return 1.8f; // Dark Creature
             case 0.8f: return 2.0f; // Gravity
             case 1.0f: return 2.2f; // Black Hole
@@ -152,8 +159,59 @@ public class MonsterNokmor : Monster
      //2. 어둠의 총알
      public void DarkBulletAttack()
      {
+         Debug.Log("어둠의 총알 스킬 호출");
+         StartCoroutine(DarkBulletCoroutine());
+     }
+     
+     private IEnumerator DarkBulletCoroutine()
+     {
+         bullets.Clear();
+         float[] spawnDelays = { 0.3f, 0.8f, 1.3f, 1.8f };
+
+         for (int i = 0; i < spawnDelays.Length; i++)
+         {
+             yield return new WaitForSeconds(spawnDelays[i] - (i > 0 ? spawnDelays[i - 1] : 0));
+
+             Vector2 spawnPos = (Vector2)firePoint.position + Random.insideUnitCircle * spawnRadius;
+             GameObject bullet = Instantiate(bulletPrefab, spawnPos, Quaternion.identity);
+
+             
+             // 보스의 localScale.x 값에 따라 방향 설정
+             float directionMultiplier = transform.localScale.x > 0 ? -1f : 1f;
+
+             
+             // 방향은 미리 설정하지만, 아직 발사하지 않음
+             Vector2[] directions = {
+                 Vector2.right * directionMultiplier, 
+                 Vector2.right * directionMultiplier, 
+                 Quaternion.Euler(0, 0, 45) * Vector2.right * directionMultiplier, 
+                 Quaternion.Euler(0, 0, -45) * Vector2.right * directionMultiplier
+             };
+             int randomDir = Random.Range(0, directions.Length);
+
+             NokmorDarkBullet bulletController = bullet.GetComponent<NokmorDarkBullet>();
+             bulletController.SetDirection(directions[randomDir]);
+             bulletController.IsShooting = false; // 바로 발사하지 않음
+
+             bullets.Add(bullet); // 리스트에 추가
+
+             Debug.Log($"총알 생성됨: {bullet.name}, 위치: {spawnPos}, 방향: {directions[randomDir]}");
+         }
+
+         yield return new WaitForSeconds(0.2f); // 총알 생성 후 잠깐 대기
+
+         // 🔥 모든 총알을 한 번에 발사
+         foreach (var bullet in bullets)
+         {
+             NokmorDarkBullet bulletController = bullet.GetComponent<NokmorDarkBullet>();
+             bulletController.IsShooting = true; // 한 번에 발사
+         }
+
          
      }
+     
+     
+     
     //
     // private void ApplyKnockback(Collider2D player)
     // {
@@ -201,5 +259,18 @@ public class MonsterNokmor : Monster
         anim.SetFloat("AttackType",0f);
         anim.SetTrigger("Attack");
     }
+
+    public void DarkBulletSkill()
+    {
+        anim.SetFloat("AttackType",0.4f);
+        anim.SetTrigger("Attack");
+    }
+    private void OnDrawGizmos()
+    {
+        if (firePoint == null) return;
     
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireSphere(firePoint.position, spawnRadius);
+    }
+
 }

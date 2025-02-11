@@ -22,7 +22,20 @@ public class NokmorDarkBullet : MonoBehaviour
     private Animator animator;
     private Collider2D _collider2D;
     private Rigidbody2D rb;
-    
+    private bool isShooting;
+
+    public bool IsShooting
+    {
+        get => isShooting;
+        set
+        {
+            isShooting = value;
+            if (value)
+            {
+                Destroy(gameObject, aliveTime); // 일정 시간이 지나면 삭제
+            }
+        }
+    }
     
     public void SetDirection(Vector2 dir)
     {
@@ -53,11 +66,12 @@ public class NokmorDarkBullet : MonoBehaviour
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         
-        Destroy(gameObject, aliveTime); // 일정 시간이 지나면 삭제
+        
     }
     
     void Update()
     {
-        transform.position += (Vector3)(direction * speed * Time.deltaTime);
+        if(isShooting)
+            transform.position += (Vector3)(direction * speed * Time.deltaTime);
     }
 }

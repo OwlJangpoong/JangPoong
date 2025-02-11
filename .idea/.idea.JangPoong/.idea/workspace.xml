@@ -6,8 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="8d60103f-3d9b-4716-9d1c-3d51d042b424" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.JangPoong/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.JangPoong/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animations/Anim_Monster/Nokmor/Monster_Nokmor_DarkBullet.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Animations/Anim_Monster/Nokmor/Monster_Nokmor_DarkBullet.anim" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Boss fight.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Boss fight.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Monsters/Nokmor/MonsterNokmor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Monsters/Nokmor/MonsterNokmor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Monsters/Nokmor/NokmorAttackState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Monsters/Nokmor/NokmorAttackState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Monsters/Nokmor/NokmorDarkBullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Monsters/Nokmor/NokmorDarkBullet.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
