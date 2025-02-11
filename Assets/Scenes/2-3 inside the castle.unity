@@ -2587,6 +2587,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &175787284
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_Name
+      value: Monster_WizardSkeleton_v1 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 121.60233
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.138607
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
 --- !u!1001 &184789230
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3292,6 +3349,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38c2e0f25d66d441fa43a43b655cc78d, type: 3}
+--- !u!1001 &221001644
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_Name
+      value: Monster_WizardSkeleton_v1 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 35.75994
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -9.16502
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
 --- !u!1 &224929867
 GameObject:
   m_ObjectHideFlags: 0
@@ -3376,6 +3490,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &231130767
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_Name
+      value: Monster_WizardSkeleton_v1 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 99.085205
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -9.797595
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
 --- !u!1 &234025424
 GameObject:
   m_ObjectHideFlags: 0
@@ -5381,6 +5552,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38c2e0f25d66d441fa43a43b655cc78d, type: 3}
+--- !u!1001 &357908234
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_Name
+      value: Monster_WizardSkeleton_v1 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 76.849815
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.857346
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
 --- !u!1 &370659062
 GameObject:
   m_ObjectHideFlags: 0
@@ -5487,6 +5715,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 620127361}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &376385302
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_Name
+      value: Monster_WizardSkeleton_v1 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 118.562195
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.059643
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
 --- !u!1001 &378862625
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6528,6 +6813,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &449890216
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 41.10189
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.792326
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6870335330506310317, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_Name
+      value: Monster_NecroSkeleton_v1 (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
 --- !u!1 &451044987
 GameObject:
   m_ObjectHideFlags: 0
@@ -8385,6 +8727,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &590134760
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.510337
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.19517207
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6870335330506310317, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_Name
+      value: Monster_NecroSkeleton_v1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
 --- !u!1 &600186788
 GameObject:
   m_ObjectHideFlags: 0
@@ -10659,6 +11058,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6ac8b341527141719634ceaa3244447, type: 3}
+--- !u!1001 &728156707
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_Name
+      value: Monster_WizardSkeleton_v1 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 123.181625
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.296536
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
 --- !u!1001 &751857238
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11185,6 +11641,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e221cb9100fca4b85a93467c8379a864, type: 3}
+--- !u!1001 &780798968
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_Name
+      value: Monster_WizardSkeleton_v1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.16867447
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.22703153
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
 --- !u!1 &781334927
 GameObject:
   m_ObjectHideFlags: 0
@@ -12023,6 +12536,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &825431811
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_Name
+      value: Monster_WizardSkeleton_v1 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 94.64427
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -9.2948475
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
 --- !u!1 &828517262
 GameObject:
   m_ObjectHideFlags: 0
@@ -12500,6 +13070,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &834528364
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_Name
+      value: Monster_WizardSkeleton_v1 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 21.323366
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.2708099
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
 --- !u!1001 &834563030
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14727,6 +15354,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &953203853
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 97.82834
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.624518
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6870335330506310317, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_Name
+      value: Monster_NecroSkeleton_v1 (8)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
 --- !u!1 &955683896
 GameObject:
   m_ObjectHideFlags: 0
@@ -15655,6 +16339,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1008968643
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 96.403885
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.540728
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6870335330506310317, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_Name
+      value: Monster_NecroSkeleton_v1 (9)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
 --- !u!1001 &1009523686
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16189,6 +16930,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1070442967
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 116.824974
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.375501
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6870335330506310317, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_Name
+      value: Monster_NecroSkeleton_v1 (7)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
 --- !u!1001 &1076164427
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17761,6 +18559,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1199882086
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 81.36109
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.88523
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6870335330506310317, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_Name
+      value: Monster_NecroSkeleton_v1 (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
 --- !u!1001 &1206049337
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18691,6 +19546,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1330733817
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 16.719084
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.27961278
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6870335330506310317, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_Name
+      value: Monster_NecroSkeleton_v1 (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
 --- !u!1001 &1334681849
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19692,6 +20604,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6cd85a91ef2624aadbf40f4aafc8fc15, type: 3}
+--- !u!1001 &1394606770
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 19.674513
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.53293854
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6870335330506310317, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_Name
+      value: Monster_NecroSkeleton_v1 (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
 --- !u!1001 &1402725902
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24680,6 +25649,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1728532951
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 120.496826
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.6913595
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6870335330506310317, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_Name
+      value: Monster_NecroSkeleton_v1 (6)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
 --- !u!1001 &1730101792
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25498,6 +26524,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6ac8b341527141719634ceaa3244447, type: 3}
+--- !u!1001 &1787355770
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_Name
+      value: Monster_WizardSkeleton_v1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.2801058
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.3114723
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
 --- !u!1 &1790674835
 GameObject:
   m_ObjectHideFlags: 0
@@ -25723,6 +26806,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae2ab2ac4a02f46eb8194631525e930f, type: 3}
+--- !u!1001 &1809598146
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_Name
+      value: Monster_WizardSkeleton_v1 (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 101.09619
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -9.6300125
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
 --- !u!4 &1814118846 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2785916369807361493, guid: f6adeb547a4a11f4ba360e5f0b01bb3e, type: 3}
@@ -28412,6 +29552,63 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1001 &2049812678
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 76.07173
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.6782
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253071779211251290, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6870335330506310317, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
+      propertyPath: m_Name
+      value: Monster_NecroSkeleton_v1 (5)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 670a5b3a1ddf52a48bb58bb4a36ec27a, type: 3}
 --- !u!1 &2056638248
 GameObject:
   m_ObjectHideFlags: 0
@@ -29276,6 +30473,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6cd85a91ef2624aadbf40f4aafc8fc15, type: 3}
+--- !u!1001 &2112660325
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1191551650843982732, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_Name
+      value: Monster_WizardSkeleton_v1 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 14.776947
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.39591295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
 --- !u!1001 &2116499330
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30138,3 +31392,25 @@ SceneRoots:
   - {fileID: 89039326}
   - {fileID: 2091035627}
   - {fileID: 944779347}
+  - {fileID: 1787355770}
+  - {fileID: 780798968}
+  - {fileID: 2112660325}
+  - {fileID: 590134760}
+  - {fileID: 1330733817}
+  - {fileID: 1394606770}
+  - {fileID: 834528364}
+  - {fileID: 221001644}
+  - {fileID: 449890216}
+  - {fileID: 1199882086}
+  - {fileID: 357908234}
+  - {fileID: 2049812678}
+  - {fileID: 1728532951}
+  - {fileID: 1070442967}
+  - {fileID: 376385302}
+  - {fileID: 728156707}
+  - {fileID: 175787284}
+  - {fileID: 825431811}
+  - {fileID: 953203853}
+  - {fileID: 1008968643}
+  - {fileID: 231130767}
+  - {fileID: 1809598146}
