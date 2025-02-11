@@ -934,11 +934,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 5514b205-1ede-4e22-8bc9-19899dc8e73a
+  cloudProjectId: da665468-e842-4a7d-9629-63ff8f8d22f3
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: JangPoong
-  organizationId: newspaper0227
+  projectName: Jangpung
+  organizationId: dohyunacy225
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}

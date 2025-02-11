@@ -129,6 +129,7 @@
             { "2-2-2 마왕성 앞 묘지", "2-2 to demon castle" },
             { "2-3-1 마왕성", "2-3 inside the castle" },
             {"2-3-2 마왕과의 전투", "Boss fight"},
+            { "2-3-2 국왕 구출", "2-3-2 inside the castle" },
             {"엔딩","Ending cut scene"}
         };
         
