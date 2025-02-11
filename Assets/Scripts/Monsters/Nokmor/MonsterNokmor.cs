@@ -147,6 +147,13 @@ public class MonsterNokmor : Monster
              player.GetComponent<MovementRigidbody2D>().ApplyKnockback(knockbackForce*knockbackDirection,0.3f);
          }
      }
+     
+     
+     //2. 어둠의 총알
+     public void DarkBulletAttack()
+     {
+         
+     }
     //
     // private void ApplyKnockback(Collider2D player)
     // {
