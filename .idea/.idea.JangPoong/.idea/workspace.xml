@@ -5,27 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d60103f-3d9b-4716-9d1c-3d51d042b424" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ETC/Dialogue/DialogueController_Version2.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ETC/Dialogue/DialogueController_Version2.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.JangPoong/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.JangPoong/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FreeAssets/Classic Legacy Pack - Village/Environment/Thumbs.db.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animations/Anim_Jangpoong/jp_Extinct 10.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Animations/Anim_Jangpoong/jp_Extinct 10.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Monsters/Nokmor/Monster_Nokmor.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Monsters/Nokmor/Monster_Nokmor.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Textures/Monster/Nokmor/Nokmor_standing.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Textures/Monster/Nokmor/Nokmor_standing.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/1-4 Dialogue with Silvan.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/1-4 Dialogue with Silvan.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/2-3 inside the castle.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/2-3 inside the castle.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animations/Anim_Monster/Nokmor/Monster_Nokmor_DarkCreature.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Animations/Anim_Monster/Nokmor/Monster_Nokmor_DarkCreature.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Monsters/Goblin/Monster_KnifeGoblin_v1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Monsters/Goblin/Monster_KnifeGoblin_v1.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Boss fight.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Boss fight.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Statistic_Temp.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Statistic_Temp.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Common/Define.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Common/Define.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ETC/NPC.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ETC/NPC.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/Managers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/Managers.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewPlayer/NewPlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NewPlayer/NewPlayerMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Sounds/Bgm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Sounds/Bgm.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Monsters/Monster.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Monsters/Monster.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Monsters/MonsterData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Monsters/MonsterData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Monsters/Nokmor/MonsterNokmor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Monsters/Nokmor/MonsterNokmor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Monsters/Nokmor/NokmorAttackState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Monsters/Nokmor/NokmorAttackState.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

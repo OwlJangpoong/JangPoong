@@ -59,7 +59,7 @@ public class Monster : MonoBehaviour
     protected virtual void Start()
     {
         Init(); //초기화
-        
+        Debug.Log("af;af;alsfj;l");
         //UI hp bar 설정
         if (gameObject.GetComponentInChildren<UI_HPBar>() == null)
         {
@@ -92,6 +92,7 @@ public class Monster : MonoBehaviour
     #region Event Functions
     public virtual void Init()
     {
+        Debug.Log("몬스터이니트이니트");
         stat = gameObject.GetComponent<MonsterStat>();
         
         MonsterData md = Managers.Resource.Load<MonsterData>($"Data/Monster/{statFileName}");

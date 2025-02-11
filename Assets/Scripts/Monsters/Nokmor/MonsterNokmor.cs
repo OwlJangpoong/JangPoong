@@ -32,6 +32,28 @@ public class MonsterNokmor : Monster
     public float spawnRadius = 2f; // 총알이 생성되는 범위
     private List<GameObject> bullets = new List<GameObject>();
     #endregion
+
+    #region DarkCreature 관련 변수
+
+    [Header("Dark Creature Summon")] 
+    public GameObject[] monsterPrefabs; // 소환할 수 있는 몬스터 프리팹 리스트
+    public Transform summonPoint; // 소환 위치
+    public int minSummonCount = 2;
+    public int maxSummonCount = 5;
+    
+    private Dictionary<string, float> monsterSpawnChances = new Dictionary<string, float>()
+    {
+        { "Monster_DarkSlime", 18f },
+        { "Monster_BombSlime", 9f },
+        { "Monster_Slime_v2", 3f },
+        { "Monster_KnifeGoblin_v3", 15f },
+        { "Monster_BatGoblin_v2", 15f },
+        { "Monster_NecroSkeleton_v1", 25f },
+        { "Monster_WizardSkeleton_v1", 15f }
+    };
+
+    #endregion
+    
     
     protected override void Start()
     {
@@ -104,7 +126,7 @@ public class MonsterNokmor : Monster
             case 0f: return 1.0f; // Slash
             case 0.2f: return 1.2f; // Dark Energy
             case 0.4f: return 2.5f; // Dark Bullet
-            case 0.6f: return 1.8f; // Dark Creature
+            case 0.6f: return 1.5f; // Dark Creature
             case 0.8f: return 2.0f; // Gravity
             case 1.0f: return 2.2f; // Black Hole
             default: return 1.0f;
@@ -118,6 +140,8 @@ public class MonsterNokmor : Monster
     }
     
     
+    
+    #region 후려치기
     //1. 후려치기
      public void SlashAttack(Collider2D collider2D)
      {
@@ -155,7 +179,10 @@ public class MonsterNokmor : Monster
          }
      }
      
+     #endregion
      
+     
+     #region 어둠의총알
      //2. 어둠의 총알
      public void DarkBulletAttack()
      {
@@ -209,43 +236,111 @@ public class MonsterNokmor : Monster
 
          
      }
-     
-     
-     
-    //
-    // private void ApplyKnockback(Collider2D player)
-    // {
-    //     Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
-    //     if (rb != null)
-    //     {
-    //         Vector2 knockbackDirection = (player.transform.position - transform.position).normalized;
-    //         rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
-    //     }
-    // }
-    //
-    // #endregion
-    //
-    // private void OnDrawGizmosSelected()
-    // {
-    //     Gizmos.color = Color.red;
-    //     Gizmos.DrawWireSphere(attackPoint.position, attackRange);
-    // }
-    
-    //2. 
-    
-    
-    //3.
-    
-    
-    
-    //4.
-    
-    
-    //5.
-    
-    
-    
-    //6.
+     #endregion
+
+
+
+     #region 어둠의생명체
+     public void DarkCreatureSummon()
+    {
+        StartCoroutine(DarkCreatureSummonCoroutine());
+    }
+
+    private IEnumerator DarkCreatureSummonCoroutine()
+    {
+        summonPoint.GetChild(0).gameObject.SetActive(true);
+        
+        int summonCount = Random.Range(minSummonCount, maxSummonCount + 1);
+        Debug.Log($"🟣 어둠의 생명체 {summonCount}마리 소환!");
+
+        for (int i = 0; i < summonCount; i++)
+        {
+            yield return new WaitForSeconds(0.5f); // 0.5초 간격으로 소환
+
+            GameObject selectedMonster = GetRandomMonster();
+            if (selectedMonster == null) continue;
+
+            Vector2 summonPos = summonPoint.position + new Vector3(Random.Range(-2f, 2f), 0f, 0f);
+            GameObject newMonster = Instantiate(selectedMonster, summonPos, Quaternion.identity, null);
+            newMonster.SetActive(true);
+            newMonster.GetComponent<Monster>().Init();
+            
+            EnhanceMonster(newMonster);
+        }
+        
+        
+        summonPoint.GetChild(0).gameObject.SetActive(false);
+    }
+
+    private GameObject GetRandomMonster()
+    {
+        float totalChance = 0f;
+        foreach (var chance in monsterSpawnChances.Values)
+        {
+            totalChance += chance;
+        }
+
+        float randomValue = Random.Range(0, totalChance);
+        float cumulativeChance = 0f;
+
+        foreach (var kvp in monsterSpawnChances)
+        {
+            cumulativeChance += kvp.Value;
+            if (randomValue <= cumulativeChance)
+            {
+                foreach (var prefab in monsterPrefabs)
+                {
+                    if (prefab.name.Contains(kvp.Key))
+                    {
+                        return prefab;
+                    }
+                }
+            }
+        }
+
+        return null;
+    }
+
+
+    private void EnhanceMonster(GameObject monster)
+    {
+        MonsterStat monsterStat = monster.GetComponent<MonsterStat>();
+
+       
+        
+        if (monsterStat == null)
+        {
+            Debug.LogWarning("❌ monsterStat이 null입니다! MonsterStat 컴포넌트가 있는지 확인하세요.");
+            return;
+        }
+
+        if (monsterStat.monsterData == null)
+        {
+            Debug.LogWarning("❌ monsterStat.monsterData가 null입니다! Init()이 정상적으로 호출되지 않았을 가능성이 있습니다.");
+            return;
+        }
+        
+        if (monsterStat != null)
+        {
+            monsterStat.monsterData.IncreaseMaxHp(3);
+            monsterStat.CurrentHp += 3;
+            monsterStat.currentDamage *= 1.5f;
+        }
+
+        // ✅ 100% 포션 드랍
+        Monster monsterScript = monster.GetComponent<Monster>();
+        if (monsterScript != null)
+        {
+            foreach (var loot in monsterScript.lootTable)
+            {
+                loot.dropChance = 100f;
+            }
+        }
+
+   
+    }
+
+    #endregion
 
     
 
@@ -265,6 +360,12 @@ public class MonsterNokmor : Monster
         anim.SetFloat("AttackType",0.4f);
         anim.SetTrigger("Attack");
     }
+    public void DarkCreatureSkill()
+    {
+        anim.SetFloat("AttackType",0.6f);
+        anim.SetTrigger("Attack");
+    }
+    
     private void OnDrawGizmos()
     {
         if (firePoint == null) return;

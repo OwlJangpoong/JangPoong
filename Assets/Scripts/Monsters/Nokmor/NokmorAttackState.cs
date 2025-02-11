@@ -22,7 +22,7 @@ public class NokmorAttackState : MonsterAttackState
         }
         else if (Mathf.Approximately(attackType, 0.6f))
         {
-            //
+            nokmor.DarkCreatureSummon();
         }
     }
     
