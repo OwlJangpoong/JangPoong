@@ -1,5 +1,6 @@
 
     using System.Collections.Generic;
+    using System.Linq;
 
     public class Define
     {
@@ -87,7 +88,7 @@
             tutorialDone,
             PlayerData,
             ProgressData,
-            StatisticDatsa,
+            StatisticData,
             SettingData,
             InventoryData,
 
@@ -112,9 +113,30 @@
             {"InventoryData", "Inventory.json"}
 
         };
+
+        public static readonly Dictionary<string, string> SceneNames = new Dictionary<string, string>
+        {
+            { "인트로", "0 Intro" },
+            { "0-1 튜토리얼", "0-1 tutorial" },
+            { "0-2 튜토리얼", "0-2 tutorial" },
+            { "0-3 튜토리얼", "0-3 tutorial" },
+            { "1-1 여행의 시작", "1-1 tutorial" },
+            { "1-2 숲 속", "1-2 forest" },
+            { "1-3 고블린 퇴치", "1-3 goblin fight" },
+            { "1-4 마왕의 숲", "1-4 Dialogue with Slivan" },
+            { "2-1 마왕의 숲", "2-1 to demon castle" },
+            {"2-2-2 실비아 구출","2-2-2 saving silvia"},
+            { "2-2 마왕성 앞 묘지", "2-2 to demon castle" },
+            { "2-3 마왕성", "2-3 inside the castle" },
+            {"엔딩","Ending cut scene"}
+        };
+        
+        public static readonly Dictionary<string, string> ReverseSceneNames = SceneNames.ToDictionary(x => x.Value, x => x.Key);
+
         
 
         #endregion
+        
 
         #region JangPoong
 

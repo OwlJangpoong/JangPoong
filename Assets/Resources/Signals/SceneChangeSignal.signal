@@ -9,12 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f441287a402884150b182a222e3775b7, type: 3}
-  m_Name: Stage 2-2
+  m_Script: {fileID: 11500000, guid: d6fa2d92fc1b3f34da284357edf89c3b, type: 3}
+  m_Name: SceneChangeSignal
   m_EditorClassIdentifier: 
-  cameraLimitMinX: -200
-  cameraLimitMaxX: 126
-  playerLimitMinX: -200
-  playerLimitMaxX: 126
-  playerPosition: {x: -22.1, y: -19.05}
-  cameraPosition: {x: -22.1, y: -15.05}

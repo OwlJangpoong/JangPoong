@@ -17,10 +17,11 @@ public class PlayerData
     public int currentJangPoongLevel;
     public int tokenCnt;
     public bool isRunning;
+    public string currentStage;
 
 
 
-    public PlayerData(string playerName, float hp, float maxhp, int mana, int maxMana, int monsterPoint, int maxMonsterPoint, int currentJangPoongLevel, int tokenCnt, bool isRunning)
+    public PlayerData(string playerName, float hp, float maxhp, int mana, int maxMana, int monsterPoint, int maxMonsterPoint, int currentJangPoongLevel, int tokenCnt, bool isRunning, string currentStage)
     {
         this.playerName = playerName;
         this.hp = hp;
@@ -32,6 +33,7 @@ public class PlayerData
         this.currentJangPoongLevel = currentJangPoongLevel;
         this.tokenCnt = tokenCnt;
         this.isRunning = isRunning;
+        this.currentStage = currentStage;
     }
 }
 

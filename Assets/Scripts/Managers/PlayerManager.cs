@@ -8,11 +8,18 @@ using UnityEngine.PlayerLoop;
 public class PlayerManager
 {
     private bool _isInitialized = false;
-    
-    //플레이어 이름
-    public string PlayerName { get; private set; }
 
-//플레이어 관련 리소스
+    #region data 식별용
+
+    public string PlayerName { get; private set; }
+    public string currentStage = null;
+    
+    
+
+    #endregion
+   
+
+    //플레이어 관련 리소스
     public List<GameObject> jangPoongPrefab_list =
         new List<GameObject>(Enumerable.Repeat<GameObject>(null, (int)Define.JangPoongLevel.Length + 1));  //레벨에 따른 장풍 프리랩을 담는 배열 (0번 인덱스는 비워두고 1부터 채우기 위해 length+1 길이로 선언)
     public GameObject ultPrefab;
@@ -73,6 +80,7 @@ public class PlayerManager
         //이벤트 구독
         OnTokenCntChanged -= UpdateJangPoongLevel;
         OnTokenCntChanged += UpdateJangPoongLevel;
+       
         
         //리스트 초기화 : 장풍 프리팹 로드해서 리스트에 넣어주기
         LoadJangPoongPrefabs();
@@ -97,9 +105,15 @@ public class PlayerManager
         hp =  Mathf.Round(hp * 100) / 100f;
         Hp = hp;
         OnHpChanged?.Invoke(Hp);
-        
-        if (Hp <= 0) 
+
+        if (Hp <= 0)
+        {
+            Managers.Game.Statistic.deathCnt++;
+            Managers.Game.SaveStatisticData();
             OnDie?.Invoke(); //사망
+            
+        }
+            
         
     }
 
@@ -231,6 +245,7 @@ public class PlayerManager
         this.CurrentJangPoongLevel = localdata.currentJangPoongLevel;
         this.TokenCnt = localdata.tokenCnt;
         IsRunning = localdata.isRunning;
+        this.currentStage = localdata.currentStage;
 
     }
 
@@ -239,7 +254,7 @@ public class PlayerManager
     {
         Debug.Log("PlayerManager : 최종 Player 데이터 저장을 요청합니다.");
         Managers.Game.Player = new PlayerData(this.PlayerName, this.Hp, this.MaxHp, this.Mana, this.MaxMana,
-            this.MonsterPoint, this.MaxMonsterPoint, this.CurrentJangPoongLevel, this.TokenCnt, this.IsRunning);
+            this.MonsterPoint, this.MaxMonsterPoint, this.CurrentJangPoongLevel, this.TokenCnt, this.IsRunning, this.currentStage);
     }
 
     public void RestorePlayerData()
@@ -249,6 +264,12 @@ public class PlayerManager
     }
 
    
+    #endregion
+
+    #region MyRegion
+
+    
+
     #endregion
     
 }

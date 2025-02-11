@@ -377,6 +377,10 @@ public class NewPlayerMovement : MonoBehaviour
         {
             if (Managers.Player.Mana >= playerStatsController.ManaConsumption)
             {
+                // ✅ 장풍 사용 횟수 증가
+                Managers.Game.Statistic.jpCnt++;
+                Managers.Game.SaveStatisticData();
+                
                 Managers.Player.SetMana(Managers.Player.Mana - playerStatsController.ManaConsumption);
 
                 Managers.Sound.Play("56_Attack_03");
@@ -437,6 +441,9 @@ public class NewPlayerMovement : MonoBehaviour
         {
             if (Managers.Player.MonsterPoint >= Managers.Player.MaxMonsterPoint) // 몬스터 포인트가 50 이상일 경우
             {
+                // ✅ 궁극기 사용 횟수 증가
+                Managers.Game.Statistic.ultCnt++;
+                Managers.Game.SaveStatisticData();
                 //playerDataManager.MonsterPoint -= playerDataManager.maxMonsterPoint;
                 Managers.Player.SetMonsterPoint(Managers.Player.MonsterPoint - Managers.Player.MaxMonsterPoint);
 
@@ -487,6 +494,7 @@ public class NewPlayerMovement : MonoBehaviour
         movement.MoveTo(0);
         gameOverFlag = true;
         playerAnimator.PlayerDead();
+        gameObject.layer = (int)Define.Layer.PlayerDamaged;
         Debug.Log("플레이어 죽음");
         gameOver.SetActive(true);
     }

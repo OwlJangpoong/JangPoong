@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8d60103f-3d9b-4716-9d1c-3d51d042b424" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.JangPoong/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.JangPoong/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/jangpoong/Ult.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/jangpoong/Ult.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/0-1 tutorial.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/0-1 tutorial.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/UI/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/UI/Main.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/UltController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/UltController.cs" afterDir="false" />
-    </list>
+    <list default="true" id="8d60103f-3d9b-4716-9d1c-3d51d042b424" name="변경" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,6 +37,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Data/SettingData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ETC/KeyBindingResult.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/KeyBinding/UI_Setting_KeyCode.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StatisticTest.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@14.0.10/Runtime/UniversalAdditionalCameraData.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.6/Scripts/Runtime/TMP_InputField.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/UIBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
@@ -148,7 +143,8 @@
       <workItem from="1738645124795" duration="3865000" />
       <workItem from="1738649780932" duration="15866000" />
       <workItem from="1738672924161" duration="2709000" />
-      <workItem from="1738747069005" duration="17111000" />
+      <workItem from="1738747069005" duration="24745000" />
+      <workItem from="1738924141195" duration="37622000" />
     </task>
     <servers />
   </component>
@@ -177,5 +173,24 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <option name="LAST_COMMIT_MESSAGE" value="" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Common/FadeEffect.cs</url>
+          <line>123</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Common/FadeEffect.cs" containingFunctionPresentation="메서드 'Fade'">
+            <startOffsets>
+              <option value="3500" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3548" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

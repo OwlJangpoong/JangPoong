@@ -55,17 +55,17 @@ public class UI_InputFields : MonoBehaviour
         {
             //임시로 playerprefs로 저장합니다. -> json으로 변경
             //데이터 저장 구현 완료되면 로직 변경할 예정입니다.
-            string playerName = "전설" + text; //영웅재중, 유노유노같은 느낌.. 전설00000
             // PlayerPrefs.SetString("PlayerName", playerName);
             // Debug.Log(PlayerPrefs.GetString("PlayerName"));
-            Managers.Player.SetName(playerName); //플레이어 매니져쪽을 변경할지 GameManager쪽을 변경할지 추후 결정.. 어차피 이름은 초반에 한 번만 설정하고 절대 변경안하나까....????
+            Managers.Player.SetName(text); //플레이어 매니져쪽을 변경할지 GameManager쪽을 변경할지 추후 결정.. 어차피 이름은 초반에 한 번만 설정하고 절대 변경안하나까....????
+            Managers.Player.CommitPlayerData();
             
             //페이드용 패널 활성화
             fadePanel.gameObject.SetActive(true); 
             
             //페이드 코루틴 호출
-            StartCoroutine(FadeEffect.Fade(fadePanel, 0f, 1f,
-                action: new UnityAction(() => Managers.Scene.LoadScene("0 Intro"))));
+            StartCoroutine(FadeEffect.Fade(fadePanel, 0f, 1f,fadeTime:0.5f,
+                action: () => Managers.Scene.LoadScene("0 Intro")));
             
             
         }

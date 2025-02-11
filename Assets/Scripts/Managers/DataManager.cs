@@ -7,6 +7,8 @@ public class DataManager
 {
     //File/Folder Path for Save, Load
     private int slotNum = 1;
+    public int SlotNum { get => slotNum; set => slotNum = value; }
+    private int totalSlots = 3;
     private string saveFolderPath=""; //  "SaveData" 폴더까지의 경로
 
     private string slotFolderPath=""; // "SaveData/(슬롯이름)" 폴더 아래에 데이터 파일 저장됨
@@ -15,7 +17,7 @@ public class DataManager
     public void Init ()
     {
         saveFolderPath = Path.Combine(Application.persistentDataPath, "SaveData");
-        SetSlotNum();
+        // SetSlotNum(1);
         
         //"SaveData" 폴더가 있는지 확인.
         //1. 없으면 폴더 생성
@@ -32,26 +34,9 @@ public class DataManager
             // SaveData<SettingData>(Define.SaveKey.SettingData, Managers.Game.SettingData);
         }
         // 2. 있으면 setting 데이터 파일이 존재할 것. setting 데이터 파일을 로드한다.
-        else
-        {
-            // Debug.Log("저장된 SettingData 파일을 로드합니다.");
-            // Managers.Game.SettingData = LoadData<SettingData>(Define.SaveKey.SettingData);
-        }
     }
 
-    public void SetSlotNum()
-    {
-        //this.slotNum = slotNum;
-        string slot = "Slot" + slotNum;
-        
-        slotFolderPath = Path.Combine(Application.persistentDataPath, "SaveData", slot);
-        if (!Directory.Exists(slotFolderPath))
-        {
-            Debug.Log($"{slot} 폴더가 없습니다. 폴더를 생성합니다.");
-            Directory.CreateDirectory(slotFolderPath);
-        }
-
-    }
+  
 
     /// <summary>
     /// Loads data from JSON file and converts it to the specified class type.
@@ -169,19 +154,6 @@ public class DataManager
 
     }
 
-
-    /// 초기화(슬롯 초기화)
-    public void InitializeSlot()
-    {
-        
-        if (!Directory.Exists(saveFolderPath))
-        {
-            Directory.CreateDirectory(saveFolderPath);
-        }
-        
-        //모든 데이터 
-    }
-
     public bool HasSaveDataFile(Define.SaveKey saveKey)
     {
         string fileName = Define.FileNames[saveKey.ToString()];
@@ -198,12 +170,71 @@ public class DataManager
         return File.Exists(path);
     }
 
+
+
+
+
+    #region Slot
+    
+    public void SetSlotNum(int slotNum)
+    {
+        // this.slotNum = slotNum;
+        string slot = "Slot" + slotNum;
+        
+        slotFolderPath = Path.Combine(Application.persistentDataPath, "SaveData", slot);
+        if (!Directory.Exists(slotFolderPath))
+        {
+            Debug.Log($"{slot} 폴더가 없습니다. 폴더를 생성합니다.");
+            Directory.CreateDirectory(slotFolderPath);
+        }
+
+    }
+    
+    
+    
+
     public void DeleteAllFilesInSlot()
     {
         Debug.Log(Util.DeleteAllFilesInFolder(slotFolderPath)?"슬롯 초기화 성공":"슬롯 초기화 실패");
     }
     
-    
+    public (bool hasInfo, string playerName, string lastPlayTime, string currentStag) GetSlotInfo(int slotNumber)
+    {
+        SetSlotNum(slotNumber);
+        if (!Directory.Exists(slotFolderPath) || !(HasSaveDataFile(Define.SaveKey.PlayerData)&&HasSaveDataFile(Define.SaveKey.StatisticData)))
+        {
+            return (false, "", "", ""); // 슬롯이 비어 있는 경우
+        }
+        
+        string playerName = "Unknown";
+        string currentStage = "Stage1";
+        string lastPlayTime = "N/A";
+        
+        PlayerData playerData = LoadData<PlayerData>(Define.SaveKey.PlayerData);
+        StatisticData statisticData = LoadData<StatisticData>(Define.SaveKey.StatisticData);
+        
+        playerName = playerData.playerName;
+        currentStage = playerData.currentStage;
+        lastPlayTime = statisticData.lastPlayTime;
+        
+        // //플레이어 이름
+        // if (HasSaveDataFile(Define.SaveKey.PlayerData))
+        // {
+        //     
+        //
+        // }
+        //
+        // if (HasSaveDataFile(Define.SaveKey.StatisticData))
+        // {
+        //     
+        // }
+
+        return (true, playerName, lastPlayTime, currentStage);
+
+
+    }
+
+    #endregion
 
 
     #region comment

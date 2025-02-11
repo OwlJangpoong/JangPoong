@@ -128,6 +128,9 @@ public class Monster : MonoBehaviour
     protected virtual void OnDie()
     {
         Debug.Log("쥬금");
+        // ✅ 몬스터 처치 횟수 증가
+        Managers.Game.Statistic.killCnt++;
+        Managers.Game.SaveStatisticData();
         
         //레이어 변경
         gameObject.layer = (int)Define.Layer.MonsterDie;
