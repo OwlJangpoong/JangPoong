@@ -125,9 +125,10 @@
             { "1-3 고블린 퇴치", "1-3 goblin fight" },
             { "1-4 마왕의 숲", "1-4 Dialogue with Slivan" },
             { "2-1 마왕의 숲", "2-1 to demon castle" },
-            {"2-2-2 실비아 구출","2-2-2 saving silvia"},
-            { "2-2 마왕성 앞 묘지", "2-2 to demon castle" },
-            { "2-3 마왕성", "2-3 inside the castle" },
+            {"2-2-1 실비아 구출","2-2-2 saving silvia"},
+            { "2-2-2 마왕성 앞 묘지", "2-2 to demon castle" },
+            { "2-3-1 마왕성", "2-3 inside the castle" },
+            {"2-3-2 마왕과의 전투", "Boss fight"},
             {"엔딩","Ending cut scene"}
         };
         

@@ -6,14 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="8d60103f-3d9b-4716-9d1c-3d51d042b424" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.JangPoong/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.JangPoong/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Background/METROIDVANIA KIT/Prefabs/Rooms/Room 13.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Background/METROIDVANIA KIT/Prefabs/Rooms/Room 13.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/Scene/UI_Game_Root.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/Scene/UI_Game_Root.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/WorldSpace/UI_HPBar.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/WorldSpace/UI_HPBar.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animations/Anim_Monster/Nokmor/Monster_Nokmor.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Animations/Anim_Monster/Nokmor/Monster_Nokmor.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animations/Anim_Monster/Nokmor/Monster_Nokmor_Attack.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animations/Anim_Monster/Nokmor/Monster_Nokmor_Attack.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Textures/Monster/Nokmor/Nok_attack.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Textures/Monster/Nokmor/Nok_attack.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Textures/Monster/Nokmor/Nok_idle.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Textures/Monster/Nokmor/Nok_idle.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Boss fight.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Boss fight.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/DataManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/DataManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Common/Define.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Common/Define.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Common/MovementRigidbody2D.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Common/MovementRigidbody2D.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Monsters/Monster.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Monsters/Monster.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Monsters/MonsterStat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Monsters/MonsterStat.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/WorldSpace/UI_HPBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/WorldSpace/UI_HPBar.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Monsters/MonsterWeaponCollider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Monsters/MonsterWeaponCollider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Monsters/Nokmor/MonsterNokmor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Monsters/Nokmor/MonsterNokmor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerStatsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerStatsController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +60,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/7a/8bd2ddf8/Dictionary`2.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/92f8bbba597a4c848e8aa06f7ebfe3ad175800/0f/b13ceafb/WaitForSeconds.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/92f8bbba597a4c848e8aa06f7ebfe3ad175800/54/b1a36628/Material.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fdbab843553a4ff69492fc4e6ce1a29f20a00/60/95c56634/ForceMode2D.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="false" />
   <component name="ProjectColorInfo">{

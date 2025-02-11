@@ -54,7 +54,7 @@ public class Monster : MonoBehaviour
     [Header("Loot")] public List<LootItem> lootTable = new();
 
 
-    private Animator anim;
+    protected Animator anim;
     
     protected virtual void Start()
     {
