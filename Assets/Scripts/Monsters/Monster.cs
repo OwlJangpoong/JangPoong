@@ -56,7 +56,7 @@ public class Monster : MonoBehaviour
 
     private Animator anim;
     
-    private void Start()
+    protected virtual void Start()
     {
         Init(); //초기화
         
