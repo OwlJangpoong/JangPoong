@@ -95,8 +95,23 @@ public class Mon_MovementRigidbody2D : MonoBehaviour
     {
         // x축 방향 속력을 x * moveSpeed로 설정
         rigid2D.velocity = new Vector2(x * moveSpeed, rigid2D.velocity.y);
-        anim.SetFloat("velocityX",Mathf.Abs(x));
+        if (HasParameter(anim, "velocityX"))
+        {
+            anim.SetFloat("velocityX", Mathf.Abs(x));
+        }
         
+    }
+    
+    bool HasParameter(Animator animator, string paramName)
+    {
+        foreach (AnimatorControllerParameter param in animator.parameters)
+        {
+            if (param.name == paramName)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     private void UpdateCollision()

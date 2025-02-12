@@ -35,7 +35,6 @@ public class DataManager
         }
         // 2. 있으면 setting 데이터 파일이 존재할 것. setting 데이터 파일을 로드한다.
         
-        SetSlotNum(4);
     }
 
   

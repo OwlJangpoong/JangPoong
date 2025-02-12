@@ -3242,33 +3242,9 @@ PrefabInstance:
       propertyPath: minMoveX
       value: 
       objectReference: {fileID: 686553079}
-    - target: {fileID: 1475970728782054884, guid: c987cd261a881498eb5c5dcad99fb503, type: 3}
-      propertyPath: scanRange
-      value: 6.29
-      objectReference: {fileID: 0}
-    - target: {fileID: 1475970728782054884, guid: c987cd261a881498eb5c5dcad99fb503, type: 3}
-      propertyPath: attackRange
-      value: 3.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 1475970728782054884, guid: c987cd261a881498eb5c5dcad99fb503, type: 3}
-      propertyPath: spawnRadius
-      value: 2.05
-      objectReference: {fileID: 0}
     - target: {fileID: 4797538920974389882, guid: c987cd261a881498eb5c5dcad99fb503, type: 3}
       propertyPath: m_Name
       value: Monster_Nokmor
-      objectReference: {fileID: 0}
-    - target: {fileID: 4901858099717989342, guid: c987cd261a881498eb5c5dcad99fb503, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4901858099717989342, guid: c987cd261a881498eb5c5dcad99fb503, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4901858099717989342, guid: c987cd261a881498eb5c5dcad99fb503, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 4901858099717989342, guid: c987cd261a881498eb5c5dcad99fb503, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3309,10 +3285,6 @@ PrefabInstance:
     - target: {fileID: 4901858099717989342, guid: c987cd261a881498eb5c5dcad99fb503, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6645395631459886255, guid: c987cd261a881498eb5c5dcad99fb503, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.23
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

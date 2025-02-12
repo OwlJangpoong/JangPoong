@@ -27,6 +27,11 @@ public class InventoryManager
         _isInitialized = true;
 
     }
+    public void ForceInit()
+    {
+        _isInitialized = false;
+        Init();
+    }
 
     #region Inventory Interface
     

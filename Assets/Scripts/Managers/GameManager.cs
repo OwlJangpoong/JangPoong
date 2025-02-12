@@ -229,6 +229,21 @@ public class GameManager
 
     #endregion
 
+
+
+    public void LoadBattleData()
+    {
+        _player = Managers.Data.LoadInitData<PlayerData>(Define.SaveKey.BattlePlayerData);
+        Managers.Data.SaveData(Define.SaveKey.PlayerData, _player);
+        
+        _gameInventory = Managers.Data.LoadInitData<InventoryData>(Define.SaveKey.BattleInventoryData);
+        Managers.Data.SaveData(Define.SaveKey.InventoryData, _gameInventory);
+        _statistic = null;
+        LoadStatisticData();
+        
+        
+    }
+
     
     
 

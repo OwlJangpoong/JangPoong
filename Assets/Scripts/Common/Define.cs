@@ -91,6 +91,8 @@
             StatisticData,
             SettingData,
             InventoryData,
+            BattleInventoryData,
+            BattlePlayerData,
 
         }
         
@@ -110,7 +112,9 @@
             { "ProgressData", "Progress.json" },
             { "StatisticData", "Statistic.json" },
             { "SettingData", "Setting.json" },
-            {"InventoryData", "Inventory.json"}
+            {"InventoryData", "Inventory.json"},
+            {"BattleInventoryData", "BattleInventory.json"},
+            {"BattlePlayerData", "BattlePlayerData.json"},
 
         };
 
