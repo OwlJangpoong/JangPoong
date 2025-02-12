@@ -13,7 +13,7 @@ public class GoToBossBattle : MonoBehaviour
         button = GetComponent<Button>();
         button.onClick.RemoveListener(GoToBoss);
         button.onClick.AddListener(GoToBoss);
-        Debug.Log("aafafasfasfasf");
+        
         
     }
 

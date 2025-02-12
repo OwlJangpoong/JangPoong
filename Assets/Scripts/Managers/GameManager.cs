@@ -244,6 +244,14 @@ public class GameManager
         
     }
 
+    public void ResetDataClass()
+    {
+        // _setting = null;
+        _player = null;
+        _gameInventory = null;
+        _statistic = null;
+    }
+
     
     
 

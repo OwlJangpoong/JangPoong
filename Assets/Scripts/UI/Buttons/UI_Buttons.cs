@@ -17,8 +17,9 @@ public class UI_Buttons: MonoBehaviour
         
         //필요한 데이터 파일 초기화 및 셋팅
         //Inventory Data, PlayerData, StatisticData, ProgressData
-        Managers.Player.Init();
-        Managers.Inventory.Init();
+        Managers.Game.ResetDataClass();
+        Managers.Player.ForceInit();
+        Managers.Inventory.ForceInit();
         //통계데이터
         Managers.Game.LoadStatisticData();
         //프로그래스 데이터

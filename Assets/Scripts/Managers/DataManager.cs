@@ -182,6 +182,8 @@ public class DataManager
         this.slotNum = slotNum;
         string slot = "Slot" + slotNum;
         
+        Debug.Log($"Current Slot Num : {this.slotNum}");
+        
         slotFolderPath = Path.Combine(Application.persistentDataPath, "SaveData", slot);
         if (!Directory.Exists(slotFolderPath))
         {
