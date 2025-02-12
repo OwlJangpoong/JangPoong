@@ -179,7 +179,7 @@ public class DataManager
     
     public void SetSlotNum(int slotNum)
     {
-        // this.slotNum = slotNum;
+        this.slotNum = slotNum;
         string slot = "Slot" + slotNum;
         
         slotFolderPath = Path.Combine(Application.persistentDataPath, "SaveData", slot);
