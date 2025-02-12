@@ -3242,6 +3242,10 @@ PrefabInstance:
       propertyPath: minMoveX
       value: 
       objectReference: {fileID: 686553079}
+    - target: {fileID: 2258751327251085120, guid: c987cd261a881498eb5c5dcad99fb503, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4797538920974389882, guid: c987cd261a881498eb5c5dcad99fb503, type: 3}
       propertyPath: m_Name
       value: Monster_Nokmor
@@ -3285,6 +3289,10 @@ PrefabInstance:
     - target: {fileID: 4901858099717989342, guid: c987cd261a881498eb5c5dcad99fb503, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8435878210542005400, guid: c987cd261a881498eb5c5dcad99fb503, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.78
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
