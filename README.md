@@ -35,5 +35,5 @@
 |이도현|코더|[@rnrgll](https://github.com/rnrgll)|
 |이다인|코더|[@TIME0227](https://github.com/TIME0227)|
 |이홍연|코더|[@HongYeonLee](https://github.com/HongYeonLee)|
-|김유민|그래픽|[@김유민](https://github.com/rladbals4951)|
+|김유민|그래픽|[@rladbals4951](https://github.com/rladbals4951)|
 |김나은|그래픽|[@naeun0825](https://github.com/naeun0825)|
