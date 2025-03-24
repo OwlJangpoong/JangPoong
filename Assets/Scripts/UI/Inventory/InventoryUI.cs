@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Serialization;
+using UnityEngine.SceneManagement;
 
 public class InventoryUI : MonoBehaviour
 {
@@ -141,8 +142,31 @@ public class InventoryUI : MonoBehaviour
 
         // 투명도 설정
         Color color = itemImg.color;
-        color.a = itemCount == 0 ? 0.5f : 1f; // 아이템 개수가 0개 일 경우 투명도 50%, 아닐 경우 100%
-        itemImg.color = color;
+
+        // 투명화 포션 처리
+        if (itemType.ToString() == "invisibilityPotion")
+        {
+            // 씬 인덱스를 기준으로 2-1 이후의 씬을 확인
+            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+            // 2-1 이후 씬에서는 다른 아이템들과 동일한 로직을 적용
+            if (currentSceneIndex >= 14)
+            {
+                item.SetActive(true);
+                color.a = itemCount == 0 ? 0.5f : 1f; // 2-1 이후부터는 다른 아이템들과 동일한 로직 적용
+            }
+            else
+            {
+                item.SetActive(false); // 씬 2-1 전까지는 투명도 0%
+            }
+        }
+        else
+        {
+            // 다른 아이템들의 경우
+            color.a = itemCount == 0 ? 0.5f : 1f; // 개수에 따라 투명도 설정
+        }
+
+    itemImg.color = color;
     }
 
     private bool CanUse(Define.Item itemType)
