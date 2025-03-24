@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Serialization;
 
@@ -112,7 +113,7 @@ public class InventoryUI : MonoBehaviour
     //코드 리팩토링 : 아이템 사용 체크 관련 코드 간소화 및 중복 코드 정리를 위한 메소드 생성
     private void CheckItemUse(KeyCode key, Define.Item itemType, float sec, float increase,
         System.Func<Define.Item, float, float, IEnumerator> effectCoroutine)
-    {
+    {   
         
         //hp, mana full인 상태에서 아이템 사용 방지 처리
         if (Input.GetKeyDown(key) && Managers.Inventory.GetItemCount(itemType) > 0)
@@ -128,6 +129,20 @@ public class InventoryUI : MonoBehaviour
             Debug.Log($"{itemType} used");
             UpdateItemCntTextUI();
         }
+
+        // 아이템 개수가 0일 때 투명도 50% 처리
+        // 자식 오브젝트 찾기
+        GameObject item = transform.Find(itemType.ToString()).gameObject;
+
+        Image itemImg = item.GetComponent<Image>();
+
+        // 아이템 개수 체크
+        int itemCount = Managers.Inventory.GetItemCount(itemType);
+
+        // 투명도 설정
+        Color color = itemImg.color;
+        color.a = itemCount == 0 ? 0.5f : 1f; // 아이템 개수가 0개 일 경우 투명도 50%, 아닐 경우 100%
+        itemImg.color = color;
     }
 
     private bool CanUse(Define.Item itemType)

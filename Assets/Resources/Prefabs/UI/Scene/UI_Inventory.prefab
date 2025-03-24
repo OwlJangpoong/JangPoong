@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 6028399220872467796}
   - component: {fileID: 2005032019052578613}
   m_Layer: 5
-  m_Name: mpLargePotion
+  m_Name: mpPotionLarge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -515,7 +515,7 @@ GameObject:
   - component: {fileID: 1313936253487421820}
   - component: {fileID: 3618522139506529911}
   m_Layer: 5
-  m_Name: hpLargePotion
+  m_Name: hpPotionLarge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -592,7 +592,7 @@ GameObject:
   - component: {fileID: 2839775202642421194}
   - component: {fileID: 3411145748605189535}
   m_Layer: 5
-  m_Name: invisPotion
+  m_Name: invisibilityPotion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -803,7 +803,7 @@ GameObject:
   - component: {fileID: 5278113384065200740}
   - component: {fileID: 5070331949624940307}
   m_Layer: 5
-  m_Name: hpSmallPotion
+  m_Name: hpPotionSmall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1148,7 +1148,7 @@ GameObject:
   - component: {fileID: 5220153193287980048}
   - component: {fileID: 3947010711537421455}
   m_Layer: 5
-  m_Name: mpSmallPotion
+  m_Name: mpPotionSmall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
