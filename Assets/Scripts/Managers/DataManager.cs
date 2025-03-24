@@ -34,6 +34,7 @@ public class DataManager
             // SaveData<SettingData>(Define.SaveKey.SettingData, Managers.Game.SettingData);
         }
         // 2. 있으면 setting 데이터 파일이 존재할 것. setting 데이터 파일을 로드한다.
+        
     }
 
   
@@ -178,8 +179,10 @@ public class DataManager
     
     public void SetSlotNum(int slotNum)
     {
-        // this.slotNum = slotNum;
+        this.slotNum = slotNum;
         string slot = "Slot" + slotNum;
+        
+        Debug.Log($"Current Slot Num : {this.slotNum}");
         
         slotFolderPath = Path.Combine(Application.persistentDataPath, "SaveData", slot);
         if (!Directory.Exists(slotFolderPath))

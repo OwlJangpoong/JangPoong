@@ -8,6 +8,8 @@ TagManager:
   - UI_Root
   - OneWayPlatform
   - Boss fight
+  - FxTemporaire
+  - Trigger
   layers:
   - Default
   - TransparentFX
@@ -30,7 +32,7 @@ TagManager:
   - BackGround
   - MonsterDie
   - ParallaxLayer
-  - 
+  - MonsterWall
   - 
   - 
   - 

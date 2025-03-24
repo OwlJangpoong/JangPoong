@@ -18,7 +18,7 @@ public abstract class NPC : MonoBehaviour, IInteractable
         _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         if (Keyboard.current.fKey.wasPressedThisFrame && isWithInInteractDistance() || Input.GetMouseButtonDown(0) && isWithInInteractDistance())
         {

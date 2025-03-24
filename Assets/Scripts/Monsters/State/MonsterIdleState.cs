@@ -6,10 +6,10 @@ using Random = UnityEngine.Random;
 
 public class MonsterIdleState : StateMachineBehaviour
 {
-    private Monster monster;
-    private Transform monsterTransform;
-    private bool hasDest = false;
-    private Vector3 destination;
+    protected Monster monster;
+    protected Transform monsterTransform;
+    protected bool hasDest = false;
+    protected Vector3 destination;
     
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

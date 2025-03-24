@@ -54,7 +54,7 @@ EditorBuildSettings:
     path: Assets/Scenes/0-3 tutorial.unity
     guid: b92d2f3916487c446ba0ddb22f1ecf8b
   - enabled: 1
-    path: Assets/Scenes/Statistic_Temp.unity
+    path: Assets/Scenes/Samples/Statistic_Temp.unity
     guid: bba9e69906a8e42319c0648380a9bfa4
   - enabled: 1
     path: Assets/Scenes/2-2-2 saving silvia.unity
@@ -65,4 +65,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Ending cut scene.unity
     guid: d39f9dd57f2e8441f9a5c066599452ef
+  - enabled: 1
+    path: Assets/Scenes/Boss fight.unity
+    guid: f8d52b6abfb00479ab21dae4a51058cf
+  - enabled: 1
+    path: Assets/Scenes/2-3-2 inside the castle.unity
+    guid: 5a3ea707fabaf403b8946acd6ff6f7ad
   m_configObjects: {}

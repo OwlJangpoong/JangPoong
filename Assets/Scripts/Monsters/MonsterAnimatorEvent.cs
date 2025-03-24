@@ -15,4 +15,9 @@ public class MonsterAnimatorEvent : MonoBehaviour
     {
         weaponCollider.AttackPlayerByWeapon();
     }
+
+    public void IncreaseSize()
+    {
+        transform.localScale = transform.localScale * 10;
+    }
 }

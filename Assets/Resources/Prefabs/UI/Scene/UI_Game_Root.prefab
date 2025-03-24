@@ -1641,10 +1641,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4962886722492015778}
   - {fileID: 6010789147410095260}
   - {fileID: 5655731385080788078}
   - {fileID: 622617077990035577}
+  - {fileID: 4962886722492015778}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8865920854715675375
@@ -1674,6 +1674,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b96ca7c71cba9487881925eccb163499, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadePanel: {fileID: 0}
 --- !u!114 &1596790659119132697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5047,13 +5048,17 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 2298380177795037188, guid: 38c03a57e7d6642558337e64ef3f3ec4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2633488161862176517, guid: 38c03a57e7d6642558337e64ef3f3ec4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -167
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2633488161862176517, guid: 38c03a57e7d6642558337e64ef3f3ec4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.553
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2633488161862176517, guid: 38c03a57e7d6642558337e64ef3f3ec4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5093,6 +5098,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2977272238794613427, guid: 38c03a57e7d6642558337e64ef3f3ec4, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3270185875576025425, guid: 38c03a57e7d6642558337e64ef3f3ec4, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3270185875576025425, guid: 38c03a57e7d6642558337e64ef3f3ec4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3270185875576025425, guid: 38c03a57e7d6642558337e64ef3f3ec4, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3270185875576025425, guid: 38c03a57e7d6642558337e64ef3f3ec4, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3270185875576025425, guid: 38c03a57e7d6642558337e64ef3f3ec4, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3270185875576025425, guid: 38c03a57e7d6642558337e64ef3f3ec4, type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5273810490629454234, guid: 38c03a57e7d6642558337e64ef3f3ec4, type: 3}
@@ -5210,6 +5239,22 @@ PrefabInstance:
     - target: {fileID: 5273810490629454234, guid: 38c03a57e7d6642558337e64ef3f3ec4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5907377226071792100, guid: 38c03a57e7d6642558337e64ef3f3ec4, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5907377226071792100, guid: 38c03a57e7d6642558337e64ef3f3ec4, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5963181117401749096, guid: 38c03a57e7d6642558337e64ef3f3ec4, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5963181117401749096, guid: 38c03a57e7d6642558337e64ef3f3ec4, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5990170813386582613, guid: 38c03a57e7d6642558337e64ef3f3ec4, type: 3}
       propertyPath: m_AnchorMax.x

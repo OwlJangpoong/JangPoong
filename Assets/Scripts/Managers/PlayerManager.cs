@@ -89,6 +89,12 @@ public class PlayerManager
         _isInitialized = true;
     }
 
+    public void ForceInit()
+    {
+        _isInitialized = false;
+        Init();
+    }
+
     #endregion
 
     #region PlayerStats Interface (Set Player Stats : Set 메소드 모음)

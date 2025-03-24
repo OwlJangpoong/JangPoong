@@ -75,6 +75,11 @@ public class NewPlayerMovement : MonoBehaviour
 
     [SerializeField] private GameObject levelUpEffect;
 
+    
+    
+    //키업력 방지 플래그
+    public bool isInputBlocked = false; // 입력 차단 변수 추가
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -139,7 +144,10 @@ public class NewPlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if(UI_GamePopUp.isPaused) return;
+        if (UI_GamePopUp.isPaused || isInputBlocked)
+        {
+            return;
+        }
         Jump();
         UpdateSlide();
         UpdateRun();
@@ -159,6 +167,14 @@ public class NewPlayerMovement : MonoBehaviour
     // 물리 엔진 업데이트되는 함수
     void FixedUpdate()
     {
+        if (isInputBlocked) // ✅ 입력 차단되면 움직이지 않음
+        {
+            movement.MoveTo(0);
+            playerAnimator.animator.SetBool("isWalking",false);
+            return;
+        }
+        
+        
         // 기본 이동
         float x = GetHorizontalInput();
 

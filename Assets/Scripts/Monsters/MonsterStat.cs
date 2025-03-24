@@ -8,7 +8,8 @@ public class MonsterStat : MonoBehaviour
     public Action DieAction = null;
     
     public MonsterData monsterData;
-    private float currentHp;
+    protected float currentHp;
+    [SerializeField] private UI_HPBar uiHpBar;
 
     public float CurrentHp
     {
@@ -36,15 +37,19 @@ public class MonsterStat : MonoBehaviour
 
     }
     
-    //플레이어의 장풍 공격력을 가져오는 걸로 수정할 예정
-    public void OnAttacked(float damage)
+    public virtual void OnAttacked(float damage)
     {
         //움직임 정지
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.velocity = new Vector2(0, rb.velocity.y);
         //HP bar 보이기
-        gameObject.GetComponentInChildren<UI_HPBar>(true).ShowHP();
-        if (damage < currentHp)
+        if (uiHpBar == null)
+        {
+            uiHpBar = gameObject.GetComponentInChildren<UI_HPBar>(true);
+        }
+        uiHpBar.ShowHP();
+        
+        if (damage < CurrentHp)
         {
             GetComponentInChildren<SpriteRenderer>().color = Color.red;
             StartCoroutine(CoChangeColorWithDelay(Color.white, 0.5f));
@@ -60,7 +65,7 @@ public class MonsterStat : MonoBehaviour
     /// <param name="color">적용할 색상</param>
     /// <param name="delay">초</param>
     /// <returns></returns>
-    private IEnumerator CoChangeColorWithDelay(Color color, float delay)
+    protected IEnumerator CoChangeColorWithDelay(Color color, float delay)
     {
         yield return new WaitForSeconds(delay);
         GetComponentInChildren<SpriteRenderer>().color = color;

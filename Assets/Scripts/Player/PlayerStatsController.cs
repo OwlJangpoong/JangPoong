@@ -22,6 +22,11 @@ public class PlayerStatsController : MonoBehaviour
     public float invisibleDuration = 15;
     
     
+    //넉백
+    private bool isKnockedBack = false;
+    
+    
+    
     //플레이어 관련 컴포넌트
     [SerializeField] private SpriteRenderer spriteRenderer;
     private Color originColor;
@@ -94,6 +99,23 @@ public class PlayerStatsController : MonoBehaviour
         //2. 체력 감소 처리
         Managers.Player.SetHp(Managers.Player.Hp-damage);
     }
+    
+    
+    public void LoseMP(int amount)
+    {
+        if (amount <= 0)
+        {
+            Debug.Log("오류 : 몬스터의 마나 흡수율이 0 또는 음수입니다!!");
+            return;
+        }
+        //마나 감소 처리
+        Managers.Player.SetMana(Managers.Player.Mana-amount);
+    }
+    
+    
+    //넉백
+   
+    
 
     #region 무적상태
 

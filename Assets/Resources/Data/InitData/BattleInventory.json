@@ -1,0 +1,9 @@
+{
+  "items": {
+    "hpPotionSmall": 15,
+    "hpPotionLarge": 15,
+    "mpPotionSmall": 15,
+    "mpPotionLarge": 15,
+    "invisibilityPotion": 3
+  }
+}

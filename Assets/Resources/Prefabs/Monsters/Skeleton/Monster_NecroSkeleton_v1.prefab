@@ -587,7 +587,11 @@ MonoBehaviour:
   thinkTime: 2
   targetTime: 1
   attackCoolTime: 13
-  lootTable: []
+  lootTable:
+  - item: 4
+    dropChance: 30.1
+  - item: 3
+    dropChance: 12.2
   magicCircle: {fileID: 5067897066986916068}
   miniPrefab: {fileID: 5001123370319208212, guid: 2ac324876f0dade40b98b7936b926675, type: 3}
   spawnRangeX: 5

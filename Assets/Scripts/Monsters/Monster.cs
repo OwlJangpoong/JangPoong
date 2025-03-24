@@ -54,12 +54,12 @@ public class Monster : MonoBehaviour
     [Header("Loot")] public List<LootItem> lootTable = new();
 
 
-    private Animator anim;
+    protected Animator anim;
     
-    private void Start()
+    protected virtual void Start()
     {
         Init(); //초기화
-        
+        Debug.Log("af;af;alsfj;l");
         //UI hp bar 설정
         if (gameObject.GetComponentInChildren<UI_HPBar>() == null)
         {
@@ -92,6 +92,7 @@ public class Monster : MonoBehaviour
     #region Event Functions
     public virtual void Init()
     {
+        
         stat = gameObject.GetComponent<MonsterStat>();
         
         MonsterData md = Managers.Resource.Load<MonsterData>($"Data/Monster/{statFileName}");
