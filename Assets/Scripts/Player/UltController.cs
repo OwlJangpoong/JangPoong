@@ -8,8 +8,8 @@ using UnityEngine.Serialization;
 public class UltController : MonoBehaviour
 {  
     [Header("Ult Stats")]
-    [SerializeField] private float ultSpeed = 5.0f; //일반 장풍의 1/2 속도
-    [SerializeField] private float ultDamage = 20f;
+    [SerializeField] private float ultSpeed = 7.5f; //일반 장풍의 1/2 속도 -> 1.5배 증가 (250325 다인)
+    [SerializeField] private float ultDamage = 30f; // 1.5배 증가 (250325 다인)
     
     [SerializeField] public Vector2 ultDirection;
     

@@ -183,6 +183,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b0238d84934f7e4f86bcba7cc665583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ultSpeed: 5
-  ultDamage: 20
+  ultSpeed: 7.5
+  ultDamage: 30
   ultDirection: {x: 0, y: 0}

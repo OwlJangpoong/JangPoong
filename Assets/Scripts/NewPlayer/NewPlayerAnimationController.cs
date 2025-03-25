@@ -106,4 +106,15 @@ public class NewPlayerAnimationController : MonoBehaviour
         animator.SetBool("Dead", true);
         // Debug.Log("플레이어 쥬금");
     }
+
+    // 웅크리기
+    public void PlayerDown()
+    {
+        animator.SetBool("isDown", true);
+    }
+
+    public void PlayerUp()
+    {
+        animator.SetBool("isDown", false);
+    }
 }

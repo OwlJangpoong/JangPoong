@@ -129,6 +129,7 @@ MonoBehaviour:
   gameOver: {fileID: 0}
   gameOverFlag: 0
   levelUpEffect: {fileID: 8771972552311404799, guid: bbf9e36a48d6c5648a13889afab076fd, type: 3}
+  isInputBlocked: 0
 --- !u!114 &2307299929205390895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,7 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manaRegenerationRate: 3
   invincibilityDuration: 2
-  invisibleDuration: 15
+  invisibleDuration: 5
   spriteRenderer: {fileID: 2966149447988133855}
 --- !u!1 &8182224592885942463
 GameObject:
