@@ -184,5 +184,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ultSpeed: 7.5
-  ultDamage: 30
+  ultDamage: 20
   ultDirection: {x: 0, y: 0}
