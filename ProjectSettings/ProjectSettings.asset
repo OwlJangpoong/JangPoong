@@ -934,11 +934,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: da665468-e842-4a7d-9629-63ff8f8d22f3
+  cloudProjectId: 2400072e-2c52-46ee-bd8c-69efb6b58510
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Jangpung
-  organizationId: dohyunacy225
+  projectName: JangPoong
+  organizationId: ketchupmaster123
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
