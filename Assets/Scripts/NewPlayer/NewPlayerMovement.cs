@@ -211,7 +211,7 @@ public class NewPlayerMovement : MonoBehaviour
 
     }
 
-    // 웅크리기
+    #region 웅크리기
     private void UpdateDown()
     {
         if (isGround)
@@ -238,6 +238,7 @@ public class NewPlayerMovement : MonoBehaviour
             }
         }
     }
+    #endregion
 
     #region 이동 & 점프 & 더블 점프
     private float GetHorizontalInput()
@@ -445,7 +446,7 @@ public class NewPlayerMovement : MonoBehaviour
                 
 
                 Vector3 spawnPosition = transform.position;
-                spawnPosition.y += isSliding ? -0.38f : -0.08f;     // 슬라이딩 시에는 y값 -0.08f에서 장풍 발사되도록
+                spawnPosition.y += (isSliding || isDown) ? -0.38f : -0.08f;     // 슬라이딩, 웅크리기 시에는 y값 -0.08f에서 장풍 발사되도록
 
                 GameObject jangPoong =
                     Instantiate(Managers.Player.jangPoongPrefab_list[Managers.Player.CurrentJangPoongLevel],

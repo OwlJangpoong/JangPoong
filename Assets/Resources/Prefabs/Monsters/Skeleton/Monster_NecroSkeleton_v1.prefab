@@ -487,6 +487,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsterData: {fileID: 11400000, guid: 8f99e06e4d7e6a44c9b3476cf25fd46d, type: 2}
+  uiHpBar: {fileID: 0}
   currentDamage: 0
 --- !u!70 &1846658688214030978
 CapsuleCollider2D:
