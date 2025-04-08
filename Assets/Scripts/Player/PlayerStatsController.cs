@@ -19,7 +19,7 @@ public class PlayerStatsController : MonoBehaviour
     
     //Invisibility 투명화
     public bool IsInvisible { get; set; } = false;
-    public float invisibleDuration = 15;
+    public float invisibleDuration = 5; // 15 -> 5초로 수정 (250325 다인)
     
     
     //넉백

@@ -8,7 +8,7 @@ using UnityEngine.Serialization;
 public class UltController : MonoBehaviour
 {  
     [Header("Ult Stats")]
-    [SerializeField] private float ultSpeed = 5.0f; //일반 장풍의 1/2 속도
+    [SerializeField] private float ultSpeed = 7.5f; //일반 장풍의 1/2 속도 -> 1.5배 증가 (250325 다인)
     [SerializeField] private float ultDamage = 20f;
     
     [SerializeField] public Vector2 ultDirection;
@@ -55,7 +55,7 @@ public class UltController : MonoBehaviour
         transform.localScale = new Vector3((ultDirection.x > 0 ? 1f : -1f), 1f, 1f);// 궁극기 크기는 장풍의 2배 크기
         
         //alive time
-        aliveTime = 5f;
+        aliveTime = 1.5f; // 5초 에서 1.5초로 변경 (250325 다인)
     }
     
     

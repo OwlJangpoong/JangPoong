@@ -66,6 +66,7 @@ public class NewPlayerMovement : MonoBehaviour
     public bool isJumping = false;
     public bool isDoubleJumping = false;
     //public bool isRunning = false;  // 달리기 중이면 true //전역 관리로 변경(250204)
+    public bool isDown = false;
 
     [NonSerialized] public float slideSpeed = 7.0f;  // 슬라이딩 속도
 
@@ -153,6 +154,7 @@ public class NewPlayerMovement : MonoBehaviour
         UpdateRun();
         UpdateJangPoong();
         UpdateUlt();
+        UpdateDown();
 
         // 기본 이동, HandleSliding 파트 FixedUpdate문으로 옮김 (250201 다인)
 
@@ -178,7 +180,7 @@ public class NewPlayerMovement : MonoBehaviour
         // 기본 이동
         float x = GetHorizontalInput();
 
-        if (gameOverFlag == true)
+        if (gameOverFlag == true || isDown)
         {
             movement.MoveTo(0);
         }
@@ -209,6 +211,43 @@ public class NewPlayerMovement : MonoBehaviour
 
     }
 
+    #region 웅크리기
+    private void UpdateDown()
+    {
+        if (isGround)
+        {
+            if (Input.GetKeyDown(Managers.KeyBind.GetKeyCode(Define.ControlKey.slideKey)))
+            {
+                isDown = true;
+
+                // Player Collider 크기와 위치 조정
+                CapsuleCollider2D.size = new Vector2(4.255104f, 4.660773f);
+                CapsuleCollider2D.offset = new Vector2(0.5280471f, -2.357519f);
+
+                playerAnimator.PlayerDown();
+            }
+            if (Input.GetKeyUp(Managers.KeyBind.GetKeyCode(Define.ControlKey.slideKey)))
+            {
+                playerUp();
+            }
+            /*            if (!Input.GetKey(Managers.KeyBind.GetKeyCode(Define.ControlKey.slideKey)) && isDown)
+                        {
+                            playerUp();
+                        }*/
+        }
+    }
+
+    public void playerUp()
+    {
+        isDown = false;
+
+        // Player Collider 크기 및 위치 원래대로 복구
+        CapsuleCollider2D.size = originalColliderSize;
+        CapsuleCollider2D.offset = originalColliderOffset;
+
+        playerAnimator.PlayerUp();
+    }
+    #endregion
 
     #region 이동 & 점프 & 더블 점프
     private float GetHorizontalInput()
@@ -251,6 +290,12 @@ public class NewPlayerMovement : MonoBehaviour
                 isJumping = true;
                 isDoubleJumping = false;  // 첫 점프에서는 더블 점프 false로 유지
                 doubleJumpState = true; // 더블 점프 가능
+
+                // 웅크리기 상태면 웅크린 상태 해제
+                if (isDown)
+                {
+                    playerUp();
+                }
             }
             // 더블 점프
             else if (doubleJumpState && Input.GetKeyDown(Managers.KeyBind.GetKeyCode(Define.ControlKey.jumpKey)))
@@ -285,9 +330,10 @@ public class NewPlayerMovement : MonoBehaviour
     #region 슬라이딩
     private void UpdateSlide()
     {
-        if (isGround)
+        if (isGround && isDown)
         {
-            if (Input.GetKeyDown(Managers.KeyBind.GetKeyCode(Define.ControlKey.slideKey)))  // 슬라이딩 키 눌렀을 때
+            if (Input.GetKeyDown(Managers.KeyBind.GetKeyCode(Define.ControlKey.rightKey)) ||
+                Input.GetKeyDown(Managers.KeyBind.GetKeyCode(Define.ControlKey.leftKey)))  // 웅크리기 상태에서 좌우이동키 눌렀을 때
             {
                 if (!isSliding)
                 {
@@ -309,9 +355,21 @@ public class NewPlayerMovement : MonoBehaviour
         slideRemainingDistance = Managers.Player.IsRunning ? slideDistance*speedMultiplier : slideDistance;
         slideDirection = new Vector2(transformForSpriteControl.localScale.x, 0).normalized; //Player 프리팹 구조 변경으로 인한 코드 수정(250122)
 
-        // Player Collider 크기와 위치 조정
+        /*// Player Collider 크기와 위치 조정
         CapsuleCollider2D.size = new Vector2(4.255104f, 4.660773f);
-        CapsuleCollider2D.offset = new Vector2(0.5280471f, -2.357519f);
+        CapsuleCollider2D.offset = new Vector2(0.5280471f, -2.357519f);*/
+
+        // 누른 좌우이동키에 따른 방향 설정
+        if (Input.GetKey(Managers.KeyBind.GetKeyCode(Define.ControlKey.rightKey)))
+        {
+            transformForSpriteControl.localScale = new Vector3(1, transformForSpriteControl.localScale.y, transformForSpriteControl.localScale.z);
+            slideDirection = Vector2.right;
+        }
+        else if (Input.GetKey(Managers.KeyBind.GetKeyCode(Define.ControlKey.leftKey)))
+        {
+            transformForSpriteControl.localScale = new Vector3(-1, transformForSpriteControl.localScale.y, transformForSpriteControl.localScale.z);
+            slideDirection = Vector2.left;
+        }
 
         // 슬라이딩 애니메이션 시작
         playerAnimator.StartSliding();
@@ -358,9 +416,9 @@ public class NewPlayerMovement : MonoBehaviour
     private void EndSlide()
     {
         isSliding = false;
-        // Player Collider 크기 및 위치 원래대로 복구
+        /*// Player Collider 크기 및 위치 원래대로 복구
         CapsuleCollider2D.size = originalColliderSize;
-        CapsuleCollider2D.offset = originalColliderOffset;
+        CapsuleCollider2D.offset = originalColliderOffset;*/
         rb.velocity = Vector2.zero;  // 속도 초기화
 
         // 슬라이딩 종료 애니메이션
@@ -391,6 +449,7 @@ public class NewPlayerMovement : MonoBehaviour
         }
         if (Input.GetKeyDown(Managers.KeyBind.GetKeyCode(Define.ControlKey.attackKey)))    // c키 로 장풍 발사
         {
+
             if (Managers.Player.Mana >= playerStatsController.ManaConsumption)
             {
                 // ✅ 장풍 사용 횟수 증가
@@ -403,7 +462,7 @@ public class NewPlayerMovement : MonoBehaviour
                 
 
                 Vector3 spawnPosition = transform.position;
-                spawnPosition.y += isSliding ? -0.38f : -0.08f;     // 슬라이딩 시에는 y값 -0.08f에서 장풍 발사되도록
+                spawnPosition.y += (isSliding || isDown) ? -0.38f : -0.08f;     // 슬라이딩, 웅크리기 시에는 y값 -0.08f에서 장풍 발사되도록
 
                 GameObject jangPoong =
                     Instantiate(Managers.Player.jangPoongPrefab_list[Managers.Player.CurrentJangPoongLevel],

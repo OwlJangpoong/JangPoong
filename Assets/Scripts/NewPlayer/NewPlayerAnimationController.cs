@@ -76,28 +76,13 @@ public class NewPlayerAnimationController : MonoBehaviour
     // player 장풍 애니메이션
     public void JangPoongShooting()
     {
-        // Debug.Log("장풍 애니메이션");
-/*        if (animator.GetBool("isShooting"))
-            return; // 이미 실행 중이면 종료*/
-
-        if (animator.GetBool("isShooting"))
-        {
-            OnShootingEnd();
-            // Debug.Log("종료호출");
-        }
-        else
-        {
-            animator.SetBool("isShooting", true);
-            // Debug.Log("isShooting = true");
-        }
-        
+        animator.SetBool("isShooting", true);
     }
 
     // 장풍 애니메이션 종료
     public void OnShootingEnd()
     {
         animator.SetBool("isShooting", false);
-        // Debug.Log("isShooting = false");
     }
 
     // 플레이어 죽었을 때
@@ -106,4 +91,32 @@ public class NewPlayerAnimationController : MonoBehaviour
         animator.SetBool("Dead", true);
         // Debug.Log("플레이어 쥬금");
     }
+
+    public void PlayerDeadEnd()
+    {
+        animator.SetBool("Dead", false);
+        // Debug.Log("플레이어 쥬금");
+    }
+
+    // 웅크리기
+    public void PlayerDown()
+    {
+        animator.SetBool("isDown", true);
+    }
+
+    public void PlayerUp()
+    {
+        animator.SetBool("isDown", false);
+    }
+
+    public void PlayerRevival()
+    {
+        animator.SetBool("Revival", true);
+    }
+
+    public void PlayerRevivalEnd()
+    {
+        animator.SetBool("Revival", false);
+    }
+
 }

@@ -126,9 +126,11 @@ MonoBehaviour:
   isGround: 0
   isJumping: 0
   isDoubleJumping: 0
+  isDown: 0
   gameOver: {fileID: 0}
   gameOverFlag: 0
   levelUpEffect: {fileID: 8771972552311404799, guid: bbf9e36a48d6c5648a13889afab076fd, type: 3}
+  isInputBlocked: 0
 --- !u!114 &2307299929205390895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,7 +172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manaRegenerationRate: 3
   invincibilityDuration: 2
-  invisibleDuration: 15
+  invisibleDuration: 5
   spriteRenderer: {fileID: 2966149447988133855}
 --- !u!1 &8182224592885942463
 GameObject:
@@ -281,7 +283,7 @@ Animator:
   m_GameObject: {fileID: 8182224592885942463}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d4f628f04c922ad42a79358bec500332, type: 2}
+  m_Controller: {fileID: 9100000, guid: eeb8f3e9f343d5f4394cc22d415df26b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
