@@ -226,17 +226,26 @@ public class NewPlayerMovement : MonoBehaviour
 
                 playerAnimator.PlayerDown();
             }
-            else if(Input.GetKeyUp(Managers.KeyBind.GetKeyCode(Define.ControlKey.slideKey)))
+            if (Input.GetKeyUp(Managers.KeyBind.GetKeyCode(Define.ControlKey.slideKey)))
             {
-                isDown = false;
-
-                // Player Collider 크기 및 위치 원래대로 복구
-                CapsuleCollider2D.size = originalColliderSize;
-                CapsuleCollider2D.offset = originalColliderOffset;
-
-                playerAnimator.PlayerUp();
+                playerUp();
             }
+            /*            if (!Input.GetKey(Managers.KeyBind.GetKeyCode(Define.ControlKey.slideKey)) && isDown)
+                        {
+                            playerUp();
+                        }*/
         }
+    }
+
+    public void playerUp()
+    {
+        isDown = false;
+
+        // Player Collider 크기 및 위치 원래대로 복구
+        CapsuleCollider2D.size = originalColliderSize;
+        CapsuleCollider2D.offset = originalColliderOffset;
+
+        playerAnimator.PlayerUp();
     }
     #endregion
 
@@ -281,6 +290,12 @@ public class NewPlayerMovement : MonoBehaviour
                 isJumping = true;
                 isDoubleJumping = false;  // 첫 점프에서는 더블 점프 false로 유지
                 doubleJumpState = true; // 더블 점프 가능
+
+                // 웅크리기 상태면 웅크린 상태 해제
+                if (isDown)
+                {
+                    playerUp();
+                }
             }
             // 더블 점프
             else if (doubleJumpState && Input.GetKeyDown(Managers.KeyBind.GetKeyCode(Define.ControlKey.jumpKey)))
