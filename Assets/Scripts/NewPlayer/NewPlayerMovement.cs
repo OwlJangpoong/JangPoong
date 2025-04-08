@@ -434,6 +434,7 @@ public class NewPlayerMovement : MonoBehaviour
         }
         if (Input.GetKeyDown(Managers.KeyBind.GetKeyCode(Define.ControlKey.attackKey)))    // c키 로 장풍 발사
         {
+
             if (Managers.Player.Mana >= playerStatsController.ManaConsumption)
             {
                 // ✅ 장풍 사용 횟수 증가
