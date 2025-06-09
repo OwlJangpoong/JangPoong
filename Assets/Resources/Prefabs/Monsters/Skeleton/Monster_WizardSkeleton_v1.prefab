@@ -236,9 +236,9 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   direction: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
-  moveRange: 5
-  scanRange: 5
-  attackRange: 5
+  moveRange: 7
+  scanRange: 6
+  attackRange: 6
   minMoveRangeX: 0
   maxMoveRangeX: 0
   thinkTime: 2

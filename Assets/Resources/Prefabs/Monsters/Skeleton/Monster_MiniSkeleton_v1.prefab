@@ -318,6 +318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsterData: {fileID: 11400000, guid: abaafa0cba3169c4894a86b60c3d404c, type: 2}
+  uiHpBar: {fileID: 0}
   currentDamage: 0
 --- !u!70 &7521728652819214712
 CapsuleCollider2D:
@@ -410,8 +411,8 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   direction: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
-  moveRange: 2
-  scanRange: 8
+  moveRange: 4
+  scanRange: 4
   attackRange: 0.8
   minMoveRangeX: 0
   maxMoveRangeX: 0
