@@ -22,6 +22,7 @@ public class MonsterWizardSkeleton : Monster
         }
     }
 
+
     private IEnumerator RecoverHealth()
     {
         isRecovering = true;
