@@ -265,6 +265,11 @@ public class NewPlayerMovement : MonoBehaviour
                 x = 1;
             }
         }
+        
+        if (playerStatsController != null && playerStatsController.IsConfused)
+        {
+            x *= -1;
+        }
 
         return x;
     }

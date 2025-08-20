@@ -34,7 +34,8 @@ public class DataManager
             // SaveData<SettingData>(Define.SaveKey.SettingData, Managers.Game.SettingData);
         }
         // 2. 있으면 setting 데이터 파일이 존재할 것. setting 데이터 파일을 로드한다.
-        
+        int last = PlayerPrefs.GetInt("LastSlotNum", 1);
+        SetSlotNum(Mathf.Clamp(last, 1, 3));
     }
 
   
@@ -343,6 +344,25 @@ public class DataManager
     // }
 
     #endregion
+    private bool EnsureSlotReady()
+    {
+        if (!string.IsNullOrEmpty(slotFolderPath))
+            return true;
+
+        // slotNum 기반으로 재계산 (Init에서 SetSlotNum이 불리지 않은 경우를 대비)
+        string slot = "Slot" + slotNum;
+        slotFolderPath = Path.Combine(Application.persistentDataPath, "SaveData", slot);
+
+        if (!Directory.Exists(slotFolderPath))
+        {
+            Debug.Log($"{slot} 폴더가 없습니다. 폴더를 생성합니다.");
+            Directory.CreateDirectory(slotFolderPath);
+        }
+
+        return true;
+    }
+    
+   
     
     
 }

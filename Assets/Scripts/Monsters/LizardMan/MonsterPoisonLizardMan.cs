@@ -10,10 +10,51 @@ public class MonsterPoisonLizardMan : Monster
 
     private bool isAttacking = false;  // 공격 중인지 확인하는 변수
     private float lastAttackTime = -Mathf.Infinity; // 마지막 공격 시각
+    public GameObject poisonAreaPrefab;
+    public Transform mouthPoint;
+    public float healInterval = 10f;
 
+    private bool isSpraying = false;
+    private float lastSprayTime = -Mathf.Infinity;
+
+    private Rigidbody2D rb;
+    
     public override void Init()
     {
         base.Init();
+        rb = GetComponent<Rigidbody2D>();
+        scanRange = 10f;
+        attackRange = 2.0f;
+    }
+
+    private void Update()
+    {
+        base.Update();
+        if (target != null)
+        {
+            float distance = Vector2.Distance(transform.position, target.position);
+
+            if (distance < scanRange && distance > attackRange)
+            {
+                Vector3 dir = (target.position - transform.position).normalized;
+                movement2D.MoveTo(Mathf.Sign(dir.x));
+                FlipSprite(dir);
+            }
+            else
+            {
+                
+                movement2D.MoveTo(0f);
+            }
+        }
+        else
+        {
+            movement2D.MoveTo(0f);
+        }
+
+        if (rb != null)
+        {
+            anim.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
+        }
     }
 
     public override int Detect(Vector3 direction)
@@ -71,5 +112,34 @@ public class MonsterPoisonLizardMan : Monster
         yield return new WaitForSeconds(attackCooldown); // 쿨타임 대기
 
         isAttacking = false; // 공격 끝
+    }
+    private IEnumerator SprayPoison()
+    {
+        if (isSpraying) yield break;
+        isSpraying = true;
+        lastSprayTime = Time.time;
+
+        anim.SetTrigger("Spray"); // 애니메이션 트리거 (있다면)
+
+        if (poisonAreaPrefab != null && mouthPoint != null)
+        {
+            GameObject poisonArea = Instantiate(poisonAreaPrefab, mouthPoint.position, Quaternion.identity);
+            Destroy(poisonArea, 3f); // 범위 독 3초 유지
+        }
+
+        yield return new WaitForSeconds(1f);
+        isSpraying = false;
+    }
+    private IEnumerator RecoverHealth()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(healInterval);
+            if (stat.CurrentHp < stat.monsterData.MaxHp)
+            {
+                stat.CurrentHp += 1f;
+                Debug.Log("HP 회복: " + stat.CurrentHp);
+            }
+        }
     }
 }

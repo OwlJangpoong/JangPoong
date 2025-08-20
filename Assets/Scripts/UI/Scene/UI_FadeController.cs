@@ -14,7 +14,7 @@ public class UI_FadeController : MonoBehaviour
         if (!panel)
         {
             Debug.LogError("Panel 오브젝트를 찾을 수 없습니다.");
-            throw new MissingComponentException();
+            return;
         }
 
         if (isFadeIn && !(Time.timeScale == 0)) // Fade In Mode -> 바로 코루틴 시작

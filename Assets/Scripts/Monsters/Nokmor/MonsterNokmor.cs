@@ -23,7 +23,7 @@ public class MonsterNokmor : Monster
 
     private bool isAttacking;
     private float lastAttackType=-1f;
-    private float[] attackTypes = { 0f, 0.4f, 0.6f};
+    private float[] attackTypes = { 0f, 0.4f, 0.6f, 0.8f, 1.0f};
 
     private MonsterWeaponCollider weaponCollider;
 
@@ -34,6 +34,12 @@ public class MonsterNokmor : Monster
     public GameObject bulletPrefab;
     public Transform firePoint; // 보스의 위치 (총알 스폰 기준)
     public float spawnRadius = 2f; // 총알이 생성되는 범위
+    #endregion
+
+    #region MP 드레인 누적
+
+    private float mpDrainBuffer = 0f;
+
     #endregion
 
     #region DarkCreature 관련 변수
@@ -131,13 +137,13 @@ public class MonsterNokmor : Monster
         // ✅ attackType에 따라 애니메이션 길이 다르게 설정
         switch (attackType)
         {
-            case 0f: return 2.0f; // Slash
-            case 0.2f: return 1.2f; // Dark Energy
+            case 0f:   return 2.0f; // Slash
+            case 0.2f: return 2.0f; // Dark Energy(간이)
             case 0.4f: return 3.5f; // Dark Bullet
             case 0.6f: return 2.5f; // Dark Creature
-            case 0.8f: return 2.0f; // Gravity
-            case 1.0f: return 2.2f; // Black Hole
-            default: return 1.0f;
+            case 0.8f: return 3.0f; // Gravity Field(간이)
+            case 1.0f: return 3.0f; // Black Hole(간이)
+            default:   return 1.0f;
         }
     }
 
@@ -160,7 +166,8 @@ public class MonsterNokmor : Monster
              playerStatsController = collider2D.GetComponent<PlayerStatsController>();
              playerStatsController.LoseMP(30);
              ApplyKnockback(collider2D);
-             
+             Debug.Log("SlashAttack 성공! ");
+
          }
          else
          {
@@ -184,6 +191,7 @@ public class MonsterNokmor : Monster
              // 넉백 힘 적용
              float knockbackForce = 5f;
              player.GetComponent<MovementRigidbody2D>().ApplyKnockback(knockbackForce*knockbackDirection,0.3f);
+             Debug.Log("넉백 성공!");
          }
      }
      
@@ -196,6 +204,7 @@ public class MonsterNokmor : Monster
      {
          Debug.Log("어둠의 총알 스킬 호출");
          StartCoroutine(DarkBulletCoroutine());
+         Debug.Log("어둠의 총알 성공!");
      }
      
      private IEnumerator DarkBulletCoroutine()
@@ -250,7 +259,7 @@ public class MonsterNokmor : Monster
          }
          
          bullets.Clear();
-
+        
          
      }
      #endregion
@@ -261,6 +270,7 @@ public class MonsterNokmor : Monster
      public void DarkCreatureSummon()
     {
         StartCoroutine(DarkCreatureSummonCoroutine());
+        Debug.Log("어둠의 생명체 성공! ");
     }
 
     private IEnumerator DarkCreatureSummonCoroutine()
@@ -383,6 +393,127 @@ public class MonsterNokmor : Monster
         anim.SetTrigger("Attack");
     }
     
+    // === 간이 스킬(비주얼 없이 효과만) ===
+
+// ▼ 어둠 기파: 1초 예고 후, 플레이어가 보스와 같은 수평 라인(가까운 Y) 이면 5 데미지 1회
+public void DarkEnergyAttack()
+{
+    StartCoroutine(CoDarkEnergySimple());
+}
+private IEnumerator CoDarkEnergySimple()
+{
+    // 예고 타임 (마법진 대신 대기)
+    yield return new WaitForSeconds(1f);
+
+    if (target == null) yield break;
+    var player = target.GetComponent<PlayerStatsController>();
+    if (player == null) yield break;
+
+    // 수평 쓸기: 보스와 플레이어의 Y 차가 작으면 맞은 걸로 간주
+    float yDiff = Mathf.Abs(target.position.y - transform.position.y);
+    if (yDiff <= 1.0f)   // 필요하면 조정
+    {
+        player.OnAttacked(5f);
+        Debug.Log("어둠 기파 적중(간이): HP -5");
+    }
+    Debug.Log("어둠 기파 성공! ");
+}
+
+// ▼ 중력장: 30초 동안 플레이어 중력 배수 ↑, 끝나면 복구. 시작 시 보스 즉시 20 힐
+public void GravityFieldAttack()
+{
+    StartCoroutine(CoGravityFieldSimple());
+}
+private IEnumerator CoGravityFieldSimple()
+{
+    // 보스 즉시 힐
+    if (stat != null)
+    {
+        stat.CurrentHp += 20f;
+        if (stat.CurrentHp > stat.monsterData.MaxHp) stat.CurrentHp = stat.monsterData.MaxHp;
+        Debug.Log("중력장 발동: 보스 즉시 20 회복");
+    }
+
+    if (target == null) yield break;
+
+    var rb = target.GetComponent<Rigidbody2D>();
+    if (rb == null) yield break;
+
+    float originalGravity = rb.gravityScale;
+    rb.gravityScale = originalGravity * 2.0f; // 필요하면 3.0f 등으로 조정
+
+    float t = 0f;
+    float duration = 30f;
+    while (t < duration)
+    {
+        t += Time.deltaTime;
+        yield return null;
+    }
+
+    // 복구
+    if (rb != null)
+        rb.gravityScale = originalGravity;
+
+    Debug.Log("중력장 종료: 중력 복구");
+    Debug.Log("중력장 성공! ");
+}
+
+// ▼ 블랙홀: 10초 동안 보스 기준 한 점으로 빨아들이고, 이동 저항 + MP 초당 10 소모
+public void BlackHoleAttack()
+{
+    StartCoroutine(CoBlackHoleSimple());
+    Debug.Log("블랙홀 성공! ");
+}
+
+private IEnumerator CoBlackHoleSimple()
+{
+    if (target == null) yield break;
+
+    Vector3 holePos = transform.position + Vector3.up * 1.0f;
+
+    var rb    = target.GetComponent<Rigidbody2D>();
+    var stats = target.GetComponent<PlayerStatsController>();
+
+    float life          = 10f;
+    float pullStrength  = 12f;   // 끌림 세기
+    float slowFactor    = 0.5f;  // 감속(0.5이면 절반 느낌)
+    float mpDrainPerSec = 10f;   // 초당 10 MP
+
+    // ✅ 시작할 때 버퍼 초기화(혹시 이전 스킬에서 남은 값 방지)
+    mpDrainBuffer = 0f;
+
+    while (life > 0f)
+    {
+        life -= Time.deltaTime;
+
+        if (rb != null)
+        {
+            Vector2 dir = (holePos - target.position);
+            rb.AddForce(dir.normalized * (pullStrength * Time.deltaTime), ForceMode2D.Force);
+            rb.velocity *= (1f - (1f - slowFactor) * Time.deltaTime);
+        }
+
+        // ✅ 초당 10 누적 → 1 이상일 때 정수로 깎고, 남은 소수는 보존
+        if (stats != null)
+        {
+            mpDrainBuffer += mpDrainPerSec * Time.deltaTime;
+
+            if (mpDrainBuffer >= 1f)
+            {
+                int mpToDrain = Mathf.FloorToInt(mpDrainBuffer);
+                stats.LoseMP(mpToDrain);          // LoseMP(int) 가정
+                mpDrainBuffer -= mpToDrain;       // 남은 소수 보존
+            }
+        }
+
+        yield return null;
+    }
+    
+
+    // ✅ 종료 시 버퍼 정리(안 해도 되지만 깔끔하게)
+    mpDrainBuffer = 0f;
+    Debug.Log("블랙홀 종료");
+}
     private void OnDrawGizmos()
     {
         if (firePoint == null) return;

@@ -67,13 +67,15 @@ public class Monster : MonoBehaviour
             Managers.UI.MakeWorldSpaceUI<UI_HPBar>(transform).gameObject.SetActive(false);
         }
     }
-    
-    private void Update()
+
+    protected void Update()
     {
         CalcDirection();
         SetTarget();
         
         if(player==null) player = GameObject.FindWithTag("Player");
+        
+       
 
         if (attackDelay >= 0)
         {
@@ -85,9 +87,12 @@ public class Monster : MonoBehaviour
             thinkDelay -= Time.deltaTime;
         }
         
+       
+        
         
     }
-    
+   
+ 
     
     #region Event Functions
     public virtual void Init()

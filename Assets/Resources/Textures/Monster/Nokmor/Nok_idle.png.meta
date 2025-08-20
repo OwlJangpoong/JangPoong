@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 87d1006dd672a4f90a7993c3ecf8bb14
+guid: 0dbe91cd58f9547808dfe1e0b8926f48
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 500
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -94,6 +94,19 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -113,19 +126,19 @@ TextureImporter:
       name: Nok_idle_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 0
-        width: 3200
-        height: 3000
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 228
+        y: 117
+        width: 1775
+        height: 1915
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01b6eea21dfb34b4686d158184f352ad
-      internalID: -1039144121
+      spriteID: 408bc1711a0c84f9bb0f182e5a2479ab
+      internalID: 1442988551
       vertices: []
       indices: 
       edges: []
@@ -134,19 +147,19 @@ TextureImporter:
       name: Nok_idle_1
       rect:
         serializedVersion: 2
-        x: 3191
-        y: 0
-        width: 3200
-        height: 3000
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 2728
+        y: 138
+        width: 1804
+        height: 1904
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02000ed1d1ca744a2aef8581991e9097
-      internalID: -1075257242
+      spriteID: bb90fc424f7b74f0e9c90f6c154b826e
+      internalID: -871420276
       vertices: []
       indices: 
       edges: []
@@ -162,8 +175,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Nok_idle_0: -1039144121
-      Nok_idle_1: -1075257242
+      Nok_idle_0: 1442988551
+      Nok_idle_1: -871420276
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

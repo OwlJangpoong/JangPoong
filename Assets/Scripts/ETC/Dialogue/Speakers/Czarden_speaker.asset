@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speakerName: "\uCC28\uB974\uB374"
   characterImage: {fileID: 1301369459, guid: e3bba0cb2cf343648aeef59f62ff6ce5, type: 3}
+  position: 1

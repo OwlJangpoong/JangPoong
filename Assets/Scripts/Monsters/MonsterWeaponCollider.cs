@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class MonsterWeaponCollider : MonoBehaviour
 {
+    [SerializeField] private Vector2 hitBoxOffsetLocal = new Vector2(0.7f, 0.0f);
+    
     //무기 컨트롤
     public Vector2 boxSize;
     private float damage;
@@ -63,7 +65,7 @@ public class MonsterWeaponCollider : MonoBehaviour
 
     public void AttackPlayerByWeapon()
     {
-        // Debug.Log("무기 공격 호출함");
+        Debug.Log("무기 공격 호출함");
         Collider2D[] collider2Ds = Physics2D.OverlapBoxAll(transform.position, boxSize, 0);
         foreach (Collider2D collider in collider2Ds)
         {

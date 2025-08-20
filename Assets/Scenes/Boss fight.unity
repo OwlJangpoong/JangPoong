@@ -759,6 +759,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bgmAudioClip: {fileID: 8300000, guid: 501af9bd2b8d3134e91121a77fc60830, type: 3}
+--- !u!1 &387336903 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1273658836822648338, guid: d0ecd624d98703b4bbde7b9d35ed8f80, type: 3}
+  m_PrefabInstance: {fileID: 2061692823}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &458989236
 GameObject:
   m_ObjectHideFlags: 0
@@ -1226,6 +1231,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1070679266 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4797538920974389882, guid: c987cd261a881498eb5c5dcad99fb503, type: 3}
+  m_PrefabInstance: {fileID: 2976921776502388368}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1172407899
 GameObject:
   m_ObjectHideFlags: 0
@@ -2709,7 +2719,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2084115339966101801, guid: d0ecd624d98703b4bbde7b9d35ed8f80, type: 3}
   m_PrefabInstance: {fileID: 2061692823}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 387336903}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d75cc763e89b9f84b8b957e75bdeb9ba, type: 3}
@@ -3059,19 +3069,42 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1273658836822648338, guid: d0ecd624d98703b4bbde7b9d35ed8f80, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2061692828}
   m_SourcePrefab: {fileID: 100100000, guid: d0ecd624d98703b4bbde7b9d35ed8f80, type: 3}
 --- !u!114 &2061692824 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5014994689593125597, guid: d0ecd624d98703b4bbde7b9d35ed8f80, type: 3}
   m_PrefabInstance: {fileID: 2061692823}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 387336903}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd354c9d2b5220540a40de4e03336f3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2061692828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387336903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8259b83cfdb94c1e9c1bdb905b52291, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  testMaxHp: 10000
+  testHp: 10000
+  testMaxMp: 10000
+  testMp: 10000
+  lockHP: 1
+  lockMP: 1
+  overrideJangpoongDamage: 1
+  overrideDamageValue: 30
 --- !u!1 &2111543676
 GameObject:
   m_ObjectHideFlags: 0
@@ -3297,7 +3330,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4797538920974389882, guid: c987cd261a881498eb5c5dcad99fb503, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7566463326922672633}
   m_SourcePrefab: {fileID: 100100000, guid: c987cd261a881498eb5c5dcad99fb503, type: 3}
 --- !u!1 &3753347681231696215
 GameObject:
@@ -3389,12 +3425,33 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1475970728782054884, guid: c987cd261a881498eb5c5dcad99fb503, type: 3}
   m_PrefabInstance: {fileID: 2976921776502388368}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1070679266}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 582582d6f322e4941b1d40b7bd95bea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7566463326922672633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1070679266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96e984bef8b9475c850d9372527f92be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boss: {fileID: 7566463326922672626}
+  autoLoop: 0
+  loopInterval: 3
+  windowSlash: 0.8
+  windowDarkEnergy: 2
+  windowDarkBullet: 2.5
+  windowDarkCreature: 4
+  windowGravity: 0.5
+  windowBlackHole: 2
 --- !u!4 &9210923556125971002
 Transform:
   m_ObjectHideFlags: 0

@@ -229,5 +229,39 @@ public class PlayerStatsController : MonoBehaviour
     
     #endregion
 
+    public void ApplyPoison(float immediateDamage, float damagePerSecond, float duration)
+    {
+        StartCoroutine(CoApplyPoison(immediateDamage, damagePerSecond, duration));
+    }
 
+    private IEnumerator CoApplyPoison(float immediate, float dps, float time)
+    {
+        OnAttacked(immediate); // 즉시 피해
+        float elapsed = 0f;
+
+        while (elapsed < time)
+        {
+            yield return new WaitForSeconds(1f);
+            OnAttacked(dps);
+            elapsed += 1f;
+        }
+    }
+ 
+    public bool IsConfused { get; private set; } = false;
+
+    public void ApplyConfusion(float duration)
+    {
+        StartCoroutine(CoApplyConfusion(duration));
+    }
+
+    private IEnumerator CoApplyConfusion(float duration)
+    {
+        IsConfused = true;
+        Debug.Log("▶ 혼란 상태 시작!");
+
+        yield return new WaitForSeconds(duration);
+
+        IsConfused = false;
+        Debug.Log("◀ 혼란 상태 해제!");
+    }
 }

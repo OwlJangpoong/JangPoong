@@ -14,8 +14,6 @@ GameObject:
   - component: {fileID: 1271824828331291692}
   - component: {fileID: 7090912312003108852}
   - component: {fileID: 7566463327903339268}
-  - component: {fileID: 5768814713736672780}
-  - component: {fileID: 1174720915983470109}
   m_Layer: 16
   m_Name: Monster_PoisonLizardMan_v1
   m_TagString: Monster
@@ -32,8 +30,8 @@ Transform:
   m_GameObject: {fileID: 1191551650843982732}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.178, y: -2.5, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalPosition: {x: 6.01, y: -2.5, z: 0}
+  m_LocalScale: {x: 0.32, y: 0.32, z: 0.32}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6614612098860732944}
@@ -128,6 +126,10 @@ MonoBehaviour:
   poisonPrefab: {fileID: 3917770422444996510, guid: 68b461255e6459f48a474c89f388a198, type: 3}
   firePoint: {fileID: 2844167060620166159}
   poisonSpeed: 5
+  attackCooldown: 3
+  poisonAreaPrefab: {fileID: 0}
+  mouthPoint: {fileID: 0}
+  healInterval: 10
 --- !u!114 &7090912312003108852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,79 +177,9 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.06926523, y: -0.05937053}
-  m_Size: {x: 1.8884486, y: 4.1705976}
+  m_Offset: {x: -0.06880951, y: 0.019529343}
+  m_Size: {x: 2.5590973, y: 5.3540974}
   m_Direction: 0
---- !u!58 &5768814713736672780
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1191551650843982732}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.86, y: 1.66}
-  serializedVersion: 2
-  m_Radius: 0.5
---- !u!58 &1174720915983470109
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1191551650843982732}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 1.02, y: 1.71}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!1 &1460995482492397856
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,8 +209,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7105893733869397302}
   m_Father: {fileID: 2520970358692504815}
@@ -324,7 +256,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: -1781371302, guid: 1c8da75a2528d4b23a1c322c9f8c7984, type: 3}
+  m_Sprite: {fileID: -1986090401, guid: 65d298dadd7134e2fb2592bd0b158776, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -345,7 +277,7 @@ Animator:
   m_GameObject: {fileID: 1460995482492397856}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 43222e71664f34e97b5a8c61a90ce659, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3111cdb47b8024667aec9d8ee86c0239, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -574,4 +506,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbb03928a6ad64de1a7a5ddf620b52a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitBoxOffsetLocal: {x: 0.7, y: 0}
   boxSize: {x: 1, y: 1}
