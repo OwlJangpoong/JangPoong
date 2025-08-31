@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0dbe91cd58f9547808dfe1e0b8926f48
+guid: 0c61df800f7034cafa82b53ed38fd83a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Nok_idle_0
+      name: Nok_idle (1)_0
       rect:
         serializedVersion: 2
-        x: 228
-        y: 117
-        width: 1775
-        height: 1915
+        x: 226
+        y: 116
+        width: 1777
+        height: 2700
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 408bc1711a0c84f9bb0f182e5a2479ab
-      internalID: 1442988551
+      spriteID: 053cc9ca12bf749939d8864c5c87ab75
+      internalID: 40769619
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Nok_idle_1
+      name: Nok_idle (1)_1
       rect:
         serializedVersion: 2
-        x: 2728
+        x: 2726
         y: 138
-        width: 1804
-        height: 1904
+        width: 1806
+        height: 2700
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,8 +158,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb90fc424f7b74f0e9c90f6c154b826e
-      internalID: -871420276
+      spriteID: b1dd736d8f6264832a25891195821af8
+      internalID: -321821988
       vertices: []
       indices: 
       edges: []
@@ -175,8 +175,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Nok_idle_0: 1442988551
-      Nok_idle_1: -871420276
+      Nok_idle (1)_0: 40769619
+      Nok_idle (1)_1: -321821988
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

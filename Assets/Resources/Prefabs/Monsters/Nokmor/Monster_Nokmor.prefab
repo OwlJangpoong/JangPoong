@@ -196,8 +196,8 @@ Transform:
   m_GameObject: {fileID: 3926927017911752248}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.91, y: -0.25, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -5.2386, y: -0.25, z: 0}
+  m_LocalScale: {x: 2.243125, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4901858099717989342}
@@ -289,8 +289,8 @@ Transform:
   m_GameObject: {fileID: 3936321272812125826}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.24, y: 0.24, z: 0}
-  m_LocalScale: {x: 0.31, y: 0.31, z: 0.31}
+  m_LocalPosition: {x: -0.93, y: 1.41, z: 0}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8539015264682122474}
@@ -337,12 +337,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 1442988551, guid: 0dbe91cd58f9547808dfe1e0b8926f48, type: 3}
+  m_Sprite: {fileID: 40769619, guid: 0c61df800f7034cafa82b53ed38fd83a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3.1999998, y: 3.20625}
+  m_Size: {x: 17.77, y: 27.004395}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -358,7 +358,7 @@ Animator:
   m_GameObject: {fileID: 3936321272812125826}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1b8f12ba447f846b7a1cc2b489d31d10, type: 2}
+  m_Controller: {fileID: 9100000, guid: ffa18a22e840640938cf195b49023db9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -413,8 +413,8 @@ Transform:
   m_GameObject: {fileID: 4797538920974389882}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 129.16, y: -10.17, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalPosition: {x: 128.94, y: -9.841, z: 0}
+  m_LocalScale: {x: 0.56665605, y: 0.56665605, z: 0.56665605}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8763370011910632508}
@@ -483,8 +483,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.13819122, y: -0.24938607}
-  m_Size: {x: 1.870224, y: 5.236692}
+  m_Offset: {x: -0.2834742, y: -0.20253518}
+  m_Size: {x: 2.713555, y: 7.3918595}
   m_Direction: 0
 --- !u!58 &1180742718991887688
 CircleCollider2D:
@@ -518,9 +518,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.31082153, y: 2.28189}
+  m_Offset: {x: -0.31082156, y: 2.2591026}
   serializedVersion: 2
-  m_Radius: 0.3977356
+  m_Radius: 0.42052272
 --- !u!114 &3698829101950719434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -561,12 +561,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statFileName: Monster_Nokmor
-  stat: {fileID: 0}
+  stat: {fileID: 6892375227386213627}
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 384
-  movement2D: {fileID: 0}
-  spriteRenderer: {fileID: 0}
+  movement2D: {fileID: 3698829101950719434}
+  spriteRenderer: {fileID: 4707958345750516269}
   direction: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
   moveRange: 2
@@ -595,6 +595,15 @@ MonoBehaviour:
   summonPoint: {fileID: 6645395631459886255}
   minSummonCount: 2
   maxSummonCount: 5
+  telegraphPrefab: {fileID: 7633562038701801443, guid: af11041c8128740faa12234efb940f12, type: 3}
+  pillarPrefab: {fileID: 2691548579729775985, guid: 762734570f8e24cfe83fd1b702f55335, type: 3}
+  energyWarnTime: 1.2
+  energyLifeTime: 2
+  energyDamagePerSec: 5
+  energyPillarCount: 3
+  energyMaxOffsetX: 8
+  energyPillarWidth: 1
+  energyPillarHeight: 12
 --- !u!114 &6892375227386213627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -607,7 +616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78cbf255c422c4af485191ad26067f6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterData: {fileID: 0}
+  monsterData: {fileID: 11400000, guid: aa9422b9a602048bfbc8a239c92b8a2f, type: 2}
   uiHpBar: {fileID: 7289201413257694483}
   currentDamage: 0
 --- !u!1 &8531781962117891633

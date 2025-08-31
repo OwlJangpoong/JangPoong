@@ -16,12 +16,18 @@ public class TriggerForEnding : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            UI_FadeController fadeController =
-                GameObject.FindWithTag("UI_Root").GetComponentInChildren<UI_FadeController>();
-            // 콜백으로 씬 이동을 등록
-            fadeController.RegisterCallback(() => Managers.Scene.LoadScene("2-3-2 inside the castle"));
-        
-            fadeController.FadeOut();
+            GoToEnding();
         }
+    }
+    public void GoToEnding()
+    {
+        UI_FadeController fadeController =
+            GameObject.FindWithTag("UI_Root").GetComponentInChildren<UI_FadeController>();
+
+        // 콜백으로 씬 이동을 등록
+        fadeController.RegisterCallback(() => Managers.Scene.LoadScene("2-3-2 inside the castle"));
+
+        // 페이드 아웃 실행
+        fadeController.FadeOut();
     }
 }

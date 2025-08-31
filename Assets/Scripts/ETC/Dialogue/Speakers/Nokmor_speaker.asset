@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Nokmor_speaker
   m_EditorClassIdentifier: 
   speakerName: "\uB9C8\uC655"
-  characterImage: {fileID: 21300000, guid: 465f83bb31e0b4fd2b9993d7551381d6, type: 3}
+  characterImage: {fileID: -1429358988, guid: 9ceac68b5c9814d7a9af0eff99c959cf, type: 3}
+  position: 1

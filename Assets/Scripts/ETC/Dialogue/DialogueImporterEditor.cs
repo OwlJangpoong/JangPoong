@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -86,3 +87,4 @@ public class DialogueImporterEditor : EditorWindow
         Debug.Log("✅ 대사 자동 입력 완료!");
     }
 }
+#endif

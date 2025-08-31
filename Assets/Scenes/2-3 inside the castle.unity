@@ -1429,6 +1429,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6cd85a91ef2624aadbf40f4aafc8fc15, type: 3}
+--- !u!1001 &118757334
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1191551650843982732, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_Name
+      value: Monster_BlueLizardMan_v1 (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 100.29717
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.9246593
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
 --- !u!1 &119974941
 GameObject:
   m_ObjectHideFlags: 0
@@ -1783,6 +1840,63 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1001 &136563447
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1191551650843982732, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_Name
+      value: Monster_BlueLizardMan_v1 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 96.39614
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -9.10328
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
 --- !u!1 &140578003
 GameObject:
   m_ObjectHideFlags: 0
@@ -2521,6 +2635,63 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFadeIn: 0
   panel: {fileID: 1976905253}
+--- !u!1001 &169488340
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1191551650843982732, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_Name
+      value: Monster_BlueLizardMan_v1 (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 95.24027
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.7574167
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
 --- !u!1 &170259184
 GameObject:
   m_ObjectHideFlags: 0
@@ -3169,6 +3340,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &198087426
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1191551650843982732, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_Name
+      value: Monster_BlueLizardMan_v1 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 58.613876
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -11.198277
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
 --- !u!1 &205185923
 GameObject:
   m_ObjectHideFlags: 0
@@ -5262,6 +5490,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &329638677
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1191551650843982732, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_Name
+      value: Monster_BlueLizardMan_v1 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.6452465
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.24481726
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
 --- !u!1001 &330164308
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5742,6 +6027,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+--- !u!1001 &360634091
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1191551650843982732, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_Name
+      value: Monster_BlueLizardMan_v1 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 39.615833
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.15739274
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
 --- !u!1 &370659062
 GameObject:
   m_ObjectHideFlags: 0
@@ -7531,6 +7873,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2107034818}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &470666801
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1191551650843982732, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_Name
+      value: Monster_BlueLizardMan_v1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.515967
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.29147005
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
 --- !u!1001 &483023868
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7588,6 +7987,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9c806c1c1b95cc47a76e990e47df668, type: 3}
+--- !u!1001 &485074236
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1191551650843982732, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_Name
+      value: Monster_BlueLizardMan_v1 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 53.845947
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -17.266554
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
 --- !u!1001 &486109099
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7702,6 +8158,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6cd85a91ef2624aadbf40f4aafc8fc15, type: 3}
+--- !u!1001 &497845502
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1191551650843982732, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_Name
+      value: Monster_BlueLizardMan_v1 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 35.207687
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.091898
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
 --- !u!1001 &500634123
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8449,6 +8962,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2107034818}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &564284121
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1191551650843982732, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_Name
+      value: Monster_BlueLizardMan_v1 (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 100.08045
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -9.60897
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
 --- !u!1 &567647108
 GameObject:
   m_ObjectHideFlags: 0
@@ -11397,6 +11967,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae2ab2ac4a02f46eb8194631525e930f, type: 3}
+--- !u!1001 &757917149
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1191551650843982732, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_Name
+      value: Monster_BlueLizardMan_v1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 20.44358
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.5596142
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
 --- !u!1 &759741103
 GameObject:
   m_ObjectHideFlags: 0
@@ -12254,6 +12881,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7214e4e1d90b24e9999eb9ae1adc7de4, type: 3}
+--- !u!1001 &791594626
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1191551650843982732, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_Name
+      value: Monster_BlueLizardMan_v1 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 70.24473
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -17.122068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
 --- !u!1001 &793740296
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15594,6 +16278,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &950619326
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1191551650843982732, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_Name
+      value: Monster_BlueLizardMan_v1 (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 101.019585
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.8791407
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
 --- !u!1001 &953203853
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16212,17 +16953,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &991737007 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2867170865961801840, guid: c65080d345be5463faa2ad93e55a40a7, type: 3}
-  m_PrefabInstance: {fileID: 1187117237}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &991905156
 GameObject:
   m_ObjectHideFlags: 0
@@ -17661,17 +18391,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1106802551 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7873481203432532602, guid: c65080d345be5463faa2ad93e55a40a7, type: 3}
-  m_PrefabInstance: {fileID: 1187117237}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1115402488
 GameObject:
   m_ObjectHideFlags: 0
@@ -17897,6 +18616,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1148148511
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1191551650843982732, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_Name
+      value: Monster_BlueLizardMan_v1 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 41.13148
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -7.5862083
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
 --- !u!1001 &1150237414
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19922,6 +20698,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1317451549
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1191551650843982732, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_Name
+      value: Monster_BlueLizardMan_v1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 11.460758
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.5240412
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
 --- !u!1 &1322070248 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2201201040933242330, guid: 59a9ebde221b047c38db217e49c37f57, type: 3}
@@ -25009,11 +25842,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89d562e4a2df400f87bab4d9ba875f2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NPCNameText: {fileID: 991737007}
-  NPCDialogueText: {fileID: 1106802551}
-  NPCImage: {fileID: 1697753826}
-  typeSpeed: 15
-  playerUI: {fileID: 1322070248}
 --- !u!1 &1651482281
 GameObject:
   m_ObjectHideFlags: 0
@@ -25914,17 +26742,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1697753826 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4301437009829589405, guid: c65080d345be5463faa2ad93e55a40a7, type: 3}
-  m_PrefabInstance: {fileID: 1187117237}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1705779871
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27257,6 +28074,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1792479685
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1191551650843982732, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_Name
+      value: Monster_BlueLizardMan_v1 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.293435
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.58554
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
 --- !u!1001 &1796768180
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27390,10 +28264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb1e0b06cae7341f0a10146b8ea851dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactSprite: {fileID: 0}
-  _playerTransform: {fileID: 0}
-  dialogueText: {fileID: 11400000, guid: 0920316b5fc3946c9bbae42f6471f12e, type: 2}
-  dialogueController: {fileID: 1648543316}
+  dialogueSceneName: 2-3-1 Boss Dialogue
 --- !u!1 &1800323049
 GameObject:
   m_ObjectHideFlags: 0
@@ -30179,6 +31050,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c4f3d4828c3e41fdb4978368a0d21d7, type: 3}
+--- !u!1001 &2048763318
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1191551650843982732, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_Name
+      value: Monster_BlueLizardMan_v1 (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 98.20217
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -9.031038
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520970358692504815, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5a2f177d4f2c4494f8d73b49320b62dd, type: 3}
 --- !u!1 &2049452732
 GameObject:
   m_ObjectHideFlags: 0
@@ -32000,8 +32928,8 @@ Transform:
   m_GameObject: {fileID: 5251384998707369322}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.05, y: 0.25, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 2.09, y: 1.77, z: 0}
+  m_LocalScale: {x: 0.28405, y: 0.28405, z: 0.28405}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 630671790825748226}
@@ -32112,7 +33040,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 8abe263eda1364cd784f9be4f73676ed, type: 3}
+  m_Sprite: {fileID: -1429358988, guid: 9ceac68b5c9814d7a9af0eff99c959cf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -32350,3 +33278,20 @@ SceneRoots:
   - {fileID: 1008968643}
   - {fileID: 231130767}
   - {fileID: 1809598146}
+  - {fileID: 470666801}
+  - {fileID: 1317451549}
+  - {fileID: 757917149}
+  - {fileID: 329638677}
+  - {fileID: 1792479685}
+  - {fileID: 360634091}
+  - {fileID: 1148148511}
+  - {fileID: 497845502}
+  - {fileID: 198087426}
+  - {fileID: 485074236}
+  - {fileID: 791594626}
+  - {fileID: 136563447}
+  - {fileID: 2048763318}
+  - {fileID: 564284121}
+  - {fileID: 118757334}
+  - {fileID: 950619326}
+  - {fileID: 169488340}

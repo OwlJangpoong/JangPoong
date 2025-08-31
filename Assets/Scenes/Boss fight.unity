@@ -2089,11 +2089,11 @@ GameObject:
   - component: {fileID: 1687986511}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1687986506
 Transform:
   m_ObjectHideFlags: 0
@@ -2185,7 +2185,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 23.98, y: 0}
@@ -3092,7 +3092,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 387336903}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8259b83cfdb94c1e9c1bdb905b52291, type: 3}
   m_Name: 
@@ -3284,12 +3284,24 @@ PrefabInstance:
       value: Monster_Nokmor
       objectReference: {fileID: 0}
     - target: {fileID: 4901858099717989342, guid: c987cd261a881498eb5c5dcad99fb503, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.699219
+      objectReference: {fileID: 0}
+    - target: {fileID: 4901858099717989342, guid: c987cd261a881498eb5c5dcad99fb503, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.699219
+      objectReference: {fileID: 0}
+    - target: {fileID: 4901858099717989342, guid: c987cd261a881498eb5c5dcad99fb503, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.699219
+      objectReference: {fileID: 0}
+    - target: {fileID: 4901858099717989342, guid: c987cd261a881498eb5c5dcad99fb503, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 132.28
+      value: 132
       objectReference: {fileID: 0}
     - target: {fileID: 4901858099717989342, guid: c987cd261a881498eb5c5dcad99fb503, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10.75
+      value: -9.76
       objectReference: {fileID: 0}
     - target: {fileID: 4901858099717989342, guid: c987cd261a881498eb5c5dcad99fb503, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3438,13 +3450,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1070679266}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 96e984bef8b9475c850d9372527f92be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   boss: {fileID: 7566463326922672626}
-  autoLoop: 0
+  autoLoop: 1
   loopInterval: 3
   windowSlash: 0.8
   windowDarkEnergy: 2

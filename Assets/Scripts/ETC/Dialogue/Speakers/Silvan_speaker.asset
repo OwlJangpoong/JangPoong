@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc022283ccccd384ebd140d92d5a8489, type: 3}
   m_Name: Silvan_speaker
   m_EditorClassIdentifier: 
-  speakerName: "\uC2E4\uBC18"
+  speakerName: "\uC774\uC7A5"
   characterImage: {fileID: 643411414, guid: f667bb52528bd4ff4a52e48d274c9eff, type: 3}
+  position: 1

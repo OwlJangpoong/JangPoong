@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbb03928a6ad64de1a7a5ddf620b52a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitBoxOffsetLocal: {x: 0.7, y: 0}
   boxSize: {x: 1, y: 1}
 --- !u!212 &6738483132691188645
 SpriteRenderer:
@@ -87,8 +88,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -709359251
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 71bc49e69c3e848b8ae501335a65ea54, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

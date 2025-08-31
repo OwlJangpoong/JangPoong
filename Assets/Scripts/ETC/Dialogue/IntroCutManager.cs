@@ -8,6 +8,11 @@ public class IntroCutManager : MonoBehaviour
     public DialogueText[] dialogueDataPerCut;
     public DialogueControllerLite dialogueController;
 
+    [Header("씬 전환")] 
+    public string nextSceneName;
+
+    public UI_FadeController fadeController;
+    
     private int currentCutIndex = 0;
 
     private void Start()
@@ -27,6 +32,10 @@ public class IntroCutManager : MonoBehaviour
             dialogueController.StartDialogue(dialogueDataPerCut[index]);
             dialogueController.OnDialogueEnd = MoveToNextCut;
         }
+        else
+        {
+            MoveToNextCut();
+        }
     }
 
     private void MoveToNextCut()
@@ -38,7 +47,32 @@ public class IntroCutManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("모든 컷씬 종료!");
+            if (!string.IsNullOrEmpty(nextSceneName))
+            {
+                if (fadeController != null)
+                {
+                    fadeController.RegisterCallback(OnFadeOutComplete);
+                    fadeController.FadeOut();
+                }
+                else
+                {
+                    StartCoroutine(Managers.Scene.LoadSceneAfterDelay(nextSceneName, 0.1f));
+                }
+            }
+            else
+            {
+                Debug.Log("모든 컷씬 종료!"); 
+                Managers.Scene.LoadScene("NextSceneName");
+            }
+            
+        }
+    }
+
+    private void OnFadeOutComplete()
+    {
+        if (!string.IsNullOrEmpty(nextSceneName))
+        {
+            StartCoroutine(Managers.Scene.LoadSceneAfterDelay(nextSceneName, 0.1f));
         }
     }
 }

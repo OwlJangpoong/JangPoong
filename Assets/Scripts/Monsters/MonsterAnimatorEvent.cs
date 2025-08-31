@@ -33,4 +33,10 @@ public class MonsterAnimatorEvent : MonoBehaviour
         Debug.Log("[AE] OnCriHit fired on " + gameObject.name);
         GetComponentInParent<MonsterBlueLizardMan>()?.OnCriHit();
     }
+    
+    public void ClearAttacking()
+    {
+        // 애니메이션 이벤트에서 호출됨 → 부모 보스에 위임
+        GetComponentInParent<MonsterNokmor>()?.ClearAttacking();
+    }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DialogueControllerMulti : MonoBehaviour
 {
@@ -100,4 +101,14 @@ public class DialogueControllerMulti : MonoBehaviour
             yield return new WaitForSeconds(typeSpeed);
         }
     }
+    
+    public void EndDialogueAndGoNext(string nextSceneName)
+    {
+        HideAll();
+        if (!string.IsNullOrEmpty(nextSceneName))
+        {
+            SceneManager.LoadScene(nextSceneName);
+        }
+    }
+    
 }
