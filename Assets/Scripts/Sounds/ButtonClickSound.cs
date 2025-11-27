@@ -12,7 +12,7 @@ public class ButtonClickSound : MonoBehaviour
     private void Start()
     {
         button = GetComponent<Button>();
-        button.onClick.RemoveAllListeners();
+        button.onClick.RemoveListener(ButtonOnClickSound);
         button.onClick.AddListener(ButtonOnClickSound);
     }
 

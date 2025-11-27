@@ -54,12 +54,12 @@ public class Monster : MonoBehaviour
     [Header("Loot")] public List<LootItem> lootTable = new();
 
 
-    private Animator anim;
+    protected Animator anim;
     
-    private void Start()
+    protected virtual void Start()
     {
         Init(); //초기화
-        
+        Debug.Log("af;af;alsfj;l");
         //UI hp bar 설정
         if (gameObject.GetComponentInChildren<UI_HPBar>() == null)
         {
@@ -67,13 +67,15 @@ public class Monster : MonoBehaviour
             Managers.UI.MakeWorldSpaceUI<UI_HPBar>(transform).gameObject.SetActive(false);
         }
     }
-    
-    private void Update()
+
+    protected void Update()
     {
         CalcDirection();
         SetTarget();
         
         if(player==null) player = GameObject.FindWithTag("Player");
+        
+       
 
         if (attackDelay >= 0)
         {
@@ -85,13 +87,17 @@ public class Monster : MonoBehaviour
             thinkDelay -= Time.deltaTime;
         }
         
+       
+        
         
     }
-    
+   
+ 
     
     #region Event Functions
     public virtual void Init()
     {
+        
         stat = gameObject.GetComponent<MonsterStat>();
         
         MonsterData md = Managers.Resource.Load<MonsterData>($"Data/Monster/{statFileName}");
@@ -128,6 +134,9 @@ public class Monster : MonoBehaviour
     protected virtual void OnDie()
     {
         Debug.Log("쥬금");
+        // ✅ 몬스터 처치 횟수 증가
+        Managers.Game.Statistic.killCnt++;
+        Managers.Game.SaveStatisticData();
         
         //레이어 변경
         gameObject.layer = (int)Define.Layer.MonsterDie;
@@ -140,6 +149,10 @@ public class Monster : MonoBehaviour
         StopAllCoroutines();
         //이동 정지
         movement2D.MoveTo(0);
+        //몬스터포인트 추가
+        Managers.Player.SetMonsterPoint(Managers.Player.MonsterPoint+ stat.monsterData.MonsterPoint);
+        // Managers.Player.MonsterPoint += stat.monsterData.MonsterPoint;
+        Debug.Log("몬스터포인트 추가 : " + stat.monsterData.MonsterPoint);
         
         //아이템 드랍
         Invoke(nameof(SpawnItem), 0.9f);
@@ -149,7 +162,15 @@ public class Monster : MonoBehaviour
         
         
     }
-    
+
+    public virtual void OnAttacked(float damage)
+    {
+        if (stat != null)
+        {
+            stat.OnAttacked(damage);
+        }
+    }
+
     #endregion
 
     #region Control
@@ -158,7 +179,7 @@ public class Monster : MonoBehaviour
     {
         if (player!=null && direction.magnitude <= scanRange)
         {
-            if (player.GetComponent<PlayerDataManager>().IsInvisible)
+            if (player.GetComponent<PlayerStatsController>().IsInvisible)
             {
                 target = null;
             }
@@ -253,7 +274,7 @@ public class Monster : MonoBehaviour
     /// </summary>
     /// <param name="direction"></param>
     /// <returns></returns>
-    public int Detect(Vector3 direction)
+    public virtual int Detect(Vector3 direction)
     {
         direction.y = 0;
         direction.z = 0;
@@ -265,7 +286,7 @@ public class Monster : MonoBehaviour
         }
         else if (Physics2D.Raycast(transform.position, direction, 1.5f, LayerMask.GetMask("Level1")))
         {
-            Debug.Log("점프 가능");
+            //Debug.Log("점프 가능");
             return 1;
         }
         else

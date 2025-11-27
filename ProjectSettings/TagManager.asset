@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Monster
+  - UI_Root
+  - OneWayPlatform
+  - Boss fight
+  - FxTemporaire
+  - Trigger
   layers:
   - Default
   - TransparentFX
@@ -26,8 +31,8 @@ TagManager:
   - Item
   - BackGround
   - MonsterDie
-  - 
-  - 
+  - ParallaxLayer
+  - MonsterWall
   - 
   - 
   - 
@@ -50,4 +55,7 @@ TagManager:
     locked: 0
   - name: item
     uniqueID: 1576567303
+    locked: 0
+  - name: UI
+    uniqueID: 1330956873
     locked: 0

@@ -14,7 +14,7 @@ public class UI_PlayerHp_old : MonoBehaviour
 
     private void Awake()
     {
-        Managers.PlayerData.UpdateHpAction += SetUIHp;
+        Managers.Player.OnHpChanged += SetUIHp;
     }
 
 

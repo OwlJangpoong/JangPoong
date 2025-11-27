@@ -15,16 +15,16 @@ public class StickyGoo : MonoBehaviour
 
     private bool isCoroutineRunning = false;
     private MovementRigidbody2D playerMovement = null;
-    private PlayerDataManager playerData;
+    private PlayerStatsController playerStatsController;
     
     //2. 범위 내에서 속도 3/4배로 감소
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            playerData = other.GetComponent<PlayerDataManager>();
+            playerStatsController = other.GetComponent<PlayerStatsController>();
 
-            if (playerData != null)
+            if (playerStatsController != null)
             {
                 playerMovement = other.GetComponent<MovementRigidbody2D>();
                 playerMovement.IsInSg = true;
@@ -38,7 +38,7 @@ public class StickyGoo : MonoBehaviour
     //1. 데미지 2초당 0.2 hp 감소
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("Player")&&!isCoroutineRunning && !playerData.IsInvincible)
+        if (other.CompareTag("Player")&&!isCoroutineRunning && !playerStatsController.IsInvincible)
         {
             isCoroutineRunning = true;
             StartCoroutine(nameof(AttackPlayerOverTime));
@@ -48,7 +48,9 @@ public class StickyGoo : MonoBehaviour
     private IEnumerator AttackPlayerOverTime()
     {
         //attack
-        Managers.PlayerData.OnAttacked(damage);
+        
+        playerStatsController.OnAttacked(damage);
+        // Managers.Player.OnAttacked(damage);
         
         //delay
         yield return new WaitForSeconds(damageDelayTime);

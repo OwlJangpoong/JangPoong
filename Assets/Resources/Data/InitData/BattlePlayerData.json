@@ -1,0 +1,13 @@
+{
+  "playerName": "배틀용",
+  "hp": 10.0,
+  "maxHp": 10.0,
+  "mana": 100,
+  "maxMana": 100,
+  "monsterPoint": 0,
+  "maxMonsterPoint": 50,
+  "currentJangPoongLevel": 10,
+  "tokenCnt": 10,
+  "isRunning": false,
+  "currentStage": "2-3-2 마왕과의 전투"
+}

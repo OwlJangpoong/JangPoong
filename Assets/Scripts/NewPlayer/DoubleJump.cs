@@ -31,9 +31,9 @@ public class DoubleJump : MonoBehaviour
         if (isGround)
             doubleJumpState = true;
 
-        if (isGround && Input.GetKeyDown(Managers.KeyBind.jumpKeyCode))
+        if (isGround && Input.GetKeyDown(Managers.KeyBind.GetKeyCode(Define.ControlKey.jumpKey)))
             JumpAddForce();
-        else if (doubleJumpState && Input.GetKeyDown(Managers.KeyBind.jumpKeyCode))
+        else if (doubleJumpState && Input.GetKeyDown(Managers.KeyBind.GetKeyCode(Define.ControlKey.jumpKey)))
         {
             JumpAddForce();
             doubleJumpState = false;

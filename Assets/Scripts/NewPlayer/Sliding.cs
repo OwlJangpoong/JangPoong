@@ -9,16 +9,16 @@ public class Sliding : MonoBehaviour
     DoubleJump dj;
     Rigidbody2D rb;
     BoxCollider2D BoxCollider2D;
-    private bool isSliding = false;    // ½½¶óÀÌµù ÁßÀÌ¸é true
-    private Vector2 slideDirection;    // ½½¶óÀÌµù ¹æÇâ
-    private float slideRemainingDistance;  // ³²Àº ½½¶óÀÌµù °Å¸®
-    private Vector2 originalColliderSize;  // ±âÁ¸ Player Collider Size
-    private Vector2 originalColliderOffset;  // ±âÁ¸ Player Collider Offset
+    private bool isSliding = false;    // ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ true
+    private Vector2 slideDirection;    // ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
+    private float slideRemainingDistance;  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Å¸ï¿½
+    private Vector2 originalColliderSize;  // ï¿½ï¿½ï¿½ï¿½ Player Collider Size
+    private Vector2 originalColliderOffset;  // ï¿½ï¿½ï¿½ï¿½ Player Collider Offset
 
-    [SerializeField] private float slideDistance = 3.0f;  // ½½¶óÀÌµù °Å¸®
-    [SerializeField] private LayerMask groundLayer;  // Ground ·¹ÀÌ¾î ¼³Á¤
+    [SerializeField] private float slideDistance = 3.0f;  // ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Å¸ï¿½
+    [SerializeField] private LayerMask groundLayer;  // Ground ï¿½ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-    [NonSerialized] public float slideSpeed = 5.0f;  // ½½¶óÀÌµù ¼Óµµ
+    [NonSerialized] public float slideSpeed = 5.0f;  // ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Óµï¿½
 
     void Start()
     {
@@ -35,12 +35,12 @@ public class Sliding : MonoBehaviour
         UpdateSlide();
     }
 
-    #region ½½¶óÀÌµù
+    #region ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½
     private void UpdateSlide()
     {
         if (dj.isGround)
         {
-            if (Input.GetKeyDown(Managers.KeyBind.slideKeyCode))  // ½½¶óÀÌµù Å° ´­·¶À» ¶§
+            if (Input.GetKeyDown(Managers.KeyBind.GetKeyCode(Define.ControlKey.slideKey)))  // ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ Å° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
             {
                 if (!isSliding)
                 {
@@ -61,21 +61,21 @@ public class Sliding : MonoBehaviour
         slideRemainingDistance = slideDistance;
         slideDirection = new Vector2(transform.localScale.x, 0).normalized;
 
-        // ÄÝ¶óÀÌ´õ Å©±â¿Í À§Ä¡ Á¶Á¤ (ÇÃ·¹ÀÌ¾î¸¦ ÀÛ°Ô)
+        // ï¿½Ý¶ï¿½ï¿½Ì´ï¿½ Å©ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ (ï¿½Ã·ï¿½ï¿½Ì¾î¸¦ ï¿½Û°ï¿½)
         BoxCollider2D.size = new Vector2(9f, 4.0f);
         BoxCollider2D.offset = new Vector2(BoxCollider2D.offset.x, BoxCollider2D.offset.y - 3.0f);
 
-        Debug.Log("½½¶óÀÌµù ½ÃÀÛ");
+        Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½");
     }
 
     private void HandleSliding()
     {
-        // ¸Ó¸® À§¿¡ Ground ·¹ÀÌ¾î À¯¹« Ã¼Å©
+        // ï¿½Ó¸ï¿½ ï¿½ï¿½ï¿½ï¿½ Ground ï¿½ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, 1.0f, groundLayer);
         if (hit.collider != null)
         {
-            Debug.Log("¸Ó¸® À§¿¡ Àå¾Ö¹° Á¸Àç");
-            // ¸Ó¸® À§¿¡ Àå¾Ö¹°ÀÌ ÀÖ´Â µ¿¾È ½½¶óÀÌµù »óÅÂ À¯Áö
+            Debug.Log("ï¿½Ó¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ö¹ï¿½ ï¿½ï¿½ï¿½ï¿½");
+            // ï¿½Ó¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             rb.velocity = new Vector2(slideDirection.x * slideSpeed, rb.velocity.y);
             return;
         }
@@ -89,7 +89,7 @@ public class Sliding : MonoBehaviour
         rb.velocity = new Vector2(slideDirection.x * slideSpeed, rb.velocity.y);
         slideRemainingDistance -= moveStep;
 
-        // ½½¶óÀÌµù Á¾·á Á¶°Ç
+        // ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (slideRemainingDistance <= 0)
         {
             EndSlide();
@@ -99,12 +99,12 @@ public class Sliding : MonoBehaviour
     private void EndSlide()
     {
         isSliding = false;
-        // ÄÝ¶óÀÌ´õ Å©±â ¹× À§Ä¡¸¦ ¿ø·¡´ë·Î º¹±¸
+        // ï¿½Ý¶ï¿½ï¿½Ì´ï¿½ Å©ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         BoxCollider2D.size = originalColliderSize;
         BoxCollider2D.offset = originalColliderOffset;
-        rb.velocity = Vector2.zero;  // ¼Óµµ ÃÊ±âÈ­
+        rb.velocity = Vector2.zero;  // ï¿½Óµï¿½ ï¿½Ê±ï¿½È­
 
-        Debug.Log("½½¶óÀÌµù Á¾·á");
+        Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½");
     }
     #endregion
 }

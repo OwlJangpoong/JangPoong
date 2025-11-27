@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f441287a402884150b182a222e3775b7, type: 3}
+  m_Name: State 0-3
+  m_EditorClassIdentifier: 
+  cameraLimitMinX: -145.67
+  cameraLimitMaxX: -85.5
+  playerLimitMinX: -159.3322
+  playerLimitMaxX: -77.47511
+  playerPosition: {x: -137.5511, y: -19}
+  cameraPosition: {x: -137.5511, y: -16}

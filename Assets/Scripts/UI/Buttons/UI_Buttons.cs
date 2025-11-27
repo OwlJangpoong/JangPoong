@@ -2,21 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class UI_Buttons: MonoBehaviour
 {
+    public Image fadePanel;  //페이드용 Panel UI 할당 필요
     public void OnClickNewGame()
     {
-        Debug.Log("새 게임");
-        Managers.RestPlayData();
-        Managers.Scene.LoadScene("1-1 tutorial");
+        Debug.Log($"슬롯{Managers.Data.SlotNum} : 새 게임을 시작합니다.");
+        // Managers.RestPlayData(); //PlayPrefs 사용 안함
+        
+        Managers.Data.DeleteAllFilesInSlot(); //슬롯 내 모든 파일 삭제
+        
+        //필요한 데이터 파일 초기화 및 셋팅
+        //Inventory Data, PlayerData, StatisticData, ProgressData
+        Managers.Game.ResetDataClass();
+        Managers.Player.ForceInit();
+        Managers.Inventory.ForceInit();
+        //통계데이터
+        Managers.Game.LoadStatisticData();
+        //프로그래스 데이터
 
     }
 
     public void OnClickLoad()
     {
-        Debug.Log("이어하기");
-        //이어하기 씬 이동 & 데이터 저장 필요
+        Debug.Log($"이어하기 : 슬롯 {Managers.Data.SlotNum} 데이터를 불러옵니다.");
+        
+        fadePanel.gameObject.SetActive(true); 
+        StartCoroutine(FadeEffect.Fade(fadePanel, 0f, 1f, fadeTime: 0.5f, action: () => StartCoroutine(LoadGameData())));
+
     }
 
     public void OnClickSettings()
@@ -31,22 +47,6 @@ public class UI_Buttons: MonoBehaviour
                 UnityEditor.EditorApplication.isPlaying = false;
 #endif
         Application.Quit();
-    }
-
-    public void OnClickNormal()
-    {
-        Debug.Log("보통 난이도 게임");
-
-    }
-
-    public void OnClickHard()
-    {
-        Debug.Log("어려움 난이도 게임");
-    }
-
-    public void OnClickImpossible()
-    {
-        Debug.Log("불가능 레벨");
     }
 
     public void OnClickChapters()
@@ -89,5 +89,27 @@ public class UI_Buttons: MonoBehaviour
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
         Application.Quit();
+    }
+
+    public void OnClick2Tutorial()
+    {
+        Debug.Log("인트로 스킵");
+        Managers.Scene.LoadScene("0-1 tutorial");
+
+    }
+
+    private IEnumerator LoadGameData()
+    {
+        yield return null; // 다음 프레임까지 기다려서 페이드 시작을 보장
+    
+        Managers.Player.Init();
+        Managers.Inventory.Init();
+        Managers.Game.LoadStatisticData();
+
+        Debug.Log($"currentStage : {Managers.Player.currentStage}");
+        string nextScene = Util.GetSceneNameByStageName(Managers.Player.currentStage);
+    
+        Debug.Log($"이동할 씬 : {nextScene}");
+        Managers.Scene.LoadScene(nextScene);
     }
 }

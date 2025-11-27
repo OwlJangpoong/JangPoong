@@ -1,41 +1,42 @@
-using UnityEngine;
-using UnityEngine.SceneManagement;
-
-public class Silvan : NPC, ITalkable
-{
-    [SerializeField] private DialogueText dialogueText;
-    [SerializeField] private DialogueController dialogueController;
-
-    private void OnEnable()
-    {
-        // DialogueControllerÀÇ OnConversationEnd ÀÌº¥Æ® ±¸µ¶
-        dialogueController.OnConversationEnd += HandleConversationEnd;
-    }
-
-    private void OnDisable()
-    {
-        // ±¸µ¶ ÇØÁ¦
-        dialogueController.OnConversationEnd -= HandleConversationEnd;
-    }
-
-    public override void Interact()
-    {
-        Talk(dialogueText);
-    }
-
-    public void Talk(DialogueText dialogueText)
-    {
-        dialogueController.DisplayNextParagraph(dialogueText);
-    }
-
-    // ´ëÈ­ Á¾·á ½Ã
-    private void HandleConversationEnd()
-    {
-        // Åõ¸í ¹°¾à 2°³ Áö±Ş
-        Managers.Inventory.invinsibilityCnt += 2;
-        Debug.Log(Managers.Inventory.invinsibilityCnt + "°³");
-
-        // Scene ÀüÈ¯
-        SceneManager.LoadScene("2-1 to demon castle");
-    }
-}
+// using UnityEngine;
+// using UnityEngine.SceneManagement;
+//
+// public class Silvan : NPC, ITalkable
+// {
+//     [SerializeField] private DialogueText dialogueText;
+//     [SerializeField] private DialogueController dialogueController;
+//
+//     private void OnEnable()
+//     {
+//         // DialogueControllerï¿½ï¿½ OnConversationEnd ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+//         dialogueController.OnConversationEnd += HandleConversationEnd;
+//     }
+//
+//     private void OnDisable()
+//     {
+//         // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+//         dialogueController.OnConversationEnd -= HandleConversationEnd;
+//     }
+//
+//     public override void Interact()
+//     {
+//         Talk(dialogueText);
+//     }
+//
+//     public void Talk(DialogueText dialogueText)
+//     {
+//         dialogueController.DisplayNextParagraph(dialogueText);
+//     }
+//
+//     // ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+//     private void HandleConversationEnd()
+//     {
+//         // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+//         //Managers.Inventory.invinsibilityCnt += 2;
+//         Managers.Inventory.InventoryItem(Define.Item.invisibilityPotion, 2);
+//         Debug.Log($"í˜„ì¬ íˆ¬ëª…í™” í¬ì…˜ ê°œìˆ˜ : {Managers.Inventory.GetItemCount(Define.Item.invisibilityPotion)}ê°œ");
+//
+//         // Scene ï¿½ï¿½È¯
+//         SceneManager.LoadScene("2-1 to demon castle");
+//     }
+// }

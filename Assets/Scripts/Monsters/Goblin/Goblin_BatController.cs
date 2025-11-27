@@ -151,8 +151,8 @@ public class Goblin_BatController : MonoBehaviour
         Debug.Log(other.name);
         if (other.CompareTag("Player"))
         {
-            PlayerDataManager playerDataManager = Util.FindChild<PlayerDataManager>(other.gameObject, null, true);
-            playerDataManager.OnAttacked(damage);
+            PlayerStatsController playerStatsController = Util.FindChild<PlayerStatsController>(other.gameObject, null, true);
+            playerStatsController.OnAttacked(damage);
         }
         Destroy(gameObject);
     }

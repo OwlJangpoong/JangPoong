@@ -11,7 +11,7 @@ public class Thorn : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Managers.PlayerData.OnAttacked(damage);
+            other.GetComponent<PlayerStatsController>().OnAttacked(damage);
         }
     }
 }

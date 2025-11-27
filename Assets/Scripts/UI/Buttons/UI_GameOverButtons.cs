@@ -8,11 +8,23 @@ public class UI_GameOverButtons : MonoBehaviour
 {
     public Button restartButton;
     public Button exitButton;
+    public NewPlayerMovement movement;
 
     private void Start()
     {
         exitButton.onClick.AddListener(Exit);
         restartButton.onClick.AddListener(Restart);
+
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player.GetComponent<NewPlayerMovement>() == null)
+        {
+            movement = Util.FindChild<NewPlayerMovement>(player);
+        }
+        else
+        {
+            movement = player.GetComponent<NewPlayerMovement>();
+        }
+        
     }
 
     public void Exit()
@@ -22,6 +34,7 @@ public class UI_GameOverButtons : MonoBehaviour
 
     public void Restart()
     {
-        Managers.Scene.LoadScene();
+        movement.OnButtonClick_Restart();
+        Managers.Scene.LoadScene("",true);
     }
 }

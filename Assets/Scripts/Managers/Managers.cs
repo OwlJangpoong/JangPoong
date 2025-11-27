@@ -7,6 +7,8 @@ public class Managers : MonoBehaviour
 {
     //Singleton
     static Managers s_instance; //유일성 보장
+    private static bool _isInitialized = false; //초기화 완료 여부
+    public static bool IsInitialized => _isInitialized; // 외부에서 상태 확인 가능
 
     static Managers Instance { get
     {
@@ -17,18 +19,23 @@ public class Managers : MonoBehaviour
     #region Core
 
     private DataManager _data = new DataManager();
+    private GameManager _game = new GameManager();
     private InputManager _input = new InputManager();
     private ResourceManager _resource = new ResourceManager();
     private SceneManagerEx _scene = new SceneManagerEx();
     private UIManager _ui = new UIManager();
-    private SoundManager sound = new SoundManager();
-    private PlayerDataManager _playerData;
 
-    private KeyBindingManager _keyBind = new KeyBindingManager();
-    private InventoryManager _inventory = new InventoryManager();
+    private SoundManager _sound;
+    private PlayerManager player;
+    private KeyBindingManager _keyBind;
+    private InventoryManager _inventory; // 초기에는 null
     
     
     public static DataManager Data { get { return Instance._data; } }
+    public static GameManager Game
+    {
+        get { return Instance._game; }
+    }
     public static InputManager Input { get { return Instance._input; } }
     public static ResourceManager Resource { get { return Instance._resource; } }
     public static SceneManagerEx Scene
@@ -38,19 +45,29 @@ public class Managers : MonoBehaviour
     public static UIManager UI { get { return Instance._ui; } }
     public static SoundManager Sound
     {
-        get { return Instance.sound; }
+        get
+        {
+            if (Instance._sound == null)
+            {
+                Instance._sound = new SoundManager(); //처음 접근할 때 생성하고 초기화한다.
+                Debug.Log("처음 접근할때만 호출한다.");
+                Instance._sound.Init();
+            }
+            return Instance._sound;
+        }
     }
 
-    public static PlayerDataManager PlayerData
+    public static PlayerManager Player
     {
         get
         {
-            if (Instance._playerData == null)
+            if (Instance.player == null)
             {
-                Instance._playerData = GameObject.FindObjectOfType<PlayerDataManager>();
+                Instance.player = new PlayerManager();
+                Instance.player.Init();
             }
 
-            return Instance._playerData;
+            return Instance.player;
         }
     }
 
@@ -59,6 +76,11 @@ public class Managers : MonoBehaviour
     {
         get
         {
+            if (Instance._keyBind == null)
+            {
+                Instance._keyBind = new KeyBindingManager(); //처음 접근할 때 생성하고 초기화한다.
+                //Instance._keyBind.
+            }
             return Instance._keyBind;
         }
     }
@@ -67,6 +89,11 @@ public class Managers : MonoBehaviour
     {
         get
         {
+            if (Instance._inventory == null)
+            {
+                Instance._inventory = new InventoryManager(); // 처음 접근할 때 생성
+                Instance._inventory.Init();
+            }
             return Instance._inventory;
         }
     }
@@ -102,8 +129,13 @@ public class Managers : MonoBehaviour
 
 
             s_instance._data.Init();
-            s_instance.sound.Init();
-            s_instance._keyBind.LoadKeyBindings();
+            s_instance._game.Init();
+            
+            // s_instance._sound.Init();
+            //
+            //
+            _isInitialized = true; // 초기화 완료
+            
         }
 
     }
@@ -126,7 +158,8 @@ public class Managers : MonoBehaviour
         }
 
         // 인벤토리 아이템 개수를 0으로 초기화
-        Instance._data.ResetInventory();
+        //--
+        //Instance._data.ResetInventory();
     }
 
 

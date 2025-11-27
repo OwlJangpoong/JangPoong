@@ -1,137 +1,314 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.U2D.Aseprite;
+// using UnityEditor.U2D.Aseprite;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class NewPlayerMovement : MonoBehaviour
 {
+    
+    //í”Œë ˆì´ì–´ ë§µ ì´ë™ ì œí•œ
+    private StageData stageData; //ì‚­ì œ ê¸ˆì§€!!! (250121)
 
     Rigidbody2D rb;
-    // BoxCollider2D BoxCollider2D;
     CapsuleCollider2D CapsuleCollider2D;
-    private PlayerDataManager playerDataManager;
-    private NewPlayerAnimationController playerAnimator;
+    private PlayerStatsController playerStatsController;
+    public NewPlayerAnimationController playerAnimator;
+    private MovementRigidbody2D movement;
+    private Transform transformForSpriteControl; //Spriteì™€ ê´€ë ¨ëœ ì²˜ë¦¬ëŠ” ì´ ë³€ìˆ˜ ì´ìš©(Spriteì™€ ì• ë‹ˆë©”ì´ì…˜ì€ ìì‹ ì˜¤ë¸Œì íŠ¸ë¡œ ì´ë™ì‹œì¼°ê¸° ë•Œë¬¸)
 
-
-    // Á¡ÇÁ µ¥ÀÌÅÍ
+    // ì í”„ ë°ì´í„°
     [SerializeField] float jumpForce = 600f, speed = 5.0f;
     float moveX;
 
-    public bool isSliding = false;    // ½½¶óÀÌµù ÁßÀÌ¸é true
-    private Vector2 slideDirection;    // ½½¶óÀÌµù ¹æÇâ
-    private float slideRemainingDistance;  // ³²Àº ½½¶óÀÌµù °Å¸®
-    private Vector2 originalColliderSize;  // ±âÁ¸ Player Collider Size
-    private Vector2 originalColliderOffset;  // ±âÁ¸ Player Collider Offset
+    public bool isSliding = false;    // ìŠ¬ë¼ì´ë”© ì¤‘ì´ë©´ true
+    private Vector2 slideDirection;    // ìŠ¬ë¼ì´ë”© ë°©í–¥
+    private float slideRemainingDistance;  // ë‚¨ì€ ìŠ¬ë¼ì´ë”© ê±°ë¦¬
+    private Vector2 originalColliderSize;  // ê¸°ì¡´ Player Collider Size
+    private Vector2 originalColliderOffset;  // ê¸°ì¡´ Player Collider Offset
 
-    [SerializeField] private float slideDistance = 3.0f;  // ½½¶óÀÌµù °Å¸®
-    [SerializeField] private LayerMask groundLayer;  // Ground ·¹ÀÌ¾î ¼³Á¤
+    #region Move Speed Control Variables / Methods
+    [SerializeField] private float originSlideSpeed = 7.0f;
 
-    public float speedMultiplier = 1.5f;                                // ´Ş¸®±âÇÒ ¶§ ¼Óµµ ¹è¼Ó
+    [NonSerialized] public float ssgSlideSpeed;
+
+    [NonSerialized] public float sgSlideSpeed;
+
+    private void WalkSpeedState(int state)
+    {
+        switch (state)
+        {
+            case 0:
+                //ì›ë˜ ì†ë„ëŒ€ë¡œ
+                slideSpeed = originSlideSpeed;
+                break;
+            case 1:
+                //ssg
+                slideSpeed = ssgSlideSpeed;
+                break;
+            case 2:
+                //sg
+                slideSpeed = sgSlideSpeed;
+                break;
+        }
+    }
+    #endregion
+
+    [SerializeField] private float slideDistance = 3.0f;  // ìŠ¬ë¼ì´ë”© ê±°ë¦¬
+    [SerializeField] private LayerMask groundLayer;  // Ground ë ˆì´ì–´ ì„¤ì •
+
+    public float speedMultiplier = 1.5f;                                // ë‹¬ë¦¬ê¸°í•  ë•Œ ì†ë„ ë°°ì†
 
     public bool doubleJumpState = false;
     public bool isGround = false;
     public bool isJumping = false;
     public bool isDoubleJumping = false;
-    private bool isRunning = false;                                        // ´Ş¸®±â ÁßÀÌ¸é true
+    //public bool isRunning = false;  // ë‹¬ë¦¬ê¸° ì¤‘ì´ë©´ true //ì „ì—­ ê´€ë¦¬ë¡œ ë³€ê²½(250204)
+    public bool isDown = false;
 
-    [NonSerialized] public float slideSpeed = 7.0f;  // ½½¶óÀÌµù ¼Óµµ
-
-
-    /*    public GameObject gameOver;
-        public bool gameOverFlag = false; // true¸é °ÔÀÓ ¿À¹ö »óÅÂ*/
+    [NonSerialized] public float slideSpeed = 7.0f;  // ìŠ¬ë¼ì´ë”© ì†ë„
 
 
+    public GameObject gameOver;
+    public bool gameOverFlag = false; // trueë©´ ê²Œì„ ì˜¤ë²„ ìƒíƒœ
+
+    [SerializeField] private GameObject levelUpEffect;
+
+    
+    
+    //í‚¤ì—…ë ¥ ë°©ì§€ í”Œë˜ê·¸
+    public bool isInputBlocked = false; // ì…ë ¥ ì°¨ë‹¨ ë³€ìˆ˜ ì¶”ê°€
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         CapsuleCollider2D = GetComponent<CapsuleCollider2D>();
-        playerAnimator = GetComponent<NewPlayerAnimationController>();
-        playerDataManager = GetComponentInChildren<PlayerDataManager>();
+        playerAnimator = GetComponentInChildren<NewPlayerAnimationController>();
+        playerStatsController = GetComponent<PlayerStatsController>();
+        movement = GetComponent<MovementRigidbody2D>();
+        transformForSpriteControl = playerAnimator.transform; //Sprite ì»´í¬ë„ŒíŠ¸ ê°–ëŠ” ì˜¤ë¸Œì íŠ¸ì˜ transform
 
         originalColliderSize = CapsuleCollider2D.size;
         originalColliderOffset = CapsuleCollider2D.offset;
 
-        /*        // GAMEOVER ºñÈ°¼ºÈ­
-                gameOver.SetActive(false);
+        // ì†ë„ ì„¤ì •
+        slideSpeed = originSlideSpeed;
+        ssgSlideSpeed = originSlideSpeed * 0.5f;
+        sgSlideSpeed = originSlideSpeed * 0.75f;
 
-                // ÇÃ·¹ÀÌ¾î DieAction µî·Ï
-                Managers.PlayerData.DieAction -= SetPlayerDead;
-                Managers.PlayerData.DieAction += SetPlayerDead;*/
+        // speed controlAction ë“±ë¡
+        movement.controlSpeedAction -= WalkSpeedState;
+        movement.controlSpeedAction += WalkSpeedState;
+
+        // DieAction ì„¤ì •
+        Managers.Player.OnDie -= SetPlayerDead;
+        Managers.Player.OnDie += SetPlayerDead;
+
+        // // ëª¨ë“  LevelUpToken ê°ì²´ë¥¼ ì°¾ì•„ ì´ë²¤íŠ¸ êµ¬ë… => playermanager ìˆ˜ì •í•˜ë©´ì„œ ì¤‘ì•™ì—ì„œ ê´€ë¦¬í•˜ëŠ” ì´ë²¤íŠ¸ë¥¼ êµ¬ë…í•˜ëŠ” ê²ƒìœ¼ë¡œ ë³€ê²½(250203). ëª¨ë“ˆí™”, í™•ì¥ì„± ìš©ì´
+        // LevelUpToken[] levelUpTokens = FindObjectsOfType<LevelUpToken>();
+        // foreach (var token in levelUpTokens)
+        // {
+        //     token.OnLevelUpTokenUpdated -= HandleLevelUpTokenUpdated;
+        //     token.OnLevelUpTokenUpdated += HandleLevelUpTokenUpdated;
+        // }
+        
+        //LevelUpToken íšë“ íŒŒí‹°í´ ì´ë²¤íŠ¸
+        Managers.Player.OnTokenCntChanged-=HandleLevelUpTokenUpdated;
+        Managers.Player.OnTokenCntChanged+=HandleLevelUpTokenUpdated;
+
+        //gameover ì˜¤ë¸Œì íŠ¸ ìë™ í• ë‹¹ì„ ìœ„í•œ ì½”ë“œ ì¶”ê°€(250121)
+        GameObject ui_Game_Root = GameObject.FindWithTag("UI_Root");
+        if (ui_Game_Root.GetComponentInChildren<UI_GameOverButtons>(true))
+        {
+            gameOver = ui_Game_Root.GetComponentInChildren<UI_GameOverButtons>(true).gameObject;
+            gameOver.SetActive(false);
+        }
+       
+        
+
+
     }
+    
+    //ì˜¤ë¸Œì íŠ¸ íŒŒê´´ì‹œ don't destroyë¡œ ì‚´ì•„ìˆëŠ” ì˜¤ë¸Œì íŠ¸ì˜ ì´ë²¤íŠ¸ë¥¼ êµ¬ë… ì¤‘ì´ë¼ë©´ í•´ì œí•´ì¤€ë‹¤.
+    //ê·¸ë ‡ì§€ ì•ŠëŠ” ê²½ìš° ì˜¤ë¸Œì íŠ¸ê°€ íŒŒê´´ë˜ì–´ë„ don't destroyë¡œ ì‚´ì´ìˆëŠ” ì˜¤ë¸Œì íŠ¸ì˜ ì´ë²¤íŠ¸ì˜ ë¦¬ìŠ¤ë„ˆ ëª©ë¡ì— íŒŒê´´ëœ ì˜¤ë¸Œì íŠ¸ì˜ êµ¬ë…ì´ ë‚¨ì•„ìˆê²Œëœë‹¤. ì´ë²¤íŠ¸ ë°œìƒì‹œ íŒŒê´´ëœ ì˜¤ë¸Œì íŠ¸ë¥¼ ì°¸ì¡°í•˜ë ¤í•˜ê¸° ë•Œë¬¸ì— null reference errorê°€ ë°œìƒí•œë‹¤.
+    private void OnDestroy()
+    {
+        if (Managers.Player != null)
+        {
+            Managers.Player.OnDie -= SetPlayerDead;
+            Managers.Player.OnTokenCntChanged -= HandleLevelUpTokenUpdated;
+        }
+    }
+
 
     void Update()
     {
+        if (UI_GamePopUp.isPaused || isInputBlocked)
+        {
+            return;
+        }
         Jump();
         UpdateSlide();
         UpdateRun();
         UpdateJangPoong();
+        UpdateUlt();
+        UpdateDown();
 
+        // ê¸°ë³¸ ì´ë™, HandleSliding íŒŒíŠ¸ FixedUpdateë¬¸ìœ¼ë¡œ ì˜®ê¹€ (250201 ë‹¤ì¸)
+
+        /////í”Œë ˆì´ì–´ ë§µ ì´ë™ ì œí•œì„ ìœ„í•œ ì½”ë“œ! ì‚­ì œ ê¸ˆì§€ ----------
+        if (stageData == null) return;
+        float xPos = Mathf.Clamp(transform.position.x, stageData.PlayerLimitMinX, stageData.PlayerLimitMaxX);
+        transform.position = new Vector2(xPos, transform.position.y);
+        ////-------------
+        
+    }
+
+    // ë¬¼ë¦¬ ì—”ì§„ ì—…ë°ì´íŠ¸ë˜ëŠ” í•¨ìˆ˜
+    void FixedUpdate()
+    {
+        if (isInputBlocked) // âœ… ì…ë ¥ ì°¨ë‹¨ë˜ë©´ ì›€ì§ì´ì§€ ì•ŠìŒ
+        {
+            movement.MoveTo(0);
+            playerAnimator.animator.SetBool("isWalking",false);
+            return;
+        }
+        
+        
+        // ê¸°ë³¸ ì´ë™
         float x = GetHorizontalInput();
 
-        // ´Ş¸®±â
-        if (isRunning)
+        if (gameOverFlag == true || isDown)
         {
-            speedMultiplier = 1.5f;
-            playerAnimator.SetSpeedMultiplier(speedMultiplier);
+            movement.MoveTo(0);
         }
         else
         {
-            speedMultiplier = 1.0f;
-            playerAnimator.SetSpeedMultiplier(speedMultiplier);
+            if (!isSliding)
+            {
+                movement.MoveTo(x);
+            }
+
+            if (Managers.Player.IsRunning)
+            {
+                movement.MoveTo(x * speedMultiplier);
+            }
+
+            playerAnimator.SetSpeedMultiplier(Managers.Player.IsRunning ? 1.5f : 1.0f);
+            playerAnimator.UpdateAnimation(x);
         }
 
-        playerAnimator.UpdateAnimation(x);
+        if(gameOverFlag == false)
+        {
+            // ìŠ¬ë¼ì´ë”© ìœ ì§€
+            if (isSliding)
+            {
+                HandleSliding();
+            }
+        }
 
     }
 
-    #region ÀÌµ¿ & Á¡ÇÁ & ´õºí Á¡ÇÁ
+    #region ì›…í¬ë¦¬ê¸°
+    private void UpdateDown()
+    {
+        if (isGround)
+        {
+            if (Input.GetKeyDown(Managers.KeyBind.GetKeyCode(Define.ControlKey.slideKey)))
+            {
+                isDown = true;
+
+                // Player Collider í¬ê¸°ì™€ ìœ„ì¹˜ ì¡°ì •
+                CapsuleCollider2D.size = new Vector2(4.255104f, 4.660773f);
+                CapsuleCollider2D.offset = new Vector2(0.5280471f, -2.357519f);
+
+                playerAnimator.PlayerDown();
+            }
+            if (Input.GetKeyUp(Managers.KeyBind.GetKeyCode(Define.ControlKey.slideKey)))
+            {
+                playerUp();
+            }
+            /*            if (!Input.GetKey(Managers.KeyBind.GetKeyCode(Define.ControlKey.slideKey)) && isDown)
+                        {
+                            playerUp();
+                        }*/
+        }
+    }
+
+    public void playerUp()
+    {
+        isDown = false;
+
+        // Player Collider í¬ê¸° ë° ìœ„ì¹˜ ì›ë˜ëŒ€ë¡œ ë³µêµ¬
+        CapsuleCollider2D.size = originalColliderSize;
+        CapsuleCollider2D.offset = originalColliderOffset;
+
+        playerAnimator.PlayerUp();
+    }
+    #endregion
+
+    #region ì´ë™ & ì í”„ & ë”ë¸” ì í”„
     private float GetHorizontalInput()
     {
         float x = 0;
 
-        if (Input.GetKey(Managers.KeyBind.leftKeyCode)) // ÁÂ·Î ÀÌµ¿ Å° ´­·¶À» ¶§
+        if (!isSliding)
         {
-            x = -1;
+            if (Input.GetKey(Managers.KeyBind.GetKeyCode(Define.ControlKey.leftKey))) // ì¢Œë¡œ ì´ë™ í‚¤ ëˆŒë €ì„ ë•Œ
+            {
+                x = -1;
+            }
+            else if (Input.GetKey(Managers.KeyBind.GetKeyCode(Define.ControlKey.rightKey))) // ìš°ë¡œ ì´ë™ í‚¤ ëˆŒë €ì„ ë•Œ
+            {
+                x = 1;
+            }
         }
-        else if (Input.GetKey(Managers.KeyBind.rightKeyCode)) // ¿ì·Î ÀÌµ¿ Å° ´­·¶À» ¶§
+        
+        if (playerStatsController != null && playerStatsController.IsConfused)
         {
-            x = 1;
+            x *= -1;
         }
+
         return x;
     }
 
-    // Á¡ÇÁ
+    // ì í”„
     void Jump()
     {
 
-        if (!isSliding)
+        if (!isSliding && !gameOverFlag)
         {
-            if (rb.velocity.y == 0)
+            if (movement.IsGrounded)
+            // rb.velocity.y == 0
             {
                 isGround = true;
             }
             else
                 isGround = false;
 
-            // 1´Ü Á¡ÇÁ
-            if (isGround && Input.GetKeyDown(Managers.KeyBind.jumpKeyCode))
+            // 1ë‹¨ ì í”„
+            if (isGround && Input.GetKeyDown(Managers.KeyBind.GetKeyCode(Define.ControlKey.jumpKey)))
             {
                 JumpAddForce();
                 isJumping = true;
-                isDoubleJumping = false;  // Ã¹ Á¡ÇÁ¿¡¼­´Â ´õºí Á¡ÇÁ false·Î À¯Áö
-                doubleJumpState = true; // ´õºí Á¡ÇÁ °¡´É
+                isDoubleJumping = false;  // ì²« ì í”„ì—ì„œëŠ” ë”ë¸” ì í”„ falseë¡œ ìœ ì§€
+                doubleJumpState = true; // ë”ë¸” ì í”„ ê°€ëŠ¥
+
+                // ì›…í¬ë¦¬ê¸° ìƒíƒœë©´ ì›…í¬ë¦° ìƒíƒœ í•´ì œ
+                if (isDown)
+                {
+                    playerUp();
+                }
             }
-            // ´õºí Á¡ÇÁ
-            else if (doubleJumpState && Input.GetKeyDown(Managers.KeyBind.jumpKeyCode))
+            // ë”ë¸” ì í”„
+            else if (doubleJumpState && Input.GetKeyDown(Managers.KeyBind.GetKeyCode(Define.ControlKey.jumpKey)))
             {
                 JumpAddForce();
-                doubleJumpState = false;  // ´õºí Á¡ÇÁ ºÒ°¡´É
-                isDoubleJumping = true;   // ´õºí Á¡ÇÁ »óÅÂ true
-                StartCoroutine(ResetDoubleJumpFlag());  // ´õºí Á¡ÇÁ »óÅÂ À¯Áö Å¸ÀÌ¸Ó ½ÃÀÛ
+                doubleJumpState = false;  // ë”ë¸” ì í”„ ë¶ˆê°€ëŠ¥
+                isDoubleJumping = true;   // ë”ë¸” ì í”„ ìƒíƒœ true
+                StartCoroutine(ResetDoubleJumpFlag());  // ë”ë¸” ì í”„ ìƒíƒœ ìœ ì§€ íƒ€ì´ë¨¸ ì‹œì‘
             }
 
             moveX = Input.GetAxis("Horizontal") * speed * speedMultiplier;
@@ -140,14 +317,14 @@ public class NewPlayerMovement : MonoBehaviour
 
     }
 
-    // ´õºí Á¡ÇÁ »óÅÂ À¯Áö Å¸ÀÌ¸Ó
+    // ë”ë¸” ì í”„ ìƒíƒœ ìœ ì§€ íƒ€ì´ë¨¸
     IEnumerator ResetDoubleJumpFlag()
     {
         yield return new WaitForSeconds(0.3f);
-        isDoubleJumping = false;  // ´õºí Á¡ÇÁ ¾Ö´Ï¸ŞÀÌ¼ÇÀÌ ÃæºĞÈ÷ Àç»ıµÈ ÈÄ false·Î º¯°æ
+        isDoubleJumping = false;  // ë”ë¸” ì í”„ ì• ë‹ˆë©”ì´ì…˜ì´ ì¶©ë¶„íˆ ì¬ìƒëœ í›„ falseë¡œ ë³€ê²½
     }
 
-    // Á¡ÇÁ Force
+    // ì í”„ Force
     void JumpAddForce()
     {
         rb.velocity = new Vector2(rb.velocity.x, 0f);
@@ -155,12 +332,13 @@ public class NewPlayerMovement : MonoBehaviour
     }
     #endregion
 
-    #region ½½¶óÀÌµù
+    #region ìŠ¬ë¼ì´ë”©
     private void UpdateSlide()
     {
-        if (isGround)
+        if (isGround && isDown)
         {
-            if (Input.GetKeyDown(Managers.KeyBind.slideKeyCode))  // ½½¶óÀÌµù Å° ´­·¶À» ¶§
+            if (Input.GetKeyDown(Managers.KeyBind.GetKeyCode(Define.ControlKey.rightKey)) ||
+                Input.GetKeyDown(Managers.KeyBind.GetKeyCode(Define.ControlKey.leftKey)))  // ì›…í¬ë¦¬ê¸° ìƒíƒœì—ì„œ ì¢Œìš°ì´ë™í‚¤ ëˆŒë €ì„ ë•Œ
             {
                 if (!isSliding)
                 {
@@ -169,152 +347,261 @@ public class NewPlayerMovement : MonoBehaviour
             }
         }
 
-        if (isSliding)
-        {
-            HandleSliding();
-        }
+        /*     if (isSliding)
+          {
+              HandleSliding();
+          }*/
     }
 
-    // ½½¶óÀÌµù ½ÃÀÛ
-    private void StartSlide()
+        // ìŠ¬ë¼ì´ë”© ì‹œì‘
+        private void StartSlide()
     {
         isSliding = true;
-        slideRemainingDistance = slideDistance;
-        slideDirection = new Vector2(transform.localScale.x, 0).normalized;
+        slideRemainingDistance = Managers.Player.IsRunning ? slideDistance*speedMultiplier : slideDistance;
+        slideDirection = new Vector2(transformForSpriteControl.localScale.x, 0).normalized; //Player í”„ë¦¬íŒ¹ êµ¬ì¡° ë³€ê²½ìœ¼ë¡œ ì¸í•œ ì½”ë“œ ìˆ˜ì •(250122)
 
-        // Player Collider Å©±â¿Í À§Ä¡ Á¶Á¤
+        /*// Player Collider í¬ê¸°ì™€ ìœ„ì¹˜ ì¡°ì •
         CapsuleCollider2D.size = new Vector2(4.255104f, 4.660773f);
-        CapsuleCollider2D.offset = new Vector2(0.5280471f, -2.357519f);
+        CapsuleCollider2D.offset = new Vector2(0.5280471f, -2.357519f);*/
 
-        // ½½¶óÀÌµù ¾Ö´Ï¸ŞÀÌ¼Ç ½ÃÀÛ
+        // ëˆ„ë¥¸ ì¢Œìš°ì´ë™í‚¤ì— ë”°ë¥¸ ë°©í–¥ ì„¤ì •
+        if (Input.GetKey(Managers.KeyBind.GetKeyCode(Define.ControlKey.rightKey)))
+        {
+            transformForSpriteControl.localScale = new Vector3(1, transformForSpriteControl.localScale.y, transformForSpriteControl.localScale.z);
+            slideDirection = Vector2.right;
+        }
+        else if (Input.GetKey(Managers.KeyBind.GetKeyCode(Define.ControlKey.leftKey)))
+        {
+            transformForSpriteControl.localScale = new Vector3(-1, transformForSpriteControl.localScale.y, transformForSpriteControl.localScale.z);
+            slideDirection = Vector2.left;
+        }
+
+        // ìŠ¬ë¼ì´ë”© ì• ë‹ˆë©”ì´ì…˜ ì‹œì‘
         playerAnimator.StartSliding();
 
-        //Debug.Log("½½¶óÀÌµù ½ÃÀÛ");
+        //Debug.Log("ìŠ¬ë¼ì´ë”© ì‹œì‘");
     }
 
-    // ½½¶óÀÌµù À¯Áö
+    // ìŠ¬ë¼ì´ë”© ìœ ì§€
     private void HandleSliding()
     {
-        // ¸Ó¸® À§¿¡ Ground ·¹ÀÌ¾î À¯¹« Ã¼Å©
+        // ë¨¸ë¦¬ ìœ„ì— Ground ë ˆì´ì–´ ìœ ë¬´ ì²´í¬
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, 1.0f, groundLayer);
         if (hit.collider != null)
         {
-            // Debug.Log("¸Ó¸® À§¿¡ Àå¾Ö¹° Á¸Àç");
+            // Debug.Log("ë¨¸ë¦¬ ìœ„ì— ì¥ì• ë¬¼ ì¡´ì¬");
 
-            // ¸Ó¸® À§¿¡ Àå¾Ö¹°ÀÌ ÀÖ´Â µ¿¾È ½½¶óÀÌµù »óÅÂ À¯Áö
-            rb.velocity = new Vector2(slideDirection.x * slideSpeed, rb.velocity.y);
+            // ë¨¸ë¦¬ ìœ„ì— ì¥ì• ë¬¼ì´ ìˆëŠ” ë™ì•ˆ ìŠ¬ë¼ì´ë”© ìƒíƒœ ìœ ì§€
+            rb.velocity = new Vector2(slideDirection.x * slideSpeed * (Managers.Player.IsRunning ? speedMultiplier : 1f), rb.velocity.y);
+            // rb.velocity = new Vector2(slideDirection.x * slideSpeed, rb.velocity.y);
             return;
         }
 
-        float moveStep = slideSpeed * Time.deltaTime;
+        float moveStep = Managers.Player.IsRunning ? slideSpeed * Time.deltaTime * speedMultiplier : slideSpeed * Time.deltaTime;
+        //float moveStep = slideSpeed * Time.deltaTime;
         if (moveStep > slideRemainingDistance)
         {
             moveStep = slideRemainingDistance;
         }
 
-        rb.velocity = new Vector2(slideDirection.x * slideSpeed, rb.velocity.y);
-        slideRemainingDistance -= moveStep;
+        rb.velocity = new Vector2(slideDirection.x * slideSpeed * (Managers.Player.IsRunning ? speedMultiplier : 1f), rb.velocity.y);
+        // rb.velocity = new Vector2(slideDirection.x * slideSpeed, rb.velocity.y);
 
-        // ½½¶óÀÌµù Á¾·á Á¶°Ç
+        slideRemainingDistance -= moveStep;
+        // Debug.Log($"moveStep: {moveStep}, slideRemainingDistance: {slideRemainingDistance}");
+
+        // ìŠ¬ë¼ì´ë”© ì¢…ë£Œ ì¡°ê±´
         if (slideRemainingDistance <= 0)
         {
             EndSlide();
         }
     }
 
-    // ½½¶óÀÌµù Á¾·á
+    // ìŠ¬ë¼ì´ë”© ì¢…ë£Œ
     private void EndSlide()
     {
         isSliding = false;
-        // Player Collider Å©±â ¹× À§Ä¡ ¿ø·¡´ë·Î º¹±¸
+        /*// Player Collider í¬ê¸° ë° ìœ„ì¹˜ ì›ë˜ëŒ€ë¡œ ë³µêµ¬
         CapsuleCollider2D.size = originalColliderSize;
-        CapsuleCollider2D.offset = originalColliderOffset;
-        rb.velocity = Vector2.zero;  // ¼Óµµ ÃÊ±âÈ­
+        CapsuleCollider2D.offset = originalColliderOffset;*/
+        rb.velocity = Vector2.zero;  // ì†ë„ ì´ˆê¸°í™”
 
-        // ½½¶óÀÌµù Á¾·á ¾Ö´Ï¸ŞÀÌ¼Ç
+        // ìŠ¬ë¼ì´ë”© ì¢…ë£Œ ì• ë‹ˆë©”ì´ì…˜
         playerAnimator.StopSliding();
 
-        //Debug.Log("½½¶óÀÌµù Á¾·á");
+        //Debug.Log("ìŠ¬ë¼ì´ë”© ì¢…ë£Œ");
     }
     #endregion
 
-    #region ´Ş¸®±â Åä±Û
+    #region ë‹¬ë¦¬ê¸° í† ê¸€
     private void UpdateRun()
     {
 
-        if (Input.GetKeyDown(Managers.KeyBind.runKeyCode))
+        if (Input.GetKeyDown(Managers.KeyBind.GetKeyCode(Define.ControlKey.runKey)))
         {
-            isRunning = !isRunning; // ´Ş¸®±â »óÅÂ Åä±Û
+            Managers.Player.IsRunning = !Managers.Player.IsRunning; // ë‹¬ë¦¬ê¸° ìƒíƒœ í† ê¸€
         }
+
     }
     #endregion
 
-    #region ÀåÇ³ ¹ß»ç
+    #region ì¥í’ ë°œì‚¬
     private void UpdateJangPoong()
     {
         if (EventSystem.current.IsPointerOverGameObject())
         {
-            return;  ////UI Å¬¸¯½Ã´Â ÀåÇ³ ¹ß»ç°¡ µÇÁö ¾Êµµ·Ï Ã³¸® (240802 µµÇö)
+            return;  ////UI í´ë¦­ì‹œëŠ” ì¥í’ ë°œì‚¬ê°€ ë˜ì§€ ì•Šë„ë¡ ì²˜ë¦¬ (240802 ë„í˜„)
         }
-        if (Input.GetKeyDown(KeyCode.C))    // cÅ° ·Î ÀåÇ³ ¹ß»ç
+        if (Input.GetKeyDown(Managers.KeyBind.GetKeyCode(Define.ControlKey.attackKey)))    // cí‚¤ ë¡œ ì¥í’ ë°œì‚¬
         {
-            if (playerDataManager.Mana >= playerDataManager.manaConsumption)
+
+            if (Managers.Player.Mana >= playerStatsController.ManaConsumption)
             {
-                playerDataManager.Mana -= playerDataManager.manaConsumption;
+                // âœ… ì¥í’ ì‚¬ìš© íšŸìˆ˜ ì¦ê°€
+                Managers.Game.Statistic.jpCnt++;
+                Managers.Game.SaveStatisticData();
+                
+                Managers.Player.SetMana(Managers.Player.Mana - playerStatsController.ManaConsumption);
 
                 Managers.Sound.Play("56_Attack_03");
-
-                // ´Ş¸®±â Áß¿¡ ÀåÇ³ ¼Ó·Â Áõ°¡
-                if (isRunning)
-                    playerDataManager.jangPoongSpeed = 14;
-                else
-                    playerDataManager.jangPoongSpeed = 12;
+                
 
                 Vector3 spawnPosition = transform.position;
-                spawnPosition.y += isSliding ? -0.38f : -0.08f;     // ½½¶óÀÌµù ½Ã¿¡´Â y°ª -0.08f¿¡¼­ ÀåÇ³ ¹ß»çµÇµµ·Ï
+                spawnPosition.y += (isSliding || isDown) ? -0.38f : -0.08f;     // ìŠ¬ë¼ì´ë”©, ì›…í¬ë¦¬ê¸° ì‹œì—ëŠ” yê°’ -0.08fì—ì„œ ì¥í’ ë°œì‚¬ë˜ë„ë¡
 
-                GameObject jangPoong = Instantiate(playerDataManager.jangPoongPrefab, spawnPosition, Quaternion.identity);
-                Rigidbody2D jangPoongRb = jangPoong.GetComponent<Rigidbody2D>();
-
-
-
-                //ÀåÇ³ alive time ¼³Á¤°¡(240809) - µµÇö
-                JangpoongController jc = jangPoong.GetComponent<JangpoongController>();
-                jc.AliveTime = playerDataManager.jangPoongDistance / playerDataManager.jangPoongSpeed;
-
-                Vector2 jangPoongDirection = new Vector2(transform.localScale.x, 0).normalized;
-                jangPoongRb.velocity = jangPoongDirection * playerDataManager.jangPoongSpeed;
-                jangPoong.transform.localScale = new Vector3((jangPoongDirection.x > 0 ? 0.5f : -0.5f), 0.5f, 0.5f); //¼öÁ¤
-
+                GameObject jangPoong =
+                    Instantiate(Managers.Player.jangPoongPrefab_list[Managers.Player.CurrentJangPoongLevel],
+                        spawnPosition, Quaternion.identity);
+                
+                //directionë§Œ ì„¤ì •í•´ì£¼ê³  ë‚˜ë¨¸ì§€ ì„¤ì •ì€ ì¥í’ ì˜¤ë¸Œì íŠ¸ ë‚´ì—ì„œ ì²˜ë¦¬(ì•„ë˜ ì½”ë“œë“¤)
+                jangPoong.GetComponent<JangpoongController>().jangPoongDirection = new Vector2(transformForSpriteControl.localScale.x, 0).normalized;
+                
+                ////================== ì¥í’ ì˜¤ë¸Œì íŠ¸ê°€ ìƒì„±ë  ë•Œ ì˜¤ë¸Œì íŠ¸ì—ì„œ ì„¤ì •ë˜ë„ë¡ ìˆ˜ì •(250202 ë„í˜„)=================/////
+                // ë‹¬ë¦¬ê¸° ì¤‘ì— ì¥í’ ì†ë ¥ ì¦ê°€ 
+                // if (isRunning)
+                //     Managers.Player.jangPoongSpeed = 14;
+                // else
+                //     Managers.Player.jangPoongSpeed = 12;
+                
+                // Rigidbody2D jangPoongRb = jangPoong.GetComponent<Rigidbody2D>();
+                //
+                //
+                //
+                // //ì¥í’ alive time ì„¤ì •ê°€(240809) - ë„í˜„
+                // JangpoongController jc = jangPoong.GetComponent<JangpoongController>();
+                // jc.AliveTime = Managers.Player.jangPoongDistance / Managers.Player.jangPoongSpeed;
+                //
+                // Vector2 jangPoongDirection = new Vector2(transformForSpriteControl.localScale.x, 0).normalized; //í”Œë ˆì´ì–´ í”„ë¦¬íŒ¹ ìˆ˜ì •ìœ¼ë¡œ ì¸í•œ ì½”ë“œ ë³€ê²½ (250122)
+                //
+                // jangPoongRb.velocity = jangPoongDirection * Managers.Player.jangPoongSpeed;
+                // jangPoong.transform.localScale = new Vector3((jangPoongDirection.x > 0 ? 0.5f : -0.5f), 0.5f, 0.5f); //ìˆ˜ì •
+                /////====================================////
+                
+                
                 playerAnimator.JangPoongShooting();
 
-                //Destroy(jangPoong, playerDataManager.jangPoongDistance / playerDataManager.jangPoongSpeed); //Destory ·ÎÁ÷ ÀåÇ³ ¿ÀºêÁ§Æ®¿¡¼­ °ü¸®ÇÏµµ·Ï ¼öÁ¤(240809) - µµÇö
+                //Destroy(jangPoong, playerDataManager.jangPoongDistance / playerDataManager.jangPoongSpeed); //Destory ë¡œì§ ì¥í’ ì˜¤ë¸Œì íŠ¸ì—ì„œ ê´€ë¦¬í•˜ë„ë¡ ìˆ˜ì •(240809) - ë„í˜„
             }
-            else // ÀÜ¿© ¸¶³ª·® < 5
+            else // ì”ì—¬ ë§ˆë‚˜ëŸ‰ < 5
             {
-                Debug.Log("¸¶³ª·® ºÎÁ·");
+                Debug.Log("ë§ˆë‚˜ëŸ‰ ë¶€ì¡±");
             }
         }
     }
     #endregion
 
-    #region »ç¸Á
-    /*    private void SetPlayerDead()
+    #region ê¶ê·¹ê¸° ë°œì‚¬
+    private void UpdateUlt()
+    {
+        if (EventSystem.current.IsPointerOverGameObject())
         {
-            moveX = 0;
-            gameOverFlag = true;
-            playerAnimator.PlayerDead();
-            Debug.Log("ÇÃ·¹ÀÌ¾î Á×À½");
-            gameOver.SetActive(true);
+            return;  ////UI í´ë¦­ì‹œëŠ” ì¥í’ ë°œì‚¬ê°€ ë˜ì§€ ì•Šë„ë¡ ì²˜ë¦¬ (240802 ë„í˜„)
         }
-        public void OnButtonClick_Restart()
+        if (Input.GetKeyDown(Managers.KeyBind.GetKeyCode(Define.ControlKey.ultiKey)))    // xí‚¤ë¡œ ê¶ê·¹ê¸° ë°œì‚¬
         {
-            SceneManager.LoadScene("1-1 tutorial");
+            if (Managers.Player.MonsterPoint >= Managers.Player.MaxMonsterPoint) // ëª¬ìŠ¤í„° í¬ì¸íŠ¸ê°€ 50 ì´ìƒì¼ ê²½ìš°
+            {
+                // âœ… ê¶ê·¹ê¸° ì‚¬ìš© íšŸìˆ˜ ì¦ê°€
+                Managers.Game.Statistic.ultCnt++;
+                Managers.Game.SaveStatisticData();
+                //playerDataManager.MonsterPoint -= playerDataManager.maxMonsterPoint;
+                Managers.Player.SetMonsterPoint(Managers.Player.MonsterPoint - Managers.Player.MaxMonsterPoint);
+
+                Managers.Sound.Play("56_Attack_03"); // ì¼ë‹¨ ì¥í’ì´ë‘ ê°™ì€ ì†Œë¦¬ ë‚˜ê²Œ ì„¤ì •
+
+                
+                //250202 ì½”ë“œ ì´ë™ - UltControllerì—ì„œ ì²˜ë¦¬//
+                // ë‹¬ë¦¬ê¸° ì¤‘ì— ê¶ê·¹ê¸° ì†ë ¥ ì¦ê°€
+                // if (isRunning)
+                //     Managers.Player.ultSpeed = 7;
+                // else
+                //     Managers.Player.ultSpeed = 6;
+
+                Vector3 spawnPosition = transform.position;
+                spawnPosition.y += isSliding ? -0.38f : -0.08f;     // ìŠ¬ë¼ì´ë”© ì‹œì—ëŠ” yê°’ -0.08fì—ì„œ ê¶ê·¹ê¸° ë°œì‚¬ë˜ë„ë¡
+
+                
+                //250202 ì½”ë“œ ë¦¬íŒ©í† ë§ - PlayerManager//
+                GameObject ult = Instantiate(Managers.Player.ultPrefab, spawnPosition, Quaternion.identity); 
+                
+                //===250202 ì½”ë“œ ë¦¬íŒ©í† ë§ - PlayerManager===//
+                // Rigidbody2D ultRb = ult.GetComponent<Rigidbody2D>();
+                //ê¶ê·¹ê¸° alive time ì„¤ì •ê°€(240809) - ë„í˜„
+                // UltController uc = ult.GetComponent<UltController>();
+                // uc.AliveTime = 5f;
+
+                
+                ult.GetComponent<UltController>().ultDirection = new Vector2(transformForSpriteControl.localScale.x, 0).normalized; //í”Œë ˆì´ì–´ í”„ë¦¬íŒ¹ ìˆ˜ì •ìœ¼ë¡œ ì¸í•œ ì½”ë“œ ë³€ê²½ (250122) + directionë§Œ ì„¤ì •í•´ì£¼ê³  ë‚˜ë¨¸ì§€ ì„¤ì •ì€ ult ì˜¤ë¸Œì íŠ¸ì—ì„œ ì²˜ë¦¬(250202)
+                
+                // ultRb.velocity = ultDirection * Managers.Player.ultSpeed;
+                // ult.transform.localScale = new Vector3((ultDirection.x > 0 ? 1f : -1f), 1f, 1f); // ê¶ê·¹ê¸° í¬ê¸°ëŠ” ì¥í’ì˜ 2ë°° í¬ê¸°
+
+                playerAnimator.JangPoongShooting(); //ì• ë‹ˆë©”ì´ì…˜ì€ ì¥í’ ì  ë•Œì™€ ë™ì¼
+
+                //Destroy(jangPoong, playerDataManager.jangPoongDistance / playerDataManager.jangPoongSpeed); //Destory ë¡œì§ ì¥í’ ì˜¤ë¸Œì íŠ¸ì—ì„œ ê´€ë¦¬í•˜ë„ë¡ ìˆ˜ì •(240809) - ë„í˜„
+            }
+            else // ëª¬ìŠ¤í„° í¬ì¸íŠ¸ < 50
+            {
+                Debug.Log("ëª¬ìŠ¤í„° í¬ì¸íŠ¸ ë¶€ì¡±");
+            }
         }
-        public void OnButtonClick_Exit()
-        {
-            SceneManager.LoadScene("Exit");
-        }*/
+    }
+    #endregion
+
+    #region ì‚¬ë§
+    private void SetPlayerDead()
+    {
+        movement.MoveTo(0);
+        gameOverFlag = true;
+        playerAnimator.PlayerDead();
+        gameObject.layer = (int)Define.Layer.PlayerDamaged;
+        Debug.Log("í”Œë ˆì´ì–´ ì£½ìŒ");
+        gameOver.SetActive(true);
+    }
+    public void OnButtonClick_Restart()
+    {
+        gameOverFlag = false;
+        gameOver.SetActive(false);
+        playerAnimator.animator.SetBool("Dead", false);
+    }
+    #endregion
+
+    #region ë ˆë²¨ì—…í† í° íŒŒí‹°í´
+    private void HandleLevelUpTokenUpdated(int tokenCnt)
+    {
+        Instantiate(levelUpEffect, transform.position, Quaternion.identity);
+    }
+    #endregion
+
+
+    #region í”Œë ˆì´ì–´ ë§µ ì´ë™ ì»¨íŠ¸ë¡¤
+    public void SetUp(StageData stageData)
+    {
+        this.stageData = stageData;
+        transform.position = this.stageData.PlayerPosition;
+    }
+    
 
     #endregion
+    
 }

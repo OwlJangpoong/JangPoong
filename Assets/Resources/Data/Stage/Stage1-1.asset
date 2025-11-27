@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f441287a402884150b182a222e3775b7, type: 3}
   m_Name: Stage1-1
   m_EditorClassIdentifier: 
-  cameraLimitMinX: -138.5949
-  cameraLimitMaxX: -78.60498
-  playerLimitMinX: -138.5949
+  cameraLimitMinX: -142.78
+  cameraLimitMaxX: -92.27
+  playerLimitMinX: -156.4975
   playerLimitMaxX: -78.60498
   playerPosition: {x: -138.36, y: -19}
-  cameraPosition: {x: -138.36, y: -17.5}
+  cameraPosition: {x: -138.36, y: -16}

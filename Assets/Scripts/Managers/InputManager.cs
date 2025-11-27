@@ -18,7 +18,6 @@ public class InputManager
     {
         //UI 클릭시 실행 x
         if (EventSystem.current.IsPointerOverGameObject()) return;
-
         if (Input.anyKey && KeyAction != null)
         {
             KeyAction.Invoke(); //이벤트를 구독 신청한 대상자들에게 KeyAction이 있었음을 알림

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.Audio;
 using Object = UnityEngine.Object;
@@ -24,25 +25,13 @@ public class SoundManager
          audioMixer =  Managers.Resource.Load<AudioMixer>("Sounds/MasterAudioMixer");
          audioMixerGroups = audioMixer.FindMatchingGroups("Master");
          
-         //소리 데이터 저장 및 로드
-         if (PlayerPrefs.HasKey("BgmVolume"))
-         {
-            SetBgmVolume(PlayerPrefs.GetFloat("BgmVolume"));
-         }
-         else
-         {
-            SetBgmVolume(1.0f);
-         }
-
-         if (PlayerPrefs.HasKey("SfxVolume"))
-         {
-            SetSfxVolume(PlayerPrefs.GetFloat("SfxVolume"));
-         }
-         else
-         {
-            PlayerPrefs.SetFloat("SfxVolume",1.0f);
-            SetSfxVolume(1.0f);
-         }
+         //소리 데이터 저장 및 로드 - 데이터 연결 완료(250116)
+         //Sound 초기화 부분 GameManager로 이동. GameManager에서 Setting 데이터 처리하도록 수정 (250116)
+         
+         //사운드 셋팅 적용
+         SetBgmVolume(Managers.Game.Setting.audioVolume.Bgm);
+         SetSfxVolume(Managers.Game.Setting.audioVolume.Sfx);
+        
       }
       
       //AudioSource 생성 & 할당
@@ -60,8 +49,10 @@ public class SoundManager
             go.transform.parent = root.transform;
          }
 
+         Debug.Log("@Sound 생성");
       }
       
+      Debug.Log(audioSources);
       //bgm 연속 재생
       audioSources[(int)Define.Sound.Bgm].loop = true;
       
@@ -75,16 +66,14 @@ public class SoundManager
    
    public void SetBgmVolume(float volume)
    {
-      PlayerPrefs.SetFloat("BgmVolume", volume);
-      PlayerPrefs.Save();
+      Managers.Game.Setting.audioVolume.Bgm = volume; //json으로 데이터 저장 변경
       float bgmVolume = Mathf.Log10(volume) * 20;
       audioMixer.SetFloat("BGM", bgmVolume);
    }
 
    public void SetSfxVolume(float volume)
    {
-      PlayerPrefs.SetFloat("SfxVolume", volume);
-      PlayerPrefs.Save();
+      Managers.Game.Setting.audioVolume.Sfx = volume; //json으로 데이터 저장 변경
       float sfxVolume = Mathf.Log10(volume) * 20;
       audioMixer.SetFloat("SFX", sfxVolume);
    }
@@ -133,6 +122,7 @@ public class SoundManager
       else
       {
          AudioSource audioSource = audioSources[(int)Define.Sound.Sfx];
+         if(audioSource==null) Debug.Log("Errrororororo");
          audioSource.PlayOneShot(audioClip);
       }
    }

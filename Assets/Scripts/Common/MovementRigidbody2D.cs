@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using TMPro;
 
@@ -107,8 +108,9 @@ public class MovementRigidbody2D : MonoBehaviour
     private Vector2 headPosition; // 머리 위치
 
     private Rigidbody2D rigid2D; // 물리를 제어하는 컴포넌트
+#pragma warning disable CS0108 // 멤버가 상속된 멤버를 숨깁니다. new 키워드가 없습니다.
     private Collider2D collider2D; // 현재 오브젝트의 충돌 범위
-
+#pragma warning restore CS0108 // 멤버가 상속된 멤버를 숨깁니다. new 키워드가 없습니다.
     public bool IsLongJump { set; get; } = false; // 낮은 점프, 높은 점프 체크
     public bool IsGrounded { private set; get; } = false; // 바닥 체크 (바닥에 닿아있을 때 true)
     public Collider2D HitAboveObject { private set; get; } // 머리에 충돌한 오브젝트 정보
@@ -117,6 +119,13 @@ public class MovementRigidbody2D : MonoBehaviour
 
     public Vector2 Velocity => rigid2D.velocity; // rigid2D.velocity를 반환하는 GET만 가능한 프로퍼티 Velocity 정의
 
+    
+    
+    //넉백 추가 (250211)
+    private bool isKnockedBack = false; // 넉백 상태 변수
+    
+    
+    
     private void Awake()
     {
         rigid2D = GetComponent<Rigidbody2D>();
@@ -137,9 +146,24 @@ public class MovementRigidbody2D : MonoBehaviour
 
     private void Update()
     {
-        UpdateCollision();
-        JumpHeight();
-        JumpAdditive();
+        if (!isKnockedBack)
+        {
+            UpdateCollision();
+            JumpHeight();
+            JumpAdditive();
+        }
+        
+        UpdateGroundedState();
+    }
+
+    private void UpdateGroundedState()
+    {
+        Bounds bounds = collider2D.bounds;
+        footPosition = new Vector2(bounds.center.x, bounds.min.y);
+        collisionSize = new Vector2((bounds.max.x - bounds.min.x) * 0.8f, 0.1f);
+
+        // 바닥에 닿아 있는지 체크하여 IsGrounded 값 업데이트
+        IsGrounded = Physics2D.OverlapBox(footPosition, collisionSize, 0, groundCheckLayer);
     }
 
     // x축 속력(velocity) 설정, 외부 클래스에서 호출
@@ -152,8 +176,12 @@ public class MovementRigidbody2D : MonoBehaviour
         //if (x != 0) x = Mathf.Sign(x); //도현 : 뛰기 없으므로 x가 1일때 모두 walkspeed로 처리. 이를 위해 코드 주석 처리(0704)
 
         // x축 방향 속력을 x * moveSpeed로 설정
-        moveSpeed = walkSpeed;
-        rigid2D.velocity = new Vector2(x * moveSpeed, rigid2D.velocity.y);
+
+        if (!isKnockedBack) //넉백 중에는 이동 금지
+        {
+            float moveSpeed = walkSpeed;
+            rigid2D.velocity = new Vector2(x * moveSpeed, rigid2D.velocity.y);
+        }
     }
 
     private void UpdateCollision()
@@ -239,5 +267,28 @@ public class MovementRigidbody2D : MonoBehaviour
     {
         rigid2D.velocity = new Vector2(rigid2D.velocity.x, 0);
     }
+    
+    
+    public void ApplyKnockback(Vector2 force, float duration)
+    {
+        StartCoroutine(KnockbackRoutine(force, duration));
+    }
+
+    private IEnumerator KnockbackRoutine(Vector2 force, float duration)
+    {
+        isKnockedBack = true;
+
+        // 넉백 적용 전에 기존 속도 초기화
+        rigid2D.velocity = Vector2.zero;
+        
+        //  넉백 적용
+        rigid2D.AddForce(force, ForceMode2D.Impulse);
+
+        yield return new WaitForSeconds(duration);
+
+        // 넉백 종료 후 다시 정상 이동 가능
+        isKnockedBack = false;
+    }
+    
 }
 

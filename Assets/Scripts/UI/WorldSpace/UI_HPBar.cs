@@ -6,14 +6,14 @@ using UnityEngine.UI;
 
 public class UI_HPBar : UI_Base
 {
-    [SerializeField] private GameObject HP_Bar;
+    [SerializeField] protected GameObject HP_Bar;
     private float offset_y = 0.4f;
 
 
-    [SerializeField] Monster monster;
+    [SerializeField] protected Monster monster;
 
-    private float max; //slider max
-    private float min; //slider min
+    protected float max; //slider max
+    protected float min; //slider min
 
 
     [SerializeField] private float activeTime = 2f;
@@ -37,7 +37,7 @@ public class UI_HPBar : UI_Base
 
 
     //HP bar 위치 조정
-    private void Update()
+    protected virtual void Update()
     {
         //부모의 위치
         Transform parent = transform.parent;
@@ -50,12 +50,12 @@ public class UI_HPBar : UI_Base
     }
 
 
-    public void SetHpRatio(float value)
+    public virtual void SetHpRatio(float value)
     {
         HP_Bar.GetComponent<Slider>().value = value;
     }
 
-    public void ShowHP()
+    public virtual void ShowHP()
     {
         gameObject.SetActive(true);
         StopAllCoroutines();

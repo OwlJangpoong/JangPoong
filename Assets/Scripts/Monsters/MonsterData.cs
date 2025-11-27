@@ -12,7 +12,8 @@ public class MonsterData : ScriptableObject
     [SerializeField] private string stagePoint;
     [SerializeField] private float height;
     [SerializeField] private float speed;
-    
+    [SerializeField] private int monsterPoint;
+
     public float MaxHp => maxHp;
     public float Damage => damage;
     public string StagePoint => stagePoint;
@@ -20,9 +21,14 @@ public class MonsterData : ScriptableObject
     //보류
     public float Height => height;
     public float Speed => speed;
+    public int MonsterPoint => monsterPoint;
 
 
 
 
+    public void IncreaseMaxHp(float increase)
+    {
+        maxHp += increase;
+    }
 }
 

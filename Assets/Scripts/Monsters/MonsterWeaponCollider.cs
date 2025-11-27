@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class MonsterWeaponCollider : MonoBehaviour
 {
+    [SerializeField] private Vector2 hitBoxOffsetLocal = new Vector2(0.7f, 0.0f);
+    
     //무기 컨트롤
     public Vector2 boxSize;
     private float damage;
@@ -13,6 +15,9 @@ public class MonsterWeaponCollider : MonoBehaviour
     
     //사망 action 구독
     private MonsterStat stat;
+    
+    //연결된 공격 or 이벤트 처리를 위한 이벤트
+    public event Action<Collider2D> OnWeaponAttack;
 
     private void Awake()
     {
@@ -41,7 +46,12 @@ public class MonsterWeaponCollider : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("플레이어 충돌");
-            Managers.PlayerData.OnAttacked(GetComponentInParent<MonsterStat>().monsterData.Damage);
+            
+            //250203 수정
+            other.GetComponent<PlayerStatsController>().OnAttacked(GetComponentInParent<MonsterStat>().monsterData.Damage);
+            // Managers.Player.OnAttacked(GetComponentInParent<MonsterStat>().monsterData.Damage);
+            
+           
         }
     }
     
@@ -55,14 +65,21 @@ public class MonsterWeaponCollider : MonoBehaviour
 
     public void AttackPlayerByWeapon()
     {
-        // Debug.Log("무기 공격 호출함");
+        Debug.Log("무기 공격 호출함");
         Collider2D[] collider2Ds = Physics2D.OverlapBoxAll(transform.position, boxSize, 0);
         foreach (Collider2D collider in collider2Ds)
         {
             if (collider.CompareTag("Player"))
             {
                 Debug.Log("몬스터가 플레이어를 공격합니다.");
-                Managers.PlayerData.OnAttacked(GetComponentInParent<MonsterStat>().monsterData.Damage);
+                // Managers.Player.OnAttacked(GetComponentInParent<MonsterStat>().monsterData.Damage);
+                
+                //250203 수정
+                collider.GetComponent<PlayerStatsController>().OnAttacked(GetComponentInParent<MonsterStat>().monsterData.Damage);
+                
+                OnWeaponAttack?.Invoke(collider);
+                
+                
                 // playerDataManager.OnAttacked(GetComponentInParent<MonsterStat>().monsterData.Damage);
                 return;
             }
